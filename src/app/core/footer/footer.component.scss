@@ -1,0 +1,46 @@
+.footer {
+  padding: 50px 0 25px;
+  background-color: black;
+  color: white;
+  text-align: center;
+  margin: auto;
+
+  ul{
+    list-style-type: none;
+  }
+
+  .logo {
+    font-family: 'latoBold';
+    font-size: 1.8em;
+    font-weight: bold;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+  }
+
+  .social-block {
+    margin: 40px auto 50px;
+    width: 20%;
+    max-width: 125px;
+    min-width: 90px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .copyright-block {
+    border-top: 1px solid #e1e1e1;
+    margin-top: 17px;
+
+    span {
+      margin-top: 17px;
+      display: block;
+      font-size: 12px;
+      font-weight: 300;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 1.58;
+      letter-spacing: 0.3px;
+      text-align: center;
+      color: #fefefe;
+    }
+  }
+}

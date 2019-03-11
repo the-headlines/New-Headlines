@@ -1,0 +1,144 @@
+
+.get_in_touch {
+  width: 75%;
+  height: 560px;
+  margin: 0 auto;
+  border: solid 1px #959595;
+  background-color: #ffffff;
+}
+
+.get_in_touch > .row {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.contact_form {
+  position: relative;
+  margin-left: -130px;
+}
+
+.contact_form > img {
+  width: 100%;
+  height: 468px !important;
+}
+
+.contact_form .contact_info {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.contact_form .contact_info h3 {
+  font-family: "latoBold";
+  font-size: 30px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: 0.8px;
+  text-align: left;
+  color: #fffefe;
+  text-transform: uppercase;
+  margin-bottom: 102px;
+}
+
+.contact_form .contact_info ul li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 35px;
+}
+
+.contact_form .contact_info ul li p {
+  color: white;
+  font-family: 'latoRegular';
+  font-size: 17px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 0.76;
+  letter-spacing: 0.4px;
+  text-align: left;
+}
+
+.contact_form .contact_info ul li img {
+  margin-right: 25px;
+}
+
+.get_touch_form h3 {
+  font-family: 'latoBold';
+  font-size: 30px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: 0.8px;
+  text-align: center;
+  color: #000000;
+  text-transform: uppercase;
+  margin-bottom: 36px;
+}
+
+.get_touch_form form input, textarea {
+  width: 100%;
+  height: 47px;
+  border: solid 1px #959595;
+  background-color: #ffffff;
+  padding: 0 18px;
+}
+
+.get_touch_form form textarea {
+  min-height: 118px;
+  font-family: 'latoRegular';
+  font-size: 17px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: 0.4px;
+  text-align: left;
+  color: #b0adad;
+  padding: 18px;
+}
+
+.get_touch_form form button {
+  width: 111px;
+  height: 31px;
+  margin: 0 auto;
+  background-color: #3788c6;
+  font-family: "latoRegular";
+  border: unset;
+  font-size: 17px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: 0.4px;
+  text-align: center;
+  display: block;
+  color: #ffffff;
+  margin-top: 34px;
+}
+
+.get_touch_form form input::-webkit-input-placeholder {
+  font-family: 'latoRegular';
+  font-size: 17px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: 0.4px;
+  text-align: left;
+  color: #b0adad;
+}
+
+.top_news .sidebar {
+  height: 560px;
+  overflow: auto;
+}
+.mat-form-field{
+  width: 89%;
+}
