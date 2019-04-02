@@ -1,116 +1,115 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import * as Base from '../../../../configs/config';
-import {HomeService} from '../../../../core/services/home.service';
+import {HomeService} from '../../../../services/home.service';
 import {Router} from '@angular/router';
 
 @Component({
-  selector: 'app-video',
-  templateUrl: './video.component.html',
-  styleUrls: ['./video.component.scss']
+    selector: 'app-video',
+    templateUrl: './video.component.html',
+    styleUrls: ['./video.component.scss']
 })
 export class VideoComponent implements OnInit {
 
-  constructor(private home: HomeService, private router: Router) {
-  }
-
-  posts: any = [];
-  base = Base.imgPath;
-  userLoggined: any = [];
-  pageCount = 3;
-  start = 0;
-  /*  postData: any = [];*/
-  count = 0;
-  pages = [];
-
-  ngOnInit() {
-
-    if (this.checkUser()) {
-      this.userLoggined = JSON.parse(localStorage.getItem('userInf'));
+    constructor(private home: HomeService, private router: Router) {
     }
 
-    this.getVideo();
-  }
+    posts: any = [];
+    base = Base.imgPath;
+    userLoggined: any = [];
+    pageCount = 3;
+    start = 0;
+    // /*  postData: any = [];*/
+    count = 0;
+    pages = [];
 
-  getVideo() {
-    this.home.getVideo().subscribe((data) => {
+    ngOnInit() {
 
-      if (!data) {
-        return false;
-      }
+        if (this.checkUser()) {
+            this.userLoggined = JSON.parse(localStorage.getItem('userInf'));
+        }
 
-      if (!data['status'] && data['status'] == 0) {
-        alert('No data');
-        return false;
-      }
-
-      /*  this.postData = data;*/
-      this.count = data['count'];
-      this.pagimate(data);
-    });
-  }
-
-  pagimate(data) {
-
-    this.posts = data['result'];
-
-    let cnt = Math.ceil(this.count / this.pageCount);
-
-    for (let i = 1; i <= cnt; i++) {
-      this.pages.push(i);
-    }
-  }
-
-  nextPage(el) {
-    this.posts = [];
-    let ended = (this.pageCount) * el.target.id;
-    let started = ended - this.pageCount;
-
-    this.home.getPost({"end": ended, "start": started}).subscribe((data) => {
-
-      if (!data) {
-        return false;
-      }
-
-      if (!data['status'] && data['status'] == 0) {
-        alert('Empty data!!');
-        return false;
-      }
-
-      this.posts = data['result'];
-    });
-
-    /*    for (let i = started; i < ended; i++) {
-
-          if (typeof this.postData['result'][i] == 'undefined') {
-            break;
-          }
-
-          this.start = i;
-          this.posts.push(this.postData['result'][i]);
-        }*/
-
-  }
-
-  getSingle(id) {
-    this.router.navigate(['/posts', id]);
-  }
-
-  checkUser() {
-    let userLoggined = localStorage.getItem('userInf');
-    if (typeof userLoggined == 'undefined') {
-      return false;
+        // this.getVideo();
     }
 
-    let userInf = JSON.parse(userLoggined);
+    // getVideo() {
+    //   this.home.getVideo().subscribe((data) => {
+    //
+    //     if (!data) {
+    //       return false;
+    //     }
+    //
+    //     if (!data['status'] && data['status'] == 0) {
+    //       alert('No data');
+    //       return false;
+    //     }
+    //
+    //     /*  this.postData = data;*/
+    //     this.count = data['count'];
+    //     this.pagimate(data);
+    //   });
+    // }
 
-    if (userInf == null) {
-      return false;
+    pagimate(data) {
+
+        this.posts = data['result'];
+
+        let cnt = Math.ceil(this.count / this.pageCount);
+
+        for (let i = 1; i <= cnt; i++) {
+            this.pages.push(i);
+        }
     }
 
-    if (userInf['userInf'] == '') {
-      return false;
-    }
-    return true;
-  }
+    nextPage(el) {
+        this.posts = [];
+        let ended = (this.pageCount) * el.target.id;
+        let started = ended - this.pageCount;
 
+        this.home.getPost({"end": ended, "start": started}).subscribe((data) => {
+
+            if (!data) {
+                return false;
+            }
+
+            if (!data['status'] && data['status'] == 0) {
+                alert('Empty data!!');
+                return false;
+            }
+
+            this.posts = data['result'];
+        });
+
+        /*    for (let i = started; i < ended; i++) {
+
+              if (typeof this.postData['result'][i] == 'undefined') {
+                break;
+              }
+
+              this.start = i;
+              this.posts.push(this.postData['result'][i]);
+            }*/
+
+    }
+
+    getSingle(id) {
+        this.router.navigate(['/posts', id]);
+    }
+
+    checkUser() {
+        let userLoggined = localStorage.getItem('userInf');
+        if (typeof userLoggined == 'undefined') {
+            return false;
+        }
+
+        let userInf = JSON.parse(userLoggined);
+
+        if (userInf == null) {
+            return false;
+        }
+
+        if (userInf['userInf'] == '') {
+            return false;
+        }
+        return true;
+    }
 }

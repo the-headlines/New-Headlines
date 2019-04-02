@@ -1,45 +1,49 @@
-<header class="header home-header-bg">
-  <div class="navbar">
-    <div class="content">
-      <div class="logo">
-        <a routerLink="/home">
-          logo name
-        </a>
-      </div>
-      <div class="menu">
-        <div class="burger">
-          <i class="fas fa-bars"></i>
+<header class="header home-header-bg fixed-top" id="header_top">
+    <div class="navbar">
+        <div class="content">
+            <div class="logo">
+                <div>
+                    <a routerLink="/home"><img src="../../../assets/images/FF.png" alt=""></a>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi dolor exercitationem quisquam ut?</p>
+                </div>
+                <ul>
+                    <li class="post" ng-class="{ active: isActive('/posts') }">
+                        <a *ngIf="!checkUser()" routerLink="/posts/home-posts" mat-raised-button color="primary">post</a>
+                    </li>
+                    <li class="login">
+                        <a *ngIf="!checkUser()" mat-button (click)="showLogin()" mat-raised-button color="warn"
+                           data-toggle="modal"
+                           data-target="#exampleModalCenter">login / sign up</a>
+                        <span *ngIf="checkUser()" style="color: white">{{userLoggined.name}}</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="menu">
+                <div class="burger">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="toggle none-768">
+                    <li ng-class="{ active: isActive('/home') }">
+                        <a routerLink="/home">General news</a>
+                    </li>
+                    <li ng-class="{ active: isActive('/video') }">
+                        <a routerLink="/video">videos</a>
+                    </li>
+                    <li ng-class="{ active: isActive('/pictures') }">
+                        <a routerLink="/pictures">Camera Pictures</a>
+                    </li>
+                    <li ng-class="{ active: isActive('/commerce') }">
+                        <a routerLink="/commerce">Jump startup</a>
+                    </li>
+                    <li ng-class="{ active: isActive('/deals') }">
+                        <a routerLink="/deals">Fantastic Deals</a>
+                    </li>
+                    <li ng-class="{ active: isActive('/feedback') }">
+                        <a routerLink="/feedback">feedback</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <ul class="toggle none-768">
-          <li ng-class="{ active: isActive('/home') }">
-            <a routerLink="/home">General news</a>
-          </li>
-          <li ng-class="{ active: isActive('/video') }">
-            <a routerLink="/video">videos</a>
-          </li>
-          <li ng-class="{ active: isActive('/pictures') }">
-            <a routerLink="/pictures">Camera Pictures</a>
-          </li>
-          <li ng-class="{ active: isActive('/commerce') }">
-            <a routerLink="/commerce">Jump startup</a>
-          </li>
-          <li ng-class="{ active: isActive('/deals') }" >
-            <a routerLink="/deals">Fantastic Deals</a>
-          </li>
-          <li ng-class="{ active: isActive('/feedback') }">
-            <a routerLink="/feedback">feedback</a>
-          </li>
-          <li class="post">
-            <a href="#" mat-raised-button color="primary">post</a>
-          </li>
-          <li class="login">
-            <a *ngIf="!checkUser()" mat-button (click)="showLogin()" mat-raised-button color="warn" data-toggle="modal"
-               data-target="#exampleModalCenter">login / sign up</a>
-            <span *ngIf="checkUser()" style="color: white">{{userLoggined.name}}</span>
-          </li>
-        </ul>
-      </div>
     </div>
-  </div>
-
+    <a scrollTo href="#header_top" id="button"><i class="fas fa-chevron-up"></i></a>
 </header>

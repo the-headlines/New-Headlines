@@ -5,7 +5,7 @@
   text-align: center;
   margin: auto;
 
-  ul{
+  ul {
     list-style-type: none;
   }
 
@@ -23,6 +23,11 @@
     max-width: 125px;
     min-width: 90px;
     display: flex;
+
+    a {
+      color: white;
+    }
+
     justify-content: space-between;
   }
 

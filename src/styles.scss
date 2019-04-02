@@ -1,5 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '~dropzone/dist/min/dropzone.min.css';
+@import "~primeng/resources/primeng.min.css";
 
 @font-face {
   font-family: 'latoRegular';
@@ -31,6 +33,10 @@
   src: url('/assets/fonts/OpenSans-Regular.ttf');
 }
 
+.cdk-overlay-container {
+  z-index: 999999;
+}
+
 body {
   width: 100%;
   font-size: 14px;
@@ -47,7 +53,7 @@ span, p {
   line-height: 0.92;
   letter-spacing: 1.4px;
   text-align: left;
-  color: #000000;
+  //color: #000000;
 }
 
 a {
@@ -374,18 +380,6 @@ body {
   letter-spacing: 3px;
 }
 
-span, p {
-  font-family: 'latoRegular', sans-serif;
-  font-size: 18px;
-  font-weight: 300;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 0.92;
-  letter-spacing: 1.4px;
-  text-align: left;
-  color: #000000;
-}
-
 a {
   text-decoration: none;
   color: inherit;
@@ -508,7 +502,6 @@ header {
 
 .menu ul li {
   padding: 5px 0;
-  letter-spacing: 0.4;
 }
 
 .menu .post {
@@ -1743,7 +1736,6 @@ a:hover {
   overflow: auto;
 }
 
-
 @media only screen and (max-width: 1600px) {
   body {
     font-size: 10px;
@@ -1956,8 +1948,3 @@ a:hover {
     left: 46%;
   }
 }
-
-
-
-
-

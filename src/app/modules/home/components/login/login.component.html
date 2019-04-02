@@ -27,8 +27,7 @@
           <div class="form-group">
             <div class="example-full-width">
               <mat-form-field class="login-inp">
-                <input matInput type="password" placeholder="Password"  [formControl]="passFormControl"
-                       [errorStateMatcher]="matcher" name="pass"  [(ngModel)]="userLoginInf.pass">
+                <input matInput type="password" placeholder="Password"  [formControl]="passFormControl" [errorStateMatcher]="matcher" name="pass"  [(ngModel)]="userLoginInf.pass">
                 <mat-hint>Errors appear instantly!</mat-hint>
                 <mat-error *ngIf="passFormControl.hasError('required')">
                   Password is <strong>required</strong>

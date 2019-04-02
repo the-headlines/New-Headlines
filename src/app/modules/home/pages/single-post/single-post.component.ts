@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthService} from '../../../../core/services/auth.service';
+import {AuthService} from '../../../../services/auth.service';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
-import {HomeService} from '../../../../core/services/home.service';
+import {HomeService} from '../../../../services/home.service';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material';
 
@@ -117,7 +117,7 @@ export class SinglePostComponent implements OnInit {
     }
 
     loadMyChildComponent() {
-        this.home.comments({"start": this.start, "end": this.start + this.pageCount}).subscribe((data) => {
+        this.home.comments({'start': this.start, 'end': this.start + this.pageCount}).subscribe((data) => {
 
             if (this.start > this.commentCount) {
                 return;
