@@ -1,174 +1,172 @@
 <app-header></app-header>
-<div class="content">
-  <div class="row">
-    <div class="content">
-      <div class="main row no-gutters">
+<div class="content" style="margin-top: 250px">
+    <div class="main row no-gutters">
         <div class="col-md-8">
-          <div class="get_in_touch">
-            <div class="row">
-              <div class="col-md-6">
-                <div class="contact_form">
-                  <img src="../../../assets/images/img1.jpg" class="img-fluid" alt="">
-                  <div class="contact_info">
-                    <h3>contact us</h3>
-                    <ul>
-                      <li><img src="images/location.png" alt="">
-                        <p>Lorem Ipsum /1123464</p></li>
-                      <li><img src="images/message.png" alt="">
-                        <p>Lorem Ipsum /1123464</p></li>
-                      <li><img src="images/phone.png" alt="">
-                        <p>+000 123456789</p></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="get_touch_form">
-                  <h3>Get in touch</h3>
+            <div class="get_in_touch">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="contact_form">
+                            <img src="../../../assets/images/img1.jpg" class="img-fluid" alt="">
+                            <div class="contact_info">
+                                <h3>contact us</h3>
+                                <ul>
+                                    <li><img src="../../../../../assets/images/location.png" alt="">
+                                        <p>Lorem Ipsum /1123464</p></li>
+                                    <li><img src="../../../../../assets/images/message.png" alt="">
+                                        <p>Lorem Ipsum /1123464</p></li>
+                                    <li><img src="../../../../../assets/images/phone.png" alt="">
+                                        <p>+000 123456789</p></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="get_touch_form">
+                            <h3>Get in touch</h3>
 
-                  <form action="" method="post">
-                    <div class="form-group">
-                      <div class="example-full-width">
-                        <mat-form-field class="login-inp">
-                          <input matInput placeholder="Name" [formControl]="nameFormControl"
-                                 [errorStateMatcher]="matcher" name="name" [(ngModel)]="userContactInf.name">
-                          <mat-hint>Errors appear instantly!</mat-hint>
-                          <mat-error *ngIf="nameFormControl.hasError('email') && !nameFormControl.hasError('required')">
-                            Please enter a valid email address
-                          </mat-error>
-                          <mat-error *ngIf="nameFormControl.hasError('required')">
-                            Email is <strong>required</strong>
-                          </mat-error>
-                        </mat-form-field>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <div class="example-full-width">
-                        <mat-form-field class="login-inp">
-                          <input matInput placeholder="Email" [formControl]="emailFormControl"
-                                 [errorStateMatcher]="matcher" name="email" [(ngModel)]="userContactInf.email">
-                          <mat-hint>Errors appear instantly!</mat-hint>
-                          <mat-error
-                            *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-                            Please enter a valid email address
-                          </mat-error>
-                          <mat-error *ngIf="emailFormControl.hasError('required')">
-                            Email is <strong>required</strong>
-                          </mat-error>
-                        </mat-form-field>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <div class="example-full-width">
-                        <mat-form-field class="login-inp">
+                            <form action="" method="post">
+                                <div class="form-group">
+                                    <div class="example-full-width">
+                                        <mat-form-field class="login-inp">
+                                            <input matInput placeholder="Name" [formControl]="nameFormControl"
+                                                   [errorStateMatcher]="matcher" name="name"
+                                                   [(ngModel)]="userContactInf.name">
+                                            <mat-hint>Errors appear instantly!</mat-hint>
+                                            <mat-error
+                                                    *ngIf="nameFormControl.hasError('email') && !nameFormControl.hasError('required')">
+                                                Please enter a valid email address
+                                            </mat-error>
+                                            <mat-error *ngIf="nameFormControl.hasError('required')">
+                                                Email is <strong>required</strong>
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="example-full-width">
+                                        <mat-form-field class="login-inp">
+                                            <input matInput placeholder="Email" [formControl]="emailFormControl"
+                                                   [errorStateMatcher]="matcher" name="email"
+                                                   [(ngModel)]="userContactInf.email">
+                                            <mat-hint>Errors appear instantly!</mat-hint>
+                                            <mat-error
+                                                    *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                                                Please enter a valid email address
+                                            </mat-error>
+                                            <mat-error *ngIf="emailFormControl.hasError('required')">
+                                                Email is <strong>required</strong>
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="example-full-width">
+                                        <mat-form-field class="login-inp">
                           <textarea matInput placeholder="Message" [formControl]="messFormControl"
                                     [errorStateMatcher]="matcher" name="message"
                                     [(ngModel)]="userContactInf.mess"></textarea>
-                          <mat-hint>Errors appear instantly!</mat-hint>
-                          <mat-error *ngIf="messFormControl.hasError('required')"></mat-error>
-                        </mat-form-field>
-                      </div>
+                                            <mat-hint>Errors appear instantly!</mat-hint>
+                                            <mat-error *ngIf="messFormControl.hasError('required')"></mat-error>
+                                        </mat-form-field>
+                                    </div>
 
+                                </div>
+                                <button
+                                        [disabled]="(emailFormControl.hasError('email') || emailFormControl.hasError('required'))"
+                                        mat-raised-button color="primary" (click)="getContact(userContactInf)">Send
+                                </button>
+                            </form>
+
+
+                            <!--<form action="">-->
+                            <!--<div class="form-group">-->
+                            <!--<label for="name_inp"></label>-->
+                            <!--<input type="text" id="name_inp" placeholder="Name">-->
+                            <!--</div>-->
+                            <!--<div class="form-group">-->
+                            <!--<label for="email_inp"></label>-->
+                            <!--<input type="text" id="email_inp" placeholder="E-mail">-->
+                            <!--</div>-->
+                            <!--<div class="form-group">-->
+                            <!--<label for="mess"></label>-->
+                            <!--<textarea type="text" id="mess" placeholder="Message"></textarea>-->
+                            <!--</div>-->
+                            <!--<button (click)="getContact()"> Send</button>-->
+                            <!--</form>-->
+                        </div>
                     </div>
-                    <button
-                      [disabled]="(emailFormControl.hasError('email') || emailFormControl.hasError('required'))"
-                      mat-raised-button color="primary" (click)="getContact(userContactInf)" >Send
-                    </button>
-                  </form>
-
-
-                  <!--<form action="">-->
-                  <!--<div class="form-group">-->
-                  <!--<label for="name_inp"></label>-->
-                  <!--<input type="text" id="name_inp" placeholder="Name">-->
-                  <!--</div>-->
-                  <!--<div class="form-group">-->
-                  <!--<label for="email_inp"></label>-->
-                  <!--<input type="text" id="email_inp" placeholder="E-mail">-->
-                  <!--</div>-->
-                  <!--<div class="form-group">-->
-                  <!--<label for="mess"></label>-->
-                  <!--<textarea type="text" id="mess" placeholder="Message"></textarea>-->
-                  <!--</div>-->
-                  <!--<button (click)="getContact()"> Send</button>-->
-                  <!--</form>-->
                 </div>
-              </div>
             </div>
-          </div>
         </div>
         <div class="col-md-4">
-          <div class="top_news">
-            <div class="sidebar">
-              <div class="top-news">
-                <h4 class="title">Today’s top headlines</h4>
-                <ul>
-                  <li class="item">
-                    <div class="img-block">
-                      <img src="./images/top-news1.jpg" class="img-fluid" alt="">
+            <div class="top_news">
+                <div class="sidebar">
+                    <div class="top-news">
+                        <h4 class="title">Today’s top headlines</h4>
+                        <ul>
+                            <li class="item">
+                                <div class="img-block">
+                                    <img src="./images/top-news1.jpg" class="img-fluid" alt="">
+                                </div>
+                                <div class="text-block">
+                                    <h5 class="title">Leprehenderit</h5>
+                                    <p class="description">in voluptate velit esse cillum
+                                        dolore but fugiat nulla</p>
+                                    <span class="date">12.11.19</span>
+                                </div>
+                            </li>
+                            <li class="item">
+                                <div class="img-block">
+                                    <img src="./images/top-news1.jpg" class="img-fluid" alt="">
+                                </div>
+                                <div class="text-block">
+                                    <h5 class="title">Leprehenderit</h5>
+                                    <p class="description">in voluptate velit esse cillum
+                                        dolore but fugiat nulla</p>
+                                    <span class="date">12.11.19</span>
+                                </div>
+                            </li>
+                            <li class="item">
+                                <div class="img-block">
+                                    <img src="./images/top-news1.jpg" class="img-fluid" alt="">
+                                </div>
+                                <div class="text-block">
+                                    <h5 class="title">Leprehenderit</h5>
+                                    <p class="description">in voluptate velit esse cillum
+                                        dolore but fugiat nulla</p>
+                                    <span class="date">12.11.19</span>
+                                </div>
+                            </li>
+                            <li class="item">
+                                <div class="img-block">
+                                    <img src="./images/top-news1.jpg" class="img-fluid" alt="">
+                                </div>
+                                <div class="text-block">
+                                    <h5 class="title">Leprehenderit</h5>
+                                    <p class="description">in voluptate velit esse cillum
+                                        dolore but fugiat nulla</p>
+                                    <span class="date">12.11.19</span>
+                                </div>
+                            </li>
+                            <li class="item">
+                                <div class="img-block">
+                                    <img src="./images/top-news1.jpg" class="img-fluid" alt="">
+                                </div>
+                                <div class="text-block">
+                                    <h5 class="title">Leprehenderit</h5>
+                                    <p class="description">in voluptate velit esse cillum
+                                        dolore but fugiat nulla</p>
+                                    <span class="date">12.11.19</span>
+                                </div>
+                            </li>
+                            <div class="show-more">
+                                <span class=" active">Show more</span>
+                            </div>
+                        </ul>
                     </div>
-                    <div class="text-block">
-                      <h5 class="title">Leprehenderit</h5>
-                      <p class="description">in voluptate velit esse cillum
-                        dolore but fugiat nulla</p>
-                      <span class="date">12.11.19</span>
-                    </div>
-                  </li>
-                  <li class="item">
-                    <div class="img-block">
-                      <img src="./images/top-news1.jpg" class="img-fluid" alt="">
-                    </div>
-                    <div class="text-block">
-                      <h5 class="title">Leprehenderit</h5>
-                      <p class="description">in voluptate velit esse cillum
-                        dolore but fugiat nulla</p>
-                      <span class="date">12.11.19</span>
-                    </div>
-                  </li>
-                  <li class="item">
-                    <div class="img-block">
-                      <img src="./images/top-news1.jpg" class="img-fluid" alt="">
-                    </div>
-                    <div class="text-block">
-                      <h5 class="title">Leprehenderit</h5>
-                      <p class="description">in voluptate velit esse cillum
-                        dolore but fugiat nulla</p>
-                      <span class="date">12.11.19</span>
-                    </div>
-                  </li>
-                  <li class="item">
-                    <div class="img-block">
-                      <img src="./images/top-news1.jpg" class="img-fluid" alt="">
-                    </div>
-                    <div class="text-block">
-                      <h5 class="title">Leprehenderit</h5>
-                      <p class="description">in voluptate velit esse cillum
-                        dolore but fugiat nulla</p>
-                      <span class="date">12.11.19</span>
-                    </div>
-                  </li>
-                  <li class="item">
-                    <div class="img-block">
-                      <img src="./images/top-news1.jpg" class="img-fluid" alt="">
-                    </div>
-                    <div class="text-block">
-                      <h5 class="title">Leprehenderit</h5>
-                      <p class="description">in voluptate velit esse cillum
-                        dolore but fugiat nulla</p>
-                      <span class="date">12.11.19</span>
-                    </div>
-                  </li>
-                  <div class="show-more">
-                    <span class=" active">Show more</span>
-                  </div>
-                </ul>
-              </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-    <!--<app-aside class="col-md-5"></app-aside>-->
-  </div>
 </div>
 <app-footer></app-footer>
