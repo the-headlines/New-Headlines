@@ -13,31 +13,29 @@ export class SidebarComponent implements OnInit {
     ngOnInit() {
     }
 
-    editText(el) {
+     editText(el) {
         switch (el) {
             case 'pass':
-                if (this.pass === false) {
-                    this.pass = true;
+                if (this['pass'] === false) {
+                    this['pass'] = true;
                 } else {
-                    this.pass = false;
+                    this['pass'] = false;
                 }
                 break;
             case 'email':
-                if (this.email === false) {
-                    this.email = true;
+                if (this['email'] === false) {
+                    this['email'] = true;
                 } else {
-                    this.email = false;
+                    this['email'] = false;
                 }
                 break;
             case 'name':
-                if (this.name === false) {
-                    this.name = true;
+                if (this['name'] == false) {
+                    this['name'] = true;
                 } else {
-                    this.name = false;
+                    this['name'] = false;
                 }
                 break;
-
         }
-
     }
 }
