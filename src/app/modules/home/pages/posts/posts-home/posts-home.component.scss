@@ -17,6 +17,7 @@
   justify-content: center;
   border: 1px solid #3788c6;
 }
+
 .post_or_cancel {
   display: flex;
   align-items: center;
@@ -45,3 +46,42 @@
   }
 }
 
+p-dataTable {
+  word-break: break-all;
+
+  input{
+    width: 100%;
+    height: 100%;
+    padding: 4px;
+  }
+}
+
+.edit_or_delete {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    width: 20px;
+    height: 30px;
+  }
+
+  .edit {
+    background: unset;
+    border: unset;
+
+    button{
+      border: unset;
+      background: unset;
+    }
+  }
+
+  .delete {
+    margin-left: 20px;
+
+    button{
+      border: unset;
+      background: unset;
+    }
+  }
+}
