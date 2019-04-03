@@ -79,8 +79,10 @@
                     </ng-template>
                 </p-column>
             </p-dataTable>
-            <button (click)="getData()">Load Data</button>
-            <button (click)="addNew()">Add New</button>
+            <div class="post_or_cancel">
+                <button (click)="getData()" class="red">Load Data</button>
+                <button (click)="addNew()" class="add_new">Add New</button>
+            </div>
         </div>
     </div>
 </div>
