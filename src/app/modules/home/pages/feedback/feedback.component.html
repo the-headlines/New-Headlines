@@ -1,0 +1,111 @@
+<app-header></app-header>
+<div class="content" style="margin-top: 250px">
+    <div class="main row no-gutters">
+        <div class="col-md-8">
+            <div class="get_in_touch">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="contact_form">
+                            <img src="../../../assets/images/img1.jpg" class="img-fluid" alt="">
+                            <div class="contact_info">
+                                <h3>contact us</h3>
+                                <ul>
+                                    <li><img src="../../../../../assets/images/location.png" alt="">
+                                        <p>Lorem Ipsum /1123464</p></li>
+                                    <li><img src="../../../../../assets/images/message.png" alt="">
+                                        <p>Lorem Ipsum /1123464</p></li>
+                                    <li><img src="../../../../../assets/images/phone.png" alt="">
+                                        <p>+000 123456789</p></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="get_touch_form">
+                            <h3>Get in touch</h3>
+
+                            <form action="" method="post">
+                                <div class="form-group">
+                                    <div class="example-full-width">
+                                        <mat-form-field class="login-inp">
+                                            <input matInput placeholder="Name" [formControl]="nameFormControl"
+                                                   [errorStateMatcher]="matcher" name="name"
+                                                   [(ngModel)]="userContactInf.name">
+                                            <mat-hint>Errors appear instantly!</mat-hint>
+                                            <mat-error
+                                                    *ngIf="nameFormControl.hasError('email') && !nameFormControl.hasError('required')">
+                                                Please enter a valid email address
+                                            </mat-error>
+                                            <mat-error *ngIf="nameFormControl.hasError('required')">
+                                                Email is <strong>required</strong>
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="example-full-width">
+                                        <mat-form-field class="login-inp">
+                                            <input matInput placeholder="Email" [formControl]="emailFormControl"
+                                                   [errorStateMatcher]="matcher" name="email"
+                                                   [(ngModel)]="userContactInf.email">
+                                            <mat-hint>Errors appear instantly!</mat-hint>
+                                            <mat-error
+                                                    *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                                                Please enter a valid email address
+                                            </mat-error>
+                                            <mat-error *ngIf="emailFormControl.hasError('required')">
+                                                Email is <strong>required</strong>
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="example-full-width">
+                                        <mat-form-field class="login-inp">
+                                            <textarea matInput placeholder="Message" [formControl]="messFormControl"
+                                                      [errorStateMatcher]="matcher" name="message"
+                                                      [(ngModel)]="userContactInf.mess">
+                                            </textarea>
+                                            <mat-hint>Errors appear instantly!</mat-hint>
+                                            <mat-error *ngIf="messFormControl.hasError('required')"></mat-error>
+                                        </mat-form-field>
+                                    </div>
+
+                                </div>
+                                <button
+                                        [disabled]="(emailFormControl.hasError('email') || emailFormControl.hasError('required'))"
+                                        mat-raised-button color="primary" (click)="getContact(userContactInf)">Send
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="top_news">
+                <div class="sidebar">
+                    <div class="top-news">
+                        <h4 class="title">Today’s top headlines</h4>
+                        <ul>
+                            <li class="item" *ngFor="let singleLastet of lastet">
+                                <div class="img-block">
+                                    <img src="../../../assets/images/{{singleLastet.img}}" class="img-fluid" alt="">
+                                </div>
+                                <div class="text-block">
+                                    <h5 class="title" (click)="getSingle(singleLastet.id)">{{singleLastet.title}}</h5>
+                                    <p class="description">{{singleLastet.desc}}</p>
+                                    <span class="date">{{singleLastet.creted_date}}</span>
+                                </div>
+                            </li>
+                            <div class="show-more">
+                                <span class=" active">Show more</span>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

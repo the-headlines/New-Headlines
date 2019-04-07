@@ -1,0 +1,210 @@
+.check_container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin-left: 26px;
+  font-family: 'latoRegular';
+  font-size: 19.5px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #565757;
+}
+
+.check_container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 18px;
+  height: 18px;
+  border: solid 1px #666968;
+  background-color: #fff;
+}
+
+.check_container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+.check_container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.check_container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.check_container .checkmark:after {
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.modal-content {
+  width: 434px;
+  height: auto;
+  box-shadow: 0 2px 17px 3px rgba(0, 0, 0, 0.13);
+  background-color: #ffffff;
+  border-radius: unset;
+}
+
+.logo_and_close h5 {
+  font-family: 'latoBlack';
+  font-size: 29.5px;
+  font-weight: 900;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: 2.4px;
+  color: #000000;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 48px 0;
+}
+
+.logo_and_close button span {
+  font-family: 'latoLight';
+  font-size: 56px;
+  padding: 0 15px 0 0;
+}
+
+.modal-body form .form_group input {
+  height: 47px;
+  border: solid 1px #959595;
+  background-color: #ffffff;
+  width: 100%;
+  margin: 0 auto 24px;
+}
+
+.modal-body form .form_group input::-webkit-input-placeholder {
+  font-family: 'latoRegular';
+  padding: 0 30px;
+  font-size: 21px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.79;
+  letter-spacing: normal;
+  text-align: left;
+  color: #a7a5a5;
+}
+
+.modal-body form button.login {
+  width: 100%;
+  height: 47px;
+  border: solid 1px #959595;
+  background-color: #3788c6;
+  color: white;
+  font-family: 'latoRegular';
+  font-size: 20px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: normal;
+  text-align: center;
+  margin-top: 47px;
+  margin-bottom: 25px;
+}
+
+.forgot_pass {
+  font-family: 'latoRegular';
+  font-size: 14.5px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.93;
+  letter-spacing: normal;
+  color: #7d7c7c;
+  display: block;
+  text-align: right;
+}
+
+.have_account .dont_have_account {
+  font-family: 'latoRegular';
+  font-size: 18.5px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: normal;
+  color: #414242;
+  text-decoration: underline;
+  display: block;
+  text-align: center;
+  margin-bottom: 47px;
+  border: unset;
+  width: 100%;
+}
+
+.have_account button {
+  font-family: 'latoRegular';
+  font-size: 17.5px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #414242;
+  height: 60px;
+  border-radius: 10px;
+  border: solid 1px #004cb3;
+  background-color: unset;
+  display: block;
+  margin: 0 auto;
+  width: 152px;
+}
+
+.forgot_pass {
+  font-family: 'latoRegular';
+  font-size: 14.5px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.93;
+  letter-spacing: normal;
+  text-align: right;
+  margin-bottom: 50px;
+  color: #7d7c7c;
+}
+
+.modal-body {
+  padding: 0 40px 51px;
+}
+
+.mat-dialog-container{
+  background: unset !important;
+  color: unset !important;
+  box-shadow: unset !important;
+  border: unset !important;
+}
+
+.login-inp {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}

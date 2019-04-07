@@ -1,0 +1,264 @@
+span, p {
+  font-family: 'latoRegular', sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 0.92;
+  letter-spacing: 1.4px;
+  text-align: left;
+  color: #000000;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+button:focus {
+  outline: none !important;
+}
+
+a:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+input:focus {
+  outline: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'latoBlack', sans-serif;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  height: 100% !important;
+  object-fit: cover;
+}
+
+.wrapper {
+  width: 100%;
+  margin: 0 auto;
+  background-color: #eeeeee;
+}
+
+.content {
+  width: 87%;
+  margin: 0 auto;
+}
+
+.center {
+  text-align: center;
+}
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
+
+.active {
+  border-bottom: 2px solid #e14040;
+}
+
+.whtie {
+  color: white;
+}
+
+.opacity-dark {
+  background-color: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.logo a img {
+  width: 50%;
+}
+
+/*home page start*/
+/*header start*/
+
+header {
+  margin-bottom: 100px;
+
+  .navbar {
+    position: relative;
+    background-color: white;
+    color: black;
+    margin: 0 auto;
+    padding: 30px 0;
+    width: 100%;
+
+    .content {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+    }
+
+    .logo {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      border-bottom: 1px solid #e14040;
+      margin-bottom: 13px;
+      padding-bottom: 13px;
+      font-size: 1.2em;
+      font-family: 'latoRegular', sans-serif;
+
+      a {
+        text-transform: uppercase;
+      }
+
+      p {
+        width: 60%;
+        margin: 10px 20px;
+        text-align: center;
+      }
+
+      & > div {
+        display: flex;
+        align-items: center;
+        width: 66%;
+        justify-content: space-between;
+      }
+
+      ul {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        li {
+          &.post {
+            a {
+              padding: 10px 40px;
+              background-color: #3788c6;
+              color: white !important;
+              margin-right: 15px;
+              border-radius: unset;
+              height: auto;
+              line-height: unset;
+
+              span {
+                color: white
+              }
+            }
+          }
+
+          &.login {
+            a {
+              padding: 10px 40px;
+              background-color: #e14040;
+              margin-right: 15px;
+              border-radius: unset;
+              height: auto;
+              line-height: unset;
+
+              span {
+                color: white;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .menu {
+    width: 80%;
+
+    .burger {
+      display: none;
+    }
+
+    ul {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-transform: capitalize;
+      font-size: 1.2em;
+
+      li {
+        padding: 5px 0;
+        width: 100%;
+        text-align: center;
+        border-right: 1px solid #e14040;
+
+        &.active {
+          a {
+            border-bottom: 2px solid #e14040;
+            padding-bottom: 10px;
+          }
+        }
+
+        a {
+          color: black;
+          font-family: 'latoBold', sans-serif;
+          font-size: 14px;
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+}
+
+
+#button {
+  background-color: #3788c6;
+  width: 50px;
+  height: auto;
+  text-align: center;
+  border-radius: 4px;
+  position: fixed;
+  bottom: 0;
+  right: 30px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: normal;
+  line-height: normal;
+  font-size: 15px;
+  padding: 10px 0;
+
+  i {
+    font-size: 2em;
+    color: #fff;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background-color: #333;
+  }
+
+  &:active {
+    background-color: #555;
+  }
+
+  .show {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .logo a img {
+    width: 100%;
+  }
+}
+
+/*header end*/

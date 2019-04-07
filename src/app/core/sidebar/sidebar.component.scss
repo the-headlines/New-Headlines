@@ -1,0 +1,109 @@
+svg {
+  width: 20px;
+  height: 30px;
+}
+
+.left_side {
+  width: 322px;
+  height: auto;
+  background-color: #000000;
+  color: white;
+
+  .my_prof {
+    font-family: 'latoRegular';
+    font-size: 30px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.2;
+    letter-spacing: 0.8px;
+    text-align: left;
+    margin: 30px 0 21px 30px;
+    color: #ffffff;
+  }
+
+  .prof_pic {
+    margin: 0 30px 35px 30px;
+  }
+
+  ul {
+    li {
+      .name {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        img {
+          width: 16px;
+          height: 16px !important;
+          object-fit: cover;
+        }
+
+        input {
+          background: unset;
+          border: unset;
+          font-family: 'latoRegular';
+          font-size: 16.5px;
+          font-weight: normal;
+          font-style: normal;
+          font-stretch: normal;
+          padding: 0 0 0 15px;
+          color: #ffffff;
+
+          &::-webkit-input-placeholder {
+            font-family: 'latoRegular';
+            font-size: 16.5px;
+            color: #ffffff;
+          }
+        }
+
+        p{
+          margin: unset;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  .edit {
+    background: unset;
+    border: unset;
+  }
+
+  .profile_list li {
+    padding: 20px;
+    border-bottom: solid 2px #959595;
+    width: 100%;
+  }
+
+  .post_and_sub li a {
+    font-family: 'latoRegular';
+    font-size: 30px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.2;
+    letter-spacing: 0.8px;
+    text-align: left;
+    color: #ffffff;
+
+    &.active {
+      border: unset;
+      border-radius: unset;
+      background-color: unset !important;
+      border-color: unset !important;
+      color: white !important;
+      border-left: 5px solid #e14040 !important;
+    }
+
+    &:hover {
+      border-radius: unset;
+      border: unset;
+    }
+
+  }
+
+  .list_first {
+    margin: 32px 22px 0 12px;
+  }
+}
