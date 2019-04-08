@@ -25,6 +25,8 @@ import {SocialLoginModule, AuthServiceConfig} from 'angularx-social-login';
 import {FacebookLoginProvider} from 'angularx-social-login';
 import {
     MatIconModule,
+    MatToolbarModule,
+    MatListModule,
     MatButtonModule,
     MatTreeModule,
     MatProgressBarModule,
@@ -36,6 +38,7 @@ import {
     MatSelectModule,
     MatDialogModule
 } from '@angular/material';
+import {FlexLayoutModule} from '@angular/flex-layout';
 import {SinglePostComponent} from './modules/home/pages/single-post/single-post.component';
 import {SidebarComponent} from './core/sidebar/sidebar.component';
 import {PostsComponent} from './modules/home/pages/posts/posts/posts.component';
@@ -81,6 +84,8 @@ export function provideConfig() {
         BrowserAnimationsModule,
         MatButtonModule,
         MatDialogModule,
+        MatListModule,
+        MatToolbarModule,
         FormsModule, ReactiveFormsModule,
         HttpClientModule,
         MatTreeModule,
@@ -95,6 +100,7 @@ export function provideConfig() {
         ScrollToModule.forRoot(),
         PostsModule,
         SocialLoginModule,
+        FlexLayoutModule,
         FacebookModule.forRoot()
     ],
     providers: [{

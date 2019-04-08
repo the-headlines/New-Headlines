@@ -93,6 +93,11 @@ img {
 /*home page start*/
 /*header start*/
 
+.menu-spacer {
+  flex: 1 1 auto;
+}
+
+
 header {
   margin-bottom: 100px;
 
@@ -143,6 +148,7 @@ header {
         align-items: center;
 
         li {
+
           &.post {
             a {
               padding: 10px 40px;
@@ -173,6 +179,7 @@ header {
               }
             }
           }
+
         }
       }
     }
@@ -207,7 +214,7 @@ header {
 
         a {
           color: black;
-          font-family: 'latoBold', sans-serif;
+          font-family: 'latoBlack', sans-serif;
           font-size: 14px;
           text-transform: uppercase;
         }
@@ -216,6 +223,10 @@ header {
   }
 }
 
+.menu ul li.active a {
+  border-bottom: 2px solid #e14040;
+  padding-bottom: 10px;
+}
 
 #button {
   background-color: #3788c6;
@@ -255,10 +266,84 @@ header {
   }
 }
 
+
+.mat-toolbar-row {
+  background: white;
+}
+
+.active {
+  color: red;
+}
+
+mat-sidenav-container {
+  position: inherit;
+}
+
+mat-toolbar{
+  width: 100%;
+}
+
+@media screen and (max-width: 1120px) {
+  header {
+    .navbar {
+      height: 100%;
+
+      .logo {
+        flex-direction: column;
+
+        > div {
+          width: 100% !important;
+        }
+
+        ul {
+          li {
+            &.login {
+              a {
+                padding: 10px;
+              }
+            }
+          }
+        }
+      }
+
+      .menu {
+        ul {
+          flex-direction: column;
+          width: 100%;
+        }
+      }
+    }
+
+    .burger_icon{
+      display: block;
+      text-align: right;
+      padding-right: 15px;
+    }
+
+    .mat-drawer {
+      left: 0;
+      width: 200px;
+
+      ul{
+        background: none;
+      }
+    }
+  }
+
+  .sidebar {
+    .connect-block {
+      .title {
+        letter-spacing: normal;
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 600px) {
   .logo a img {
     width: 100%;
   }
 }
+
 
 /*header end*/
