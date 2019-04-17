@@ -44,6 +44,7 @@ import {SidebarComponent} from './core/sidebar/sidebar.component';
 import {PostsComponent} from './modules/home/pages/posts/posts/posts.component';
 import {FacebookModule} from 'ngx-facebook';
 import {FaceLoginComponent} from './modules/home/components/face-login/face-login.component';
+import { RoadComponent } from './modules/home/pages/road/road.component';
 
 
 const config = new AuthServiceConfig([
@@ -77,15 +78,17 @@ export function provideConfig() {
         PostsComponent,
         SidebarComponent,
         FaceLoginComponent,
+        RoadComponent,
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         BrowserAnimationsModule,
         MatButtonModule,
-        MatDialogModule,
-        MatListModule,
         MatToolbarModule,
+        MatListModule,
+        MatDialogModule,
+        FlexLayoutModule,
         FormsModule, ReactiveFormsModule,
         HttpClientModule,
         MatTreeModule,
@@ -100,7 +103,6 @@ export function provideConfig() {
         ScrollToModule.forRoot(),
         PostsModule,
         SocialLoginModule,
-        FlexLayoutModule,
         FacebookModule.forRoot()
     ],
     providers: [{

@@ -36,25 +36,18 @@
                     <p>{{singlePost.desc}}</p>
                 </div>
 
-
-                <!-- the target button -->
-
                 <div class="leave_comment">
                     <h4 class="sub_title">Leave a Comment or Question</h4>
                     <form action="" method="post">
                         <div class="form-group">
                             <div class="example-full-width">
                                 <textarea matInput placeholder="" [formControl]="commentFormControl" cols="30" rows="8" [errorStateMatcher]="matcher" name="message"
-                                          [(ngModel)]="addComment.comment" [disabled]="isDisabled()" disabled="disabled" [attr.disabled]="disabled ? '' : null" ></textarea>
+                                          [(ngModel)]="addComment.comment"  [attr.disabled]="disabled ? '' : null"></textarea>
                                 <div *ngIf="commentFormControl.hasError('required')">Comment is required</div>
                             </div>
                             <div class="question_or_comment">
-                                <button>Question</button>
-
-                                <!-- enable the button -->
-                                <button>Comment</button>
-
-
+                                <button class="Question">Question</button>
+                                <button class="Comment">Comment</button>
                             </div>
                         </div>
                         <div class="row">
@@ -64,8 +57,7 @@
                                         <label for="name">Name</label>
                                         <input id="name" matInput placeholder="" [formControl]="nameFormControl"
                                                [errorStateMatcher]="matcher" name="name" [(ngModel)]="addComment.name">
-                                        <div *ngIf="nameFormControl.hasError('required')"><span class="error">Name is required</span>
-                                        </div>
+                                        <div *ngIf="nameFormControl.hasError('required')"><span class="error">Name is required</span></div>
                                     </div>
                                 </div>
                             </div>
@@ -126,7 +118,6 @@
                                 </li>
                             </ul>
                         </div>
-
                         <button *ngIf="start<commentCount" class="show_more" (click)="loadMyChildComponent();">Show
                             more
                         </button>

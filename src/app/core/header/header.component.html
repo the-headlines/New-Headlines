@@ -1,28 +1,84 @@
+<!--<header class="header home-header-bg fixed-top" id="header_top">-->
+<!--<div class="navbar">-->
+<!--<div class="content">-->
+<!--<div class="logo">-->
+<!--<div>-->
+<!--<a routerLink="/home"><img src="../../../assets/images/FF.png" alt=""></a>-->
+<!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi dolor exercitationem quisquam-->
+<!--ut?</p>-->
+<!--</div>-->
+<!--<ul>-->
+<!--<li class="post" ng-class="{ active: isActive('/posts') }">-->
+<!--<a *ngIf="!checkUser()" mat-button (click)="showLogin()" mat-raised-button color="warn"-->
+<!--data-toggle="modal"-->
+<!--data-target="#exampleModalCenter">post</a>-->
+
+<!--<span *ngIf="checkUser()" routerLink="/posts/home-posts" mat-raised-button-->
+<!--color="primary">post</span>-->
+<!--</li>-->
+
+<!--<li class="login">-->
+<!--<a *ngIf="!checkUser()" mat-button (click)="showLogin()" mat-raised-button color="warn"-->
+<!--data-toggle="modal"-->
+<!--data-target="#exampleModalCenter">login / sign up</a>-->
+<!--<span *ngIf="checkUser()" style="color: white">{{userLoggined.name}}</span>-->
+<!--</li>-->
+<!--</ul>-->
+<!--</div>-->
+<!--<div class="menu">-->
+<!--<div class="burger">-->
+<!--<i class="fas fa-bars"></i>-->
+<!--</div>-->
+<!--<ul class="toggle none-768">-->
+<!--<li ng-class="{ active: isActive('/home') }">-->
+<!--<a routerLink="/home">General news</a>-->
+<!--</li>-->
+<!--<li ng-class="{ active: isActive('/video') }">-->
+<!--<a routerLink="/video">videos</a>-->
+<!--</li>-->
+<!--<li ng-class="{ active: isActive('/pictures') }">-->
+<!--<a routerLink="/pictures">Camera Pictures</a>-->
+<!--</li>-->
+<!--<li ng-class="{ active: isActive('/commerce') }">-->
+<!--<a routerLink="/commerce">Jump startup</a>-->
+<!--</li>-->
+<!--<li ng-class="{ active: isActive('/deals') }">-->
+<!--<a routerLink="/deals">Fantastic Deals</a>-->
+<!--</li>-->
+<!--<li ng-class="{ active: isActive('/feedback') }">-->
+<!--<a routerLink="/feedback">feedback</a>-->
+<!--</li>-->
+<!--</ul>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</header>-->
 <header class="header home-header-bg fixed-top" id="header_top">
     <div class="navbar">
         <div class="content">
             <div class="logo">
                 <div>
-                    <a routerLink="/home"><img src="../../../assets/images/FF.png" alt=""></a>
+                    <a routerLink="/home"><img src="../../../assets/images/logo_white_background.jpg" alt=""></a>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi dolor exercitationem quisquam ut?</p>
                 </div>
                 <ul>
+                    <li>
+                        <form id="content">
+                            <input type="text" name="input" class="input">
+                            <button type="reset" class="search"></button>
+                        </form>
+                    </li>
                     <li class="post" ng-class="{ active: isActive('/posts') }">
-                        <a *ngIf="!checkUser()" mat-button (click)="showLogin()" mat-raised-button color="warn" data-toggle="modal" data-target="#exampleModalCenter">post</a>
-                        <a *ngIf="checkUser() ||  user" routerLink="/posts/home-posts" mat-raised-button color="primary">post</a>
+                        <a *ngIf="!checkUser()" mat-button (click)="showLogin()">post</a>
+
+                        <span *ngIf="checkUser()" routerLink="/posts/home-posts" mat-raised-button color="primary">post</span>
                     </li>
                     <li class="login">
-                        <a *ngIf="!checkUser()" mat-button (click)="showLogin()" mat-raised-button color="warn"
-                           data-toggle="modal"
-                           data-target="#exampleModalCenter">login / sign up</a>
+                        <a *ngIf="!checkUser()" mat-button (click)="showLogin()">login / sign up</a>
                         <span *ngIf="checkUser()" style="color: white">{{userLoggined.name}}</span>
-                    </li>
-                    <li class="login" *ngIf="checkUser()">
-                        <button class="btn btn-danger" (click)="signOut()">Sign out</button>
                     </li>
                 </ul>
             </div>
-
             <mat-toolbar>
                 <mat-toolbar-row>
                     <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
@@ -30,12 +86,15 @@
                     </button>
                     <div fxShow="true" fxHide.lt-md style="width: 100%">
                         <div class="menu">
+                            <div class="burger">
+                                <i class="fas fa-bars"></i>
+                            </div>
                             <ul class="toggle none-768">
-                                <li ng-class="{ active: isActive('/home') }">
-                                    <a routerLink="/home">HOOKED NEWS</a>
+                                <li routerLink="/home"  routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:true}">
+                                    <a>HOOKED NEWS</a>
                                 </li>
-                                <li ng-class="{ active: isActive('/video') }">
-                                    <a routerLink="/video">videos</a>
+                                <li ng-class="{ active: isActive('') }">
+                                    <a routerLink="/road">ROAD TO FAME</a>
                                 </li>
                                 <li ng-class="{ active: isActive('/pictures') }">
                                     <a routerLink="/pictures">Camera Pictures</a>
@@ -45,6 +104,9 @@
                                 </li>
                                 <li ng-class="{ active: isActive('/deals') }">
                                     <a routerLink="/deals">Fantastic Deals</a>
+                                </li>
+                                <li ng-class="{ active: isActive('/video') }">
+                                    <a routerLink="/video">videos</a>
                                 </li>
                                 <li ng-class="{ active: isActive('/feedback') }">
                                     <a routerLink="/feedback">feedback</a>
@@ -57,7 +119,7 @@
             <mat-sidenav-container fxFlexFill>
                 <mat-sidenav #sidenav>
                     <mat-nav-list>
-                        <a (click)="sidenav.toggle()" href="" mat-list-item class="burger_icon"><i class="fas fa-times"></i></a>
+                        <a (click)="sidenav.toggle()" href="" mat-list-item><i class="fas fa-times"></i></a>
                         <div class="menu">
                             <div class="burger">
                                 <i class="fas fa-bars"></i>
@@ -65,6 +127,9 @@
                             <ul class="toggle none-768">
                                 <li ng-class="{ active: isActive('') }">
                                     <a routerLink="/home">General news</a>
+                                </li>
+                                <li ng-class="{ active: isActive('') }">
+                                    <a routerLink="/road">ROAD TO FAME</a>
                                 </li>
                                 <li ng-class="{ active: isActive('/video') }" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact:true}">
                                     <a routerLink="/video">videos</a>

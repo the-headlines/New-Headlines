@@ -86,17 +86,14 @@ img {
   height: 100%;
 }
 
-.logo a img {
-  width: 50%;
-}
 
 /*home page start*/
+
 /*header start*/
 
 .menu-spacer {
   flex: 1 1 auto;
 }
-
 
 header {
   margin-bottom: 100px;
@@ -130,7 +127,7 @@ header {
       }
 
       p {
-        width: 60%;
+        width: 100%;
         margin: 10px 20px;
         text-align: center;
       }
@@ -140,6 +137,14 @@ header {
         align-items: center;
         width: 66%;
         justify-content: space-between;
+
+        a {
+          width: 50%;
+
+          img {
+            width: 70%;
+          }
+        }
       }
 
       ul {
@@ -150,14 +155,12 @@ header {
         li {
 
           &.post {
+            background-color: #3788c6;
+            color: white;
+            margin-right: 15px;
+
             a {
-              padding: 10px 40px;
-              background-color: #3788c6;
-              color: white !important;
-              margin-right: 15px;
-              border-radius: unset;
-              height: auto;
-              line-height: unset;
+              text-transform: uppercase;
 
               span {
                 color: white
@@ -166,27 +169,25 @@ header {
           }
 
           &.login {
+            text-align: center;
+            background-color: #e14040;
+            color: white;
+            width: 200px;
             a {
-              padding: 10px 40px;
-              background-color: #e14040;
-              margin-right: 15px;
-              border-radius: unset;
-              height: auto;
-              line-height: unset;
+              text-transform: uppercase;
 
               span {
                 color: white;
               }
             }
           }
-
         }
       }
     }
   }
 
   .menu {
-    width: 80%;
+    width: 100%;
 
     .burger {
       display: none;
@@ -279,12 +280,177 @@ mat-sidenav-container {
   position: inherit;
 }
 
-mat-toolbar{
+mat-toolbar {
   width: 100%;
 }
 
+/*search box*/
+
+#content {
+  margin-right: 20px;
+  transform: translate(0, 0);
+
+  .on {
+    -webkit-animation-name: in-out;
+    animation-name: in-out;
+    -webkit-animation-duration: 0.7s;
+    animation-duration: 0.7s;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+  }
+
+  input {
+    box-sizing: border-box;
+    width: 26px;
+    height: 26px;
+    border: 4px solid #3788c6;
+    border-radius: 50%;
+    background: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 400;
+    outline: 0;
+    -webkit-transition: width 0.4s ease-in-out, border-radius 0.8s ease-in-out, padding 0.2s;
+    transition: width 0.4s ease-in-out, border-radius 0.8s ease-in-out, padding 0.2s;
+    -webkit-transition-delay: 0.4s;
+    transition-delay: 0.4s;
+    -webkit-transform: translate(-100%, -50%);
+    -ms-transform: translate(-100%, -50%);
+    transform: translate(0, 0);
+  }
+
+  .search {
+    background: none;
+    position: absolute;
+    top: -8px;
+    right: -15px;
+    height: 50px;
+    width: 50px;
+    padding: 0;
+    border-radius: 100%;
+    outline: 0;
+    border: 0;
+    color: inherit;
+    cursor: pointer;
+    -webkit-transition: 0.2s ease-in-out;
+    transition: 0.2s ease-in-out;
+    -webkit-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+
+  .search:before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 4px;
+    background-color: #3788c6;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    margin-top: 8px;
+    margin-left: 26px;
+    -webkit-transition: 0.2s ease-in-out;
+    transition: 0.2s ease-in-out;
+  }
+
+  .close {
+    -webkit-transition: 0.4s ease-in-out;
+    transition: 0.4s ease-in-out;
+    -webkit-transition-delay: 0.4s;
+    transition-delay: 0.4s;
+  }
+
+  .close:before {
+    content: "";
+    position: absolute;
+    width: 27px;
+    height: 4px;
+    margin-top: -1px;
+    margin-left: -13px;
+    background-color: #3788c6;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    -webkit-transition: 0.2s ease-in-out;
+    transition: 0.2s ease-in-out;
+  }
+
+  .close:after {
+    content: "";
+    position: absolute;
+    width: 27px;
+    height: 4px;
+    background-color: #3788c6;
+    margin-top: -1px;
+    margin-left: -13px;
+    cursor: pointer;
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+
+  .square {
+    box-sizing: border-box;
+    padding: 0 40px 0 10px;
+    width: 300px;
+    height: 36px;
+    border: 4px solid #3788c6;
+    /*background-color: #3788c6;*/
+    border-radius: 10px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 400;
+    outline: 0;
+    -webkit-transition: width 0.4s ease-in-out, border-radius 0.4s ease-in-out, padding 0.2s;
+    transition: width 0.4s ease-in-out, border-radius 0.4s ease-in-out, padding 0.2s;
+    -webkit-transition-delay: 0.4s, 0s, 0.4s;
+    transition-delay: 0.4s, 0s, 0.4s;
+    -webkit-transform: translate(-100%, -50%);
+    -ms-transform: translate(-100%, -50%);
+    transform: translate(0, 0);
+  }
+
+}
+
+.post {
+  &_image {
+    position: relative;
+    margin: 0 0 50px 0;
+
+    .play {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 90px;
+      cursor: pointer;
+      color: white;
+    }
+  }
+
+  &_com {
+    margin-top: 50px;
+  }
+}
+
+.leave_comment #ckEditor {
+  border: 1px solid #c4c4c4;
+  min-height: 190px;
+  margin-top: 35px;
+  color: black;
+}
+
+.news-block .img-block img {
+  width: 70%;
+}
+
 @media screen and (max-width: 1120px) {
+
   header {
+
     .navbar {
       height: 100%;
 
@@ -293,6 +459,14 @@ mat-toolbar{
 
         > div {
           width: 100% !important;
+
+          a{
+            width: 50%;
+
+            img{
+              width: 50%;
+            }
+          }
         }
 
         ul {
@@ -304,27 +478,25 @@ mat-toolbar{
             }
           }
         }
+
+        p{
+          width: 100%;
+        }
       }
 
       .menu {
         ul {
           flex-direction: column;
-          width: 100%;
         }
       }
     }
 
-    .burger_icon{
-      display: block;
-      text-align: right;
-      padding-right: 15px;
-    }
-
     .mat-drawer {
       left: 0;
-      width: 200px;
+      width: 50%;
 
-      ul{
+      ul {
+        width: 100%;
         background: none;
       }
     }
@@ -337,13 +509,13 @@ mat-toolbar{
       }
     }
   }
+
 }
 
 @media screen and (max-width: 600px) {
   .logo a img {
-    width: 100%;
+    width: 50%;
   }
 }
-
 
 /*header end*/

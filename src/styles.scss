@@ -524,7 +524,7 @@ header {
 
 .main {
   padding-bottom: 100px;
-  margin-top: 250px;
+  margin-top: 280px;
 }
 
 .carousel-caption {
@@ -1737,9 +1737,14 @@ a:hover {
   overflow: auto;
 }
 
-.error{
+.error {
   color: red;
 }
+
+.news-block .img-block img {
+  width: 60%;
+}
+
 @media only screen and (max-width: 1600px) {
   body {
     font-size: 10px;
@@ -1951,4 +1956,6 @@ a:hover {
   .switch-input:checked + .switch-label-on ~ .switch-selection {
     left: 46%;
   }
+
 }
+

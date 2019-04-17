@@ -1,0 +1,111 @@
+<app-header></app-header>
+<div class="content">
+  <div class="row">
+    <section class="col-md-7">
+      <div class="carusel-block">
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="opacity-dark"></div>
+              <img class="d-block w-100" src="" alt="First slide">
+              <div class="carousel-caption white">
+                <h5 class="title slider">Lorem Ipsum is simply dummy text of the printing
+                  and typesetting industry</h5>
+                <p class="text slider">Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry. Lorem Ipsum has been</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="opacity-dark"></div>
+              <img class="d-block w-100" src="" alt="Second slide">
+              <div class="carousel-caption white">
+                <h5 class="title slider">Lorem Ipsum is simply dummy text of the printing
+                  and typesetting industry</h5>
+                <p class="text slider">Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry. Lorem Ipsum has been</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="opacity-dark"></div>
+              <img class="d-block w-100" src="" alt="Third slide">
+              <div class="carousel-caption white">
+                <h5 class="title slider">Lorem Ipsum is simply dummy text of the printing
+                  and typesetting industry</h5>
+                <p class="text slider">Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry. Lorem Ipsum has been</p>
+              </div>
+            </div>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleControls" role="button"
+             data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleControls" role="button"
+             data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
+      <div class="news-block carusel-block" *ngFor="let single of posts">
+        <div class="item">
+          <div class="text-block">
+            <div class="description">
+              <h5 class="title" (click)="getSingle(single.id)">{{single.title}}</h5>
+              <p class="text">{{single.metatitle}}</p>
+            </div>
+            <div class="filter">
+              <span>filters:</span>
+              <ul class="menu">
+                <li class="orange"><a href="">all</a></li>
+                <li class="yellow"><a href="">Should be in Headlines</a></li>
+                <li class="gray"><a href="">important</a></li>
+                <li class="op-orange"><a href="">Awesome</a></li>
+                <li class="op-blue"><a href="">Great</a></li>
+                <li class="blue"><a href="">Interesting</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="img-block">
+            <!-- <img src="../uploads/images/{{single.img}}" class="img-fluid" alt="">-->
+            <img src="../../../assets/images/{{single.img}}" class="img-fluid" alt="">
+            <ul class="view-icons-block">
+              <li *ngIf="checkUser()">
+                <span *ngIf="single.like == 0"><i class="far fa-thumbs-up"></i><span>like</span></span>
+                <span *ngIf="single.like ==1"><i class="far fa-thumbs-up"></i><span>like</span></span>
+              </li>
+              <li>
+                <span id='views'><i class="fas fa-eye"></i><span>views</span> {{single.view}}</span>
+              </li>
+              <li *ngIf="checkUser()">
+                <span *ngIf="single.love == 0"><i class="fas fa-heart"></i><span>love</span></span>
+                <span *ngIf="single.love == 1"><i class="fas fa-heart"></i><span>love</span></span>
+              </li>
+              <li>
+                <span><i class="fas fa-share"></i><span>share</span></span>
+              </li>
+              <li>
+                <a href=""><i class="fas fa-comment"></i><span>comments</span></a>
+              </li>
+            </ul>
+          </div>
+          <div class="text-block">
+            <p>{{single.desc}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="pagination-block">
+        <!--<a><img src="./images/arrow-left.png" alt=""></a>-->
+        <ul>
+          <li *ngFor="let paginateSingle of pages">
+            <a data-id="{{paginateSingle}}" (click)="nextPage($event)">{{ paginateSingle }}</a>
+          </li>
+        </ul>
+        <!--<a><img src="./images/arrow-right.png" alt=""></a>-->
+      </div>
+    </section>
+    <app-aside class="col-md-5"></app-aside>
+  </div>
+</div>
+<app-footer></app-footer>
