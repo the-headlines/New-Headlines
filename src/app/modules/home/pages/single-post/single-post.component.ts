@@ -18,7 +18,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     styleUrls: ['./single-post.component.scss']
 })
 export class SinglePostComponent implements OnInit {
-    is_edit : boolean = false;
+    is_edit: boolean = false;
 
     constructor(private auth: AuthService, private router: Router, private route: ActivatedRoute, private home: HomeService) {
         this.id = this.route.snapshot.paramMap.get('id');
@@ -34,13 +34,15 @@ export class SinglePostComponent implements OnInit {
     pageCount = 4;
     commentCount = 0;
 
-    isDisabled() : boolean{
+    isDisabled(): boolean {
         return this.is_edit;
     }
 
     ngOnInit() {
 
     }
+
+    ckeditorContent: any;
 
     emailFormControl = new FormControl('', [
         Validators.required,

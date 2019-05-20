@@ -1,3 +1,4 @@
+
 <div >
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -9,23 +10,15 @@
             </div>
             <div class="modal-body">
 
-                <app-face-login></app-face-login>
-
                 <form action="" method="post">
 
                     <div class="form-group">
                         <div class="example-full-width">
                             <mat-form-field class="login-inp">
-                                <input matInput placeholder="Name" [formControl]="nameFormControl"
-                                       [errorStateMatcher]="matcher" name="name" [(ngModel)]="userRegisInf.name">
+                                <input matInput placeholder="Name" [formControl]="nameFormControl" [errorStateMatcher]="matcher" name="name" [(ngModel)]="userRegisInf.name">
                                 <mat-hint>Errors appear instantly!</mat-hint>
-                                <mat-error
-                                        *ngIf="nameFormControl.hasError('name') && !nameFormControl.hasError('required')">
-                                    Please enter a valid email address
-                                </mat-error>
-                                <mat-error *ngIf="nameFormControl.hasError('required')">
-                                    Name is <strong>required</strong>
-                                </mat-error>
+                                <mat-error *ngIf="nameFormControl.hasError('name') && !nameFormControl.hasError('required')">Please enter a valid email address</mat-error>
+                                <mat-error *ngIf="nameFormControl.hasError('required')">Name is <strong>required</strong></mat-error>
                             </mat-form-field>
                         </div>
                     </div>
@@ -51,35 +44,16 @@
                         <div class="example-full-width">
                             <mat-form-field class="login-inp">
                                 <input matInput type="password" placeholder="Password" [formControl]="passFormControl"
-                                       [errorStateMatcher]="matcher" name="pass" [(ngModel)]="userRegisInf.pass">
+                                       [errorStateMatcher]="matcher" name="pass" [(ngModel)]="userRegisInf.password">
                                 <mat-hint>Errors appear instantly!</mat-hint>
                                 <mat-error *ngIf="passFormControl.hasError('required')">
                                     Password is <strong>required</strong>
                                 </mat-error>
                             </mat-form-field>
                         </div>
-
                     </div>
 
-                    <div class="form-group">
-                        <div class="example-full-width">
-                            <mat-form-field class="login-inp">
-                                <input matInput type="password" placeholder="Confirm Password"
-                                       [formControl]="confPassFormControl"
-                                       [errorStateMatcher]="matcher" name="confPass"
-                                       [(ngModel)]="userRegisInf.confPass">
-                                <mat-hint>Errors appear instantly!</mat-hint>
-                                <mat-error *ngIf="confPassFormControl.hasError('required')">
-                                    Password is <strong>required</strong>
-                                </mat-error>
-                            </mat-form-field>
-                        </div>
-                    </div>
-
-
-
-                    <button
-                            [disabled]="passFormControl.hasError('required') || (emailFormControl.hasError('email') || emailFormControl.hasError('required'))"
+                    <button [disabled]="passFormControl.hasError('required') || (emailFormControl.hasError('email') || emailFormControl.hasError('required'))"
                             mat-raised-button (click)="checkRegister(userRegisInf)" color="primary">Register
                     </button>
 

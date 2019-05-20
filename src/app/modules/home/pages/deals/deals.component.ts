@@ -18,7 +18,6 @@ export class DealsComponent implements OnInit {
     userLoggined: any = [];
     pageCount = 3;
     start = 0;
-    /*  postData: any = [];*/
     count = 0;
     pages = [];
 
@@ -32,7 +31,7 @@ export class DealsComponent implements OnInit {
     }
 
     get() {
-        this.home.getData().subscribe((data) => {
+        this.home.getDeals().subscribe((data) => {
 
             if (!data) {
                 return false;
@@ -65,7 +64,7 @@ export class DealsComponent implements OnInit {
         let ended = (this.pageCount) * el.target.id;
         let started = ended - this.pageCount;
 
-        this.home.getPost({"end": ended, "start": started}).subscribe((data) => {
+        this.home.getPost({'end': ended, 'start': started}).subscribe((data) => {
 
             if (!data) {
                 return false;
@@ -112,5 +111,4 @@ export class DealsComponent implements OnInit {
         }
         return true;
     }
-
 }

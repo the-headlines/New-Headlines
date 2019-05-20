@@ -16,9 +16,10 @@ import {LoginComponent} from './modules/home/components/login/login.component';
 import {DirectivesComponent} from './shared/directives/directives.component';
 import {PipesComponent} from './shared/pipes/pipes.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {RegisterComponent} from './modules/home/components/register/register.component';
 import {ScrollToModule} from 'ng2-scroll-to';
+import {CarouselModule} from 'ngx-owl-carousel-o';
 import {PostsModule} from './modules/home/pages/posts/posts.module';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {SocialLoginModule, AuthServiceConfig} from 'angularx-social-login';
@@ -44,6 +45,9 @@ import {SidebarComponent} from './core/sidebar/sidebar.component';
 import {PostsComponent} from './modules/home/pages/posts/posts/posts.component';
 import {FacebookModule} from 'ngx-facebook';
 import {FaceLoginComponent} from './modules/home/components/face-login/face-login.component';
+import {OwlCarouselComponent} from './core/owl-carousel/owl-carousel.component';
+import {TokenInterceptorService} from './services/token-interceptor.service';
+import {CookieService} from 'ngx-cookie-service';
 
 
 const config = new AuthServiceConfig([
@@ -77,6 +81,7 @@ export function provideConfig() {
         PostsComponent,
         SidebarComponent,
         FaceLoginComponent,
+        OwlCarouselComponent
     ],
     imports: [
         BrowserModule,
@@ -101,12 +106,18 @@ export function provideConfig() {
         PostsModule,
         SocialLoginModule,
         FlexLayoutModule,
-        FacebookModule.forRoot()
+        FacebookModule.forRoot(),
+        CarouselModule,
     ],
     providers: [{
         provide: AuthServiceConfig,
         useFactory: provideConfig
-    }],
+    },CookieService,
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: TokenInterceptorService,
+            multi: true
+        }],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
     bootstrap: [AppComponent],
     entryComponents: [LoginComponent, RegisterComponent],

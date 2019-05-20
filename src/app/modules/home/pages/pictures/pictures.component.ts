@@ -32,7 +32,7 @@ export class PicturesComponent implements OnInit {
     }
 
     get() {
-        this.home.getData().subscribe((data) => {
+        this.home.getPictures().subscribe((data) => {
 
             if (!data) {
                 return false;

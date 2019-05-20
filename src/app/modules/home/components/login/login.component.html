@@ -9,9 +9,11 @@
                 <h5 class="modal-title" id="exampleModalLongTitle">Logo Name</h5>
             </div>
             <div class="modal-body">
+                <app-face-login></app-face-login>
                 <form action="" method="post">
                     <div class="form-group">
                         <div class="example-full-width">
+
                             <mat-form-field class="login-inp">
                                 <input matInput placeholder="Email" [formControl]="emailFormControl"
                                        [errorStateMatcher]="matcher" name="email" [(ngModel)]="userLoginInf.email">
@@ -30,17 +32,16 @@
                         <div class="example-full-width">
                             <mat-form-field class="login-inp">
                                 <input matInput type="password" placeholder="Password" [formControl]="passFormControl"
-                                       [errorStateMatcher]="matcher" name="pass" [(ngModel)]="userLoginInf.pass">
+                                       [errorStateMatcher]="matcher" name="password" [(ngModel)]="userLoginInf.password">
                                 <mat-hint>Errors appear instantly!</mat-hint>
                                 <mat-error *ngIf="passFormControl.hasError('required')">
                                     Password is <strong>required</strong>
                                 </mat-error>
                             </mat-form-field>
                         </div>
-
                     </div>
                     <button class="login"
-                            [disabled]="passFormControl.hasError('required') || (emailFormControl.hasError('email') || emailFormControl.hasError('required'))"
+                            [disabled]="passFormControl.hasError('required') || (emailFormControl.hasError('name') || emailFormControl.hasError('required'))"
                             mat-raised-button (click)="checkLogin(userLoginInf)" color="primary">Login
                     </button>
                 </form>

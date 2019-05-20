@@ -50,7 +50,7 @@ export class HeaderComponent implements OnInit {
         ModalDialog.openDialog(1, this.dialog);
     }
 
-    signOut(): void {
+    logOut(): void {
         this.authService.signOut();
         localStorage.setItem('userInf', null);
     }

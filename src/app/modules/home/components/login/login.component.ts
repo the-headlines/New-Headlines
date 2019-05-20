@@ -7,72 +7,73 @@ import {ModalDialog} from '../libs/modal.dialog';
 import {MatDialog} from '@angular/material';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-  }
+    isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+        const isSubmitted = form && form.submitted;
+        return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+    }
 }
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+    selector: 'app-login',
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.scss']
 })
 
 export class LoginComponent implements OnInit {
-  @ViewChild('closest') closest: ElementRef;
-
-  constructor(private auth: AuthService, private router: Router, private matDialog: MatDialog) {
-  }
+    @ViewChild('closest') closest: ElementRef;
 
 
+    emailFormControl = new FormControl('', [
+        Validators.required,
+        Validators.email,
+    ]);
 
-  ngOnInit() {
-    //this.get();
+    passFormControl = new FormControl('', [
+        Validators.required
+    ]);
 
-  }
+    matcher = new MyErrorStateMatcher();
 
-  showLogin() {
-    ModalDialog.openDialog(2, this.matDialog);
-  }
+    userLoginInf = {password: '', email: ''};
 
-  get() {
-    this.auth.getPosts().subscribe((data) => {
-      if (!data) {
-        return false;
-      }
-    });
-  }
+    constructor(private auth: AuthService, private router: Router, private matDialog: MatDialog) {
+    }
 
-  emailFormControl = new FormControl('', [
-    Validators.required,
-    Validators.email,
-  ]);
+    ngOnInit() {
+    }
 
-  passFormControl = new FormControl('', [
-    Validators.required
-  ]);
+    showLogin() {
+        ModalDialog.openDialog(2, this.matDialog);
+    }
 
-  matcher = new MyErrorStateMatcher();
-
-  userLoginInf = {email: '', pass: ''};
+    get() {
+        this.auth.getPosts().subscribe((data) => {
+            if (!data) {
+                return false;
+            }
+        });
+    }
 
 
-  checkLogin(data) {
-    data.loginned = true;
-    this.auth.checkLogin(data).subscribe((r: any) => {
+    checkLogin(data) {
+        this.auth.checkLogin(data).subscribe((r: any) => {
 
-      console.log(r);
-      if (r['status'] == 0) {
-        console.log('aa');
-        alert('Login/Password invalid');
-        return false;
-      }
+            console.log('login_res', r);
+            if (r['status'] == 0) {
+                console.log('aa');
+                alert('Login/Password invalid');
+                return false;
+            }
 
-      localStorage.setItem('userInf', JSON.stringify(r['result']));
-      //this.router.navigate(['']);
-      let el: HTMLElement = this.closest.nativeElement as HTMLElement;
-      el.click();
-    });
-  }
+            localStorage.setItem('userInf', JSON.stringify(r['token']));
+            //this.router.navigate(['']);
+            let el: HTMLElement = this.closest.nativeElement as HTMLElement;
+            el.click();
+        });
+    }
+
+    logOut() {
+        // remove user from local storage to log user out
+        localStorage.removeItem('userInf');
+    }
 }

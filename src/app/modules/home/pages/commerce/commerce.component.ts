@@ -32,7 +32,7 @@ export class CommerceComponent implements OnInit {
     }
 
     get() {
-        this.home.getData().subscribe((data) => {
+        this.home.getCommerce().subscribe((data) => {
 
             if (!data) {
                 return false;

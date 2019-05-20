@@ -28,26 +28,27 @@ export class VideoComponent implements OnInit {
             this.userLoggined = JSON.parse(localStorage.getItem('userInf'));
         }
 
-        // this.getVideo();
+        this.get();
     }
 
-    // getVideo() {
-    //   this.home.getVideo().subscribe((data) => {
-    //
-    //     if (!data) {
-    //       return false;
-    //     }
-    //
-    //     if (!data['status'] && data['status'] == 0) {
-    //       alert('No data');
-    //       return false;
-    //     }
-    //
-    //     /*  this.postData = data;*/
-    //     this.count = data['count'];
-    //     this.pagimate(data);
-    //   });
-    // }
+    get() {
+        this.home.getVideo().subscribe((data) => {
+
+            if (!data) {
+                return false;
+            }
+
+            if (!data['status'] && data['status'] == 0) {
+                alert('No data');
+                return false;
+            }
+
+            /*  this.postData = data;*/
+            this.count = data['count'];
+            this.pagimate(data);
+        });
+    }
+
 
     pagimate(data) {
 
@@ -65,7 +66,7 @@ export class VideoComponent implements OnInit {
         let ended = (this.pageCount) * el.target.id;
         let started = ended - this.pageCount;
 
-        this.home.getPost({"end": ended, "start": started}).subscribe((data) => {
+        this.home.getPost({'end': ended, 'start': started}).subscribe((data) => {
 
             if (!data) {
                 return false;

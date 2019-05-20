@@ -7,24 +7,25 @@
                 <div class="post_title_and_desc">
                     <h3>{{singlePost.title}}</h3>
                     <ul class="view-icons-block">
-                        <li *ngIf="checkUser()">
-                            <span *ngIf="singlePost.like == 0"><i class="far fa-thumbs-up"></i><span>like</span></span>
-                            <span *ngIf="singlePost.like != 0"><i
-                                    class="far fa-thumbs-up"></i><span>like</span>{{singlePost.like}}</span>
-                        </li>
                         <li>
-                            <span id='views'><i class="fas fa-eye"></i><span>views</span> {{singlePost.view}}</span>
+                            <a href="" class="score"> Score <span>200</span></a>
                         </li>
                         <li *ngIf="checkUser()">
-                            <span *ngIf="singlePost.love == 0"><i class="fas fa-heart"></i><span>love</span></span>
-                            <span *ngIf="singlePost.love != 0"><i
-                                    class="fas fa-heart"></i><span>love</span>{{singlePost.love}}</span>
+                            <a *ngIf="singlePost.like == 0"><i class="far fa-thumbs-up"></i><span>like</span></a>
+                            <a *ngIf="singlePost.like != 0"><i
+                                    class="far fa-thumbs-up"></i><span>like</span>{{singlePost.like}}</a>
                         </li>
                         <li>
-                            <span><i class="fas fa-share"></i><span>share</span></span>
+                            <a id='views'><span>views</span> {{singlePost.view}}</a>
                         </li>
                         <li>
-                            <a href=""><i class="fas fa-comment"></i><span>comments</span></a>
+                            <a href="#">share</a>
+                        </li>
+                        <li>
+                            <a href=""><span>comments</span></a>
+                        </li>
+                        <li>
+                            <a href=""><span>Question</span></a>
                         </li>
                     </ul>
                     <div class="post_image">
@@ -36,57 +37,34 @@
                     <p>{{singlePost.desc}}</p>
                 </div>
 
-
                 <!-- the target button -->
 
                 <div class="leave_comment">
-                    <h4 class="sub_title">Leave a Comment or Question</h4>
+                    <h4 class="sub_title">10 Comments</h4>
                     <form action="" method="post">
                         <div class="form-group">
                             <div class="example-full-width">
-                                <textarea matInput placeholder="" [formControl]="commentFormControl" cols="30" rows="8" [errorStateMatcher]="matcher" name="message"
-                                          [(ngModel)]="addComment.comment" [disabled]="isDisabled()" disabled="disabled" [attr.disabled]="disabled ? '' : null" ></textarea>
-                                <div *ngIf="commentFormControl.hasError('required')">Comment is required</div>
+                                <!--<textarea matInput placeholder="" [formControl]="commentFormControl" cols="30" rows="8"-->
+                                          <!--[errorStateMatcher]="matcher" name="message" class="add_comm_or_question_area"-->
+                                          <!--[(ngModel)]="addComment.comment"></textarea>-->
+                                <!--<div *ngIf="commentFormControl.hasError('required')">Comment is required</div>-->
+                                <!--<ckeditor [(ngModel)]="ckeditorContent">-->
+                                    <!--<ckbutton [name]="'saveButton'" [command]="'saveCmd'" (click)="save($event)"-->
+                                              <!--[icon]="'save.png'" [label]="'Save Document'"-->
+                                              <!--[toolbar]="'clipboard,1'"></ckbutton>-->
+                                <!--</ckeditor>-->
                             </div>
-                            <div class="question_or_comment">
-                                <button>Question</button>
-
-                                <!-- enable the button -->
-                                <button>Comment</button>
-
-
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <div class="example-full-width">
-                                        <label for="name">Name</label>
-                                        <input id="name" matInput placeholder="" [formControl]="nameFormControl"
-                                               [errorStateMatcher]="matcher" name="name" [(ngModel)]="addComment.name">
-                                        <div *ngIf="nameFormControl.hasError('required')"><span class="error">Name is required</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <div class="example-full-width">
-                                        <label for="email">Email</label>
-                                        <input id="email" matInput placeholder="" [formControl]="emailFormControl"
-                                               [errorStateMatcher]="matcher" name="email"
-                                               [(ngModel)]="addComment.email">
-                                        <div *ngIf="emailFormControl.hasError('required')">Email is required</div>
-                                        <div *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-                                            <span class="error">Please enter valid email</span>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="comments_or_question">
+                                <button id="readOnlyOn" (click)="toggleReadOnly(false);" type="button"
+                                        value="Make CKEditor read-only">Comments
+                                </button>
+                                <button id="readOnlyOff" (click)="toggleReadOnly( false );" type="button"
+                                        value="Make CKEditor editable again">Question
+                                </button>
+                                <button id="cancel" type="button">Cancel</button>
                             </div>
                         </div>
-                        <button [disabled]="(emailFormControl.hasError('email') || emailFormControl.hasError('required'))"
-                                mat-raised-button color="primary" (click)="addComments(addComment)">Post comment
-                        </button>
+                        <button mat-raised-button color="primary" (click)="addComments(addComment)">Post</button>
                     </form>
                     <div class="main_comments">
                         <h4 class="sub_title">Comments</h4>
@@ -147,132 +125,135 @@
                 </div>
             </div>
         </section>
-        <aside class="col-md-4" style="padding-left: 37px">
-            <div class="sidebar">
-                <div class="top-news">
-                    <h4 class="title">Today’s top headlines</h4>
-                    <ul>
-                        <li class="item">
-                            <div class="img-block">
-                                <img src="./images/top-news1.jpg" class="img-fluid" alt="">
-                            </div>
-                            <div class="text-block">
-                                <h5 class="title">Leprehenderit</h5>
-                                <p class="description">in voluptate velit esse cillum dolore but fugiat nulla</p>
-                                <span class="date">12.11.19</span>
-                            </div>
-                        </li>
-                        <li class="item">
-                            <div class="img-block">
-                                <img src="./images/top-news1.jpg" class="img-fluid" alt="">
-                            </div>
-                            <div class="text-block">
-                                <h5 class="title">Leprehenderit</h5>
-                                <p class="description">in voluptate velit esse cillum dolore but fugiat nulla</p>
-                                <span class="date">12.11.19</span>
-                            </div>
-                        </li>
-                        <li class="item">
-                            <div class="img-block">
-                                <img src="./images/top-news1.jpg" class="img-fluid" alt="">
-                            </div>
-                            <div class="text-block">
-                                <h5 class="title">Leprehenderit</h5>
-                                <p class="description">in voluptate velit esse cillum dolore but fugiat nulla</p>
-                                <span class="date">12.11.19</span>
-                            </div>
-                        </li>
-                        <li class="item">
-                            <div class="img-block">
-                                <img src="./images/top-news1.jpg" class="img-fluid" alt="">
-                            </div>
-                            <div class="text-block">
-                                <h5 class="title">Leprehenderit</h5>
-                                <p class="description">in voluptate velit esse cillum dolore but fugiat nulla</p>
-                                <span class="date">12.11.19</span>
-                            </div>
-                        </li>
-                        <li class="item">
-                            <div class="img-block">
-                                <img src="./images/top-news1.jpg" class="img-fluid" alt="">
-                            </div>
-                            <div class="text-block">
-                                <h5 class="title">Leprehenderit</h5>
-                                <p class="description">in voluptate velit esse cillum dolore but fugiat nulla</p>
-                                <span class="date">12.11.19</span>
-                            </div>
-                        </li>
-                        <li class="item">
-                            <div class="img-block">
-                                <img src="./images/top-news1.jpg" class="img-fluid" alt="">
-                            </div>
-                            <div class="text-block">
-                                <h5 class="title">Leprehenderit</h5>
-                                <p class="description">in voluptate velit esse cillum dolore but fugiat nulla</p>
-                                <span class="date">12.11.19</span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="live-block">
-                    <div class="about_us_block">
-                        <h3>About us</h3>
-                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a
-                            piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard
-                            McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of
-                            the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through
-                            the cites of the word in classical literature, discovered the undoubtable source. Lorem
-                            Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The
-                            Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the
-                            theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum,
-                            "Lorem ipsum dolor sit amet..", comes from a line in section
-                            The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those
-                            interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero
-                            are also reproduced in their exact original form, accompanied by English versions from
-                            the 1914 translation by H. Rackham.</p>
-                    </div>
-                    <div class="text-block">
-                        <p> privatey policy <span>||</span> contact policy</p>
-                    </div>
-                </div>
-                <div class="newsletters-block">
-                    <h4 class="title">newsletters</h4>
-                    <p class="text">Leprehenderit in voluptate velit esse cillum dolore but fugiat nulla pariatur.
-                        Excepteur sint occaecat </p>
-                    <div class="input">
-                        <input type="text" placeholder="enter your email">
-                    </div>
-                    <button class="button">subscribe</button>
-                </div>
-                <div class="connect-block">
-                    <div class="title">
-                        lorem ipsum
-                    </div>
-                    <div class="img-block">
-                        <img src="" class="img-fluid" alt="">
-                    </div>
-                    <div>
-                        <p class="title">connect with us</p>
-                        <ul class="social_network_sidebar">
-                            <li>
-                                <div class="img-block facebook">
-                                    <i class="fab fa-facebook-f"></i>
-                                </div>
-                                <div class="text-block facebook">facebook</div>
-                            </li>
-                            <li>
-                                <div class="img-block twitter"><i class="fab fa-twitter"></i></div>
-                                <div class="text-block twitter">twitter</div>
-                            </li>
-                            <li>
-                                <div class="img-block google"><i class="fab fa-google-plus-g"></i></div>
-                                <div class="text-block google">google +</div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </aside>
+        <div class="col-md-4">
+            <app-aside></app-aside>
+        </div>
+        <!--<aside class="col-md-4" style="padding-left: 37px">-->
+        <!--<div class="sidebar">-->
+        <!--<div class="top-news">-->
+        <!--<h4 class="title">Today’s top headlines</h4>-->
+        <!--<ul>-->
+        <!--<li class="item">-->
+        <!--<div class="img-block">-->
+        <!--<img src="./images/top-news1.jpg" class="img-fluid" alt="">-->
+        <!--</div>-->
+        <!--<div class="text-block">-->
+        <!--<h5 class="title">Leprehenderit</h5>-->
+        <!--<p class="description">in voluptate velit esse cillum dolore but fugiat nulla</p>-->
+        <!--<span class="date">12.11.19</span>-->
+        <!--</div>-->
+        <!--</li>-->
+        <!--<li class="item">-->
+        <!--<div class="img-block">-->
+        <!--<img src="./images/top-news1.jpg" class="img-fluid" alt="">-->
+        <!--</div>-->
+        <!--<div class="text-block">-->
+        <!--<h5 class="title">Leprehenderit</h5>-->
+        <!--<p class="description">in voluptate velit esse cillum dolore but fugiat nulla</p>-->
+        <!--<span class="date">12.11.19</span>-->
+        <!--</div>-->
+        <!--</li>-->
+        <!--<li class="item">-->
+        <!--<div class="img-block">-->
+        <!--<img src="./images/top-news1.jpg" class="img-fluid" alt="">-->
+        <!--</div>-->
+        <!--<div class="text-block">-->
+        <!--<h5 class="title">Leprehenderit</h5>-->
+        <!--<p class="description">in voluptate velit esse cillum dolore but fugiat nulla</p>-->
+        <!--<span class="date">12.11.19</span>-->
+        <!--</div>-->
+        <!--</li>-->
+        <!--<li class="item">-->
+        <!--<div class="img-block">-->
+        <!--<img src="./images/top-news1.jpg" class="img-fluid" alt="">-->
+        <!--</div>-->
+        <!--<div class="text-block">-->
+        <!--<h5 class="title">Leprehenderit</h5>-->
+        <!--<p class="description">in voluptate velit esse cillum dolore but fugiat nulla</p>-->
+        <!--<span class="date">12.11.19</span>-->
+        <!--</div>-->
+        <!--</li>-->
+        <!--<li class="item">-->
+        <!--<div class="img-block">-->
+        <!--<img src="./images/top-news1.jpg" class="img-fluid" alt="">-->
+        <!--</div>-->
+        <!--<div class="text-block">-->
+        <!--<h5 class="title">Leprehenderit</h5>-->
+        <!--<p class="description">in voluptate velit esse cillum dolore but fugiat nulla</p>-->
+        <!--<span class="date">12.11.19</span>-->
+        <!--</div>-->
+        <!--</li>-->
+        <!--<li class="item">-->
+        <!--<div class="img-block">-->
+        <!--<img src="./images/top-news1.jpg" class="img-fluid" alt="">-->
+        <!--</div>-->
+        <!--<div class="text-block">-->
+        <!--<h5 class="title">Leprehenderit</h5>-->
+        <!--<p class="description">in voluptate velit esse cillum dolore but fugiat nulla</p>-->
+        <!--<span class="date">12.11.19</span>-->
+        <!--</div>-->
+        <!--</li>-->
+        <!--</ul>-->
+        <!--</div>-->
+        <!--<div class="live-block">-->
+        <!--<div class="about_us_block">-->
+        <!--<h3>About us</h3>-->
+        <!--<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a-->
+        <!--piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard-->
+        <!--McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of-->
+        <!--the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through-->
+        <!--the cites of the word in classical literature, discovered the undoubtable source. Lorem-->
+        <!--Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The-->
+        <!--Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the-->
+        <!--theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum,-->
+        <!--"Lorem ipsum dolor sit amet..", comes from a line in section-->
+        <!--The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those-->
+        <!--interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero-->
+        <!--are also reproduced in their exact original form, accompanied by English versions from-->
+        <!--the 1914 translation by H. Rackham.</p>-->
+        <!--</div>-->
+        <!--<div class="text-block">-->
+        <!--<p> privatey policy <span>||</span> contact policy</p>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--<div class="newsletters-block">-->
+        <!--<h4 class="title">newsletters</h4>-->
+        <!--<p class="text">Leprehenderit in voluptate velit esse cillum dolore but fugiat nulla pariatur.-->
+        <!--Excepteur sint occaecat </p>-->
+        <!--<div class="input">-->
+        <!--<input type="text" placeholder="enter your email">-->
+        <!--</div>-->
+        <!--<button class="button">subscribe</button>-->
+        <!--</div>-->
+        <!--<div class="connect-block">-->
+        <!--<div class="title">-->
+        <!--lorem ipsum-->
+        <!--</div>-->
+        <!--<div class="img-block">-->
+        <!--<img src="" class="img-fluid" alt="">-->
+        <!--</div>-->
+        <!--<div>-->
+        <!--<p class="title">connect with us</p>-->
+        <!--<ul class="social_network_sidebar">-->
+        <!--<li>-->
+        <!--<div class="img-block facebook">-->
+        <!--<i class="fab fa-facebook-f"></i>-->
+        <!--</div>-->
+        <!--<div class="text-block facebook">facebook</div>-->
+        <!--</li>-->
+        <!--<li>-->
+        <!--<div class="img-block twitter"><i class="fab fa-twitter"></i></div>-->
+        <!--<div class="text-block twitter">twitter</div>-->
+        <!--</li>-->
+        <!--<li>-->
+        <!--<div class="img-block google"><i class="fab fa-google-plus-g"></i></div>-->
+        <!--<div class="text-block google">google +</div>-->
+        <!--</li>-->
+        <!--</ul>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+        <!--</aside>-->
     </div>
 </div>
 

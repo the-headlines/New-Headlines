@@ -7,78 +7,77 @@ import {ModalDialog} from '../libs/modal.dialog';
 import {MatDialog} from '@angular/material';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-  }
+    isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+        const isSubmitted = form && form.submitted;
+        return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+    }
 }
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss', '../login/login.component.scss']
+    selector: 'app-register',
+    templateUrl: './register.component.html',
+    styleUrls: ['./register.component.scss', '../login/login.component.scss']
 })
 
 export class RegisterComponent implements OnInit {
-  @ViewChild('loginButt') loginButt: ElementRef;
+    @ViewChild('loginButt') loginButt: ElementRef;
 
-  constructor(private auth: AuthService, private router: Router, private matDialog: MatDialog, ) {
-  }
+    emailFormControl = new FormControl('', [
+        Validators.required,
+        Validators.email,
+    ]);
 
-  ngOnInit() {
-    //this.get();
-  }
+    nameFormControl = new FormControl('', [
+        Validators.required,
+    ]);
 
-  showLogin() {
-    ModalDialog.openDialog(1, this.matDialog);
-  }
+    passFormControl = new FormControl('', [
+        Validators.required
+    ]);
 
-  get() {
-    this.auth.getPosts().subscribe((data) => {
-      if (!data) {
-        return false;
-      }
-    });
-  }
+    matcher = new MyErrorStateMatcher();
 
-  emailFormControl = new FormControl('', [
-    Validators.required,
-    Validators.email,
-  ]);
+    userRegisInf = {name: '', email: '', password: ''};
 
-  nameFormControl = new FormControl('', [
-    Validators.required,
-  ]);
+    constructor(private auth: AuthService, private router: Router, private matDialog: MatDialog) {
+    }
 
-  confPassFormControl = new FormControl('', [
-    Validators.required,
-  ]);
+    ngOnInit() {
+        // this.get();
+    }
 
-  passFormControl = new FormControl('', [
-    Validators.required
-  ]);
+    showLogin() {
+        ModalDialog.openDialog(1, this.matDialog);
+    }
 
-  matcher = new MyErrorStateMatcher();
-
-  userRegisInf = {name: '', email: '', pass: '', confPass: ''};
-
-  checkRegister(data) {
-    data.loginned = true;
-    this.auth.register(data).subscribe((r: any) => {
-
-      console.log(r);
-      if (r['status'] == 0) {
-        alert('Login/Password invalid');
-        return false;
-      }
-
-      //this.router.navigate(['']);
-      let el: HTMLElement = this.loginButt.nativeElement as HTMLElement;
-      el.click();
-    });
-  }
+    get() {
+        this.auth.getPosts().subscribe((data) => {
+            if (!data) {
+                return false;
+            }
+        });
+    }
 
 
+    checkRegister(data) {
+        console.log('register', data);
+        this.auth.register(data).subscribe((r: any) => {
+
+            console.log('reg', data);
+            if (r['status'] == 0) {
+                alert('Login/Password invalid');
+                return false;
+            }
+            alert('aa0');
+            // this.router.navigate(['']);
+            const el: HTMLElement = this.loginButt.nativeElement as HTMLElement;
+            el.click();
+        });
+    }
+
+    signOut(){
+        localStorage.removeItem('userInf');
+    }
 }
 
 

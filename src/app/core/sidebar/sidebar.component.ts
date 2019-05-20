@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {PostsService} from '../../services/posts.service';
 
 @Component({
     selector: 'app-sidebar',
@@ -7,35 +8,39 @@ import {Component, OnInit} from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-    constructor() {
+    changeInfo = {name: 'John Doe', email: '', password: ''};
+    name = true;
+    email = false;
+    pass = false;
+
+    constructor(private auth: PostsService) {
     }
 
     ngOnInit() {
     }
 
-    editText(el) {
-        switch (el) {
-            case 'pass':
-                if (this['pass'] == false) {
-                    this['pass'] = true;
-                } else {
-                    this['pass'] = false;
-                }
-                break;
-            case 'email':
-                if (this['email'] === false) {
-                    this['email'] = true;
-                } else {
-                    this['email'] = false;
-                }
-                break;
-            case 'name':
-                if (this['name'] == false) {
-                    this['name'] = true;
-                } else {
-                    this['name'] = false;
-                }
-                break;
-        }
+    changeInfoFunc(data) {
+        console.log('USER INFO', data);
+        this.auth.updateUserInfo(data).subscribe((r: any) => {
+            console.log('USER INFO12212', data);
+
+            console.log(r);
+            if (r[status] === 0) {
+                console.log('aa');
+                return false;
+            }
+            localStorage.setItem('userInf', JSON.stringify(r['result']));
+        });
+    }
+
+    editText() {
+        this.name = !this.name;
+        this.email = !this.email;
+        this.pass = !this.pass;
+        console.log(this.name);
+    }
+
+    saveInfo() {
+        this.changeInfoFunc({name: this.changeInfo.name, email: this.changeInfo.email, pass: this.changeInfo.password});
     }
 }

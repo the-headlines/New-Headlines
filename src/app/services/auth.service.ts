@@ -1,5 +1,9 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {HttpHeaders} from '@angular/common/http';
+import {Post} from '../post';
+import {Observable} from 'rxjs';
+
 import * as Base from '../configs/config';
 
 @Injectable({
@@ -11,7 +15,7 @@ export class AuthService {
     }
 
     public testModels(data) {
-        return this.http.post(Base.url + '/login', data);
+        return this.http.post(Base.url + '/api/user/login', data);
     }
 
     public getPosts() {
@@ -19,17 +23,22 @@ export class AuthService {
     }
 
     public checkLogin(data) {
-        return this.http.post(Base.url + '/login', data);
+        let headers = new HttpHeaders().set('Authorization', 'token');
+        return this.http.post(Base.url + '/api/user/login', data, {headers});
     }
 
     public register(data) {
-        return this.http.post(Base.url + '/registration', data);
+        let headers = new HttpHeaders().set('Authorization', 'token');
+        return this.http.post(Base.url + '/api/user/signup', data, {headers});
     }
 
     public getContact(data) {
         return this.http.post(Base.url + '/contact_us', data);
     }
 
+    public getToken() {
+        return localStorage.getItem('token');
+    }
 }
 
 

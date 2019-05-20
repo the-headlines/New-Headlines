@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {AsideService} from "../../services/aside.service";
-import {Router} from "@angular/router";
+import {AsideService} from '../../services/aside.service';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-aside',
@@ -17,7 +17,6 @@ export class AsideComponent implements OnInit {
 
     ngOnInit() {
         this.getLasted();
-        console.log(this.lastet);
     }
 
     getSingle(id) {
@@ -26,17 +25,15 @@ export class AsideComponent implements OnInit {
 
     getLasted() {
         this.aside.getLasted().subscribe((data) => {
-            console.log(data);
             if (!data) {
                 return false;
-            }
-
-            if (!data['status'] && data['status'] == 0) {
+            } else if (!data['status'] && data['status'] == 0) {
                 alert('No data');
                 return false;
+            } else {
+                this.lastet = data;
+                return console.log('sss', this.lastet);
             }
-
-            this.lastet = data['result'];
         });
     }
 }

@@ -281,3 +281,27 @@
   justify-content: space-between;
   width: 90%;
 }
+
+.comments_or_question {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 50px;
+}
+
+.comments_or_question button {
+  width: auto !important;
+  border-radius: 10px;
+  box-shadow: 0 1px 9.7px 0.3px rgba(1, 2, 3, 0.11);
+  background-color: #3788c6;
+  border: unset;
+  color: white;
+  font-family: 'latoRegular';
+  font-size: 20px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: 1.6px;
+  margin-right: 20px;
+  margin-bottom: 44px;
+}

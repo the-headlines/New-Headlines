@@ -1,60 +1,64 @@
 <div class="posts_box">
-            <div class="sub_headline post_a_link">
-                <h2> Post a link</h2>
-                <select>
-                    <option value="">Choose a section</option>
-                    <option value="">Choose a section</option>
-                    <option value="">Choose a section</option>
-                </select>
-            </div>
-            <div class="choose_pic_or_link">
-                <mat-tab-group mat-.align-tabs="start">
-                    <mat-tab label="Choose a picture">
-                        <dropzone class="dropzone" [dropzone]="config" (error)="onUploadError($event)"
-                                  (success)="onUploadSuccess($event)" *ngIf="type === 'component'" [disabled]="disabled"
-                                  [message]="'Click or drag images here to upload'"
-                                  (init)="onUploadInit($event)"></dropzone>
-                        <div *ngIf="type === 'directive'" class="dropzone dropzone-container" [dropzone]="config"
-                             [disabled]="disabled" (init)="onUploadInit($event)" (error)="onUploadError($event)"
-                             (success)="onUploadSuccess($event)"></div>
+    <div class="sub_headline post_a_link">
+        <h2> Post a link</h2>
+        <select>
+            <option value="">Choose a section</option>
+            <option value="">Choose a section</option>
+            <option value="">Choose a section</option>
+        </select>
+    </div>
+    <div class="choose_pic_or_link">
+        <mat-tab-group mat-.align-tabs="start">
+            <mat-tab label="Choose a picture">
+                <dropzone class="dropzone" [dropzone]="config" (error)="onUploadError($event)"
+                          (success)="onUploadSuccess($event)" *ngIf="type === 'component'" [disabled]="disabled"
+                          [message]="'Click or drag images here to upload'"
+                          (init)="onUploadInit($event)"></dropzone>
+                <div *ngIf="type === 'directive'" class="dropzone dropzone-container" [dropzone]="config"
+                     [disabled]="disabled" (init)="onUploadInit($event)" (error)="onUploadError($event)"
+                     (success)="onUploadSuccess($event)"></div>
 
-                        <div class="description">
-                            <h3>Description</h3>
-                            <ckeditor [(ngModel)]="ckeditorContent">
-                                <ckbutton [name]="'saveButton'" [command]="'saveCmd'" (click)="save($event)"
-                                          [icon]="'save.png'" [label]="'Save Document'"
-                                          [toolbar]="'clipboard,1'"></ckbutton>
-                            </ckeditor>
-                        </div>
-                        <div class="post_or_cancel">
-                            <button class="blue">NSFW</button>
-                            <div>
-                                <a class="red">Cancel</a>
-                                <a routerLink="/posts/home-posts" class="blue" (click)="upload_files()">Post</a>
-                            </div>
-                        </div>
-                    </mat-tab>
-                    <mat-tab label="Link">
-                        <div class="link">
-                            <h3>Link</h3>
-                            <input type="text" placeholder="Enter post link">
-                        </div>
-                        <div class="description">
-                            <h3>Description</h3>
-                            <ckeditor [(ngModel)]="ckeditorContent">
-                                <ckbutton [name]="'saveButton'" [command]="'saveCmd'" (click)="save($event)"
-                                          [icon]="'save.png'" [label]="'Save Document'"
-                                          [toolbar]="'clipboard,1'"></ckbutton>
-                            </ckeditor>
-                        </div>
-                        <div class="post_or_cancel">
-                            <button class="blue">NSFW</button>
-                            <div>
-                                <a class="red">Cancel</a>
-                                <a routerLink="/posts/home-posts" class="blue" (click)="upload_files()">Post</a>
-                            </div>
-                        </div>
-                    </mat-tab>
-                </mat-tab-group>
-            </div>
-        </div>
+                <div class="description">
+                    <h3>Description</h3>
+                    <ckeditor>
+                        <ckbutton [name]="'saveButton'" [command]="'saveCmd'" (click)="save($event)" [icon]="'save.png'"
+                                  [label]="'Save Document'" [toolbar]="'clipboard,1'"></ckbutton>
+                    </ckeditor>
+                </div>
+                <div class="post_or_cancel">
+                    <button class="blue">NSFW</button>
+                    <div>
+                        <a class="red">Cancel</a>
+                        <a routerLink="/posts/home-posts" class="blue" (click)="upload_files($event)">Post</a>
+                    </div>
+                </div>
+
+                <button (click)="createPost()">Create Post</button>
+                {{newPost | async | json}}
+
+            </mat-tab>
+            <mat-tab label="Link">
+                <div class="link">
+                    <h3>Link</h3>
+                    <input type="text" placeholder="Enter post link">
+                </div>
+                <div class="description">
+                    <h3>Description</h3>
+                    <ckeditor>
+                        <ckbutton [name]="'saveButton'" [command]="'saveCmd'" (click)="save($event)"
+                                  [icon]="'save.png'" [label]="'Save Document'"
+                                  [toolbar]="'clipboard,1'">
+                        </ckbutton>
+                    </ckeditor>
+                </div>
+                <div class="post_or_cancel">
+                    <button class="blue">NSFW</button>
+                    <div>
+                        <a class="red">Cancel</a>
+                        <a routerLink="/posts/home-posts" class="blue" (click)="upload_files()">Post</a>
+                    </div>
+                </div>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+</div>

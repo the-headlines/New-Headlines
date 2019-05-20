@@ -11,6 +11,6 @@ export class AsideService {
     }
 
     public getLasted() {
-        return this.http.get(Base.url + '/lastet');
+        return this.http.get(Base.url + '/api/news?pagesize=100&page=1');
     }
 }
