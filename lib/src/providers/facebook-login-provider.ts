@@ -7,6 +7,7 @@ declare let FB: any;
 export class FacebookLoginProvider extends BaseLoginProvider {
 
     public static readonly PROVIDER_ID = 'FACEBOOK';
+
     constructor(
         private clientId: string,
         private opt: LoginOpt = { scope: 'email,public_profile' },

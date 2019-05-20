@@ -43,6 +43,18 @@
                     <div class="form-group">
                         <div class="example-full-width">
                             <mat-form-field class="login-inp">
+                                <mat-hint>Errors appear instantly!</mat-hint>
+                                <mat-error
+                                        *ngIf="userNameFormControl.hasError('name') && !userNameFormControl.hasError('required')">
+                                    Please enter a valid email address
+                                </mat-error>
+                                <mat-error *ngIf="userNameFormControl.hasError('required')">
+                                    Name is <strong>required</strong>
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
                                 <input matInput type="password" placeholder="Password" [formControl]="passFormControl"
                                        [errorStateMatcher]="matcher" name="pass" [(ngModel)]="userRegisInf.password">
                                 <mat-hint>Errors appear instantly!</mat-hint>
@@ -51,8 +63,26 @@
                                 </mat-error>
                             </mat-form-field>
                         </div>
+
                     </div>
 
+                    <!--<div class="form-group">-->
+                        <!--<div class="example-full-width">-->
+                            <!--<mat-form-field class="login-inp">-->
+                                <!--<input matInput type="password" placeholder="Confirm Password"-->
+                                       <!--[formControl]="confPassFormControl"-->
+                                       <!--[errorStateMatcher]="matcher" name="confPass"-->
+                                       <!--[(ngModel)]="userRegisInf.confPass">-->
+                                <!--<mat-hint>Errors appear instantly!</mat-hint>-->
+                                <!--<mat-error *ngIf="confPassFormControl.hasError('required')">-->
+                                    <!--Password is <strong>required</strong>-->
+                                <!--</mat-error>-->
+                            <!--</mat-form-field>-->
+                        <!--</div>-->
+                    <!--</div>-->
+
+                    <button
+                            [disabled]="passFormControl.hasError('required') || (emailFormControl.hasError('email') || emailFormControl.hasError('required'))"
                     <button [disabled]="passFormControl.hasError('required') || (emailFormControl.hasError('email') || emailFormControl.hasError('required'))"
                             mat-raised-button (click)="checkRegister(userRegisInf)" color="primary">Register
                     </button>
