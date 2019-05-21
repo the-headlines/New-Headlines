@@ -79,6 +79,3 @@ export class RegisterComponent implements OnInit {
         localStorage.removeItem('userInf');
     }
 }
-
-
-
