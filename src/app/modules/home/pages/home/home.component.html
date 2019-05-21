@@ -9,7 +9,7 @@
                 <div class="item">
                     <div class="text-block">
                         <div class="description">
-                            <h5 class="title" (click)="getSingle()">
+                            <h5 class="title">
                                 POLITICS, BUSINESS AND GENERAL NEWS
                             </h5>
                             <p class="text">
@@ -30,7 +30,7 @@
                     <div class="loop_items item" *ngFor="let single of posts.news">
                         <div class="img-block">
                             <!-- <img src="../uploads/images/{{single.img}}" class="img-fluid" alt="">-->
-                            <img src="{{single.extractedImage}}" class="img-fluid" alt="">
+                            <img src="{{single.extractedImage}}" class="img-fluid" alt="" (click)="getSingle()">
                             <ul class="view-icons-block">
                                 <li>
                                     <a href="" class="score"> Score <span>200</span></a>
