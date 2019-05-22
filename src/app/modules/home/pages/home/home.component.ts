@@ -144,25 +144,7 @@ export class HomeComponent implements OnInit {
             return false;
         }
         return true;
-    }
-        this.router.navigate(['/post', id]);
-    }
-
-    checkUser() {
-        let userLoggedIn = localStorage.getItem('userInf');
-        if (typeof userLoggedIn === 'undefined') {
-            return false;
-        }
-
-        let userInf = JSON.parse(userLoggedIn);
-
-        if (userInf == null) {
-            return false;
-        } else if (userInf[userInf] === '') {
-            return false;
-        }
-        return true;
-    }
+    };
 
     getVoice() {
         this.home.getVoiceValue().subscribe((data) => {
@@ -182,7 +164,7 @@ export class HomeComponent implements OnInit {
             this.messages = data;
             return this.messages;
         });
-    }
+    };
 
 
     logMessageId(el) {
@@ -208,6 +190,4 @@ export class HomeComponent implements OnInit {
             return this.messages;
         });
     }
-
->>>>>>> login register
 }
