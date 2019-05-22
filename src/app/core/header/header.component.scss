@@ -111,6 +111,15 @@ img {
   padding: 0;
 }
 
+
+.logo a img {
+  width: 100%;
+}
+
+.search_box {
+  width: 60%;
+}
+
 header {
   margin-bottom: 100px;
 
@@ -145,7 +154,15 @@ header {
         width: 100%;
         margin: 10px 20px;
         text-align: center;
-        color: #3788c6;
+        color: black;
+        font-family: 'BrandonText-RegularItalic';
+        font-size: 17px;
+
+        span{
+          color: #bfbfbe;
+          font-family: 'BrandonText-RegularItalic';
+          font-size: 25px;
+        }
       }
 
       & > div {
@@ -155,10 +172,10 @@ header {
         justify-content: space-between;
 
         a {
-          width: 50%;
+          width: 17%;
 
           img {
-            width: 70%;
+            width: 100%;
           }
         }
       }

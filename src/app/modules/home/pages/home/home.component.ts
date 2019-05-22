@@ -3,6 +3,7 @@ import {HomeService} from '../../../../services/home.service';
 import * as Base from '../../../../configs/config.js';
 import {Router} from '@angular/router';
 import {CookieService} from 'ngx-cookie-service';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
     selector: 'app-home',
@@ -13,9 +14,22 @@ import {CookieService} from 'ngx-cookie-service';
 export class HomeComponent implements OnInit {
 
     private _sessionId: string;
+    posts: any = [];
+    base = Base.imgPath;
+    userLoggedIn: any = [];
+    pageCount = 3;
+    start = 0;
+    count = 0;
+    pages = [];
+    messages: any = [];
+    ipAddress: any;
 
-    constructor(private home: HomeService, private router: Router, private cs: CookieService) {
+    constructor(private home: HomeService, private router: Router, private cs: CookieService, private http: HttpClient) {
         this._sessionId = cs.get('sessionId');
+        this.http.get<{ ip: string }>('https://jsonip.com').subscribe(data => {
+            console.log('th data', data);
+            this.ipAddress = data;
+        });
     }
 
     public set sessionId(value: string) {
@@ -23,104 +37,32 @@ export class HomeComponent implements OnInit {
         this.cs.set('sessionId', value);
     }
 
-    posts: any = [];
-    base = Base.imgPath;
-    userLoggined: any = [];
-    pageCount = 3;
-    start = 0;
-    /*  postData: any = [];*/
-    count = 0;
-    pages = [];
-
-    messages: any = [];
-
-    getVoice() {
-        this.home.getVoiceValue().subscribe((data) => {
-
-            if (!data) {
-                return false;
-            }
-
-            if (!data[status] && data[status] === 0) {
-                alert('No data');
-                return false;
-            }
-
-            /*  this.postData = data;*/
-            this.count = data['count'];
-            this.pagimate(data);
-            this.messages = data;
-            return this.messages;
-        });
-    }
-
-    // messages = [
-    //     {
-    //         id: 'like',
-    //         text: 'Like'
-    //     },
-    //     {
-    //         id: 'important',
-    //         text: 'Important'
-    //     },
-    //     {
-    //         id: 'interesting',
-    //         text: 'Interesting'
-    //     }
-    // ];
-
-    logMessageId(el) {
-        let messageId = el.getAttribute('data-message-id');
-        //let messageId = el.dataset.messageId;
-        console.log('Message Id: ', messageId);
-
-        this.home.setVoiceValue(el).subscribe((data) => {
-
-            if (!data) {
-                return false;
-            }
-
-            if (!data[status] && data[status] === 0) {
-                alert('No data');
-                return false;
-            }
-
-            /*  this.postData = data;*/
-            this.count = data['count'];
-            this.pagimate(data);
-            this.messages = data;
-            return this.messages;
-        });
-    }
-
     ngOnInit() {
 
         if (this.checkUser()) {
-            this.userLoggined = JSON.parse(localStorage.getItem('userInf'));
+            this.userLoggedIn = JSON.parse(localStorage.getItem('userInf'));
         }
 
         this.get();
 
         this.cs.set('Test', 'Hello World');
         console.log(this.cs.get('Test'));
-
-        this.getVoice();
     }
 
     //cookies
-    setCookie() {
-        alert(this.cs.set('test', 'testing cookie', 12));
-    }
+    // setCookie() {
+    //     localStorage.setItem('key', 'value');
+    //     alert(this.cs.set('ipAddress.ip', "0", 12));
+    // }
+    //
+    // getCookie() {
+    //     alert(this.cs.get('ipAddress.ip'));
+    // }
+    //
+    // delCookie() {
+    //     alert(this.cs.deleteAll('test'));
+    // }
 
-    getCookie() {
-        alert(this.cs.get('test'));
-    }
-
-    delCookie() {
-        alert(this.cs.deleteAll('test'));
-    }
-
-    // vote = {like: false, important: false, interesting: false};
 
     get() {
         this.home.getData().subscribe((data) => {
@@ -203,4 +145,69 @@ export class HomeComponent implements OnInit {
         }
         return true;
     }
+        this.router.navigate(['/post', id]);
+    }
+
+    checkUser() {
+        let userLoggedIn = localStorage.getItem('userInf');
+        if (typeof userLoggedIn === 'undefined') {
+            return false;
+        }
+
+        let userInf = JSON.parse(userLoggedIn);
+
+        if (userInf == null) {
+            return false;
+        } else if (userInf[userInf] === '') {
+            return false;
+        }
+        return true;
+    }
+
+    getVoice() {
+        this.home.getVoiceValue().subscribe((data) => {
+
+            if (!data) {
+                return false;
+            }
+
+            if (!data[status] && data[status] === 0) {
+                alert('No data');
+                return false;
+            }
+
+            /*  this.postData = data;*/
+            this.count = data['count'];
+            this.pagimate(data);
+            this.messages = data;
+            return this.messages;
+        });
+    }
+
+
+    logMessageId(el) {
+        let messageId = el.getAttribute('data-message-id');
+        //let messageId = el.dataset.messageId;
+        console.log('Message Id: ', messageId);
+
+        this.home.setVoiceValue(el).subscribe((data) => {
+
+            if (!data) {
+                return false;
+            }
+
+            if (!data[status] && data[status] === 0) {
+                alert('No data');
+                return false;
+            }
+
+            /*  this.postData = data;*/
+            this.count = data['count'];
+            this.pagimate(data);
+            this.messages = data;
+            return this.messages;
+        });
+    }
+
+>>>>>>> login register
 }

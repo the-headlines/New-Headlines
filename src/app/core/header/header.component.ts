@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {ModalDialog} from '../../modules/home/components/libs/modal.dialog';
 import {MatDialog} from '@angular/material';
 import {SocialUser} from 'angularx-social-login';
-
+import {AuthService} from 'angularx-social-login';
 
 @Component({
     selector: 'app-header',
@@ -11,9 +11,9 @@ import {SocialUser} from 'angularx-social-login';
 })
 
 export class HeaderComponent implements OnInit {
-
     private user: SocialUser;
     @ViewChild('closest') closest: ElementRef;
+
     constructor(private dialog: MatDialog, private authService: AuthService) {
     }
 
@@ -36,9 +36,7 @@ export class HeaderComponent implements OnInit {
 
         if (userInf == null) {
             return false;
-        }
-
-        else if (userInf['admin_session_inf'] == '') {
+        } else if (userInf['admin_session_inf'] == '') {
             return false;
         }
 

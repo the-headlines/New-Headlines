@@ -61,10 +61,11 @@
                     <a routerLink="/home">
                         <img src="../../../assets/images/logo_white_background.jpg" alt="">
                     </a>
-                    <div>
-                        <p>Not the headlines is a social news network where anyone can post any link and headlines are decided by readers using voting indicators.</p>
+                    <div class="search_box">
+                        <p>Readers decide "The Headlines"  <span>more... </span></p>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Search" aria-label="search" aria-describedby="basic-addon1">
+                            <input type="text" class="form-control" placeholder="Search" aria-label="search"
+                                   aria-describedby="basic-addon1">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1"><i class="fas fa-search"></i></span>
                             </div>
@@ -72,12 +73,6 @@
                     </div>
                 </div>
                 <ul>
-                    <li>
-                        <form id="content">
-                            <input type="text" name="input" class="input">
-                            <button type="reset" class="search"></button>
-                        </form>
-                    </li>
                     <li class="post" ng-class="{ active: isActive('/posts') }">
                         <a *ngIf="!checkUser()" mat-button (click)="showLogin()">post</a>
                         <a *ngIf="checkUser()" routerLink="/posts/home-posts" mat-button>post</a>

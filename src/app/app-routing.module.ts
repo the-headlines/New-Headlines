@@ -7,10 +7,12 @@ import {FeedbackComponent} from './modules/home/pages/feedback/feedback.componen
 import {PicturesComponent} from './modules/home/pages/pictures/pictures.component';
 import {VideoComponent} from './modules/home/pages/video/video.component';
 import {SinglePostComponent} from './modules/home/pages/single-post/single-post.component';
+import {RoadComponent} from './modules/home/pages/road/road.component';
 
 const routes: Routes = [
     {path: '', component: HomeComponent},
     {path: 'home', component: HomeComponent},
+    {path: 'road', component: RoadComponent},
     {path: 'commerce', component: CommerceComponent},
     {path: 'deals', component: DealsComponent},
     {path: 'feedback', component: FeedbackComponent},

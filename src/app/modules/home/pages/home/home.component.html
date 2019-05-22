@@ -1,3 +1,4 @@
+<script src="../../../../app.component.ts"></script>
 <app-header></app-header>
 <div class="content">
     <div class="row">
@@ -19,18 +20,17 @@
                         <div class="filter">
                             <span>filters:</span>
                             <ul class="menu">
-                                <li class="orange"><a href="">all</a></li>
-                                <li class="yellow"><a href="">Should be in Headlines</a></li>
-                                <li class="gray"><a href="">Important</a></li>
+                                <li class="orange"><a href="">New</a></li>
+                                <li class="yellow"><a href="">Score</a></li>
+                                <li class="gray"><a href="">important</a></li>
                                 <li class="blue"><a href="">Interesting</a></li>
-                                <li class="op-blue"><a href="">Great</a></li>
+                                <li class="op-blue"><a href="">Questions</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="loop_items item" *ngFor="let single of posts.news">
                         <div class="img-block">
-                            <!-- <img src="../uploads/images/{{single.img}}" class="img-fluid" alt="">-->
-                            <img src="{{single.extractedImage}}" class="img-fluid" alt="" (click)="getSingle()">
+                            <img src="{{single.extractedImage}}" class="img-fluid" alt="" (click)="getSingle(1)">
                             <ul class="view-icons-block">
                                 <li>
                                     <a href="" class="score"> Score <span>200</span></a>
@@ -45,27 +45,24 @@
                                                     {{ message.text }}
                                                 </span>
                                             </li>
-                                            <!--<li>-->
-                                            <!--<button class="op-blue" (click)="setVote()" [(ngModel)]="vote.like">Like</button>-->
-                                            <!--</li>-->
-                                            <!--<li>-->
-                                            <!--<button class="gray" (click)="setVote()" [(ngModel)]="vote.important">-->
-                                            <!--Important-->
-                                            <!--</button>-->
-                                            <!--</li>-->
-                                            <!--<li>-->
-                                            <!--<button class="blue" (click)="setVote()" [(ngModel)]="vote.interesting">-->
-                                            <!--Interesting-->
-                                            <!--</button>-->
-                                            <!--</li>-->
+                                            <li>
+                                                <button class="op-blue" (click)="getVoice()">Like</button>
+                                            </li>
+                                            <li>
+                                                <button class="gray" (click)="getVoice()">Important</button>
+                                            </li>
+                                            <li>
+                                                <button class="blue" (click)="getVoice()">Interesting</button>
+                                            </li>
                                         </ul>
                                     </div>
                                 </li>
                                 <li>
                                     <a href="">View
                                         <span id='views'>
-                                    <span>{{single.views}}</span>
-                                </span>
+                                            <span>
+                                            {{single.views}}</span>
+                                        </span>
                                     </a>
                                 </li>
                                 <li>
@@ -99,8 +96,8 @@
     </div>
 </div>
 
-<button (click)="getCookie()">Get Cookies</button>
-<button (click)="setCookie()">Set Cookies</button>
-<button (click)="delCookie()">Delete Cookies</button>
+<!--<button (click)="getCookie()">Get Cookies</button>-->
+<!--<button (click)="setCookie()">Set Cookies</button>-->
+<!--<button (click)="delCookie()">Delete Cookies</button>-->
 
 <app-footer></app-footer>

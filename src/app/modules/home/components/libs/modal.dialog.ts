@@ -3,7 +3,6 @@ import {LoginComponent} from '../login/login.component';
 
 export class ModalDialog {
 
-
     public static openDialog(page, dialog) {
 
         if (page == 2) {
@@ -12,6 +11,5 @@ export class ModalDialog {
         } else {
             dialog.open(LoginComponent);
         }
-
     }
 }

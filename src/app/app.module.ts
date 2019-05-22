@@ -48,7 +48,7 @@ import {FaceLoginComponent} from './modules/home/components/face-login/face-logi
 import {OwlCarouselComponent} from './core/owl-carousel/owl-carousel.component';
 import {TokenInterceptorService} from './services/token-interceptor.service';
 import {CookieService} from 'ngx-cookie-service';
-
+import {RoadComponent} from './modules/home/pages/road/road.component';
 
 const config = new AuthServiceConfig([
     {
@@ -81,17 +81,17 @@ export function provideConfig() {
         PostsComponent,
         SidebarComponent,
         FaceLoginComponent,
-        OwlCarouselComponent
+        OwlCarouselComponent,
+        RoadComponent
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         BrowserAnimationsModule,
         MatButtonModule,
-        MatToolbarModule,
-        MatListModule,
         MatDialogModule,
-        FlexLayoutModule,
+        MatListModule,
+        MatToolbarModule,
         FormsModule, ReactiveFormsModule,
         HttpClientModule,
         MatTreeModule,
