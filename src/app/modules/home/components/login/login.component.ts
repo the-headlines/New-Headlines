@@ -2,7 +2,6 @@ import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {AuthService} from '../../../../services/auth.service';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
-import {Router} from '@angular/router';
 import {ModalDialog} from '../libs/modal.dialog';
 import {MatDialog} from '@angular/material';
 
@@ -22,7 +21,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 export class LoginComponent implements OnInit {
   @ViewChild('closest') closest: ElementRef;
 
-  constructor(private auth: AuthService, private router: Router, private matDialog: MatDialog) {
+  constructor(private auth: AuthService, private matDialog: MatDialog) {
   }
 
 
@@ -59,20 +58,6 @@ export class LoginComponent implements OnInit {
 
 
   checkLogin(data) {
-    data.loginned = true;
-    this.auth.checkLogin(data).subscribe((r: any) => {
-
-      console.log(r);
-      if (r['status'] == 0) {
-        console.log('aa');
-        alert('Login/Password invalid');
-        return false;
-      }
-
-      localStorage.setItem('userInf', JSON.stringify(r['result']));
-      //this.router.navigate(['']);
-      let el: HTMLElement = this.closest.nativeElement as HTMLElement;
-      el.click();
-    });
+    this.auth.login(data.email, data.pass, this.matDialog);
   }
 }

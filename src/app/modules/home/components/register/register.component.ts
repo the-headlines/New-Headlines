@@ -1,11 +1,11 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {AuthService} from '../../../../services/auth.service';
-import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
-import {ErrorStateMatcher} from '@angular/material/core';
-import {Router} from '@angular/router';
-import {ModalDialog} from '../libs/modal.dialog';
-import {MatDialog} from '@angular/material';
-
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../../../services/auth.service';
+import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import { ErrorStateMatcher } from '@angular/material/core';
+import { Router } from '@angular/router';
+import { ModalDialog } from '../libs/modal.dialog';
+import { MatDialog } from '@angular/material';
+  
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
     const isSubmitted = form && form.submitted;
@@ -20,10 +20,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 })
 
 export class RegisterComponent implements OnInit {
-  @ViewChild('loginButt') loginButt: ElementRef;
-
-  constructor(private auth: AuthService, private router: Router, private matDialog: MatDialog) {
-  }
+  constructor(private auth: AuthService, private router: Router, private matDialog: MatDialog) {}
 
   ngOnInit() {
     //this.get();
@@ -60,23 +57,19 @@ export class RegisterComponent implements OnInit {
 
   matcher = new MyErrorStateMatcher();
 
-  userRegisInf = {name: '', email: '', pass: '', confPass: ''};
+  userRegisInf = { name: '', email: '', pass: '', confPass: '' };
 
   checkRegister(data) {
-    data.loginned = true;
-    this.auth.register(data).subscribe((r: any) => {
-
-      console.log(r);
-      if (r['status'] == 0) {
-        console.log('aa');
-        alert('Login/Password invalid');
-        return false;
+    this.auth.createUser(data.name, data.email, data.pass).subscribe(
+      response => {
+        this.matDialog.closeAll();
+        //Show the user name on the top and hide the login/register button.
+      },
+      error => {
+        console.log("Registration error: " + error.error["message"]);
+        //Show alert
       }
-      console.log(this.loginButt);
-      //this.router.navigate(['']);
-      let el: HTMLElement = this.loginButt.nativeElement as HTMLElement;
-      el.click();
-    });
+    );
   }
 }
 
