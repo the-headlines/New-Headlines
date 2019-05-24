@@ -13,7 +13,6 @@
                 <form action="" method="post">
                     <div class="form-group">
                         <div class="example-full-width">
-
                             <mat-form-field class="login-inp">
                                 <input matInput placeholder="Email" [formControl]="emailFormControl"
                                        [errorStateMatcher]="matcher" name="email" [(ngModel)]="userLoginInf.email">
@@ -45,24 +44,6 @@
                             mat-raised-button (click)="checkLogin(userLoginInf)" color="primary">Login
                     </button>
                 </form>
-
-                <!--<form action="">-->
-                <!--<div class="form_group">-->
-                <!--<label for="email_address"></label>-->
-                <!--<input type="text" id="email_address" placeholder="Email Address" >-->
-                <!--</div>-->
-                <!--<div class="form_group">-->
-                <!--<label for="pass" class="sr-only"></label>-->
-                <!--<input type="text" id="pass" placeholder="Password">-->
-                <!--</div>-->
-                <!--<div class="form_group">-->
-                <!--<label class="check_container">Remember me?-->
-                <!--<input type="checkbox" checked="checked">-->
-                <!--<span class="checkmark"></span>-->
-                <!--</label>-->
-                <!--</div>-->
-                <!--<button class="login"> Login</button>-->
-                <!--<a href="#" class="forgot_pass">Forgot Password?</a>-->
                 <div class="have_account">
                     <button class="dont_have_account" mat-dialog-close mat-button (click)="showLogin()">Don’t have an
                         account yet?
