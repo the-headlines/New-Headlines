@@ -41,11 +41,16 @@
 }
 
 @font-face {
+  font-family: 'BrandonText-RegularItalic';
+  src: url("/assets/fonts/HVD Fonts - BrandonText-RegularItalic.otf");
+}
+
+@font-face {
   font-family: 'BrandonText-Bold';
   src: url("/assets/fonts/HVD Fonts - BrandonText-Bold.otf");
 }
 
-.modal-body .mat-input-element{
+.modal-body .mat-input-element {
   height: 47px;
   border: solid 1px #959595;
   background-color: #ffffff;
@@ -53,6 +58,7 @@
   /* margin: 0 auto 24px; */
   padding: 0 20px;
 }
+
 .cdk-overlay-container {
   z-index: 999999;
 }
@@ -555,6 +561,18 @@ header {
 .logo a {
   text-transform: uppercase;
 }
+
+
+.logo p {
+  font-family: 'BrandonText-RegularItalic';
+  font-size: 17px;
+}
+
+.logo p span {
+  font-family: 'BrandonText-RegularItalic';
+  font-size: 17px;
+}
+
 
 .menu .burger {
   display: none;
@@ -1801,7 +1819,7 @@ a:hover {
   color: red;
 }
 
-.view-icons-block a:hover{
+.view-icons-block a:hover {
   text-decoration: none;
   transition: 1000ms;
 }
@@ -1810,7 +1828,7 @@ a:hover {
   width: 60%;
 }
 
-.mat-form-field-appearance-legacy .mat-form-field-infix{
+.mat-form-field-appearance-legacy .mat-form-field-infix {
   padding: 0 !important;
 }
 
