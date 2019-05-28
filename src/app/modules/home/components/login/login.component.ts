@@ -13,6 +13,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     }
 }
 
+
 @Component({
     selector: 'app-login',
     templateUrl: './login.component.html',
@@ -21,7 +22,6 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 
 export class LoginComponent implements OnInit {
     @ViewChild('closest') closest: ElementRef;
-
 
     emailFormControl = new FormControl('', [
         Validators.required,

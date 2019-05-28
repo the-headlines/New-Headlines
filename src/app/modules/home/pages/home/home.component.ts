@@ -164,8 +164,7 @@ export class HomeComponent implements OnInit {
             this.messages = data;
             return this.messages;
         });
-    };
-
+    }
 
     logMessageId(el) {
         let messageId = el.getAttribute('data-message-id');

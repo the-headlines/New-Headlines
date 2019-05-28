@@ -18,6 +18,10 @@ export class HomeService {
         return this.http.get(Base.url + '/api/news/CameraPictures?pagesize=100&page=1');
     }
 
+    getRoadToFame() {
+        return this.http.get(Base.url + '/api/news/RoadToFame?pagesize=100&page=1');
+    }
+
     getDeals() {
         return this.http.get(Base.url + '/api/news/FantasticDeals?pagesize=100&page=1');
     }

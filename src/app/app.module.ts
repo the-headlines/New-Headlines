@@ -49,6 +49,11 @@ import {OwlCarouselComponent} from './core/owl-carousel/owl-carousel.component';
 import {TokenInterceptorService} from './services/token-interceptor.service';
 import {CookieService} from 'ngx-cookie-service';
 import {RoadComponent} from './modules/home/pages/road/road.component';
+import {ShareButtonModule} from '@ngx-share/button';
+import {ShareButtonsModule} from '@ngx-share/buttons';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import {library} from '@fortawesome/fontawesome-svg-core';
+import {faCoffee} from '@fortawesome/free-solid-svg-icons';
 
 const config = new AuthServiceConfig([
     {
@@ -109,11 +114,16 @@ export function provideConfig() {
         FlexLayoutModule,
         FacebookModule.forRoot(),
         CarouselModule,
+        ShareButtonModule,
+        FontAwesomeModule,
+        ShareButtonsModule.withConfig({
+            debug: true
+        })
     ],
     providers: [{
         provide: AuthServiceConfig,
         useFactory: provideConfig
-    },CookieService,
+    }, CookieService,
         {
             provide: HTTP_INTERCEPTORS,
             useClass: TokenInterceptorService,
@@ -124,4 +134,8 @@ export function provideConfig() {
     entryComponents: [LoginComponent, RegisterComponent],
 })
 export class AppModule {
+    constructor() {
+        // Add an icon to the library for convenient access in other components
+        library.add(faCoffee);
+    }
 }

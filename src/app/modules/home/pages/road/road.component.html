@@ -5,12 +5,13 @@
             <div class="carusel-block">
                 <app-owl-carousel></app-owl-carousel>
             </div>
+
             <div class="news-block carusel-block">
                 <div class="item">
                     <div class="text-block">
                         <div class="description">
                             <h5 class="title">
-                                POLITICS, BUSINESS AND GENERAL NEWS
+                                Cinema, MUSIC AND SPORTS NEWS
                             </h5>
                             <p class="text">
                                 Read latest stories
@@ -27,68 +28,72 @@
                             </ul>
                         </div>
                     </div>
-<!--                    <div class="loop_items item" *ngFor="let single of posts.news">-->
-<!--                        <div class="img-block">-->
-<!--                            <img src="{{single.extractedImage}}" class="img-fluid" alt="" (click)="getSingle(1)">-->
-<!--                            <ul class="view-icons-block">-->
-<!--                                <li>-->
-<!--                                    <a href="" class="score"> Score <span>200</span></a>-->
-<!--                                </li>-->
-<!--                                <li class="like_btn">-->
-<!--                                    <a class="like_post_btn">Like</a>-->
-<!--                                    <div class="vote_news">-->
-<!--                                        <ul>-->
-<!--                                            <li #messageEl *ngFor="let message of messages"-->
-<!--                                                [attr.data-message-id]="message.id" (click)="logMessageId(messageEl)">-->
-<!--                                                <span class="op-blue">-->
-<!--                                                    {{ message.text }}-->
-<!--                                                </span>-->
-<!--                                            </li>-->
-<!--                                            <li>-->
-<!--                                                <button class="op-blue" (click)="getVoice()">Like</button>-->
-<!--                                            </li>-->
-<!--                                            <li>-->
-<!--                                                <button class="gray" (click)="getVoice()">Important</button>-->
-<!--                                            </li>-->
-<!--                                            <li>-->
-<!--                                                <button class="blue" (click)="getVoice()">Interesting</button>-->
-<!--                                            </li>-->
-<!--                                        </ul>-->
-<!--                                    </div>-->
-<!--                                </li>-->
-<!--                                <li>-->
-<!--                                    <a href="">View-->
-<!--                                        <span id='views'>-->
-<!--                                            <span>-->
-<!--                                            {{single.views}}</span>-->
-<!--                                        </span>-->
-<!--                                    </a>-->
-<!--                                </li>-->
-<!--                                <li>-->
-<!--                                    <a href="">Comments<span>20</span></a>-->
-<!--                                </li>-->
-<!--                                <li>-->
-<!--                                    <a href="">Questions<span>20</span></a>-->
-<!--                                </li>-->
-<!--                                <li>-->
-<!--                                    <span>-->
-<!--                                        &lt;!&ndash;<fb-like></fb-like>&ndash;&gt;-->
-<!--                                    </span>-->
-<!--                                </li>-->
-<!--                            </ul>-->
-<!--                        </div>-->
-<!--                        <div class="text-block">-->
-<!--                            <p>{{single.extractedDescription}}</p>-->
-<!--                        </div>-->
-<!--                    </div>-->
+                    <div class="loop_items item" *ngFor="let single of posts.news">
+                        <div class="img-block">
+                            <img src="{{single.extractedImage}}" class="img-fluid" alt="" (click)="getSingle(1)">
+                            <ul class="view-icons-block">
+                                <li>
+                                    <a href="" class="score"> Score <span>200</span></a>
+                                </li>
+                                <li class="like_btn">
+                                    <a class="like_post_btn">Like</a>
+                                    <div class="vote_news">
+                                        <ul>
+                                            <li #messageEl *ngFor="let message of messages"
+                                                [attr.data-message-id]="message.id" (click)="logMessageId(messageEl)">
+                                                <span class="op-blue">
+                                                    {{ message.text }}
+                                                </span>
+                                            </li>
+                                            <li>
+                                                <button class="op-blue" (click)="getVoice()">Like</button>
+                                            </li>
+                                            <li>
+                                                <button class="gray" (click)="getVoice()">Important</button>
+                                            </li>
+                                            <li>
+                                                <button class="blue" (click)="getVoice()">Interesting</button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="">View
+                                        <span id='views'>
+                                            <span>
+                                            {{single.views}}</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">Comments<span>20</span></a>
+                                </li>
+                                <li>
+                                    <a href="">Questions<span>20</span></a>
+                                </li>
+                                <li>
+                                    <span>
+                                        Share
+
+                                        <div class="share_social_links">
+                                            <app-share-buttons theme="material-dark" show="11" image="https://loremflickr.com/320/240"></app-share-buttons>
+                                        </div>
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="text-block">
+                            <p>{{single.extractedDescription}}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="pagination-block">
-<!--                <ul>-->
-<!--                    <li *ngFor="let paginateSingle of pages">-->
-<!--                        <a data-id="{{paginateSingle}}" (click)="nextPage($event)">{{ paginateSingle }}</a>-->
-<!--                    </li>-->
-<!--                </ul>-->
+                <ul>
+                    <li *ngFor="let paginateSingle of pages">
+                        <a data-id="{{paginateSingle}}" (click)="nextPage($event)">{{ paginateSingle }}</a>
+                    </li>
+                </ul>
             </div>
         </section>
         <app-aside class="col-md-5"></app-aside>

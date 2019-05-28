@@ -36,7 +36,7 @@
                                     <a href="" class="score"> Score <span>200</span></a>
                                 </li>
                                 <li class="like_btn">
-                                    <a class="like_post_btn">Like</a>
+                                    <a class="like_post_btn"><i class="fas fa-thumbs-up"></i> Like</a>
                                     <div class="vote_news">
                                         <ul>
                                             <li #messageEl *ngFor="let message of messages"
@@ -66,15 +66,20 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="">Comments<span>20</span></a>
+                                    <a href=""> <i class="far fa-comment"></i> Comments<span>20</span></a>
                                 </li>
                                 <li>
                                     <a href="">Questions<span>20</span></a>
                                 </li>
                                 <li>
-                                    <span>
-                                        <!--<fb-like></fb-like>-->
-                                    </span>
+                                    <div class="like_btn share_btn">
+                                        <a href="" class="like_post_btn">
+                                            <i class="fas fa-share"></i> <span>Share</span>
+                                        </a>
+                                        <span class=" vote_news">
+                                            <share-buttons theme="modern-dark" [show]="4" [showCount]="true"></share-buttons>
+                                        </span>
+                                    </div>
                                 </li>
                             </ul>
                         </div>

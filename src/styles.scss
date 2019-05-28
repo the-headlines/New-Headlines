@@ -4,6 +4,7 @@
 @import "~primeng/resources/primeng.min.css";
 @import '~ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
 @import '~ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+@import '~@ngx-share/button/themes/default/default-theme';
 
 @font-face {
   font-family: 'latoRegular';
@@ -370,7 +371,7 @@ ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 50%;
+  width: 100%;
   margin: 20px 0;
   text-transform: capitalize;
 }
@@ -774,7 +775,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 70%;
+  width: 100%;
   margin: 20px 0;
   text-transform: capitalize;
 }
@@ -787,6 +788,14 @@ header {
 
 .view-icons-block img {
   margin-right: 10px;
+}
+
+.share_btn:hover .vote_news {
+  opacity: 1;
+  transition: 1000ms;
+  top: -140px;
+  width: 500px;
+  z-index: 9999;
 }
 
 .pagination-block {
