@@ -49,8 +49,8 @@ import {OwlCarouselComponent} from './core/owl-carousel/owl-carousel.component';
 import {TokenInterceptorService} from './services/token-interceptor.service';
 import {CookieService} from 'ngx-cookie-service';
 import {RoadComponent} from './modules/home/pages/road/road.component';
-import {ShareButtonModule} from '@ngx-share/button';
 import {ShareButtonsModule} from '@ngx-share/buttons';
+import {ShareButtonModule} from '@ngx-share/button';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {faCoffee} from '@fortawesome/free-solid-svg-icons';
@@ -114,8 +114,8 @@ export function provideConfig() {
         FlexLayoutModule,
         FacebookModule.forRoot(),
         CarouselModule,
-        ShareButtonModule,
         FontAwesomeModule,
+        ShareButtonModule,
         ShareButtonsModule.withConfig({
             debug: true
         })

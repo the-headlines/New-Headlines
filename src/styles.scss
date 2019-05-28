@@ -5,6 +5,7 @@
 @import '~ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
 @import '~ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
 @import '~@ngx-share/button/themes/default/default-theme';
+@import "~@ngx-share/button/themes/modern/modern-dark-theme";
 
 @font-face {
   font-family: 'latoRegular';
@@ -793,7 +794,13 @@ header {
 .share_btn:hover .vote_news {
   opacity: 1;
   transition: 1000ms;
-  top: -140px;
+  top: -60px;
+  width: 500px;
+  z-index: 9999;
+}
+
+.share_btn .vote_news {
+  top: -60px;
   width: 500px;
   z-index: 9999;
 }
