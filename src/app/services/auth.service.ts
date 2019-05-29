@@ -14,8 +14,8 @@ export class AuthService {
     constructor(private http: HttpClient) {
     }
 
-    public testModels(data) {
-        return this.http.post(Base.url + '/api/user/login', data);
+    public uploadPost(data) {
+        return this.http.post(Base.url + '/api/user/post', data);
     }
 
     public getPosts() {

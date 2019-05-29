@@ -8,7 +8,7 @@ import {PostsService} from '../../services/posts.service';
 })
 export class SidebarComponent implements OnInit {
 
-    changeInfo = {name: 'John Doe', email: '', password: ''};
+    changeInfo = {name: '', email: '', password: ''};
     name = true;
     email = false;
     pass = false;
@@ -20,7 +20,7 @@ export class SidebarComponent implements OnInit {
     }
 
     changeInfoFunc(data) {
-        console.log('USER INFO', data);
+        console.log('user info', data);
         this.auth.updateUserInfo(data).subscribe((r: any) => {
             console.log('USER INFO12212', data);
 
@@ -40,7 +40,18 @@ export class SidebarComponent implements OnInit {
         console.log(this.name);
     }
 
-    saveInfo() {
+    saveInfo(data) {
+        this.auth.updateUserInfo(data).subscribe((r: any) => {
+            console.log(data, 'changedUserInfo');
+
+            if (r[status] === 0) {
+                console.log('aa');
+                return false;
+            }
+            localStorage.setItem('changeInfo', JSON.stringify(r['result']));
+
+        });
+
         this.changeInfoFunc({name: this.changeInfo.name, email: this.changeInfo.email, pass: this.changeInfo.password});
     }
 }

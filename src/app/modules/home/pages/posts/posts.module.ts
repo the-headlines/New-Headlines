@@ -7,14 +7,16 @@ import {AddPostComponent} from './add-post/add-post.component';
 import {SubscribeComponent} from './subscribe/subscribe.component';
 import {PostsHomeComponent} from './posts-home/posts-home.component';
 import {CKEditorModule} from 'ng2-ckeditor';
-import {MatTabsModule} from '@angular/material';
+import {MatFormFieldModule, MatSelectModule, MatTabsModule} from '@angular/material';
 import {DropzoneModule} from 'ngx-dropzone-wrapper';
 import {DROPZONE_CONFIG} from 'ngx-dropzone-wrapper';
 import {DropzoneConfigInterface} from 'ngx-dropzone-wrapper';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
-    url: 'https://httpbin.org/post',
+    url: '{not_defined}',
     acceptedFiles: 'image/*',
+    autoProcessQueue: false,
     createImageThumbnails: true
 };
 
@@ -29,7 +31,10 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
         FormsModule,
         DataTableModule,
         ButtonModule,
-        SharedModule
+        SharedModule,
+        ReactiveFormsModule,
+        MatFormFieldModule,
+        MatSelectModule
     ],
     providers: [{
         provide: DROPZONE_CONFIG,

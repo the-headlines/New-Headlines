@@ -3,6 +3,14 @@ import {DropzoneConfigInterface} from 'ngx-dropzone-wrapper';
 import {HttpClient} from '@angular/common/http';
 import {Post} from '../../../../../post';
 import {Observable} from 'rxjs';
+import {FormBuilder, FormGroup} from '@angular/forms';
+import {AuthService} from '../../../../../services/auth.service';
+import {Router} from '@angular/router';
+
+export interface Food {
+    value: string;
+    viewValue: string;
+}
 
 @Component({
     selector: 'app-add-post',
@@ -12,6 +20,12 @@ import {Observable} from 'rxjs';
 
 export class AddPostComponent implements OnInit {
 
+    foods: Food[] = [
+        {value: 'steak-0', viewValue: 'Steak'},
+        {value: 'pizza-1', viewValue: 'Pizza'},
+        {value: 'tacos-2', viewValue: 'Tacos'}
+    ];
+
     newPost: Observable<any>;
     readonly POST_URL = 'http://3.8.219.107:3000';
 
@@ -19,25 +33,49 @@ export class AddPostComponent implements OnInit {
 
     public disabled: boolean = false;
 
-    public config: DropzoneConfigInterface = {
-        clickable: true,
-        maxFiles: 1,
-        autoReset: null,
-        errorReset: null,
-        cancelReset: null
-    };
     ckeditorContent: any;
 
-    constructor(private http: HttpClient) {
+    postForm: FormGroup;
+    files = [];
+
+    constructor(
+        private http: HttpClient,
+        private fb: FormBuilder,
+        private auth: AuthService,
+        private router: Router
+    ) {
     }
 
     ngOnInit() {
-
+        this.postForm = this.fb.group({
+            description: [null]
+        });
     }
 
-    upload_files(data) {
+    upload_files() {
+        console.log(this.postForm.value);
+        let formData = new FormData();
+        formData.append('description', this.postForm.value['description']);
+        console.log(this.files);
+        this.files.map(file => {
+            formData.append('story_imgs', file.name);
+            formData.append('story_img_files', file, file.name);
+            console.log(file.name);
+        });
+        formData.forEach(entries => console.log(entries));
 
+        this.auth.uploadPost(formData).subscribe((r: any) => {
+            console.log('ff', r);
+            if (r['status'] == 0) {
+                console.log('aa');
+                alert('Login/Password invalid');
+                return false;
+            }
+            this.router.navigate['/posts/home-posts']
+            localStorage.setItem('this.postForm', JSON.stringify(r));
+        });
     }
+
 
     public onUploadInit(args: any): void {
         console.log('onUploadInit:', args);
@@ -49,6 +87,7 @@ export class AddPostComponent implements OnInit {
 
     public onUploadSuccess(args: any): void {
         console.log('onUploadSuccess:', args);
+        this.files.push(args);
     }
 
     createPost() {
