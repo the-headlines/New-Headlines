@@ -23,9 +23,6 @@
             </div>
           </div>
           <div class="img-block">
-
-            <!-- <img src="../uploads/images/{{single.img}}" class="img-fluid" alt="">-->
-
             <img src="../../../assets/images/{{single.img}}" class="img-fluid" alt="">
             <ul class="view-icons-block">
               <li *ngIf="checkUser()">
@@ -53,13 +50,11 @@
         </div>
       </div>
       <div class="pagination-block">
-        <!--<a><img src="./images/arrow-left.png" alt=""></a>-->
         <ul>
           <li *ngFor="let paginateSingle of pages">
             <a data-id="{{paginateSingle}}" (click)="nextPage($event)">{{ paginateSingle }}</a>
           </li>
         </ul>
-        <!--<a><img src="./images/arrow-right.png" alt=""></a>-->
       </div>
     </section>
     <app-aside class="col-md-5"></app-aside>

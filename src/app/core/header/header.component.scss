@@ -10,6 +10,10 @@ span, p {
   color: #000000;
 }
 
+::ng-deep .mat-tooltip {
+  text-transform: uppercase;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -68,10 +72,6 @@ img {
 .right {
   text-align: right;
 }
-
-//.active {
-//  border-bottom: 2px solid #e14040;
-//}
 
 .whtie {
   color: white;
@@ -158,10 +158,11 @@ header {
         font-family: 'BrandonText-RegularItalic';
         font-size: 17px;
 
-        span{
+        a{
           color: #bfbfbe;
           font-family: 'BrandonText-RegularItalic';
           font-size: 17px;
+          text-transform: lowercase;
         }
       }
 
@@ -172,7 +173,7 @@ header {
         justify-content: space-between;
 
         a {
-          width: 12%;
+          width: 14%;
 
           img {
             width: 100%;
@@ -242,7 +243,6 @@ header {
         &.active {
           a {
             border-bottom: 2px solid #e14040;
-            padding-bottom: 10px;
           }
         }
 

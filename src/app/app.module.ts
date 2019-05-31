@@ -54,6 +54,9 @@ import {ShareButtonModule} from '@ngx-share/button';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {faCoffee} from '@fortawesome/free-solid-svg-icons';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import { TravelComponent } from './modules/home/pages/travel/travel.component';
+import { AboutComponent } from './modules/home/pages/about/about.component';
 
 const config = new AuthServiceConfig([
     {
@@ -87,7 +90,9 @@ export function provideConfig() {
         SidebarComponent,
         FaceLoginComponent,
         OwlCarouselComponent,
-        RoadComponent
+        RoadComponent,
+        TravelComponent,
+        AboutComponent
     ],
     imports: [
         BrowserModule,
@@ -116,6 +121,7 @@ export function provideConfig() {
         CarouselModule,
         FontAwesomeModule,
         ShareButtonModule,
+        MatTooltipModule,
         ShareButtonsModule.withConfig({
             debug: true
         })
@@ -133,9 +139,9 @@ export function provideConfig() {
     bootstrap: [AppComponent],
     entryComponents: [LoginComponent, RegisterComponent],
 })
+
 export class AppModule {
     constructor() {
-        // Add an icon to the library for convenient access in other components
         library.add(faCoffee);
     }
 }

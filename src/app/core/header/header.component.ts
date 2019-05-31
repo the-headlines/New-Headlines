@@ -4,6 +4,7 @@ import {MatDialog} from '@angular/material';
 import {SocialUser} from 'angularx-social-login';
 import {AuthService} from 'angularx-social-login';
 
+
 @Component({
     selector: 'app-header',
     templateUrl: './header.component.html',

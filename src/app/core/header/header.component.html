@@ -1,58 +1,3 @@
-<!--<header class="header home-header-bg fixed-top" id="header_top">-->
-<!--<div class="navbar">-->
-<!--<div class="content">-->
-<!--<div class="logo">-->
-<!--<div>-->
-<!--<a routerLink="/home"><img src="../../../assets/images/FF.png" alt=""></a>-->
-<!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi dolor exercitationem quisquam-->
-<!--ut?</p>-->
-<!--</div>-->
-<!--<ul>-->
-<!--<li class="post" ng-class="{ active: isActive('/posts') }">-->
-<!--<a *ngIf="!checkUser()" mat-button (click)="showLogin()" mat-raised-button color="warn"-->
-<!--data-toggle="modal"-->
-<!--data-target="#exampleModalCenter">post</a>-->
-
-<!--<span *ngIf="checkUser()" routerLink="/posts/home-posts" mat-raised-button-->
-<!--color="primary">post</span>-->
-<!--</li>-->
-
-<!--<li class="login">-->
-<!--<a *ngIf="!checkUser()" mat-button (click)="showLogin()" mat-raised-button color="warn"-->
-<!--data-toggle="modal"-->
-<!--data-target="#exampleModalCenter">login / sign up</a>-->
-<!--<span *ngIf="checkUser()" style="color: white">{{userLoggined.name}}</span>-->
-<!--</li>-->
-<!--</ul>-->
-<!--</div>-->
-<!--<div class="menu">-->
-<!--<div class="burger">-->
-<!--<i class="fas fa-bars"></i>-->
-<!--</div>-->
-<!--<ul class="toggle none-768">-->
-<!--<li ng-class="{ active: isActive('/home') }">-->
-<!--<a routerLink="/home">General news</a>-->
-<!--</li>-->
-<!--<li ng-class="{ active: isActive('/video') }">-->
-<!--<a routerLink="/video">videos</a>-->
-<!--</li>-->
-<!--<li ng-class="{ active: isActive('/pictures') }">-->
-<!--<a routerLink="/pictures">Camera Pictures</a>-->
-<!--</li>-->
-<!--<li ng-class="{ active: isActive('/commerce') }">-->
-<!--<a routerLink="/commerce">Jump startup</a>-->
-<!--</li>-->
-<!--<li ng-class="{ active: isActive('/deals') }">-->
-<!--<a routerLink="/deals">Fantastic Deals</a>-->
-<!--</li>-->
-<!--<li ng-class="{ active: isActive('/feedback') }">-->
-<!--<a routerLink="/feedback">feedback</a>-->
-<!--</li>-->
-<!--</ul>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-<!--</header>-->
 <header class="header home-header-bg fixed-top" id="header_top">
     <div class="navbar">
         <div class="content">
@@ -62,7 +7,7 @@
                         <img src="../../../assets/images/logo_white_background.jpg" alt="">
                     </a>
                     <div class="search_box">
-                        <p>Readers decide "The Headlines"  <span>more... </span></p>
+                        <p>Readers decide "The Headlines"  <a routerLink="/about">more... </a></p>
                         <div class="input-group mb-3">
                             <input type="text" class="form-control" placeholder="Search" aria-label="search"
                                    aria-describedby="basic-addon1">
@@ -98,22 +43,26 @@
                             </div>
                             <ul class="toggle none-768">
                                 <li ng-class="{ active: isActive('/') }" routerLinkActive="active">
-                                    <a routerLink="/home">HOOKED NEWS</a>
+                                    <a routerLink="/home"
+                                       matTooltip="Politics, Business and General new">HOOKED NEWS</a>
                                 </li>
                                 <li ng-class="{ active: isActive('/road') }" routerLinkActive="active">
-                                    <a routerLink="/road">ROAD TO FAME</a>
+                                    <a routerLink="/road" matTooltip="Cinema, Music and Sports news">ROAD TO FAME</a>
                                 </li>
                                 <li ng-class="{ active: isActive('/pictures') }" routerLinkActive="active">
-                                    <a routerLink="/pictures">Camera Pictures</a>
+                                    <a routerLink="/pictures" matTooltip="Post your Pictures">Camera Pictures</a>
                                 </li>
                                 <li ng-class="{ active: isActive('/commerce') }" routerLinkActive="active">
-                                    <a routerLink="/commerce">Jump startup</a>
+                                    <a routerLink="/commerce" matTooltip="START UP NEWS">Jump startup</a>
+                                </li>
+                                <li ng-class="{ active: isActive('/travel') }" routerLinkActive="active">
+                                    <a routerLink="/travel" matTooltip="TRAVEL NEWS">TRAVEL MONKEY</a>
                                 </li>
                                 <li ng-class="{ active: isActive('/deals') }" routerLinkActive="active">
-                                    <a routerLink="/deals">Fantastic Deals</a>
+                                    <a routerLink="/deals" matTooltip="DEALS">Fantastic Deals</a>
                                 </li>
                                 <li ng-class="{ active: isActive('/video') }" routerLinkActive="active">
-                                    <a routerLink="/video">videos</a>
+                                    <a routerLink="/video" matTooltip="VIDEOS">videos</a>
                                 </li>
                                 <li ng-class="{ active: isActive('/feedback') }" routerLinkActive="active">
                                     <a routerLink="/feedback">feedback</a>

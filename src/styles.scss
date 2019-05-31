@@ -52,6 +52,11 @@
   src: url("/assets/fonts/HVD Fonts - BrandonText-Bold.otf");
 }
 
+
+* {
+  text-decoration: none;
+}
+
 .modal-body .mat-input-element {
   height: 47px;
   border: solid 1px #959595;

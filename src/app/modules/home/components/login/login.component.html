@@ -6,7 +6,9 @@
                 <button type="button" class="close" #closest data-dismiss="modal" mat-dialog-close aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <h5 class="modal-title" id="exampleModalLongTitle">Logo Name</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">
+                    <img src="../../../assets/images/logo_white_background.jpg" alt="">
+                </h5>
             </div>
             <div class="modal-body">
                 <app-face-login></app-face-login>
@@ -31,7 +33,8 @@
                         <div class="example-full-width">
                             <mat-form-field class="login-inp">
                                 <input matInput type="password" placeholder="Password" [formControl]="passFormControl"
-                                       [errorStateMatcher]="matcher" name="password" [(ngModel)]="userLoginInf.password">
+                                       [errorStateMatcher]="matcher" name="password"
+                                       [(ngModel)]="userLoginInf.password">
                                 <mat-hint>Errors appear instantly!</mat-hint>
                                 <mat-error *ngIf="passFormControl.hasError('required')">
                                     Password is <strong>required</strong>
@@ -43,6 +46,7 @@
                             [disabled]="passFormControl.hasError('required') || (emailFormControl.hasError('name') || emailFormControl.hasError('required'))"
                             mat-raised-button (click)="checkLogin(userLoginInf)" color="primary">Login
                     </button>
+                    <a href="#" class="forgot_pass">Forgot Password?</a>
                 </form>
                 <div class="have_account">
                     <button class="dont_have_account" mat-dialog-close mat-button (click)="showLogin()">Don’t have an

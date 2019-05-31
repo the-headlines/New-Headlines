@@ -36,27 +36,44 @@
                                     <a href="" class="score"> Score <span>200</span></a>
                                 </li>
                                 <li class="like_btn">
-                                    <a class="like_post_btn"><i class="fas fa-thumbs-up"></i> Like</a>
-                                    <div class="vote_news">
-                                        <ul>
-                                            <li #messageEl *ngFor="let message of messages"
-                                                [attr.data-message-id]="message.id" (click)="logMessageId(messageEl)">
-                                                <span class="op-blue">
-                                                    {{ message.text }}
-                                                </span>
-                                            </li>
-                                            <li>
-                                                <button class="op-blue" (click)="getVoice()">Like</button>
-                                            </li>
-                                            <li>
-                                                <button class="gray" (click)="getVoice()">Important</button>
-                                            </li>
-                                            <li>
-                                                <button class="blue" (click)="getVoice()">Interesting</button>
-                                            </li>
-                                        </ul>
+                                    <i class="far fa-thumbs-up"></i>
+                                    <div class="votes_text">Votes
+                                        <div class="number_hover">100
+                                            <div class="vote_news">
+                                                <ul>
+                                                    <li>
+                                                        <button class="op-blue" (click)="getVoice()">Like</button>
+                                                        <p class="num">20</p>
+                                                    </li>
+                                                    <li>
+                                                        <button class="gray" (click)="getVoice()">Important</button>
+                                                        <p class="num">30</p>
+                                                    </li>
+                                                    <li>
+                                                        <button class="blue" (click)="getVoice()">Interesting</button>
+                                                        <p class="num">50</p>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
                                 </li>
+
+<!--                                <li class="like_btn">-->
+<!--                                    <a class="like_post_btn">-->
+<!--                                        <i class="fas fa-thumbs-up"></i> Like</a>-->
+<!--                                    <div class="vote_news">-->
+<!--                                        <ul>-->
+<!--                                            <li #messageEl *ngFor="let message of messages"-->
+<!--                                                [attr.data-message-id]="message.id" (click)="logMessageId(messageEl)">-->
+<!--                                                <span class="op-blue">-->
+<!--                                                    {{ message.text }}-->
+<!--                                                </span>-->
+<!--                                            </li>-->
+<!--                                           -->
+<!--                                        </ul>-->
+<!--                                    </div>-->
+<!--                                </li>-->
                                 <li>
                                     <a href="">View
                                         <span id='views'>

@@ -1,8 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {HttpHeaders} from '@angular/common/http';
-import {Post} from '../post';
-import {Observable} from 'rxjs';
 
 import * as Base from '../configs/config';
 
