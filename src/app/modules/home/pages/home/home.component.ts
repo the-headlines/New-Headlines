@@ -23,6 +23,59 @@ export class HomeComponent implements OnInit {
     pages = [];
     messages: any = [];
     ipAddress: any;
+    baseArr = [
+        {
+            title: 'Title1',
+            extractedDescription: 'Desc1',
+            extractedImage: 'https://vignette.wikia.nocookie.net/lovecraft/images/c/cf/Screenshot_20171018-093500.jpg/revision/latest' +
+                '?cb=20171020174137',
+            views: '0',
+            like: '1',
+            important: '2',
+            interesting: '3'
+        },
+        {
+            title: 'Title2',
+            extractedDescription: 'Desc2',
+            extractedImage: 'https://vignette.wikia.nocookie.net/lovecraft/images/c/cf/Screenshot_20171018-093500.jpg/revision/latest' +
+                '?cb=20171020174137',
+            views: '0',
+            like: '2',
+            important: '3',
+            interesting: '1'
+        },
+        {
+            title: 'Title3',
+            extractedDescription: 'Desc3',
+            extractedImage: 'https://vignette.wikia.nocookie.net/lovecraft/images/c/cf/Screenshot_20171018-093500.jpg/revision/latest' +
+                '?cb=20171020174137',
+            views: '0',
+            like: '3',
+            important: '1',
+            interesting: '2'
+        }
+    ];
+    fakeArr = [];
+
+
+    filterByVotes(vote) {
+
+        function compare(a, b) {
+            if (a[vote] < b[vote]) {
+                return 1;
+            }
+            if (a[vote] > b[vote]) {
+                return -1;
+            }
+            return 0;
+        }
+
+        this.fakeArr = this.fakeArr.sort(compare);
+        console.log(this.fakeArr);
+
+        localStorage.setItem('isLoggedIn', 'true');
+    }
+
 
     constructor(private home: HomeService, private router: Router, private cs: CookieService, private http: HttpClient) {
         this._sessionId = cs.get('sessionId');
@@ -48,21 +101,6 @@ export class HomeComponent implements OnInit {
         this.cs.set('Test', 'Hello World');
         console.log(this.cs.get('Test'));
     }
-
-    //cookies
-    // setCookie() {
-    //     localStorage.setItem('key', 'value');
-    //     alert(this.cs.set('ipAddress.ip', "0", 12));
-    // }
-    //
-    // getCookie() {
-    //     alert(this.cs.get('ipAddress.ip'));
-    // }
-    //
-    // delCookie() {
-    //     alert(this.cs.deleteAll('test'));
-    // }
-
 
     get() {
         this.home.getData().subscribe((data) => {

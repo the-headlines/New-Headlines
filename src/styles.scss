@@ -57,6 +57,13 @@
   text-decoration: none;
 }
 
+
+.filter ul li button {
+  background: unset;
+  border: unset;
+  color: white;
+}
+
 .modal-body .mat-input-element {
   height: 47px;
   border: solid 1px #959595;

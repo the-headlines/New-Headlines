@@ -4,7 +4,6 @@ import {PostsComponent} from './posts/posts.component';
 import {AddPostComponent} from './add-post/add-post.component';
 import {PostsHomeComponent} from './posts-home/posts-home.component';
 import {SubscribeComponent} from './subscribe/subscribe.component';
-import {SinglePostComponent} from '../single-post/single-post.component';
 
 const routes: Routes = [
     {
@@ -22,11 +21,7 @@ const routes: Routes = [
             {
                 path: 'home-posts',
                 component: PostsHomeComponent
-            },
-            // {
-            //     path: ':id',
-            //     component: SinglePostComponent
-            // }
+            }
         ]
     }
 ];

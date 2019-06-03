@@ -18,7 +18,52 @@ export class HeaderComponent implements OnInit {
     constructor(private dialog: MatDialog, private authService: AuthService) {
     }
 
+    baseArr = [
+        {
+            title: 'Title1',
+            extractedDescription: 'Desc1',
+            extractedImage: 'https://vignette.wikia.nocookie.net/lovecraft/images/c/cf/Screenshot_20171018-093500.jpg/revision/latest' +
+                '?cb=20171020174137',
+            views: '0',
+            like: '1',
+            important: '2',
+            interesting: '3'
+        },
+        {
+            title: 'Title2',
+            extractedDescription: 'Desc2',
+            extractedImage: 'https://vignette.wikia.nocookie.net/lovecraft/images/c/cf/Screenshot_20171018-093500.jpg/revision/latest' +
+                '?cb=20171020174137',
+            views: '0',
+            like: '2',
+            important: '3',
+            interesting: '1'
+        },
+        {
+            title: 'Title3',
+            extractedDescription: 'Desc3',
+            extractedImage: 'https://vignette.wikia.nocookie.net/lovecraft/images/c/cf/Screenshot_20171018-093500.jpg/revision/latest' +
+                '?cb=20171020174137',
+            views: '0',
+            like: '3',
+            important: '1',
+            interesting: '2'
+        }
+    ];
+    fakeArr = [];
     userLoggined: any = [];
+
+    search_input = {value: ''};
+
+    search(keyword) {
+        var searchArr = JSON.parse(JSON.stringify(this.baseArr));
+
+        searchArr = searchArr.filter(val => {
+            return val.extractedDescription.search(keyword) > -1 || keyword === '';
+        });
+
+        this.fakeArr = searchArr;
+    }
 
     ngOnInit() {
         if (this.checkUser()) {

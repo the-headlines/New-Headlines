@@ -20,7 +20,7 @@ export class FaceLoginComponent implements OnInit {
     ngOnInit() {
         this.authService.authState.subscribe((user) => {
             this.user = user;
-        })
+        });
     }
 
     signInWithFB(): void {

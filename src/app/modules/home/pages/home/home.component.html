@@ -20,15 +20,15 @@
                         <div class="filter">
                             <span>filters:</span>
                             <ul class="menu">
-                                <li class="orange"><a href="">New</a></li>
+                                <li class="orange" (click)="filterByVotes('like')"><button type="button" >New</button></li>
                                 <li class="yellow"><a href="">Score</a></li>
-                                <li class="gray"><a href="">important</a></li>
-                                <li class="blue"><a href="">Interesting</a></li>
-                                <li class="op-blue"><a href="">Questions</a></li>
+                                <li class="gray" (click)="filterByVotes('important')"><button type="button">important</button></li>
+                                <li class="blue" (click)="filterByVotes('interesting')"><button type="button">Interesting</button></li>
+                                <li class="op-blue"><button type="button">Questions</button></li>
                             </ul>
                         </div>
                     </div>
-                    <div class="loop_items item" *ngFor="let single of posts.news">
+                    <div class="loop_items item" *ngFor="let single of fakeArr">
                         <div class="img-block">
                             <img src="{{single.extractedImage}}" class="img-fluid" alt="" (click)="getSingle(1)">
                             <ul class="view-icons-block">
@@ -38,19 +38,19 @@
                                 <li class="like_btn">
                                     <i class="far fa-thumbs-up"></i>
                                     <div class="votes_text">Votes
-                                        <div class="number_hover">100
+                                        <div class="number_hover">
                                             <div class="vote_news">
                                                 <ul>
                                                     <li>
-                                                        <button class="op-blue" (click)="getVoice()">Like</button>
+                                                        <button class="op-blue">Like</button>
                                                         <p class="num">20</p>
                                                     </li>
                                                     <li>
-                                                        <button class="gray" (click)="getVoice()">Important</button>
+                                                        <button class="gray">Important</button>
                                                         <p class="num">30</p>
                                                     </li>
                                                     <li>
-                                                        <button class="blue" (click)="getVoice()">Interesting</button>
+                                                        <button class="blue">Interesting</button>
                                                         <p class="num">50</p>
                                                     </li>
                                                 </ul>
