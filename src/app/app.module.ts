@@ -43,14 +43,12 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import {SinglePostComponent} from './modules/home/pages/single-post/single-post.component';
 import {SidebarComponent} from './core/sidebar/sidebar.component';
 import {PostsComponent} from './modules/home/pages/posts/posts/posts.component';
-import {FacebookModule} from 'ngx-facebook';
 import {FaceLoginComponent} from './modules/home/components/face-login/face-login.component';
 import {OwlCarouselComponent} from './core/owl-carousel/owl-carousel.component';
 import {TokenInterceptorService} from './services/token-interceptor.service';
 import {CookieService} from 'ngx-cookie-service';
 import {RoadComponent} from './modules/home/pages/road/road.component';
 import {ShareButtonsModule} from '@ngx-share/buttons';
-import {ShareButtonModule} from '@ngx-share/button';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {faCoffee} from '@fortawesome/free-solid-svg-icons';
@@ -117,10 +115,8 @@ export function provideConfig() {
         PostsModule,
         SocialLoginModule,
         FlexLayoutModule,
-        FacebookModule.forRoot(),
         CarouselModule,
         FontAwesomeModule,
-        ShareButtonModule,
         MatTooltipModule,
         ShareButtonsModule.withConfig({
             debug: true
