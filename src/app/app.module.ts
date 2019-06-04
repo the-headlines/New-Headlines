@@ -55,6 +55,7 @@ import {faCoffee} from '@fortawesome/free-solid-svg-icons';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { TravelComponent } from './modules/home/pages/travel/travel.component';
 import { AboutComponent } from './modules/home/pages/about/about.component';
+import {ShareButtonModule} from '@ngx-share/button';
 
 const config = new AuthServiceConfig([
     {
@@ -118,6 +119,7 @@ export function provideConfig() {
         CarouselModule,
         FontAwesomeModule,
         MatTooltipModule,
+        ShareButtonModule,
         ShareButtonsModule.withConfig({
             debug: true
         })
