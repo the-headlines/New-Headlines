@@ -9,6 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
+  
   "private": true,
   "dependencies": {
     "@angular-devkit/architect": "0.13.8",

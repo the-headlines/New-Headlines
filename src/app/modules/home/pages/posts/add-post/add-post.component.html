@@ -17,14 +17,14 @@
                           *ngIf="type === 'component'" [disabled]="disabled"
                           [message]="'Click or drag images here to upload'"
                           (init)="onUploadInit($event)"></dropzone>
-                <div *ngIf="type === 'directive'" class="dropzone dropzone-container" [dropzone]="config"
-                     [disabled]="disabled" (init)="onUploadInit($event)" (error)="onUploadError($event)"
+                <div *ngIf="type === 'directive'" class="dropzone dropzone-container"
+                     (init)="onUploadInit($event)" (error)="onUploadError($event)"
                      (success)="onUploadSuccess($event)"></div>
                 <div class="description">
                     <h3>Description</h3>
                     <form action="" [formGroup]="postForm">
                         <ckeditor formControlName="description">
-                            <ckbutton [name]="'saveButton'" [command]="'saveCmd'" (click)="save($event)"
+                            <ckbutton [name]="'saveButton'" [command]="'saveCmd'"
                                       [icon]="'save.png'"
                                       [label]="'Save Document'" [toolbar]="'clipboard,1'"></ckbutton>
                         </ckeditor>

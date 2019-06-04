@@ -27,6 +27,7 @@ export class AddPostComponent implements OnInit {
     ];
 
     newPost: Observable<any>;
+
     readonly POST_URL = 'http://3.8.219.107:3000';
 
     public type: string = 'component';
@@ -71,7 +72,7 @@ export class AddPostComponent implements OnInit {
                 alert('Login/Password invalid');
                 return false;
             }
-            this.router.navigate['/posts/home-posts']
+            this.router.navigate['/posts/home-posts'];
             localStorage.setItem('this.postForm', JSON.stringify(r));
         });
     }

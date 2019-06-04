@@ -12,7 +12,7 @@ import {FacebookLoginProvider} from 'angularx-social-login';
 
 
 export class FaceLoginComponent implements OnInit {
-    private user: SocialUser;
+    public user: SocialUser;
 
     constructor(private authService: AuthService) {
     }

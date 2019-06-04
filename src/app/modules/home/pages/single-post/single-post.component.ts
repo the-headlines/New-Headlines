@@ -61,6 +61,10 @@ export class SinglePostComponent implements OnInit {
 
     addComment = {name: '', email: '', comment: ''};
 
+    toggleReadOnly(x) {
+
+    }
+
     getSinglePost(id) {
         this.home.getSinglePost(id).subscribe((data) => {
             console.log(data);

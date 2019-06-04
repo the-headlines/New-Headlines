@@ -8,7 +8,7 @@ import {HttpClient} from '@angular/common/http';
 @Component({
     selector: 'app-road',
     templateUrl: './road.component.html',
-    styleUrls: ['./road.component.sass']
+    styleUrls: ['./road.component.scss']
 })
 export class RoadComponent implements OnInit {
 
