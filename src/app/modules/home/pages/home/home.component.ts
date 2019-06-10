@@ -165,7 +165,7 @@ export class HomeComponent implements OnInit {
     }
 
     getSingle(id) {
-        this.router.navigate(['/posts', id]);
+        this.router.navigate(['/post', id]);
     }
 
     checkUser() {

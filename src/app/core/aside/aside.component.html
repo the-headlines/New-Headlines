@@ -1,65 +1,255 @@
 <aside>
-  <div class="sidebar">
-    <div class="top-news">
-      <h4 class="title">Today’s top headlines</h4>
-      <ul>
-        <li class="item" *ngFor="let singleLastet of lastet.news">
-          <div class="img-block">
-            <img src="../../../assets/images/{{singleLastet.img}}" class="img-fluid" alt="">
-          </div>
-          <div class="text-block">
-            <h5 class="title" (click)="getSingle(singleLastet.link)">{{singleLastet.title}}</h5>
-            <p class="description">{{singleLastet.description}}</p>
-            <span class="date">{{singleLastet.created_date}}</span>
-          </div>
-        </li>
-        <div class="show-more">
-          <span class=" active">Show more</span>
+
+    <div class="sidebar">
+        <div class="top-news">
+            <h4 class="title">Today’s top</h4>
+            <ul>
+                <li class="item" *ngFor="let singleLastet of lastet.news">
+                    <div class="img-block">
+                        <img src="../../../assets/images/{{singleLastet.img}}" class="img-fluid" alt="">
+                    </div>
+                    <div class="text-block">
+                        <h5 class="title" (click)="getSingle(singleLastet.link)">{{singleLastet.title}}</h5>
+                        <p class="description">{{singleLastet.description}}</p>
+                        <span class="date">{{singleLastet.created_date}}</span>
+                    </div>
+                </li>
+                <div class="show-more">
+                    <span class=" active">Show more</span>
+                </div>
+            </ul>
         </div>
-      </ul>
     </div>
-    <div class="live-block">
-      <div class="img-block">
-        <img src="" class="img-fluid" alt="">
-      </div>
-      <div class="text-block">
-        <p>about us <span>||</span> privatey policy <span>||</span> contact policy</p>
-      </div>
+
+    <div class="sidebar">
+        <div class="top-news">
+            <h4 class="title text-center">Today’s top</h4>
+            <mat-tab-group>
+                <mat-tab>
+                    <ng-template mat-tab-label>
+                        <button></button> Headlines
+                    </ng-template>
+                    <ul>
+                        <li class="item">
+                            <div class="img-block">
+                                <img src="./images/top-news1.jpg" class="img-fluid" alt="">
+                            </div>
+                            <div class="text-block">
+                                <h5 class="title">Leprehenderit</h5>
+                                <p class="description">in voluptate velit esse cillum dolore but fugiat
+                                    nulla</p>
+                                <span class="date">12.11.19</span>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <div class="img-block">
+                                <img src="./images/top-news1.jpg" class="img-fluid" alt="">
+                            </div>
+                            <div class="text-block">
+                                <h5 class="title">Leprehenderit</h5>
+                                <p class="description">in voluptate velit esse cillum dolore but fugiat
+                                    nulla</p>
+                                <span class="date">12.11.19</span>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <div class="img-block">
+                                <img src="./images/top-news1.jpg" class="img-fluid" alt="">
+                            </div>
+                            <div class="text-block">
+                                <h5 class="title">Leprehenderit</h5>
+                                <p class="description">in voluptate velit esse cillum dolore but fugiat
+                                    nulla</p>
+                                <span class="date">12.11.19</span>
+                            </div>
+                        </li>
+                        <li class="show-more">
+                            <span class=" active">Show more</span>
+                        </li>
+                    </ul>
+                </mat-tab>
+                <mat-tab>
+                    <ng-template mat-tab-label>
+                        <mat-icon>Questions</mat-icon>
+                    </ng-template>
+                    <ul>
+                        <li class="item">
+                            <div class="img-block">
+                                <img src="./images/img1.jpg" class="img-fluid" alt="">
+                            </div>
+                            <div class="text-block">
+                                <h5 class="title">Leprehenderit</h5>
+                                <p class="description">in voluptate velit esse cillum dolore but fugiat
+                                    nulla</p>
+                                <span class="date">12.11.19</span>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <div class="img-block">
+                                <img src="./images/img1.jpg" class="img-fluid" alt="">
+                            </div>
+                            <div class="text-block">
+                                <h5 class="title">Leprehenderit</h5>
+                                <p class="description">in voluptate velit esse cillum dolore but fugiat
+                                    nulla</p>
+                                <span class="date">12.11.19</span>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <div class="img-block">
+                                <img src="./images/img1.jpg" class="img-fluid" alt="">
+                            </div>
+                            <div class="text-block">
+                                <h5 class="title">Leprehenderit</h5>
+                                <p class="description">in voluptate velit esse cillum dolore but fugiat
+                                    nulla</p>
+                                <span class="date">12.11.19</span>
+                            </div>
+                        </li>
+                        <li class="show-more">
+                            <span class=" active">Show more</span>
+                        </li>
+                    </ul>
+                </mat-tab>
+            </mat-tab-group>
+
+<!--            <div class="tab-section">-->
+<!--                <ul class="tab-button-area">-->
+<!--                    <li class="tab-button active"></li>-->
+<!--                    <li class="tab-button"></li>-->
+<!--                </ul>-->
+<!--                <div class="tab-content-area">-->
+<!--                    <div class="tab-content show">-->
+<!--                        <ul>-->
+<!--                            <li class="item">-->
+<!--                                <div class="img-block">-->
+<!--                                    <img src="./images/top-news1.jpg" class="img-fluid" alt="">-->
+<!--                                </div>-->
+<!--                                <div class="text-block">-->
+<!--                                    <h5 class="title">Leprehenderit</h5>-->
+<!--                                    <p class="description">in voluptate velit esse cillum dolore but fugiat-->
+<!--                                        nulla</p>-->
+<!--                                    <span class="date">12.11.19</span>-->
+<!--                                </div>-->
+<!--                            </li>-->
+<!--                            <li class="item">-->
+<!--                                <div class="img-block">-->
+<!--                                    <img src="./images/top-news1.jpg" class="img-fluid" alt="">-->
+<!--                                </div>-->
+<!--                                <div class="text-block">-->
+<!--                                    <h5 class="title">Leprehenderit</h5>-->
+<!--                                    <p class="description">in voluptate velit esse cillum dolore but fugiat-->
+<!--                                        nulla</p>-->
+<!--                                    <span class="date">12.11.19</span>-->
+<!--                                </div>-->
+<!--                            </li>-->
+<!--                            <li class="item">-->
+<!--                                <div class="img-block">-->
+<!--                                    <img src="./images/top-news1.jpg" class="img-fluid" alt="">-->
+<!--                                </div>-->
+<!--                                <div class="text-block">-->
+<!--                                    <h5 class="title">Leprehenderit</h5>-->
+<!--                                    <p class="description">in voluptate velit esse cillum dolore but fugiat-->
+<!--                                        nulla</p>-->
+<!--                                    <span class="date">12.11.19</span>-->
+<!--                                </div>-->
+<!--                            </li>-->
+<!--                            <li class="show-more">-->
+<!--                                <span class=" active">Show more</span>-->
+<!--                            </li>-->
+<!--                        </ul>-->
+<!--                    </div>-->
+<!--                    <div class="tab-content">-->
+<!--                        <ul>-->
+<!--                            <li class="item">-->
+<!--                                <div class="img-block">-->
+<!--                                    <img src="./images/img1.jpg" class="img-fluid" alt="">-->
+<!--                                </div>-->
+<!--                                <div class="text-block">-->
+<!--                                    <h5 class="title">Leprehenderit</h5>-->
+<!--                                    <p class="description">in voluptate velit esse cillum dolore but fugiat-->
+<!--                                        nulla</p>-->
+<!--                                    <span class="date">12.11.19</span>-->
+<!--                                </div>-->
+<!--                            </li>-->
+<!--                            <li class="item">-->
+<!--                                <div class="img-block">-->
+<!--                                    <img src="./images/img1.jpg" class="img-fluid" alt="">-->
+<!--                                </div>-->
+<!--                                <div class="text-block">-->
+<!--                                    <h5 class="title">Leprehenderit</h5>-->
+<!--                                    <p class="description">in voluptate velit esse cillum dolore but fugiat-->
+<!--                                        nulla</p>-->
+<!--                                    <span class="date">12.11.19</span>-->
+<!--                                </div>-->
+<!--                            </li>-->
+<!--                            <li class="item">-->
+<!--                                <div class="img-block">-->
+<!--                                    <img src="./images/img1.jpg" class="img-fluid" alt="">-->
+<!--                                </div>-->
+<!--                                <div class="text-block">-->
+<!--                                    <h5 class="title">Leprehenderit</h5>-->
+<!--                                    <p class="description">in voluptate velit esse cillum dolore but fugiat-->
+<!--                                        nulla</p>-->
+<!--                                    <span class="date">12.11.19</span>-->
+<!--                                </div>-->
+<!--                            </li>-->
+<!--                            <li class="show-more">-->
+<!--                                <span class=" active">Show more</span>-->
+<!--                            </li>-->
+<!--                        </ul>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+        </div>
     </div>
-    <div class="newsletters-block">
-      <h4 class="title">newsletters</h4>
-      <p class="text">Leprehenderit in voluptate velit esse cillum dolore but fugiat nulla pariatur.
-        Excepteur sint occaecat </p>
-      <div class="input">
-        <input type="text" placeholder="enter your email">
-      </div>
-      <button class="button">subscribe</button>
+
+    <div class="sidebar">
+        <div class="top_contributors border_box">
+            <h4 class="title">Top contributors</h4>
+            <div class="contributors_content_box">
+                <ol>
+                    <li>
+                        <a href="top_contributors.html" class="username">Username <span>1</span></a>
+                        <p><span class="score">Score</span> 250</p>
+                    </li>
+                    <li>
+                        <a href="top_contributors.html" class="username">Username <span>2</span></a>
+                        <p><span class="score">Score</span> 200</p>
+                    </li>
+                    <li>
+                        <a href="top_contributors.html" class="username">Username <span>3</span></a>
+                        <p><span class="score">Score</span> 300</p>
+                    </li>
+                </ol>
+                <a href="#">More</a>
+            </div>
+        </div>
     </div>
-    <div class="connect-block">
-      <div class="title">
-        lorem ipsum
-      </div>
-      <div class="img-block">
-        <img src="" class="img-fluid" alt="">
-      </div>
-      <div>
-        <p class="title">connect with us</p>
-        <ul class="social_network_sidebar">
-          <li>
-            <div class="img-block facebook"><i class="fab fa-facebook-f"></i></div>
-            <div class="text-block facebook"><a href="#">facebook</a></div>
-          </li>
-          <li>
-            <div class="img-block twitter"><i class="fab fa-twitter"></i></div>
-            <div class="text-block twitter"><a href="#">twitter</a></div>
-          </li>
-          <li>
-            <div class="img-block google"><i class="fab fa-google-plus-g"></i></div>
-            <div class="text-block google"><a href="#">google +</a></div>
-          </li>
-        </ul>
-      </div>
+
+    <div class="sidebar policy">
+        <div class="s1m7ksmt-4 iQweaf s12j7ec3-0 dpUElj" data-redditstyle="false">
+            <div class="_3RPJ8hHnfFohktLZca18J6">
+                <div class="s1m7ksmt-0 drEVnI">
+                    <div class="s3m0u52-0 bdzHTz">
+                        <div>
+                            <a class="s1m7ksmt-1 ebuWXQ" routerLink="">about us</a>
+                            <a class="s1m7ksmt-1 ebuWXQ" routerLink="">content policy</a>
+                        </div>
+                    </div>
+                    <div class="s3m0u52-0 bdzHTz">
+                        <div>
+                            <a class="s1m7ksmt-1 ebuWXQ" routerLink="">advertise</a>
+                            <a class="s1m7ksmt-1 ebuWXQ" routerLink="">Privacy policy</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="s1m7ksmt-2 jMwzIF">
+                    <div>© 2019 Not the Headlines Ltd, All rights reserved</div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </aside>
 

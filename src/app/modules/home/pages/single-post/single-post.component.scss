@@ -276,7 +276,7 @@
   transform: rotate(45deg);
 }
 
-.question_or_comment{
+.question_or_comment {
   display: flex;
   justify-content: space-between;
   width: 90%;
@@ -304,4 +304,23 @@
   letter-spacing: 1.6px;
   margin-right: 20px;
   margin-bottom: 44px;
+}
+
+.commented_by p {
+  margin-bottom: 20px;
+
+  span {
+    color: #3479bd;
+  }
+}
+
+.border {
+  text-align: right;
+  border: 1px solid #dee2e6!important;
+}
+
+.comments_or_question {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
 }

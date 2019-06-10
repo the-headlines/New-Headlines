@@ -57,11 +57,24 @@
   text-decoration: none;
 }
 
-
-.filter ul li button {
-  background: unset;
-  border: unset;
-  color: white;
+.filter {
+  ul {
+    li {
+      button {
+        font-family: 'latoRegular', sans-serif;
+        font-size: 1em;
+        font-weight: bold;
+        letter-spacing: 0.5px;
+        color: black;
+        display: block;
+        text-align: center;
+        width: 100%;
+        text-transform: uppercase;
+        background: unset;
+        border: unset;
+      }
+    }
+  }
 }
 
 .modal-body .mat-input-element {
@@ -139,7 +152,6 @@ span, p {
   line-height: 0.92;
   letter-spacing: 1.4px;
   text-align: left;
-  //color: #000000;
 }
 
 a {
@@ -382,34 +394,144 @@ ul {
 
 .view-icons-block {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-  width: 100%;
   margin: 20px 0;
   text-transform: capitalize;
-}
 
-.view-icons-block a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  color: black;
-  font-family: "latoBold";
-}
+  li {
+    margin-right: 20px;
 
-.view-icons-block i {
-  margin-right: 10px;
-}
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: #807f81;
+      font-family: "latoBlack";
 
-.view-icons-block li a.score {
-  color: #3788c6;
-}
+      &:hover {
+        color: #3788c6;
+        transition: 500ms;
+      }
+    }
 
-.view-icons-block li span {
-  margin-left: 10px;
-}
+    .like_btn {
+      display: flex;
+      align-items: center;
 
+      img {
+        margin-right: 8px;
+        width: 20px !important;
+      }
+
+      .Like__link {
+        cursor: pointer;
+        display: flex;
+        font-size: 12px;
+        color: #807f81;
+        font-family: "latoBlack";
+
+        .hovered_number {
+          margin-left: 10px;
+          font-size: 10px;
+          font-family: 'latoBlack';
+          color: #807f81;
+        }
+      }
+
+      .Emojis {
+        position: absolute;
+        left: 0;
+        bottom: 120%;
+        -webkit-transform: translate3d(-10%, 0, 0);
+        transform: translate3d(-10%, 0, 0);
+        display: flex;
+        padding: .5rem;
+        border-radius: 100rem;
+        transition: .3s .3s;
+        box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.15);
+        opacity: 0;
+        visibility: hidden;
+        background: white;
+      }
+
+      .Emojis:hover .Emoji, .Like__link.js-hover + .Emojis .Emoji, .Like__link:hover + .Emojis .Emoji {
+        -webkit-transform: none;
+        transform: none;
+        opacity: 1;
+      }
+
+      .Emoji {
+        position: relative;
+        /* width: 3rem; */
+        /* height: 3rem; */
+        color: #ffd972;
+        cursor: pointer;
+        transition-delay: .6s, .3s;
+        transition-duration: 0s, .3s;
+        transition-property: opacity, -webkit-transform;
+        transition-property: transform, opacity;
+        transition-property: transform, opacity, -webkit-transform;
+        opacity: 0;
+        -webkit-transform: translate3d(0, 100%, 0) scale(0.3);
+        transform: translate3d(0, 100%, 0) scale(0.3);
+        margin-right: 10px;
+
+
+        button {
+          width: auto;
+          padding: 0 10px !important;
+          height: 28px;
+          display: flex;
+          align-items: center;
+          border-radius: 20px;
+          font-family: 'latoRegular', sans-serif;
+          font-size: 0.65em;
+          font-weight: bold;
+          letter-spacing: 0.5px;
+          text-align: center;
+          text-transform: uppercase;
+          color: white;
+        }
+      }
+    }
+
+    .score {
+      color: #3788c6;
+    }
+
+    span {
+      margin-left: 10px;
+      font-size: 12px;
+      font-family: 'latoBlack';
+      color: #807f81;
+    }
+
+    .share {
+      background: unset;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: #807f81 !important;
+      font-family: "latoBlack";
+      letter-spacing: 3px;
+      position: relative;
+      background: unset;
+      border: unset;
+    }
+    .share_post {
+      position: absolute;
+      background: white;
+      box-shadow: 1px 2px 5px lightgrey;
+      padding: 0px;
+      border-radius: 10px;
+      z-index: 9999;
+      display: none;
+    }
+  }
+}
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -802,24 +924,6 @@ header {
   margin-top: 25px;
 }
 
-.view-icons-block {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  margin: 20px 0;
-  text-transform: capitalize;
-}
-
-.view-icons-block a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.view-icons-block img {
-  margin-right: 10px;
-}
 
 .share_btn:hover .vote_news {
   opacity: 1;
@@ -1328,808 +1432,847 @@ a:hover {
   color: #000000;
 }
 
-.single_blog_post {
-  border: solid 1px #959595;
-  background-color: #ffffff;
-  padding: 20px 30px;
-}
-
-.post_title_and_desc .blog_post_text {
-  opacity: 0.83;
-  font-family: 'latoRegular';
-  font-size: 18px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.33;
-  letter-spacing: 0.9px;
-  text-align: justify;
-  color: rgba(0, 0, 0, 0.83);
-  margin: 27px 0 54px;
-}
-
-.post_title_and_desc .blog_post_text img {
-  width: 50%;
-  float: left;
-  margin: 30px 30px 30px 0;
-}
-
-.sub_title {
-  font-family: 'latoRegular';
-  font-size: 24px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 0.94;
-  letter-spacing: 1.9px;
-  text-align: left;
-  color: #000000;
-  border-bottom: 1px solid #e54949;
-  display: inline-block;
-  padding-bottom: 10px;
-}
-
-.leave_comment form textarea {
-  width: 98%;
-  min-height: 91px;
-  opacity: 0.5;
-  border: solid 1px #000000;
-  background-color: #ffffff;
-  margin: 23px 0;
-}
-
-.leave_comment form input {
-  width: 90%;
-  height: 34px;
-  opacity: 0.5;
-  border: solid 1px #000000;
-  background-color: #ffffff;
-  border-radius: unset;
-  margin-bottom: 30px;
-
-}
-
-.leave_comment form label {
-  height: 14px;
-  font-family: 'latoRegular';
-  font-size: 19px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.43;
-  letter-spacing: 1.5px;
-  text-align: left;
-  color: #000000;
-  margin-bottom: 17px;
-}
-
-.leave_comment form button {
-  width: 202px;
-  height: 44px;
-  border-radius: 10px;
-  box-shadow: 0px 1px 9.7px 0.3px rgba(1, 2, 3, 0.11);
-  background-color: #3788c6;
-  border: unset;
-  color: white;
-  font-family: 'latoRegular';
-  font-size: 20px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: normal;
-  letter-spacing: 1.6px;
-  margin-bottom: 60px;
-}
-
-.main_comments h4.sub_title {
-  margin-bottom: 46px;
-}
-
-.main_comments ul {
-  display: flex;
-  margin-bottom: 40px;
-}
-
-.main_comments ul li img {
-  width: 52px;
-  max-width: 52px;
-  height: 51px !important;
-  object-fit: cover;
-  object-position: left;
-  margin-right: 27px;
-}
-
-.main_comments ul li .user_name_and_comment h4 {
-  display: flex;
-  justify-content: space-between;
-  font-family: 'latoRegular';
-  font-size: 22px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.16;
-  letter-spacing: 1.8px;
-  color: #000000;
-}
-
-.main_comments ul li .user_name_and_comment h4 span {
-  display: flex;
-  justify-content: space-between;
-  font-family: 'OpenSans_Regular';
-  font-size: 16px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.16;
-  letter-spacing: 1.8px;
-  color: #000000;
-  margin-bottom: 13px;
-}
-
-.main_comments ul li .comment {
-  border-radius: 10px;
-  background-color: #dfdfdf;
-  padding: 18px 51px 17px 24px;
-}
-
-.main_comments ul li .comment p {
-  font-family: 'latoRegular';
-  font-size: 19px;
-  color: rgba(0, 0, 0, 0.83);
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.35;
-  letter-spacing: 1.5px;
-  text-align: left;
-}
-
-.main_comments .show_more {
-  font-family: 'latoSemiBold';
-  font-size: 20px;
-  font-weight: 600;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 2;
-  letter-spacing: 1.6px;
-  color: #000000;
-  display: block;
-  text-align: center;
-  text-decoration: none;
-  margin-bottom: 60px;
-}
-
-.related_articles h4 {
-  margin-bottom: 22px;
-}
-
-.related_articles .article_title h3 {
-  font-family: 'latoSemiBold';
-  font-size: 17px;
-  font-weight: 600;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.38;
-  letter-spacing: 1.4px;
-  text-align: left;
-  color: #000000;
-  margin-top: 18px;
-  margin-bottom: 32px;
-}
-
-.related_articles .article_pic {
-  width: 100%;
-  height: 62%;
-  object-fit: cover;
-}
-
-.check_container {
-  display: block;
+.post_image {
   position: relative;
-  padding-left: 35px;
-  margin-bottom: 12px;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  margin-left: 26px;
-  font-family: 'latoRegular';
-  font-size: 19.5px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  letter-spacing: normal;
-  text-align: left;
-  color: #565757;
-}
-
-.check_container input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
-}
-
-.checkmark {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 18px;
-  height: 18px;
-  border: solid 1px #666968;
-  background-color: #fff;
-}
-
-.check_container:hover input ~ .checkmark {
-  background-color: #ccc;
-}
-
-.check_container input:checked ~ .checkmark {
-  background-color: #2196F3;
-}
-
-.checkmark:after {
-  content: "";
-  position: absolute;
-  display: none;
-}
-
-.check_container input:checked ~ .checkmark:after {
-  display: block;
-}
-
-.check_container .checkmark:after {
-  left: 6px;
-  top: 2px;
-  width: 5px;
-  height: 10px;
-  border: solid white;
-  border-width: 0 3px 3px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-
-.modal-content {
-  width: 434px;
-  height: auto;
-  box-shadow: 0 2px 17px 3px rgba(0, 0, 0, 0.13);
-  background-color: #ffffff;
-  border-radius: unset;
-}
-
-.logo_and_close h5 {
-  font-family: 'latoBlack';
-  font-size: 29.5px;
-  font-weight: 900;
-  font-style: normal;
-  font-stretch: normal;
-  letter-spacing: 2.4px;
-  color: #000000;
-  text-transform: uppercase;
-  text-align: center;
-  margin: 48px 0;
-}
-
-.logo_and_close button span {
-  font-family: 'latoLight';
-  font-size: 56px;
-  padding: 0 15px 0 0;
-}
-
-.modal-body form .form_group input {
-  height: 47px;
-  border: solid 1px #959595;
-  background-color: #ffffff;
-  width: 100%;
-  margin: 0 auto 24px;
-}
-
-.modal-body form .form_group input::-webkit-input-placeholder {
-  font-family: 'latoRegular';
-  padding: 0 30px;
-  font-size: 21px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.79;
-  letter-spacing: normal;
-  text-align: left;
-  color: #a7a5a5;
-}
-
-.modal-body form button.login {
-  width: 100%;
-  height: 47px;
-  border: solid 1px #959595;
-  background-color: #3788c6;
-  color: white;
-  font-family: 'latoRegular';
-  font-size: 20px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  letter-spacing: normal;
-  text-align: center;
-  margin-top: 47px;
-  margin-bottom: 25px;
-  border-radius: 0;
-}
-
-.forgot_pass {
-  font-family: 'latoRegular';
-  font-size: 14.5px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.93;
-  letter-spacing: normal;
-  color: #7d7c7c;
-  display: block;
-  text-align: right;
-}
-
-.have_account a {
-  font-family: 'latoRegular';
-  font-size: 18.5px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  letter-spacing: normal;
-  color: #414242;
-  text-decoration: underline;
-  display: block;
-  text-align: center;
-  margin-bottom: 47px;
-}
-
-.have_account button {
-  font-family: 'latoRegular';
-  font-size: 17.5px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  letter-spacing: normal;
-  text-align: center;
-  color: #414242;
-  height: 60px;
-  border-radius: 10px;
-  border: solid 1px #004cb3;
-  background-color: unset;
-  display: block;
-  margin: 0 auto;
-  width: 152px;
-}
-
-.forgot_pass {
-  font-family: 'latoRegular';
-  font-size: 14.5px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.93;
-  letter-spacing: normal;
-  text-align: right;
-  margin-bottom: 50px;
-  color: #7d7c7c;
-}
-
-.modal-body {
-  padding: 0 40px 51px;
-}
-
-.get_in_touch {
-  width: 75%;
-  height: 560px;
-  margin: 0 auto;
-  border: solid 1px #959595;
-  background-color: #ffffff;
-}
-
-.get_in_touch > .row {
-  display: flex;
-  align-items: center;
-  height: 100%;
-}
-
-.contact_form {
-  position: relative;
-  margin-left: -130px;
-}
-
-.contact_form > img {
-  width: 100%;
-  height: 468px !important;
-}
-
-.contact_form .contact_info {
-  position: absolute;
-  background: rgba(0, 0, 0, 0.5);
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-
-.contact_form .contact_info h3 {
-  font-family: "latoBold";
-  font-size: 30px;
-  font-weight: bold;
-  font-style: normal;
-  font-stretch: normal;
-  letter-spacing: 0.8px;
-  text-align: left;
-  color: #fffefe;
-  text-transform: uppercase;
-  margin-bottom: 102px;
-}
-
-.contact_form .contact_info ul li {
-  display: flex;
-  align-items: center;
-  margin-bottom: 35px;
-}
-
-.contact_form .contact_info ul li p {
-  color: white;
-  font-family: 'latoRegular';
-  font-size: 17px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 0.76;
-  letter-spacing: 0.4px;
-  text-align: left;
-}
-
-.contact_form .contact_info ul li img {
-  margin-right: 25px;
-}
-
-.get_touch_form h3 {
-  font-family: 'latoBold';
-  font-size: 30px;
-  font-weight: bold;
-  font-style: normal;
-  font-stretch: normal;
-  letter-spacing: 0.8px;
-  text-align: center;
-  color: #000000;
-  text-transform: uppercase;
-  margin-bottom: 36px;
-}
-
-.get_touch_form form input, textarea {
-  width: 89%;
-  height: 47px;
-  border: solid 1px #959595;
-  background-color: #ffffff;
-  padding: 0 18px;
-}
-
-.get_touch_form form textarea {
-  min-height: 118px;
-  font-family: 'latoRegular';
-  font-size: 17px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  letter-spacing: 0.4px;
-  text-align: left;
-  color: #b0adad;
-  padding: 18px;
-}
-
-.get_touch_form form button {
-  width: 111px;
-  height: 31px;
-  margin: 0 auto;
-  background-color: #3788c6;
-  font-family: "latoRegular";
-  border: unset;
-  font-size: 17px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  letter-spacing: 0.4px;
-  text-align: center;
-  display: block;
-  color: #ffffff;
-  margin-top: 34px;
-}
-
-.get_touch_form form input::-webkit-input-placeholder {
-  font-family: 'latoRegular';
-  font-size: 17px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  letter-spacing: 0.4px;
-  text-align: left;
-  color: #b0adad;
-}
-
-.top_news .sidebar {
-  height: 560px;
-  overflow: auto;
-}
-
-.error {
-  color: red;
-}
-
-.view-icons-block a:hover {
-  text-decoration: none;
-  transition: 1000ms;
-}
-
-.news-block .img-block img {
-  width: 60%;
-}
-
-.mat-form-field-appearance-legacy .mat-form-field-infix {
-  padding: 0 !important;
-}
-
-label#mat-form-field-label-3, label#mat-form-field-label-1, label#mat-form-field-label-5 {
-  padding-left: 20px;
-}
-
-
-.sub_headline {
-  border-left: 2px solid #e14040;
-  padding: 0 0 0 20px;
-  margin: 0 0 50px 0;
-}
-
-@media only screen and (max-width: 1600px) {
-  body {
-    font-size: 10px;
-    letter-spacing: 1px;
-  }
-}
-
-@media only screen and (max-width: 1440px) {
-  .title.slider {
-    font-size: 1.2em;
-  }
-
-  .text.slider {
-    font-size: 1em;
-  }
-}
-
-@media only screen and (max-width: 1180px) {
-  body {
-    font-size: 8px;
-    letter-spacing: 1px;
-  }
-
-  .carousel-caption {
-    padding: 10px;
-  }
-
-  .filter .menu li {
-    width: 80px;
-    margin: 10px;
-  }
-
-  .news-block .text-block p {
-    font-size: 1.2em;
-  }
-
-  .view-icons-block {
-    width: 96%;
-  }
-
-  .main .col-md-4, .col-md-8 {
-    padding: 15px !important;
-  }
-
-  .sidebar {
-    padding: 30px 15px 0;
-  }
-
-  .content {
-    width: 96%;
-    margin: 0 auto;
-  }
-
-  .switch-label {
-    font-size: 16px;
-  }
-
-  .single_blog_post .post_title_and_desc h3 {
-    font-size: 20px;
-  }
-
-  .connect-block .img-block img {
-    height: auto !important;
-    margin-bottom: 30px;
-  }
-  .post_title_and_desc .blog_post_text, .main_comments ul li .comment p {
-    font-size: 16px;
-  }
-}
-
-@media only screen and (max-width: 960px) {
-
-  .get_in_touch {
-    width: 100%;
-    height: auto;
-  }
-
-  .get_touch_form form {
-    text-align: center;
-    padding: 20px 0;
-  }
-  .contact_form {
-    margin-left: 0;
-  }
-
-  .contact_form > img {
-    height: 300px !important;
-  }
-
-  .get_touch_form {
-    padding-top: 100px;
-  }
-  .contact_form .contact_info h3 {
-    margin-bottom: 50px;
-  }
-
-  body {
-    font-size: 7px;
-    letter-spacing: 1px;
-  }
-
-  .menu .post, .menu .login {
-    padding: 5px 20px;
-  }
-
-  .view-icons-block span {
-    font-size: .6em;
-  }
-
-  .top-news .item {
-    flex-direction: column;
-  }
-
-  .top-news .item .img-block {
-    width: 100%;
-  }
-
-  .top-news .item .text-block {
-    width: 100%;
-  }
-
-  .sidebar {
-    padding: 40px 20px 0;
-  }
-
-}
-
-@media only screen and (max-width: 768px) {
-  body {
-    font-size: 10px;
-    letter-spacing: 1px;
-  }
-
-  .menu ul {
-    top: 68px;
-    z-index: 99999;
-    right: 0;
-    background-color: black;
+  .play {
     position: absolute;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    line-height: 2.5;
-  }
-
-  ul.toggle {
-    display: none;
-  }
-
-  .navbar .menu ul li {
-
-  }
-
-  .navbar .menu div {
-    display: flex;
-    justify-content: flex-end;
-  }
-
-  .burger {
-    font-size: 24px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 90px;
+    cursor: pointer;
+    color: white;
   }
 }
 
-@media screen and (max-width: 992px) {
+  .single_blog_post {
+    border: solid 1px #959595;
+    background-color: #ffffff;
+    padding: 20px 30px;
+  }
+
+  .post_title_and_desc .blog_post_text {
+    opacity: 0.83;
+    font-family: 'latoRegular';
+    font-size: 18px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.33;
+    letter-spacing: 0.9px;
+    text-align: justify;
+    color: rgba(0, 0, 0, 0.83);
+    margin: 27px 0 54px;
+  }
+
   .post_title_and_desc .blog_post_text img {
-    width: 100%;
+    width: 50%;
+    float: left;
+    margin: 30px 30px 30px 0;
+  }
+
+  .sub_title {
+    font-family: 'latoRegular';
+    font-size: 24px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 0.94;
+    letter-spacing: 1.9px;
+    text-align: left;
+    color: #000000;
+    border-bottom: 1px solid #e54949;
+    display: inline-block;
+    padding-bottom: 10px;
+  }
+
+  .leave_comment form textarea {
+    width: 98%;
+    min-height: 91px;
+    opacity: 0.5;
+    border: solid 1px #000000;
+    background-color: #ffffff;
+    margin: 23px 0;
+  }
+
+  .leave_comment form input {
+    width: 90%;
+    height: 34px;
+    opacity: 0.5;
+    border: solid 1px #000000;
+    background-color: #ffffff;
+    border-radius: unset;
+    margin-bottom: 30px;
+
+  }
+
+  .leave_comment form label {
+    height: 14px;
+    font-family: 'latoRegular';
+    font-size: 19px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.43;
+    letter-spacing: 1.5px;
+    text-align: left;
+    color: #000000;
+    margin-bottom: 17px;
+  }
+
+  .leave_comment form button {
+    width: 202px;
+    height: 44px;
+    border-radius: 10px;
+    box-shadow: 0px 1px 9.7px 0.3px rgba(1, 2, 3, 0.11);
+    background-color: #3788c6;
+    border: unset;
+    color: white;
+    font-family: 'latoRegular';
+    font-size: 20px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 1.6px;
+    margin-bottom: 60px;
+  }
+
+  .main_comments h4.sub_title {
+    margin-bottom: 46px;
   }
 
   .main_comments ul {
-    flex-direction: column;
-  }
-
-  .main_comments ul li .comment {
-    padding: 15px;
-  }
-
-  .sidebar {
-    padding: 40px 20px 0;
-    margin: 20px 0;
-  }
-
-  .top-news .item {
-    margin-bottom: 30px;
-  }
-
-  .main .col-md-4, .col-md-8 {
-    padding: 15px !important;
-  }
-
-  .single_blog_post .post_title_and_desc h3 {
-    font-size: 18px;
-  }
-
-  header {
+    display: flex;
     margin-bottom: 40px;
   }
 
-  .view-icons-block {
-    width: 96%;
+  .main_comments ul li img {
+    width: 52px;
+    max-width: 52px;
+    height: 51px !important;
+    object-fit: cover;
+    object-position: left;
+    margin-right: 27px;
+  }
+
+  .main_comments ul li .user_name_and_comment h4 {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'latoRegular';
+    font-size: 22px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.16;
+    letter-spacing: 1.8px;
+    color: #000000;
+  }
+
+  .main_comments ul li .user_name_and_comment h4 span {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'OpenSans_Regular';
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.16;
+    letter-spacing: 1.8px;
+    color: #000000;
+    margin-bottom: 13px;
+  }
+
+  .main_comments ul li .comment {
+    border-radius: 10px;
+    background-color: #dfdfdf;
+    padding: 18px 51px 17px 24px;
+  }
+
+  .main_comments ul li .comment p {
+    font-family: 'latoRegular';
+    font-size: 19px;
+    color: rgba(0, 0, 0, 0.83);
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.35;
+    letter-spacing: 1.5px;
+    text-align: left;
+  }
+
+  .main_comments .show_more {
+    font-family: 'latoSemiBold';
+    font-size: 20px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 2;
+    letter-spacing: 1.6px;
+    color: #000000;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    margin-bottom: 60px;
+  }
+
+  .related_articles h4 {
+    margin-bottom: 22px;
+  }
+
+  .related_articles .article_title h3 {
+    font-family: 'latoSemiBold';
+    font-size: 17px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.38;
+    letter-spacing: 1.4px;
+    text-align: left;
+    color: #000000;
+    margin-top: 18px;
+    margin-bottom: 32px;
+  }
+
+  .related_articles .article_pic {
+    width: 100%;
+    height: 62%;
+    object-fit: cover;
+  }
+
+  .check_container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin-left: 26px;
+    font-family: 'latoRegular';
+    font-size: 19.5px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: normal;
+    text-align: left;
+    color: #565757;
+  }
+
+  .check_container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 18px;
+    height: 18px;
+    border: solid 1px #666968;
+    background-color: #fff;
+  }
+
+  .check_container:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+
+  .check_container input:checked ~ .checkmark {
+    background-color: #2196F3;
+  }
+
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+
+  .check_container input:checked ~ .checkmark:after {
+    display: block;
+  }
+
+  .check_container .checkmark:after {
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+  .modal-content {
+    width: 434px;
+    height: auto;
+    box-shadow: 0 2px 17px 3px rgba(0, 0, 0, 0.13);
+    background-color: #ffffff;
+    border-radius: unset;
+  }
+
+  .logo_and_close h5 {
+    font-family: 'latoBlack';
+    font-size: 29.5px;
+    font-weight: 900;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: 2.4px;
+    color: #000000;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 48px 0;
+  }
+
+  .logo_and_close button span {
+    font-family: 'latoLight';
+    font-size: 56px;
+    padding: 0 15px 0 0;
+  }
+
+  .modal-body form .form_group input {
+    height: 47px;
+    border: solid 1px #959595;
+    background-color: #ffffff;
+    width: 100%;
+    margin: 0 auto 24px;
+  }
+
+  .modal-body form .form_group input::-webkit-input-placeholder {
+    font-family: 'latoRegular';
+    padding: 0 30px;
+    font-size: 21px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.79;
+    letter-spacing: normal;
+    text-align: left;
+    color: #a7a5a5;
+  }
+
+  .modal-body form button.login {
+    width: 100%;
+    height: 47px;
+    border: solid 1px #959595;
+    background-color: #3788c6;
+    color: white;
+    font-family: 'latoRegular';
+    font-size: 20px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: normal;
+    text-align: center;
+    margin-top: 47px;
+    margin-bottom: 25px;
+    border-radius: 0;
+  }
+
+  .forgot_pass {
+    font-family: 'latoRegular';
+    font-size: 14.5px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.93;
+    letter-spacing: normal;
+    color: #7d7c7c;
+    display: block;
+    text-align: right;
+  }
+
+  .have_account a {
+    font-family: 'latoRegular';
+    font-size: 18.5px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: normal;
+    color: #414242;
+    text-decoration: underline;
+    display: block;
+    text-align: center;
+    margin-bottom: 47px;
+  }
+
+  .have_account button {
+    font-family: 'latoRegular';
+    font-size: 17.5px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #414242;
+    height: 60px;
+    border-radius: 10px;
+    border: solid 1px #004cb3;
+    background-color: unset;
+    display: block;
+    margin: 0 auto;
+    width: 152px;
+  }
+
+  .forgot_pass {
+    font-family: 'latoRegular';
+    font-size: 14.5px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.93;
+    letter-spacing: normal;
+    text-align: right;
+    margin-bottom: 50px;
+    color: #7d7c7c;
+  }
+
+  .modal-body {
+    padding: 0 40px 51px;
+  }
+
+  .get_in_touch {
+    width: 75%;
+    height: 560px;
+    margin: 0 auto;
+    border: solid 1px #959595;
+    background-color: #ffffff;
+  }
+
+  .get_in_touch > .row {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+
+  .contact_form {
+    position: relative;
+    margin-left: -130px;
+  }
+
+  .contact_form > img {
+    width: 100%;
+    height: 468px !important;
+  }
+
+  .contact_form .contact_info {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
   }
 
-  .view-icons-block span {
-    font-size: 18px;
+  .contact_form .contact_info h3 {
+    font-family: "latoBold";
+    font-size: 30px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: 0.8px;
+    text-align: left;
+    color: #fffefe;
+    text-transform: uppercase;
+    margin-bottom: 102px;
   }
 
-  .switch-input:checked + .switch-label-on ~ .switch-selection {
-    left: 46%;
+  .contact_form .contact_info ul li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 35px;
   }
-}
 
-//Owl
-.owl {
-  &-prev, &-next {
-    position: absolute !important;
-    top: 40%;
-    background: unset !important;
-    color: rgba(0, 0, 0, 0.3);
-    font-size: 100px !important;
-    background: unset;
-    transform: translate(0, -50%);
+  .contact_form .contact_info ul li p {
+    color: white;
+    font-family: 'latoRegular';
+    font-size: 17px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 0.76;
+    letter-spacing: 0.4px;
+    text-align: left;
+  }
 
-    i {
-      color: rgba(203, 203, 203, 0.3);
+  .contact_form .contact_info ul li img {
+    margin-right: 25px;
+  }
+
+  .get_touch_form h3 {
+    font-family: 'latoBold';
+    font-size: 30px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: 0.8px;
+    text-align: center;
+    color: #000000;
+    text-transform: uppercase;
+    margin-bottom: 36px;
+  }
+
+  .get_touch_form form input, textarea {
+    width: 89%;
+    height: 47px;
+    border: solid 1px #959595;
+    background-color: #ffffff;
+    padding: 0 18px;
+  }
+
+  .get_touch_form form textarea {
+    min-height: 118px;
+    font-family: 'latoRegular';
+    font-size: 17px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: 0.4px;
+    text-align: left;
+    color: #b0adad;
+    padding: 18px;
+  }
+
+  .get_touch_form form button {
+    width: 111px;
+    height: 31px;
+    margin: 0 auto;
+    background-color: #3788c6;
+    font-family: "latoRegular";
+    border: unset;
+    font-size: 17px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: 0.4px;
+    text-align: center;
+    display: block;
+    color: #ffffff;
+    margin-top: 34px;
+  }
+
+  .get_touch_form form input::-webkit-input-placeholder {
+    font-family: 'latoRegular';
+    font-size: 17px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: 0.4px;
+    text-align: left;
+    color: #b0adad;
+  }
+
+  .top_news .sidebar {
+    height: 560px;
+    overflow: auto;
+  }
+
+  .error {
+    color: red;
+  }
+
+  .view-icons-block a:hover {
+    text-decoration: none;
+    transition: 1000ms;
+  }
+
+  .news-block .img-block img {
+    width: 60%;
+  }
+
+  .mat-form-field-appearance-legacy .mat-form-field-infix {
+    padding: 0 !important;
+  }
+
+  label#mat-form-field-label-3, label#mat-form-field-label-1, label#mat-form-field-label-5 {
+    padding-left: 20px;
+  }
+
+
+  .sub_headline {
+    border-left: 2px solid #e14040;
+    padding: 0 0 0 20px;
+    margin: 0 0 50px 0;
+  }
+
+  //colors
+
+  .blue_lg {
+    background-color: #a4c2e4;
+  }
+
+  .orange_lg {
+    background-color: #f3cdb1;
+  }
+
+  .yellow_lg {
+    background-color: #fce5a2;
+  }
+
+  .green_lg {
+    background-color: #c9dfb7;
+  }
+
+  .gray_lg {
+    background-color: #a6a7a7;
+  }
+
+  @media only screen and (max-width: 1600px) {
+    body {
+      font-size: 10px;
+      letter-spacing: 1px;
+    }
+  }
+
+  @media only screen and (max-width: 1440px) {
+    .title.slider {
+      font-size: 1.2em;
     }
 
-    &:hover {
+    .text.slider {
+      font-size: 1em;
+    }
+  }
+
+  @media only screen and (max-width: 1180px) {
+    body {
+      font-size: 8px;
+      letter-spacing: 1px;
+    }
+
+    .carousel-caption {
+      padding: 10px;
+    }
+
+    .filter .menu li {
+      width: 80px;
+      margin: 10px;
+    }
+
+    .news-block .text-block p {
+      font-size: 1.2em;
+    }
+
+    .view-icons-block {
+      width: 96%;
+    }
+
+    .main .col-md-4, .col-md-8 {
+      padding: 15px !important;
+    }
+
+    .sidebar {
+      padding: 30px 15px 0;
+    }
+
+    .content {
+      width: 96%;
+      margin: 0 auto;
+    }
+
+    .switch-label {
+      font-size: 16px;
+    }
+
+    .single_blog_post .post_title_and_desc h3 {
+      font-size: 20px;
+    }
+
+    .connect-block .img-block img {
+      height: auto !important;
+      margin-bottom: 30px;
+    }
+    .post_title_and_desc .blog_post_text, .main_comments ul li .comment p {
+      font-size: 16px;
+    }
+  }
+
+  @media only screen and (max-width: 960px) {
+
+    .get_in_touch {
+      width: 100%;
+      height: auto;
+    }
+
+    .get_touch_form form {
+      text-align: center;
+      padding: 20px 0;
+    }
+    .contact_form {
+      margin-left: 0;
+    }
+
+    .contact_form > img {
+      height: 300px !important;
+    }
+
+    .get_touch_form {
+      padding-top: 100px;
+    }
+    .contact_form .contact_info h3 {
+      margin-bottom: 50px;
+    }
+
+    body {
+      font-size: 7px;
+      letter-spacing: 1px;
+    }
+
+    .menu .post, .menu .login {
+      padding: 5px 20px;
+    }
+
+    .view-icons-block span {
+      font-size: .6em;
+    }
+
+    .top-news .item {
+      flex-direction: column;
+    }
+
+    .top-news .item .img-block {
+      width: 100%;
+    }
+
+    .top-news .item .text-block {
+      width: 100%;
+    }
+
+    .sidebar {
+      padding: 40px 20px 0;
+    }
+
+  }
+
+  @media only screen and (max-width: 768px) {
+    body {
+      font-size: 10px;
+      letter-spacing: 1px;
+    }
+
+    .menu ul {
+      top: 68px;
+      z-index: 99999;
+      right: 0;
+      background-color: black;
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      line-height: 2.5;
+    }
+
+    ul.toggle {
+      display: none;
+    }
+
+    .navbar .menu ul li {
+
+    }
+
+    .navbar .menu div {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .burger {
+      font-size: 24px;
+    }
+  }
+
+  @media screen and (max-width: 992px) {
+    .post_title_and_desc .blog_post_text img {
+      width: 100%;
+    }
+
+    .main_comments ul {
+      flex-direction: column;
+    }
+
+    .main_comments ul li .comment {
+      padding: 15px;
+    }
+
+    .sidebar {
+      padding: 40px 20px 0;
+      margin: 20px 0;
+    }
+
+    .top-news .item {
+      margin-bottom: 30px;
+    }
+
+    .main .col-md-4, .col-md-8 {
+      padding: 15px !important;
+    }
+
+    .single_blog_post .post_title_and_desc h3 {
+      font-size: 18px;
+    }
+
+    header {
+      margin-bottom: 40px;
+    }
+
+    .view-icons-block {
+      width: 96%;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+
+    .view-icons-block span {
+      font-size: 18px;
+    }
+
+    .switch-input:checked + .switch-label-on ~ .switch-selection {
+      left: 46%;
+    }
+  }
+
+  //Owl
+  .owl {
+    &-prev, &-next {
+      position: absolute !important;
+      top: 40%;
+      background: unset !important;
+      color: rgba(0, 0, 0, 0.3);
+      font-size: 100px !important;
+      background: unset;
+      transform: translate(0, -50%);
+
       i {
-        color: rgba(203, 203, 203, 0.7);
-        transition: 800ms;
+        color: rgba(203, 203, 203, 0.3);
+      }
+
+      &:hover {
+        i {
+          color: rgba(203, 203, 203, 0.7);
+          transition: 800ms;
+        }
       }
     }
+
+    &-prev {
+      left: 0;
+    }
+
+    &-next {
+      right: 0;
+    }
   }
 
-  &-prev {
-    left: 0;
-  }
 
-  &-next {
-    right: 0;
-  }
-}
+
+
