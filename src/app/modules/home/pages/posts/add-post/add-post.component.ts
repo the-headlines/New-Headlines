@@ -37,6 +37,7 @@ export class AddPostComponent implements OnInit {
     ckeditorContent: any;
 
     postForm: FormGroup;
+
     files = [];
 
     constructor(

@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../../../../services/auth.service';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {HomeService} from '../../../../services/home.service';
-import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
+import {FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -33,6 +33,7 @@ export class SinglePostComponent implements OnInit {
     start = 0;
     pageCount = 4;
     commentCount = 0;
+    postForm: FormGroup;
 
     isDisabled(): boolean {
         return this.is_edit;

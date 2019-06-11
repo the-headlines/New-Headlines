@@ -44,15 +44,15 @@
 <!--                    <form action="" method="post">-->
 <!--                        <div class="form-group">-->
 <!--                            <div class="example-full-width">-->
-<!--                                &lt;!&ndash;<textarea matInput placeholder="" [formControl]="commentFormControl" cols="30" rows="8"&ndash;&gt;-->
-<!--                                &lt;!&ndash;[errorStateMatcher]="matcher" name="message" class="add_comm_or_question_area"&ndash;&gt;-->
-<!--                                &lt;!&ndash;[(ngModel)]="addComment.comment"></textarea>&ndash;&gt;-->
-<!--                                &lt;!&ndash;<div *ngIf="commentFormControl.hasError('required')">Comment is required</div>&ndash;&gt;-->
-<!--                                &lt;!&ndash;<ckeditor [(ngModel)]="ckeditorContent">&ndash;&gt;-->
-<!--                                &lt;!&ndash;<ckbutton [name]="'saveButton'" [command]="'saveCmd'" (click)="save($event)"&ndash;&gt;-->
-<!--                                &lt;!&ndash;[icon]="'save.png'" [label]="'Save Document'"&ndash;&gt;-->
-<!--                                &lt;!&ndash;[toolbar]="'clipboard,1'"></ckbutton>&ndash;&gt;-->
-<!--                                &lt;!&ndash;</ckeditor>&ndash;&gt;-->
+<!--<textarea matInput placeholder="" [formControl]="commentFormControl" cols="30" rows="8"-->
+<!--[errorStateMatcher]="matcher" name="message" class="add_comm_or_question_area"-->
+<!--[(ngModel)]="addComment.comment"></textarea>-->
+<!--<div *ngIf="commentFormControl.hasError('required')">Comment is required</div>-->
+<!--<ckeditor [(ngModel)]="ckeditorContent">-->
+<!--<ckbutton [name]="'saveButton'" [command]="'saveCmd'" (click)="save($event)"-->
+<!--[icon]="'save.png'" [label]="'Save Document'"-->
+<!--[toolbar]="'clipboard,1'"></ckbutton>-->
+<!--</ckeditor>-->
 <!--                            </div>-->
 <!--                            <div class="comments_or_question">-->
 <!--                                <button id="readOnlyOn" (click)="toggleReadOnly(false);" type="button"-->
@@ -133,12 +133,10 @@
 
 <div class="content">
     <div class="main row">
-        <section class="col-md-8" style="padding-right: 37px" >
+        <section class="col-md-8" style="padding-right: 37px">
             <div class="single_blog_post">
                 <div class="post_title_and_desc">
-                    <h3>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                        been the industry's standard dummy text ever since the 1500s, when an
-                    </h3>
+                    <h3>{{singlePost.title}}</h3>
                     <ul class="view-icons-block">
                         <li>
                             <a href="" class="score">Score <span>200</span></a>
@@ -207,21 +205,26 @@
                         </li>
                     </ul>
                     <div class="post_image">
-                        <img src="../../../../../assets/images/img2.jpg" alt="">
+                        <img src="{{singlePost.img}}" alt="">
                         <div class="play">
                             <i class="far fa-play-circle"></i>
                         </div>
                     </div>
                 </div>
+
                 <div class="leave_comment">
                     <form action="">
                         <div class="commented_by">
                             <p>Comment as <span> Bruce Reid</span></p>
                         </div>
                         <div class="border">
-                                <textarea rows="10" placeholder="Enter description"
-                                          class="ckeditor add_comm_or_question_area" cols="80" id="editor1"
-                                          name="editor1"></textarea>
+                            <ckeditor [(ngModel)]="ckeditorContent" [formControl]="commentFormControl"
+                                      name="message" class="add_comm_or_question_area"
+                                      [(ngModel)]="addComment.comment">
+                                <ckbutton [name]="'saveButton'" [command]="'saveCmd'" (click)="save($event)"
+                                          [icon]="'save.png'" [label]="'Save Document'"
+                                          [toolbar]="'clipboard,1'"></ckbutton>
+                            </ckeditor>
                             <div class="comments_or_question">
                                 <button id="cancel" type="button">Cancel</button>
 
@@ -232,7 +235,8 @@
                                         value="Make CKEditor editable again">Question
                                 </button>
                             </div>
-                            <button type="button" class="post_btn">Post</button>
+                            <button type="button" class="post_btn" (click)="addComments(addComment)">Post</button>
+                            <div *ngIf="commentFormControl.hasError('required')">Comment is required</div>
                         </div>
                         <div class="how_many_com_and_quest">
                             <p><span>10</span>Comments</p>
@@ -255,11 +259,11 @@
                     </form>
                 </div>
 
-                <div class="user_name_of_comments">
-                    <div class="firset_user">
-                        <h3>Bruce Reid</h3>
+                <div class="user_name_of_comments" *ngIf="addCommentData.length != 0">
+                    <div class="firset_user" *ngFor="let addCommentSingle of addCommentData">
+                        <h3>{{addCommentSingle.name}} Bruce Reid</h3>
 
-                        <h5 class="main_com">Lorem ipsum dolor </h5>
+                        <h5 class="main_com">{{addCommentSingle.comment}} Lorem ipsum dolor </h5>
                         <button type="button" class="reply">Reply</button>
                         <ul>
                             <li class="reply_name">
@@ -269,161 +273,15 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="second_user">
-                        <h3>John Store</h3>
-
-                        <h5 class="main_com">Lorem ipsum dolor sit amet, consectetur </h5>
-                        <button type="button" class="reply">Reply</button>
-                    </div>
+                    <button *ngIf="start<commentCount" class="show_more" (click)="loadMyChildComponent();">Show-->
+                        more
+                    </button>
                 </div>
             </div>
         </section>
-
-        <aside class="col-md-4" style="padding-left: 37px">
-            <div class="sidebar">
-                <div class="top-news">
-                    <h4 class="title">Today’s top</h4>
-                    <div class="tab-section">
-                        <ul class="tab-button-area">
-                            <li class="tab-button active">Headlines</li>
-                            <li class="tab-button">Questions</li>
-                        </ul>
-                        <div class="tab-content-area">
-                            <div class="tab-content show">
-                                <ul>
-                                    <li class="item">
-                                        <div class="img-block">
-                                            <img src="./images/top-news1.jpg" class="img-fluid" alt="">
-                                        </div>
-                                        <div class="text-block">
-                                            <h5 class="title">Leprehenderit</h5>
-                                            <p class="description">in voluptate velit esse cillum dolore but fugiat
-                                                nulla</p>
-                                            <span class="date">12.11.19</span>
-                                        </div>
-                                    </li>
-                                    <li class="item">
-                                        <div class="img-block">
-                                            <img src="./images/top-news1.jpg" class="img-fluid" alt="">
-                                        </div>
-                                        <div class="text-block">
-                                            <h5 class="title">Leprehenderit</h5>
-                                            <p class="description">in voluptate velit esse cillum dolore but fugiat
-                                                nulla</p>
-                                            <span class="date">12.11.19</span>
-                                        </div>
-                                    </li>
-                                    <li class="item">
-                                        <div class="img-block">
-                                            <img src="./images/top-news1.jpg" class="img-fluid" alt="">
-                                        </div>
-                                        <div class="text-block">
-                                            <h5 class="title">Leprehenderit</h5>
-                                            <p class="description">in voluptate velit esse cillum dolore but fugiat
-                                                nulla</p>
-                                            <span class="date">12.11.19</span>
-                                        </div>
-                                    </li>
-                                    <li class="show-more">
-                                        <span class=" active">Show more</span>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="tab-content">
-                                <ul>
-                                    <li class="item">
-                                        <div class="img-block">
-                                            <img src="./images/img1.jpg" class="img-fluid" alt="">
-                                        </div>
-                                        <div class="text-block">
-                                            <h5 class="title">Leprehenderit</h5>
-                                            <p class="description">in voluptate velit esse cillum dolore but fugiat
-                                                nulla</p>
-                                            <span class="date">12.11.19</span>
-                                        </div>
-                                    </li>
-                                    <li class="item">
-                                        <div class="img-block">
-                                            <img src="./images/img1.jpg" class="img-fluid" alt="">
-                                        </div>
-                                        <div class="text-block">
-                                            <h5 class="title">Leprehenderit</h5>
-                                            <p class="description">in voluptate velit esse cillum dolore but fugiat
-                                                nulla</p>
-                                            <span class="date">12.11.19</span>
-                                        </div>
-                                    </li>
-                                    <li class="item">
-                                        <div class="img-block">
-                                            <img src="./images/img1.jpg" class="img-fluid" alt="">
-                                        </div>
-                                        <div class="text-block">
-                                            <h5 class="title">Leprehenderit</h5>
-                                            <p class="description">in voluptate velit esse cillum dolore but fugiat
-                                                nulla</p>
-                                            <span class="date">12.11.19</span>
-                                        </div>
-                                    </li>
-                                    <li class="show-more">
-                                        <span class=" active">Show more</span>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="sidebar">
-                <div class="top_contributors border_box">
-                    <h4 class="title">Top contributors</h4>
-                    <div class="contributors_content_box">
-                        <ol>
-                            <li>
-                                <a href="top_contributors.html" class="username">Username <span>1</span></a>
-                                <p><span class="score">Score</span> 250</p>
-                            </li>
-                            <li>
-                                <a href="top_contributors.html" class="username">Username <span>2</span></a>
-                                <p><span class="score">Score</span> 200</p>
-                            </li>
-                            <li>
-                                <a href="top_contributors.html" class="username">Username <span>3</span></a>
-                                <p><span class="score">Score</span> 300</p>
-                            </li>
-                        </ol>
-                        <a href="#">More</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="sidebar">
-                <div class="s1m7ksmt-4 iQweaf s12j7ec3-0 dpUElj" data-redditstyle="false">
-                    <div class="_3RPJ8hHnfFohktLZca18J6">
-                        <div class="s1m7ksmt-0 drEVnI">
-                            <div class="s3m0u52-0 bdzHTz">
-                                <div>
-                                    <a class="s1m7ksmt-1 ebuWXQ" href="about.html">about us</a>
-                                    <a class="s1m7ksmt-1 ebuWXQ" href="policy.html">content policy</a>
-                                </div>
-                            </div>
-                            <div class="s3m0u52-0 bdzHTz">
-                                <div>
-                                    <a class="s1m7ksmt-1 ebuWXQ" href="#">advertise</a>
-                                    <a class="s1m7ksmt-1 ebuWXQ" href="policy.html">Privacy policy</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="s1m7ksmt-2 jMwzIF">
-                            <div>© 2019 Not the Headlines Ltd, All rights reserved</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </aside>
-
+        <div class="col-md-4">
+            <app-aside></app-aside>
+        </div>
     </div>
 </div>
 

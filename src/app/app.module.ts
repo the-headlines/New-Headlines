@@ -56,6 +56,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import { TravelComponent } from './modules/home/pages/travel/travel.component';
 import { AboutComponent } from './modules/home/pages/about/about.component';
 import {ShareButtonModule} from '@ngx-share/button';
+import {CKEditorModule} from 'ng2-ckeditor';
 
 const config = new AuthServiceConfig([
     {
@@ -119,6 +120,7 @@ export function provideConfig() {
         CarouselModule,
         FontAwesomeModule,
         MatTooltipModule,
+        CKEditorModule,
         ShareButtonModule,
         ShareButtonsModule.withConfig({
             debug: true
