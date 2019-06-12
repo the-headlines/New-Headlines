@@ -31,13 +31,17 @@ export class RegisterComponent implements OnInit {
         Validators.required,
     ]);
 
+    userFormControl = new FormControl('', [
+        Validators.required,
+    ]);
+
     passFormControl = new FormControl('', [
         Validators.required
     ]);
 
     matcher = new MyErrorStateMatcher();
 
-    userRegisInf = {name: '', email: '', password: ''};
+    userRegisInf = {name: '', email: '', username: '', password: ''};
 
     constructor(private auth: AuthService, private router: Router, private matDialog: MatDialog) {
     }
@@ -75,7 +79,7 @@ export class RegisterComponent implements OnInit {
         });
     }
 
-    signOut(){
+    signOut() {
         localStorage.removeItem('userInf');
     }
 }

@@ -6,27 +6,16 @@
                 <button type="button" #close class="close" data-dismiss="modal" mat-dialog-close aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <h5 class="modal-title" id="">Logo Name</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">
+                    <img src="../../../assets/images/logo_white_background.jpg" alt="">
+                </h5>
             </div>
             <div class="modal-body">
-
                 <form action="" method="post">
-
                     <div class="form-group">
                         <div class="example-full-width">
                             <mat-form-field class="login-inp">
-                                <input matInput placeholder="Name" [formControl]="nameFormControl" [errorStateMatcher]="matcher" name="name" [(ngModel)]="userRegisInf.name">
-                                <mat-hint>Errors appear instantly!</mat-hint>
-                                <mat-error *ngIf="nameFormControl.hasError('name') && !nameFormControl.hasError('required')">Please enter a valid email address</mat-error>
-                                <mat-error *ngIf="nameFormControl.hasError('required')">Name is <strong>required</strong></mat-error>
-                            </mat-form-field>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="example-full-width">
-                            <mat-form-field class="login-inp">
-                                <input matInput placeholder="Email" [formControl]="emailFormControl"
+                                <input matInput placeholder="Email Address" [formControl]="emailFormControl"
                                        [errorStateMatcher]="matcher" name="email" [(ngModel)]="userRegisInf.email">
                                 <mat-hint>Errors appear instantly!</mat-hint>
                                 <mat-error
@@ -43,6 +32,29 @@
                     <div class="form-group">
                         <div class="example-full-width">
                             <mat-form-field class="login-inp">
+                                <input matInput placeholder="Full Name" [formControl]="nameFormControl" [errorStateMatcher]="matcher" name="name" [(ngModel)]="userRegisInf.name">
+                                <mat-hint>Errors appear instantly!</mat-hint>
+                                <mat-error *ngIf="nameFormControl.hasError('name') && !nameFormControl.hasError('required')">Please enter a valid email address</mat-error>
+                                <mat-error *ngIf="nameFormControl.hasError('required')">Name is <strong>required</strong></mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="example-full-width">
+                            <mat-form-field class="login-inp">
+                                <input matInput placeholder="User Name" [formControl]="userFormControl" [errorStateMatcher]="matcher" name="userName" [(ngModel)]="userRegisInf.username">
+                                <mat-hint>Errors appear instantly!</mat-hint>
+                                <mat-error *ngIf="userFormControl.hasError('name') && !userFormControl.hasError('required')">Please enter a valid email address</mat-error>
+                                <mat-error *ngIf="userFormControl.hasError('required')">User Name is <strong>required</strong></mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="example-full-width">
+                            <mat-form-field class="login-inp">
                                 <input matInput type="password" placeholder="Password" [formControl]="passFormControl"
                                        [errorStateMatcher]="matcher" name="pass" [(ngModel)]="userRegisInf.password">
                                 <mat-hint>Errors appear instantly!</mat-hint>
@@ -54,7 +66,7 @@
                     </div>
 
                     <button [disabled]="passFormControl.hasError('required') || (emailFormControl.hasError('email') || emailFormControl.hasError('required'))"
-                            mat-raised-button (click)="checkRegister(userRegisInf)" color="primary">Register
+                            mat-raised-button (click)="checkRegister(userRegisInf)" class="login">Sign up
                     </button>
 
                     <div class="have_account">
@@ -64,29 +76,7 @@
                         </button>
                         <button class="login_btn" mat-dialog-close mat-button (click)="showLogin()">Login</button>
                     </div>
-
                 </form>
-
-                <!--<form action="" method="post">-->
-                <!--<div class="form_group">-->
-                <!--<label for="name"></label>-->
-                <!--<input type="text" id="name" placeholder="Name">-->
-                <!--</div>-->
-                <!--<div class="form_group">-->
-                <!--<label for="email_address1"></label>-->
-                <!--<input type="text" id="email_address1" placeholder="Email Address">-->
-                <!--</div>-->
-                <!--<div class="form_group">-->
-                <!--<label for="pass1" class="sr-only"></label>-->
-                <!--<input type="text" id="pass1" placeholder="Password">-->
-                <!--</div>-->
-                <!--<div class="form_group">-->
-                <!--<label for="conf_pass" class="sr-only"></label>-->
-                <!--<input type="text" id="conf_pass" placeholder="Confirm Password">-->
-                <!--</div>-->
-                <!--<button class="login"> Sign Up </button>-->
-                <!---->
-                <!--</form>-->
             </div>
         </div>
     </div>

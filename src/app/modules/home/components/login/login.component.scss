@@ -144,12 +144,11 @@
       font-stretch: normal;
       letter-spacing: normal;
       text-align: center;
-      margin-top: 47px;
+      margin-top: 20px;
       margin-bottom: 25px;
     }
   }
 }
-
 
 .forgot_pass {
   font-family: 'latoRegular';
@@ -173,12 +172,14 @@
     font-weight: normal;
     font-style: normal;
     font-stretch: normal;
-    letter-spacing: normal;
     color: #414242;
     text-decoration: underline;
     display: block;
     text-align: center;
     margin-bottom: 47px;
+    height: unset;
+    line-height: unset;
+    letter-spacing: unset;
     border: unset;
     width: 100%;
   }
