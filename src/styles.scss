@@ -6,6 +6,10 @@
 @import "~@ngx-share/button/themes/default/default-theme";
 @import "~@ngx-share/button/themes/modern/modern-dark-theme";
 
+// regular style toast
+@import '~ngx-toastr/toastr';
+
+
 /* You can add global styles to this file, and also import other style files */
 @font-face {
   font-family: 'latoRegular';

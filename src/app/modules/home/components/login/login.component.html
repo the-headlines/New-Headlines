@@ -18,7 +18,6 @@
                             <mat-form-field class="login-inp">
                                 <input matInput placeholder="Email" [formControl]="emailFormControl"
                                        [errorStateMatcher]="matcher" name="email" [(ngModel)]="userLoginInf.email">
-                                <mat-hint>Errors appear instantly!</mat-hint>
                                 <mat-error
                                         *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
                                     Please enter a valid email address
@@ -35,7 +34,6 @@
                                 <input matInput type="password" placeholder="Password" [formControl]="passFormControl"
                                        [errorStateMatcher]="matcher" name="password"
                                        [(ngModel)]="userLoginInf.password">
-                                <mat-hint>Errors appear instantly!</mat-hint>
                                 <mat-error *ngIf="passFormControl.hasError('required')">
                                     Password is <strong>required</strong>
                                 </mat-error>

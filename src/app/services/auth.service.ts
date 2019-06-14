@@ -9,6 +9,8 @@ import * as Base from '../configs/config';
 })
 export class AuthService {
 
+    userData;
+
     constructor(private http: HttpClient) {
     }
 

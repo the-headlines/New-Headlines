@@ -53,10 +53,12 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {faCoffee} from '@fortawesome/free-solid-svg-icons';
 import {MatTooltipModule} from '@angular/material/tooltip';
-import { TravelComponent } from './modules/home/pages/travel/travel.component';
-import { AboutComponent } from './modules/home/pages/about/about.component';
+import {TravelComponent} from './modules/home/pages/travel/travel.component';
+import {AboutComponent} from './modules/home/pages/about/about.component';
 import {ShareButtonModule} from '@ngx-share/button';
 import {CKEditorModule} from 'ng2-ckeditor';
+import {ToastrModule} from 'ngx-toastr';
+import {RequestInterceptor} from './shared/helpers/http.interceptor';
 
 const config = new AuthServiceConfig([
     {
@@ -122,6 +124,7 @@ export function provideConfig() {
         MatTooltipModule,
         CKEditorModule,
         ShareButtonModule,
+        ToastrModule.forRoot(),
         ShareButtonsModule.withConfig({
             debug: true
         })
@@ -134,7 +137,13 @@ export function provideConfig() {
             provide: HTTP_INTERCEPTORS,
             useClass: TokenInterceptorService,
             multi: true
-        }],
+        },
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: RequestInterceptor,
+            multi: true
+        }
+        ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
     bootstrap: [AppComponent],
     entryComponents: [LoginComponent, RegisterComponent],

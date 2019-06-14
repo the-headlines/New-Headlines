@@ -218,25 +218,36 @@
                             <p>Comment as <span> Bruce Reid</span></p>
                         </div>
                         <div class="border">
-                            <ckeditor [(ngModel)]="ckeditorContent" [formControl]="commentFormControl"
-                                      name="message" class="add_comm_or_question_area"
-                                      [(ngModel)]="addComment.comment">
-                                <ckbutton [name]="'saveButton'" [command]="'saveCmd'" (click)="save($event)"
-                                          [icon]="'save.png'" [label]="'Save Document'"
-                                          [toolbar]="'clipboard,1'"></ckbutton>
-                            </ckeditor>
-                            <div class="comments_or_question">
-                                <button id="cancel" type="button">Cancel</button>
+                            <form [formGroup]="postForm">
 
-                                <button id="readOnlyOn" onclick="toggleReadOnly(false);" type="button"
-                                        value="Make CKEditor read-only">Comments
-                                </button>
-                                <button id="readOnlyOff" onclick="toggleReadOnly( false );" type="button"
-                                        value="Make CKEditor editable again">Question
-                                </button>
-                            </div>
-                            <button type="button" class="post_btn" (click)="addComments(addComment)">Post</button>
-                            <div *ngIf="commentFormControl.hasError('required')">Comment is required</div>
+                                <ckeditor formControlName="comment" *ngIf="showCk"
+                                          name="message" class="add_comm_or_question_area"
+                                >
+                                    <ckbutton [name]="'saveButton'" [command]="'saveCmd'" (click)="save($event)"
+
+                                              [label]="'Save Document'"
+                                              [toolbar]="'clipboard,1'"></ckbutton>
+                                    <!--                                              [icon]="'save.png'"-->
+                                </ckeditor>
+                                <div class="comments_or_question">
+                                    <button id="cancel" type="button" [hidden]="!showCk" (click)="showCk = false">
+                                        Cancel
+                                    </button>
+
+                                    <button id="readOnlyOn" (click)="showCk = true" [hidden]="showCk"
+                                            type="button"
+                                            value="Make CKEditor read-only">Comments
+                                    </button>
+                                    <button id="readOnlyOff" [hidden]="showCk"
+                                            (click)="showCk = true" type="button "
+                                            value="Make CKEditor editable again">Question
+                                    </button>
+                                    <button type="button" class="post_btn" [hidden]="!showCk"
+                                            (click)="addComments(addComment)">Post
+                                    </button>
+                                </div>
+                                <div *ngIf="postForm.get('comment').hasError('required')">Comment is required</div>
+                            </form>
                         </div>
                         <div class="how_many_com_and_quest">
                             <p><span>10</span>Comments</p>
@@ -273,8 +284,7 @@
                             </li>
                         </ul>
                     </div>
-                    <button *ngIf="start<commentCount" class="show_more" (click)="loadMyChildComponent();">Show-->
-                        more
+                    <button *ngIf="start<commentCount" class="show_more" (click)="loadMyChildComponent();">Show more
                     </button>
                 </div>
             </div>

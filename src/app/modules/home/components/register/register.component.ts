@@ -5,6 +5,7 @@ import {ErrorStateMatcher} from '@angular/material/core';
 import {Router} from '@angular/router';
 import {ModalDialog} from '../libs/modal.dialog';
 import {MatDialog} from '@angular/material';
+import {ToastrService} from 'ngx-toastr';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
     isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -43,7 +44,12 @@ export class RegisterComponent implements OnInit {
 
     userRegisInf = {name: '', email: '', username: '', password: ''};
 
-    constructor(private auth: AuthService, private router: Router, private matDialog: MatDialog) {
+    constructor(
+        private auth: AuthService,
+        private router: Router,
+        private matDialog: MatDialog,
+        private toastr: ToastrService
+    ) {
     }
 
     ngOnInit() {
@@ -67,15 +73,8 @@ export class RegisterComponent implements OnInit {
         console.log('register', data);
         this.auth.register(data).subscribe((r: any) => {
 
-            console.log('reg', data);
-            if (r['status'] == 0) {
-                alert('Login/Password invalid');
-                return false;
-            }
-            alert('aa0');
+            this.toastr.success('Registered successfully');
             // this.router.navigate(['']);
-            const el: HTMLElement = this.loginButt.nativeElement as HTMLElement;
-            el.click();
         });
     }
 

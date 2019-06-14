@@ -2,8 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../../../../services/auth.service';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {HomeService} from '../../../../services/home.service';
-import {FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material';
+import * as JWT from 'jwt-decode';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
     isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -18,11 +19,22 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     styleUrls: ['./single-post.component.scss']
 })
 export class SinglePostComponent implements OnInit {
-    is_edit: boolean = false;
+    isEdit = false;
+    postForm: FormGroup;
 
-    constructor(private auth: AuthService, private router: Router, private route: ActivatedRoute, private home: HomeService) {
+    constructor(
+        private auth: AuthService,
+        private router: Router,
+        private route: ActivatedRoute,
+        private home: HomeService,
+        private fb: FormBuilder
+    ) {
         this.id = this.route.snapshot.paramMap.get('id');
         this.getSinglePost(this.id);
+        this.postForm = this.fb.group({
+            comment: ''
+        });
+        this.postForm.controls.comment.disable();
     }
 
     id;
@@ -33,14 +45,22 @@ export class SinglePostComponent implements OnInit {
     start = 0;
     pageCount = 4;
     commentCount = 0;
-    postForm: FormGroup;
+    showCk = false;
+    userData;
 
     isDisabled(): boolean {
-        return this.is_edit;
+        return this.isEdit;
     }
 
     ngOnInit() {
 
+        const token = localStorage.getItem('userInf');
+        if (token) {
+
+            this.userData = JWT(token);
+        }
+
+        console.log(this.userData);
     }
 
     ckeditorContent: any;

@@ -17,7 +17,6 @@
                             <mat-form-field class="login-inp">
                                 <input matInput placeholder="Email Address" [formControl]="emailFormControl"
                                        [errorStateMatcher]="matcher" name="email" [(ngModel)]="userRegisInf.email">
-                                <mat-hint>Errors appear instantly!</mat-hint>
                                 <mat-error
                                         *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
                                     Please enter a valid email address
@@ -33,7 +32,6 @@
                         <div class="example-full-width">
                             <mat-form-field class="login-inp">
                                 <input matInput placeholder="Full Name" [formControl]="nameFormControl" [errorStateMatcher]="matcher" name="name" [(ngModel)]="userRegisInf.name">
-                                <mat-hint>Errors appear instantly!</mat-hint>
                                 <mat-error *ngIf="nameFormControl.hasError('name') && !nameFormControl.hasError('required')">Please enter a valid email address</mat-error>
                                 <mat-error *ngIf="nameFormControl.hasError('required')">Name is <strong>required</strong></mat-error>
                             </mat-form-field>
@@ -44,7 +42,6 @@
                         <div class="example-full-width">
                             <mat-form-field class="login-inp">
                                 <input matInput placeholder="User Name" [formControl]="userFormControl" [errorStateMatcher]="matcher" name="userName" [(ngModel)]="userRegisInf.username">
-                                <mat-hint>Errors appear instantly!</mat-hint>
                                 <mat-error *ngIf="userFormControl.hasError('name') && !userFormControl.hasError('required')">Please enter a valid email address</mat-error>
                                 <mat-error *ngIf="userFormControl.hasError('required')">User Name is <strong>required</strong></mat-error>
                             </mat-form-field>
@@ -57,7 +54,6 @@
                             <mat-form-field class="login-inp">
                                 <input matInput type="password" placeholder="Password" [formControl]="passFormControl"
                                        [errorStateMatcher]="matcher" name="pass" [(ngModel)]="userRegisInf.password">
-                                <mat-hint>Errors appear instantly!</mat-hint>
                                 <mat-error *ngIf="passFormControl.hasError('required')">
                                     Password is <strong>required</strong>
                                 </mat-error>
@@ -65,7 +61,8 @@
                         </div>
                     </div>
 
-                    <button [disabled]="passFormControl.hasError('required') || (emailFormControl.hasError('email') || emailFormControl.hasError('required'))"
+<!--                            [disabled]="passFormControl.hasError('required') || (emailFormControl.hasError('email') || emailFormControl.hasError('required'))"-->
+                    <button
                             mat-raised-button (click)="checkRegister(userRegisInf)" class="login">Sign up
                     </button>
 

@@ -5,6 +5,7 @@ import {ErrorStateMatcher} from '@angular/material/core';
 import {Router} from '@angular/router';
 import {ModalDialog} from '../libs/modal.dialog';
 import {MatDialog} from '@angular/material';
+import * as JWT from 'jwt-decode';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
     isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -58,12 +59,10 @@ export class LoginComponent implements OnInit {
     checkLogin(data) {
         this.auth.checkLogin(data).subscribe((r: any) => {
 
-            console.log('login_res', r);
-            if (r['status'] == 0) {
-                console.log('aa');
-                alert('Login/Password invalid');
-                return false;
-            }
+            console.log(r)
+
+            this.auth.userData = JWT(r.token);
+            console.log(this.auth.userData);
 
             localStorage.setItem('userInf', JSON.stringify(r['token']));
             //this.router.navigate(['']);
