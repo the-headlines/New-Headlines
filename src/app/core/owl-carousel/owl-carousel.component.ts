@@ -14,7 +14,7 @@ export class OwlCarouselComponent implements OnInit {
         pullDrag: false,
         dots: false,
         navSpeed: 700,
-        navText: ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
+        navText: ["<img src='../../../assets/images/back.svg'>","<img src='../../../assets/images/back.svg'>"],
         responsive: {
             0: {
                 items: 1
