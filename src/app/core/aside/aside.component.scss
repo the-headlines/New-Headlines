@@ -17,6 +17,17 @@
   margin: 0 auto 20px;
   cursor: pointer;
 
+  .title {
+    font-family: 'latoBlack';
+    font-size: 1em;
+    letter-spacing: 1.8px;
+    text-align: center;
+    color: #000000;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    display: block;
+  }
+
   &.policy {
     padding: 20px 20px;
 
@@ -235,7 +246,7 @@
   }
 
   .contributors_content_box {
-    a {
+    .username {
       font-family: 'latoRegular';
       margin-bottom: 5px;
       font-size: 15px;
@@ -248,18 +259,47 @@
       color: #000000;
       display: block;
       text-transform: uppercase;
+
+      span {
+        font-size: 16px;
+      }
+
+    }
+
+    p {
+      font-size: 14px;
+      font-family: 'latoBold';
+
+      span {
+        font-size: 14px;
+        font-family: 'latoBold';
+        color: #3788c6;
+      }
+    }
+
+    a {
+      font-family: 'latoBold';
+      margin-bottom: 10px;
+      font-size: 15px;
+      font-weight: 300;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: 0.92;
+      letter-spacing: 1.4px;
+      text-align: center;
+      color: #000000;
+      display: block;
+
+      span {
+        font-family: 'latoBold';
+      }
     }
 
     ol {
-      li {
-        p {
-          font-size: 14px;
-          font-family: 'latoBold';
+      margin: 10px 0;
 
-          span {
-            color: #3788c6
-          }
-        }
+      li {
+        margin: 20px 0;
       }
     }
   }
@@ -362,9 +402,6 @@
 
   .social_network_sidebar {
 
-    a {
-      color: white;
-    }
 
     li {
       display: flex;
@@ -414,4 +451,18 @@
       background-color: #d42323;
     }
   }
+
 }
+
+.jMwzIF {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  text-align: center;
+  padding-bottom: 12px;
+  font-family: 'latoRegular';
+}
+
+
+
+

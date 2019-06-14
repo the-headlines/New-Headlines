@@ -10,6 +10,7 @@ import {SinglePostComponent} from './modules/home/pages/single-post/single-post.
 import {RoadComponent} from './modules/home/pages/road/road.component';
 import {TravelComponent} from './modules/home/pages/travel/travel.component';
 import {AboutComponent} from './modules/home/pages/about/about.component';
+import {AdminProfileComponent} from './modules/home/components/admin/admin-profile/admin-profile.component';
 
 const routes: Routes = [
     {path: '', component: HomeComponent},
@@ -22,6 +23,7 @@ const routes: Routes = [
     {path: 'video', component: VideoComponent},
     {path: 'travel', component: TravelComponent},
     {path: 'about', component: AboutComponent},
+    {path: 'profile', component: AdminProfileComponent},
     {path: 'post/:id', component: SinglePostComponent},
 ];
 

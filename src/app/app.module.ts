@@ -57,8 +57,12 @@ import {TravelComponent} from './modules/home/pages/travel/travel.component';
 import {AboutComponent} from './modules/home/pages/about/about.component';
 import {ShareButtonModule} from '@ngx-share/button';
 import {CKEditorModule} from 'ng2-ckeditor';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatMenuModule} from '@angular/material/menu';
+import { AdminProfileComponent } from './modules/home/components/admin/admin-profile/admin-profile.component';
 import {ToastrModule} from 'ngx-toastr';
 import {RequestInterceptor} from './shared/helpers/http.interceptor';
+
 
 const config = new AuthServiceConfig([
     {
@@ -94,7 +98,8 @@ export function provideConfig() {
         OwlCarouselComponent,
         RoadComponent,
         TravelComponent,
-        AboutComponent
+        AboutComponent,
+        AdminProfileComponent
     ],
     imports: [
         BrowserModule,
@@ -123,6 +128,8 @@ export function provideConfig() {
         FontAwesomeModule,
         MatTooltipModule,
         CKEditorModule,
+        MatTabsModule,
+        MatMenuModule,
         ShareButtonModule,
         ToastrModule.forRoot(),
         ShareButtonsModule.withConfig({

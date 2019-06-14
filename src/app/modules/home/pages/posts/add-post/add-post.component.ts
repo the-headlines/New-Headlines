@@ -21,9 +21,13 @@ export interface Food {
 export class AddPostComponent implements OnInit {
 
     foods: Food[] = [
-        {value: 'steak-0', viewValue: 'Steak'},
-        {value: 'pizza-1', viewValue: 'Pizza'},
-        {value: 'tacos-2', viewValue: 'Tacos'}
+        {value: 'hooked-news-0', viewValue: 'Hooked News'},
+        {value: 'road-to-fame-1', viewValue: 'Road to fame'},
+        {value: 'came-pictures-2', viewValue: 'Camera Pictures'},
+        {value: 'jump-startup-3', viewValue: 'Jump Startup'},
+        {value: 'travel-monkey-4', viewValue: 'Travel Monkey'},
+        {value: 'fantastic-deals-5', viewValue: 'Fantastic Deals'},
+        {value: 'videos-6', viewValue: 'Videos'}
     ];
 
     newPost: Observable<any>;

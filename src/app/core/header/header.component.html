@@ -7,19 +7,10 @@
                         <img src="../../../assets/images/logo_white_background.jpg" alt="">
                     </a>
                     <div class="search_box">
-                        <p>Readers decide "The Headlines"  <a routerLink="/about">more... </a></p>
-<!--                        <div class="input-group mb-3">-->
-
-<!--                            <form action="" [formGroup]="profileForm" (ngSubmit)="search()">-->
-<!--                                <input type="text" class="form-control" placeholder="Search" aria-label="search"-->
-<!--                                       aria-describedby="basic-addon1" ngModel="search_input.value">-->
-<!--                                <div class="input-group-prepend">-->
-<!--                                    <span class="input-group-text" id="basic-addon1"><i class="fas fa-search"></i></span>-->
-<!--                                </div>-->
-<!--                            </form>-->
-<!--                        </div>-->
+                        <p>Readers decide "The Headlines" <a routerLink="/about">more... </a></p>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Search" aria-label="search" aria-describedby="basic-addon1">
+                            <input type="text" class="form-control" placeholder="Search" aria-label="search"
+                                   aria-describedby="basic-addon1">
                             <div class="input-group-prepend">
                                     <span class="input-group-text" id="basic-addon1">
                                         <i class="fas fa-search"></i>
@@ -38,7 +29,74 @@
                         <a *ngIf="checkUser()" style="color: white">{{userLoggined.name}}</a>
                     </li>
                     <li class="logout">
-                        <a *ngIf="checkUser()" mat-button (click)="logOut()">LogOut</a>
+                        <ul *ngIf="checkUser()">
+                            <li class="header-notification">
+                                <button mat-button [matMenuTriggerFor]="belowMenu">
+                                    <div class="bell">
+                                        <i class="fas fa-bell"></i>
+                                        <span class="badge bg-c-red">5</span>
+                                    </div>
+                                </button>
+                                <mat-menu #belowMenu="matMenu" yPosition="below">
+
+                                    <h6>Notifications:</h6>
+                                    <div class="margin_top">
+                                        <div class="media">
+                                            <div class="media-body">
+                                                <a class="notification-user">Prince John voted
+                                                    <span>Important May 28</span>
+                                                </a>
+                                                <div class="notification-msg">
+                                                    <p>Lorem ipsum dolor sit amet, consectetuer elit.</p>
+                                                </div>
+                                                <div class="notification-quality">
+                                                    <p><span>Score</span>400</p>
+                                                    <p><span>Total votes </span> 300</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="media">
+                                            <div class="media-body">
+                                                <a class="notification-user">Prince John voted
+                                                    <span>Important May 28</span>
+                                                </a>
+                                                <div class="notification-msg">
+                                                    <p>Lorem ipsum dolor sit amet, consectetuer elit.</p>
+                                                </div>
+                                                <div class="notification-quality">
+                                                    <p><span>Score</span>400</p>
+                                                    <p><span>Total votes </span> 300</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </mat-menu>
+                            </li>
+                            <li class="user-profile header-notification">
+                                <button mat-button [matMenuTriggerFor]="beforeMenu">
+                                    <span>kesi_sri</span>
+                                    <i class="feather icon-chevron-down"></i>
+                                </button>
+                                <mat-menu #beforeMenu="matMenu" yPosition="below">
+                                    <ul>
+                                        <li>
+                                            <a mat-button routerLink="/profile">My Profile</a>
+                                        </li>
+                                        <li>
+                                            <a mat-button routerLink="">Manage Posts</a>
+                                        </li>
+                                        <li>
+                                            <a mat-button routerLink="">Subscribe</a>
+                                        </li>
+                                        <li>
+                                            <a mat-button (click)="logOut()">LogOut</a>
+                                        </li>
+                                    </ul>
+                                </mat-menu>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>

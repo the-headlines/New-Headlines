@@ -1,206 +1,49 @@
 <aside>
-
-    <div class="sidebar">
-        <div class="top-news">
-            <h4 class="title">Today’s top</h4>
-            <ul>
-                <li class="item" *ngFor="let singleLastet of lastet.news">
-                    <div class="img-block">
-                        <img src="../../../assets/images/{{singleLastet.img}}" class="img-fluid" alt="">
-                    </div>
-                    <div class="text-block">
-                        <h5 class="title" (click)="getSingle(singleLastet.link)">{{singleLastet.title}}</h5>
-                        <p class="description">{{singleLastet.description}}</p>
-                        <span class="date">{{singleLastet.created_date}}</span>
-                    </div>
-                </li>
-                <div class="show-more">
-                    <span class=" active">Show more</span>
-                </div>
-            </ul>
-        </div>
-    </div>
-
     <div class="sidebar">
         <div class="top-news">
             <h4 class="title text-center">Today’s top</h4>
             <mat-tab-group>
                 <mat-tab>
                     <ng-template mat-tab-label>
-                        <button></button> Headlines
+                        Headlines
                     </ng-template>
                     <ul>
-                        <li class="item">
+                        <li class="item" *ngFor="let singleLastet of lastet.news">
                             <div class="img-block">
-                                <img src="./images/top-news1.jpg" class="img-fluid" alt="">
+                                <img src="../../../assets/images/{{singleLastet.img}}" class="img-fluid" alt="">
                             </div>
                             <div class="text-block">
-                                <h5 class="title">Leprehenderit</h5>
-                                <p class="description">in voluptate velit esse cillum dolore but fugiat
-                                    nulla</p>
-                                <span class="date">12.11.19</span>
+                                <h5 class="title" (click)="getSingle(singleLastet.link)">{{singleLastet.title}}</h5>
+                                <p class="description">{{singleLastet.description}}</p>
+                                <span class="date">{{singleLastet.created_date}}</span>
                             </div>
-                        </li>
-                        <li class="item">
-                            <div class="img-block">
-                                <img src="./images/top-news1.jpg" class="img-fluid" alt="">
-                            </div>
-                            <div class="text-block">
-                                <h5 class="title">Leprehenderit</h5>
-                                <p class="description">in voluptate velit esse cillum dolore but fugiat
-                                    nulla</p>
-                                <span class="date">12.11.19</span>
-                            </div>
-                        </li>
-                        <li class="item">
-                            <div class="img-block">
-                                <img src="./images/top-news1.jpg" class="img-fluid" alt="">
-                            </div>
-                            <div class="text-block">
-                                <h5 class="title">Leprehenderit</h5>
-                                <p class="description">in voluptate velit esse cillum dolore but fugiat
-                                    nulla</p>
-                                <span class="date">12.11.19</span>
-                            </div>
-                        </li>
-                        <li class="show-more">
-                            <span class=" active">Show more</span>
                         </li>
                     </ul>
+                    <div class="show-more">
+                        <span class=" active">Show more</span>
+                    </div>
                 </mat-tab>
                 <mat-tab>
                     <ng-template mat-tab-label>
                         <mat-icon>Questions</mat-icon>
                     </ng-template>
                     <ul>
-                        <li class="item">
+                        <li class="item" *ngFor="let singleLastet of lastet.news">
                             <div class="img-block">
-                                <img src="./images/img1.jpg" class="img-fluid" alt="">
+                                <img src="../../../assets/images/{{singleLastet.img}}" class="img-fluid" alt="">
                             </div>
                             <div class="text-block">
-                                <h5 class="title">Leprehenderit</h5>
-                                <p class="description">in voluptate velit esse cillum dolore but fugiat
-                                    nulla</p>
-                                <span class="date">12.11.19</span>
+                                <h5 class="title" (click)="getSingle(singleLastet.link)">{{singleLastet.title}}</h5>
+                                <p class="description">{{singleLastet.description}}</p>
+                                <span class="date">{{singleLastet.created_date}}</span>
                             </div>
-                        </li>
-                        <li class="item">
-                            <div class="img-block">
-                                <img src="./images/img1.jpg" class="img-fluid" alt="">
-                            </div>
-                            <div class="text-block">
-                                <h5 class="title">Leprehenderit</h5>
-                                <p class="description">in voluptate velit esse cillum dolore but fugiat
-                                    nulla</p>
-                                <span class="date">12.11.19</span>
-                            </div>
-                        </li>
-                        <li class="item">
-                            <div class="img-block">
-                                <img src="./images/img1.jpg" class="img-fluid" alt="">
-                            </div>
-                            <div class="text-block">
-                                <h5 class="title">Leprehenderit</h5>
-                                <p class="description">in voluptate velit esse cillum dolore but fugiat
-                                    nulla</p>
-                                <span class="date">12.11.19</span>
-                            </div>
-                        </li>
-                        <li class="show-more">
-                            <span class=" active">Show more</span>
                         </li>
                     </ul>
+                    <div class="show-more">
+                        <span class=" active">Show more</span>
+                    </div>
                 </mat-tab>
             </mat-tab-group>
-
-<!--            <div class="tab-section">-->
-<!--                <ul class="tab-button-area">-->
-<!--                    <li class="tab-button active"></li>-->
-<!--                    <li class="tab-button"></li>-->
-<!--                </ul>-->
-<!--                <div class="tab-content-area">-->
-<!--                    <div class="tab-content show">-->
-<!--                        <ul>-->
-<!--                            <li class="item">-->
-<!--                                <div class="img-block">-->
-<!--                                    <img src="./images/top-news1.jpg" class="img-fluid" alt="">-->
-<!--                                </div>-->
-<!--                                <div class="text-block">-->
-<!--                                    <h5 class="title">Leprehenderit</h5>-->
-<!--                                    <p class="description">in voluptate velit esse cillum dolore but fugiat-->
-<!--                                        nulla</p>-->
-<!--                                    <span class="date">12.11.19</span>-->
-<!--                                </div>-->
-<!--                            </li>-->
-<!--                            <li class="item">-->
-<!--                                <div class="img-block">-->
-<!--                                    <img src="./images/top-news1.jpg" class="img-fluid" alt="">-->
-<!--                                </div>-->
-<!--                                <div class="text-block">-->
-<!--                                    <h5 class="title">Leprehenderit</h5>-->
-<!--                                    <p class="description">in voluptate velit esse cillum dolore but fugiat-->
-<!--                                        nulla</p>-->
-<!--                                    <span class="date">12.11.19</span>-->
-<!--                                </div>-->
-<!--                            </li>-->
-<!--                            <li class="item">-->
-<!--                                <div class="img-block">-->
-<!--                                    <img src="./images/top-news1.jpg" class="img-fluid" alt="">-->
-<!--                                </div>-->
-<!--                                <div class="text-block">-->
-<!--                                    <h5 class="title">Leprehenderit</h5>-->
-<!--                                    <p class="description">in voluptate velit esse cillum dolore but fugiat-->
-<!--                                        nulla</p>-->
-<!--                                    <span class="date">12.11.19</span>-->
-<!--                                </div>-->
-<!--                            </li>-->
-<!--                            <li class="show-more">-->
-<!--                                <span class=" active">Show more</span>-->
-<!--                            </li>-->
-<!--                        </ul>-->
-<!--                    </div>-->
-<!--                    <div class="tab-content">-->
-<!--                        <ul>-->
-<!--                            <li class="item">-->
-<!--                                <div class="img-block">-->
-<!--                                    <img src="./images/img1.jpg" class="img-fluid" alt="">-->
-<!--                                </div>-->
-<!--                                <div class="text-block">-->
-<!--                                    <h5 class="title">Leprehenderit</h5>-->
-<!--                                    <p class="description">in voluptate velit esse cillum dolore but fugiat-->
-<!--                                        nulla</p>-->
-<!--                                    <span class="date">12.11.19</span>-->
-<!--                                </div>-->
-<!--                            </li>-->
-<!--                            <li class="item">-->
-<!--                                <div class="img-block">-->
-<!--                                    <img src="./images/img1.jpg" class="img-fluid" alt="">-->
-<!--                                </div>-->
-<!--                                <div class="text-block">-->
-<!--                                    <h5 class="title">Leprehenderit</h5>-->
-<!--                                    <p class="description">in voluptate velit esse cillum dolore but fugiat-->
-<!--                                        nulla</p>-->
-<!--                                    <span class="date">12.11.19</span>-->
-<!--                                </div>-->
-<!--                            </li>-->
-<!--                            <li class="item">-->
-<!--                                <div class="img-block">-->
-<!--                                    <img src="./images/img1.jpg" class="img-fluid" alt="">-->
-<!--                                </div>-->
-<!--                                <div class="text-block">-->
-<!--                                    <h5 class="title">Leprehenderit</h5>-->
-<!--                                    <p class="description">in voluptate velit esse cillum dolore but fugiat-->
-<!--                                        nulla</p>-->
-<!--                                    <span class="date">12.11.19</span>-->
-<!--                                </div>-->
-<!--                            </li>-->
-<!--                            <li class="show-more">-->
-<!--                                <span class=" active">Show more</span>-->
-<!--                            </li>-->
-<!--                        </ul>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
         </div>
     </div>
 
