@@ -1,109 +1,198 @@
 <app-header></app-header>
 <div class="content">
-    <div class="row">
-        <section class="col-md-7">
+    <div class="main row no-gutters">
+        <section class="col-md-8" style="padding-right: 37px">
             <div class="carusel-block">
                 <app-owl-carousel></app-owl-carousel>
-            </div>
+                <div class="img-block">
+                    <ul class="view-icons-block slider_bottom_icons">
+                        <li>
+                            <a href="" class="score">Score <span>200</span></a>
+                        </li>
+                        <li>
+                            <div class="box">
+                                <div class="Like like_btn">
+                                    <img src="../../../../../assets/images/vote.png" alt="">
 
+                                    <div class="Like__link js-hover">Votes
+                                        <span class="hovered_number">100</span>
+                                    </div>
+                                    <div class="Emojis">
+                                        <div class="Emoji Emoji--like">
+                                            <div class="">
+                                                <button class="op-blue">Like</button>
+                                                <p class="num">20</p>
+                                            </div>
+                                        </div>
+                                        <div class="Emoji Emoji--love">
+                                            <div class="">
+                                                <button class="gray">ok</button>
+                                                <p class="num">30</p>
+                                            </div>
+                                        </div>
+                                        <div class="Emoji Emoji--love">
+                                            <div class="">
+                                                <button class="blue">Awesome</button>
+                                                <p class="num">30</p>
+                                            </div>
+                                        </div>
+                                        <div class="Emoji Emoji--love">
+                                            <div class="">
+                                                <button class="blue">Great</button>
+                                                <p class="num">30</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <a href="">
+                                View<span>20</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a>
+                                <i class="far fa-comment"></i>
+                                Comments<span>35</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a>
+                                Critics<span>35</span>
+                            </a>
+                        </li>
+                        <li>
+                            <button type="button" class="share">
+                                <i class="fas fa-share"></i>
+                                Share<span></span></button>
+                            <div class="share_post">
+                                <ul>
+                                    <li>
+                                        <button><i class="fas fa-link"></i> Copy Link</button>
+                                        <button><img src="../../../../../assets/images/shuffle.png" alt="">Crosspost</button>
+                                        <button><i class="fas fa-code"></i>Embed</button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
             <div class="news-block carusel-block">
                 <div class="item">
                     <div class="text-block">
                         <div class="description">
-                            <h5 class="title">
-                                Cinema, MUSIC AND SPORTS NEWS
-                            </h5>
-                            <p class="text">
-                                Read latest stories
-                            </p>
+                            <h5 class="title">Cinema, Music and Sports news</h5>
+                            <p class="text">Read latest stories</p>
                         </div>
                         <div class="filter">
                             <span>filters:</span>
                             <ul class="menu">
-                                <li class="blue_lg">
-                                    <button type="button">New</button>
+                                <li class="orange">
+                                    <button>New</button>
                                 </li>
-                                <li class="orange_lg">
+                                <li class="yellow">
                                     <button>Score</button>
                                 </li>
-                                <li class="yellow_lg">
-                                    <button type="button">Great</button>
+                                <li class="op-orange">
+                                    <button>Great</button>
                                 </li>
-                                <li class="green_lg">
-                                    <button type="button">Critics</button>
+                                <li class="gray">
+                                    <button>Critics</button>
                                 </li>
                             </ul>
                         </div>
                     </div>
-                    <div class="loop_items item" *ngFor="let single of posts.news">
-                        <div class="img-block">
-                            <img src="{{single.extractedImage}}" class="img-fluid" alt="" (click)="getSingle(1)">
-                            <ul class="view-icons-block">
-                                <li>
-                                    <a href="" class="score"> Score <span>200</span></a>
-                                </li>
-                                <li class="like_btn">
-                                    <a class="like_post_btn">Like</a>
-                                    <div class="vote_news">
-                                        <ul>
-                                            <li #messageEl *ngFor="let message of messages"
-                                                [attr.data-message-id]="message.id" (click)="logMessageId(messageEl)">
-                                                <span class="op-blue">
-                                                    {{ message.text }}
-                                                </span>
-                                            </li>
-                                            <li>
-                                                <button class="op-blue" (click)="getVoice()">Like</button>
-                                            </li>
-                                            <li>
-                                                <button class="gray" (click)="getVoice()">Important</button>
-                                            </li>
-                                            <li>
-                                                <button class="blue" (click)="getVoice()">Interesting</button>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li>
-                                    <a href="">View
-                                        <span id='views'>
-                                            <span>
-                                            {{single.views}}</span>
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">Comments<span>20</span></a>
-                                </li>
-                                <li>
-                                    <a href="">Questions<span>20</span></a>
-                                </li>
-                                <li>
-                                    <span>
-                                        Share
+                    <div class="img-block">
+                        <img src="" class="img-fluid" alt="">
+                        <ul class="view-icons-block">
+                            <li>
+                                <a href="" class="score">Score <span>200</span></a>
+                            </li>
+                            <li>
+                                <div class="box">
+                                    <div class="Like like_btn">
+                                        <img src="../../../../../assets/images/vote.png" alt="">
 
-                                        <div class="share_social_links">
-                                            <app-share-buttons theme="material-dark" show="11" image="https://loremflickr.com/320/240"></app-share-buttons>
+                                        <div class="Like__link js-hover">Votes
+                                            <span class="hovered_number">100</span>
                                         </div>
-                                    </span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="text-block">
-                            <p>{{single.extractedDescription}}</p>
-                        </div>
+                                        <div class="Emojis">
+                                            <div class="Emoji Emoji--like">
+                                                <div class="">
+                                                    <button class="op-blue">Like</button>
+                                                    <p class="num">20</p>
+                                                </div>
+                                            </div>
+                                            <div class="Emoji Emoji--love">
+                                                <div class="">
+                                                    <button class="gray">ok</button>
+                                                    <p class="num">30</p>
+                                                </div>
+                                            </div>
+                                            <div class="Emoji Emoji--love">
+                                                <div class="">
+                                                    <button class="blue">Awesome</button>
+                                                    <p class="num">30</p>
+                                                </div>
+                                            </div>
+                                            <div class="Emoji Emoji--love">
+                                                <div class="">
+                                                    <button class="blue">Great</button>
+                                                    <p class="num">30</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="">
+                                    View<span>20</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a>
+                                    <i class="far fa-comment"></i>
+                                    Comments<span>35</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a>
+                                    Critics<span>35</span>
+                                </a>
+                            </li>
+                            <li>
+                                <button type="button" class="share">
+                                    <i class="fas fa-share"></i>
+                                    Share<span></span></button>
+                                <div class="share_post">
+                                    <ul>
+                                        <li>
+                                            <button><i class="fas fa-link"></i> Copy Link</button>
+                                            <button><img src="../../../../../assets/images/shuffle.png" alt="">Crosspost
+                                            </button>
+                                            <button><i class="fas fa-code"></i>Embed</button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="text-block">
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                            Lorem Ipsum has been the industry's standard dummy text ever since the</p>
                     </div>
                 </div>
             </div>
-            <div class="pagination-block">
-                <ul>
-                    <li *ngFor="let paginateSingle of pages">
-                        <a data-id="{{paginateSingle}}" (click)="nextPage($event)">{{ paginateSingle }}</a>
-                    </li>
-                </ul>
-            </div>
         </section>
-        <app-aside class="col-md-5"></app-aside>
+
+        <aside class="col-md-4" style="padding-left: 37px">
+            <app-aside></app-aside>
+        </aside>
     </div>
 </div>
+
 <app-footer></app-footer>

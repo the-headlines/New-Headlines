@@ -268,51 +268,58 @@ img {
   text-decoration: none;
 }
 
-.filter {
-  .menu {
-    display: flex;
-    align-items: center;
-    flex-wrap: nowrap;
-    margin: unset;
-    width: 100%;
-
-    li {
-      width: auto;
-      padding: 0 20px;
-      height: 31px;
-      display: flex;
-      align-items: center;
-      margin-right: 5px;
-      border-radius: 20px;
-
-      a {
-        font-family: 'latoRegular', sans-serif;
-        font-size: 1.28em;
-        font-weight: bold;
-        line-height: 0.72;
-        letter-spacing: 0.5px;
-        color: #fff;
-        display: block;
-        text-align: center;
-        width: 100%;
-      }
-    }
-  }
-
-  ul li button {
-    font-family: 'latoRegular', sans-serif;
-    font-size: 1em;
-    font-weight: bold;
-    letter-spacing: 0.5px;
-    color: black;
-    display: block;
-    text-align: center;
-    width: 100%;
-    text-transform: uppercase;
-    background: unset;
-    border: unset;
-  }
+.slider_bottom_icons {
+  width: 100% !important;
+  margin: 5px 0 !important;
+  border: 1px solid lightgray;
+  padding: 10px 25px;
 }
+
+.filter {
+   .menu {
+     display: flex;
+     align-items: center;
+     flex-wrap: nowrap;
+     margin: unset;
+     width: 100%;
+
+     li {
+       width: auto;
+       padding: 0 20px;
+       height: 31px;
+       display: flex;
+       align-items: center;
+       margin-right: 5px;
+       border-radius: 20px;
+
+       a {
+         font-family: 'latoRegular', sans-serif;
+         font-size: 1.28em;
+         font-weight: bold;
+         line-height: 0.72;
+         letter-spacing: 0.5px;
+         color: #fff;
+         display: block;
+         text-align: center;
+         width: 100%;
+       }
+     }
+   }
+
+   ul li button {
+     font-family: 'latoRegular', sans-serif;
+     font-size: 1em;
+     font-weight: bold;
+     letter-spacing: 0.5px;
+     color: black;
+     display: block;
+     text-align: center;
+     width: 100%;
+     text-transform: uppercase;
+     background: unset;
+     border: unset;
+   }
+ }
 
 .modal-body .mat-input-element {
   height: 47px;
@@ -519,7 +526,6 @@ img {
 }
 
 .news-block .item {
-  margin-bottom: 50px;
 
   .text-block {
     margin-bottom: 25px;
@@ -541,7 +547,7 @@ img {
       align-items: center;
       justify-content: center;
       font-size: 12px;
-      color: #807f81;
+      color: #807f81 !important;
       font-family: "latoBlack";
 
       &:hover {

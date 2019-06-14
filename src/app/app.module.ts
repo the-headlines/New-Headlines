@@ -53,13 +53,13 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {faCoffee} from '@fortawesome/free-solid-svg-icons';
 import {MatTooltipModule} from '@angular/material/tooltip';
-import { TravelComponent } from './modules/home/pages/travel/travel.component';
-import { AboutComponent } from './modules/home/pages/about/about.component';
+import {TravelComponent} from './modules/home/pages/travel/travel.component';
+import {AboutComponent} from './modules/home/pages/about/about.component';
 import {ShareButtonModule} from '@ngx-share/button';
 import {CKEditorModule} from 'ng2-ckeditor';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatMenuModule} from '@angular/material/menu';
-import { AdminProfileComponent } from './modules/home/components/admin/admin-profile/admin-profile.component';
+import {AdminProfileComponent} from './modules/home/components/admin/admin-profile/admin-profile.component';
 
 const config = new AuthServiceConfig([
     {
