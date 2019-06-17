@@ -3,6 +3,9 @@ import {ModalDialog} from '../../modules/home/components/libs/modal.dialog';
 import {MatDialog} from '@angular/material';
 import {SocialUser} from 'angularx-social-login';
 import {AuthService} from 'angularx-social-login';
+import * as JWT from 'jwt-decode';
+import {CommonService} from '../../services/common.service';
+import {SubjectService} from '../../services/subject.service';
 
 
 @Component({
@@ -14,8 +17,20 @@ import {AuthService} from 'angularx-social-login';
 export class HeaderComponent implements OnInit {
     private user: SocialUser;
     @ViewChild('closest') closest: ElementRef;
+    userData: any = {};
 
-    constructor(private dialog: MatDialog, private authService: AuthService) {
+    constructor(
+        private dialog: MatDialog,
+        private authService: AuthService,
+        private common: CommonService,
+        private subject: SubjectService
+    ) {
+
+        this.subject.getUserData().subscribe((dt: any) => {
+            this.userData.fullName = dt.fullName;
+        });
+
+        this.userData.fullName = localStorage.getItem('full_name');
     }
 
     baseArr = [
@@ -96,5 +111,6 @@ export class HeaderComponent implements OnInit {
     logOut(): void {
         this.authService.signOut();
         localStorage.setItem('userInf', null);
+        localStorage.setItem('full_name', null);
     }
 }

@@ -56,7 +56,7 @@ export class SinglePostComponent implements OnInit {
 
         const token = localStorage.getItem('userInf');
         if (token) {
-
+console.log(token)
             this.userData = JWT(token);
         }
 

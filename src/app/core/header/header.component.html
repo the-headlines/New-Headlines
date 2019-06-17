@@ -76,7 +76,8 @@
                             </li>
                             <li class="user-profile header-notification">
                                 <button mat-button [matMenuTriggerFor]="beforeMenu">
-                                    <span>kesi_sri</span>
+
+                                    <span>{{userData?userData.fullName :'/n/a'}}</span>
                                     <i class="feather icon-chevron-down"></i>
                                 </button>
                                 <mat-menu #beforeMenu="matMenu" yPosition="below">

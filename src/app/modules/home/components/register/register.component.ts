@@ -74,6 +74,7 @@ export class RegisterComponent implements OnInit {
         this.auth.register(data).subscribe((r: any) => {
 
             this.toastr.success('Registered successfully');
+            this.matDialog.closeAll();
             // this.router.navigate(['']);
         });
     }

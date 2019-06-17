@@ -6,6 +6,8 @@ import {Router} from '@angular/router';
 import {ModalDialog} from '../libs/modal.dialog';
 import {MatDialog} from '@angular/material';
 import * as JWT from 'jwt-decode';
+import {CommonService} from '../../../../services/common.service';
+import {SubjectService} from '../../../../services/subject.service';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
     isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -37,7 +39,13 @@ export class LoginComponent implements OnInit {
 
     userLoginInf = {password: '', email: ''};
 
-    constructor(private auth: AuthService, private router: Router, private matDialog: MatDialog) {
+    constructor(
+        private auth: AuthService,
+        private router: Router,
+        private matDialog: MatDialog,
+        private common: CommonService,
+        private subject: SubjectService
+    ) {
     }
 
     ngOnInit() {
@@ -60,10 +68,10 @@ export class LoginComponent implements OnInit {
         this.auth.checkLogin(data).subscribe((r: any) => {
 
 
-            this.auth.userData = JWT(r.token);
-            console.log(this.auth.userData);
-
+            this.common.userData = JWT(r.token);
+            localStorage.setItem('full_name', r.fullname);
             localStorage.setItem('userInf', JSON.stringify(r['token']));
+            this.subject.setUserData({...JWT(r.token), ...{fullName: r.fullname}});
             //this.router.navigate(['']);
             let el: HTMLElement = this.closest.nativeElement as HTMLElement;
             el.click();

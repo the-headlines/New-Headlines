@@ -99,7 +99,7 @@ export class HomeComponent implements OnInit {
         this.get();
 
         this.cs.set('Test', 'Hello World');
-        console.log(this.cs.get('Test'));
+        // console.log(this.cs.get('Test'));
     }
 
     get() {
