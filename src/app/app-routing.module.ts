@@ -11,6 +11,7 @@ import {RoadComponent} from './modules/home/pages/road/road.component';
 import {TravelComponent} from './modules/home/pages/travel/travel.component';
 import {AboutComponent} from './modules/home/pages/about/about.component';
 import {AdminProfileComponent} from './modules/home/components/admin/admin-profile/admin-profile.component';
+import {AddPostComponent} from './modules/home/pages/posts/add-post/add-post.component';
 
 const routes: Routes = [
     {path: '', component: HomeComponent},
@@ -24,6 +25,7 @@ const routes: Routes = [
     {path: 'travel', component: TravelComponent},
     {path: 'about', component: AboutComponent},
     {path: 'profile', component: AdminProfileComponent},
+    {path: 'add-post', component: AddPostComponent},
     {path: 'post/:id', component: SinglePostComponent},
 ];
 

@@ -15,7 +15,7 @@ export class PostsService {
     }
 
     public getPosts() {
-        return this.http.get(Base.url + '/all_ferry');
+        return this.http.get(Base.url + '/');
     }
 
     public deletePosts() {

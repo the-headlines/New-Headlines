@@ -4,55 +4,183 @@
     <section class="col-md-7">
       <div class="carusel-block">
         <app-owl-carousel></app-owl-carousel>
+        <div class="img-block">
+          <ul class="view-icons-block slider_bottom_icons">
+            <li>
+              <a href="" class="score">Score <span>200</span></a>
+            </li>
+            <li>
+              <div class="box">
+                <div class="Like like_btn">
+                  <img src="../../../../../assets/images/vote.png" alt="">
+
+                  <div class="Like__link js-hover">Votes
+                    <span class="hovered_number">100</span>
+                  </div>
+                  <div class="Emojis">
+                    <div class="Emoji Emoji--like">
+                      <div class="">
+                        <button class="op-blue">Like</button>
+                        <p class="num">20</p>
+                      </div>
+                    </div>
+                    <div class="Emoji Emoji--love">
+                      <div class="">
+                        <button class="gray">Promising</button>
+                        <p class="num">30</p>
+                      </div>
+                    </div>
+                    <div class="Emoji Emoji--haha">
+                      <div class="">
+                        <button class="blue">Useful</button>
+                        <p class="num">50</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <a href="">
+                View<span>20</span>
+              </a>
+            </li>
+            <li>
+              <a>
+                <i class="far fa-comment"></i>
+                Feedback<span>35</span>
+              </a>
+            </li>
+            <li>
+              <a>
+                Questions<span>35</span>
+              </a>
+            </li>
+            <li>
+              <button type="button" class="share">
+                <i class="fas fa-share"></i>
+                Share<span></span></button>
+              <div class="share_post">
+                <ul>
+                  <li>
+                    <button><i class="fas fa-link"></i> Copy Link</button>
+                    <button><img src="../../../../../assets/images/shuffle.png" alt="">Crosspost</button>
+                    <button><i class="fas fa-code"></i>Embed</button>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
-      <div class="news-block carusel-block" *ngFor="let single of posts">
+      <div class="news-block carusel-block">
         <div class="item">
           <div class="text-block">
             <div class="description">
-              <h5 class="title" (click)="getSingle(single.id)">{{single.title}}</h5>
-              <p class="text">{{single.metatitle}}</p>
+              <h5 class="title">Start Up News</h5>
+              <p class="text">Around the world</p>
             </div>
             <div class="filter">
               <span>filters:</span>
               <ul class="menu">
-                <li class="orange"><a href="">All</a></li>
-                <li class="yellow"><a href="">Should be in Headlines</a></li>
-                <li class="gray"><a href="">Promising</a></li>
-                <li class="op-orange"><a href="">Inspiring</a></li>
+                <li class="blue_lg">
+                  <button type="button">New</button>
+                </li>
+                <li class="orange_lg">
+                  <button>Score</button>
+                </li>
+                <li class="yellow_lg">
+                  <button type="button">Promising</button>
+                </li>
+                <li class="green_lg">
+                  <button type="button">Useful</button>
+                </li>
+                <li class="green_lg">
+                  <button type="button">Feedback</button>
+                </li>
               </ul>
             </div>
           </div>
           <div class="img-block">
-            <img src="../../../assets/images/{{single.img}}" class="img-fluid" alt="">
+            <img src="../../../../../assets/images" class="img-fluid" alt="">
             <ul class="view-icons-block">
-              <li *ngIf="checkUser()">
-                <span *ngIf="single.like == 0"><i class="far fa-thumbs-up"></i><span>like</span></span>
-                <span *ngIf="single.like ==1"><i class="far fa-thumbs-up"></i><span>like</span></span>
+              <li>
+                <a href="" class="score">Score <span>200</span></a>
               </li>
               <li>
-                <span id='views'><i class="fas fa-eye"></i><span>views</span> {{single.view}}</span>
+                <div class="box">
+                  <div class="Like like_btn">
+                    <img src="../../../../../assets/images/vote.png" alt="">
+
+                    <div class="Like__link js-hover">Votes
+                      <span class="hovered_number">100</span>
+                    </div>
+                    <div class="Emojis">
+                      <div class="Emoji Emoji--like">
+                        <div class="">
+                          <button class="op-blue">Like</button>
+                          <p class="num">20</p>
+                        </div>
+                      </div>
+                      <div class="Emoji Emoji--love">
+                        <div class="">
+                          <button class="gray">Promising</button>
+                          <p class="num">30</p>
+                        </div>
+                      </div>
+                      <div class="Emoji Emoji--haha">
+                        <div class="">
+                          <button class="blue">Useful</button>
+                          <p class="num">50</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </li>
-              <li *ngIf="checkUser()">
-                <span *ngIf="single.love == 0"><i class="fas fa-heart"></i><span>love</span></span>
-                <span *ngIf="single.love == 1"><i class="fas fa-heart"></i><span>love</span></span>
+
+              <li>
+                <a href="">
+                  View<span>20</span>
+                </a>
               </li>
               <li>
-                <span><i class="fas fa-share"></i><span>share</span></span>
+                <a>
+                  <i class="far fa-comment"></i>
+                  Feedback<span>35</span>
+                </a>
               </li>
               <li>
-                <a href=""><i class="fas fa-comment"></i><span>comments</span></a>
+                <a>
+                  Questions<span>35</span>
+                </a>
+              </li>
+              <li>
+                <button type="button" class="share">
+                  <i class="fas fa-share"></i>
+                  Share<span></span></button>
+                <div class="share_post">
+                  <ul>
+                    <li>
+                      <button><i class="fas fa-link"></i> Copy Link</button>
+                      <button><img src="../../../../../assets/images/shuffle.png" alt="">Crosspost</button>
+                      <button><i class="fas fa-code"></i>Embed</button>
+                    </li>
+                  </ul>
+                </div>
               </li>
             </ul>
           </div>
           <div class="text-block">
-            <p>{{single.description}}</p>
+            <p>desc</p>
           </div>
         </div>
       </div>
       <div class="pagination-block">
         <ul>
-          <li *ngFor="let paginateSingle of pages">
-            <a data-id="{{paginateSingle}}" (click)="nextPage($event)">{{ paginateSingle }}</a>
+          <li>
+            <a></a>
           </li>
         </ul>
       </div>

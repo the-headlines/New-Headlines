@@ -19,7 +19,7 @@ export class AuthService {
     }
 
     public getPosts() {
-        return this.http.get(Base.url + '/all_ferry');
+        return this.http.get(Base.url + '/');
     }
 
     public checkLogin(data) {
@@ -33,7 +33,7 @@ export class AuthService {
     }
 
     public getContact(data) {
-        return this.http.post(Base.url + '/contact_us', data);
+        return this.http.post(Base.url + '/', data);
     }
 
     public getToken() {

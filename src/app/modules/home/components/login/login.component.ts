@@ -59,7 +59,6 @@ export class LoginComponent implements OnInit {
     checkLogin(data) {
         this.auth.checkLogin(data).subscribe((r: any) => {
 
-            console.log(r)
 
             this.auth.userData = JWT(r.token);
             console.log(this.auth.userData);

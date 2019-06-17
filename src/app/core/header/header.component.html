@@ -22,7 +22,7 @@
                 <ul>
                     <li class="post" ng-class="{ active: isActive('/posts') }">
                         <a *ngIf="!checkUser()" mat-button (click)="showLogin()">post</a>
-                        <a *ngIf="checkUser()" routerLink="/posts/home-posts" mat-button>post</a>
+                        <a *ngIf="checkUser()" routerLink="/add-post" mat-button>post</a>
                     </li>
                     <li class="login">
                         <a *ngIf="!checkUser()" mat-button (click)="showLogin()">login / sign up</a>
