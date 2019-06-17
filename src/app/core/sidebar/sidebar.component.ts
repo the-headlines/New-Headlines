@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {PostsService} from '../../services/posts.service';
+import {EditInfoModalComponent} from '../../modules/home/components/libs/edit-info-modal/edit-info-modal.component';
+import {Dialog} from 'primeng/dialog';
+import {MatDialog} from '@angular/material';
 
 @Component({
     selector: 'app-sidebar',
@@ -13,10 +16,23 @@ export class SidebarComponent implements OnInit {
     email = false;
     pass = false;
 
-    constructor(private auth: PostsService) {
+    constructor(private auth: PostsService, public dialog: MatDialog) {
     }
 
     ngOnInit() {
+    }
+
+    openDialog(term): void {
+        const dialogRef = this.dialog.open(EditInfoModalComponent, {
+            width: '500px',
+            data: {
+                name: term
+            }
+        });
+
+        dialogRef.afterClosed().subscribe(result => {
+            console.log('The dialog was closed');
+        });
     }
 
     changeInfoFunc(data) {

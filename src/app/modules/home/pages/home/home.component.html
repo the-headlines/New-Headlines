@@ -1,7 +1,7 @@
 <script src="../../../../app.component.ts"></script>
 <app-header></app-header>
 <div class="content">
-    <div class="row">
+    <div class="main row no-gutters">
         <section class="col-md-8" style="padding-right: 37px">
             <div class="carusel-block">
                 <app-owl-carousel></app-owl-carousel>
@@ -172,15 +172,16 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <button type="button" class="share">
+                                    <button type="button" class="share" (click)="show(single)">
                                         <i class="fas fa-share"></i>
                                         Share<span></span>
                                     </button>
-                                    <div class="share_post" style="display: none;">
+                                    <div class="share_post" *ngIf="isShown && single === currentPost" #menu>
                                         <ul>
                                             <li>
                                                 <button><i class="fas fa-link"></i> Copy Link</button>
-                                                <button><img src="../../../../../assets/images/shuffle.png" alt="">Crosspost</button>
+                                                <button><img src="../../../../../assets/images/shuffle.png" alt="">Crosspost
+                                                </button>
                                                 <button><i class="fas fa-code"></i>Embed</button>
                                             </li>
                                         </ul>

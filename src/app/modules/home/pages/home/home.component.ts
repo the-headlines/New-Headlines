@@ -4,11 +4,15 @@ import * as Base from '../../../../configs/config.js';
 import {Router} from '@angular/router';
 import {CookieService} from 'ngx-cookie-service';
 import {HttpClient} from '@angular/common/http';
+import {ElementRef} from '@angular/core';
 
 @Component({
     selector: 'app-home',
     templateUrl: './home.component.html',
-    styleUrls: ['./home.component.scss']
+    styleUrls: ['./home.component.scss'],
+    host: {
+        '(document:click)': 'closeShare($event)',
+    },
 })
 
 export class HomeComponent implements OnInit {
@@ -56,7 +60,7 @@ export class HomeComponent implements OnInit {
         }
     ];
     fakeArr = [];
-
+    currentPost = {};
 
     filterByVotes(vote) {
 
@@ -77,12 +81,24 @@ export class HomeComponent implements OnInit {
     }
 
 
-    constructor(private home: HomeService, private router: Router, private cs: CookieService, private http: HttpClient) {
+    constructor(private home: HomeService, private router: Router, private cs: CookieService, private http: HttpClient, private _elementRef: ElementRef) {
         this._sessionId = cs.get('sessionId');
         this.http.get<{ ip: string }>('https://jsonip.com').subscribe(data => {
             console.log('th data', data);
             this.ipAddress = data;
         });
+    }
+
+    isShown: boolean = false;
+
+    show(single) {
+        this.isShown = true;
+        this.currentPost = single;
+    }
+
+    closeShare(event) {
+        if (!this._elementRef.nativeElement.contains(event.target)) // or some similar check
+            this.isShown = !this.isShown;
     }
 
     public set sessionId(value: string) {

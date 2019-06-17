@@ -12,6 +12,8 @@ import {TravelComponent} from './modules/home/pages/travel/travel.component';
 import {AboutComponent} from './modules/home/pages/about/about.component';
 import {AdminProfileComponent} from './modules/home/components/admin/admin-profile/admin-profile.component';
 import {AddPostComponent} from './modules/home/pages/posts/add-post/add-post.component';
+import {SubscribeComponent} from './modules/home/pages/posts/subscribe/subscribe.component';
+import {PostsHomeComponent} from './modules/home/pages/posts/posts-home/posts-home.component';
 
 const routes: Routes = [
     {path: '', component: HomeComponent},
@@ -27,6 +29,8 @@ const routes: Routes = [
     {path: 'profile', component: AdminProfileComponent},
     {path: 'add-post', component: AddPostComponent},
     {path: 'post/:id', component: SinglePostComponent},
+    {path: 'subscribe', component: SubscribeComponent},
+    {path: 'managePost', component: PostsHomeComponent},
 ];
 
 @NgModule({

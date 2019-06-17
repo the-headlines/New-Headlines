@@ -42,7 +42,9 @@ import {
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {SinglePostComponent} from './modules/home/pages/single-post/single-post.component';
 import {SidebarComponent} from './core/sidebar/sidebar.component';
-import {PostsComponent} from './modules/home/pages/posts/posts/posts.component';
+import {SubscribeComponent} from './modules/home/pages/posts/subscribe/subscribe.component';
+import {AddPostComponent} from './modules/home/pages/posts/add-post/add-post.component';
+import {PostsHomeComponent} from './modules/home/pages/posts/posts-home/posts-home.component';
 import {FaceLoginComponent} from './modules/home/components/face-login/face-login.component';
 import {OwlCarouselComponent} from './core/owl-carousel/owl-carousel.component';
 import {TokenInterceptorService} from './services/token-interceptor.service';
@@ -62,6 +64,10 @@ import {MatMenuModule} from '@angular/material/menu';
 import { AdminProfileComponent } from './modules/home/components/admin/admin-profile/admin-profile.component';
 import {ToastrModule} from 'ngx-toastr';
 import {RequestInterceptor} from './shared/helpers/http.interceptor';
+import {EditInfoModalComponent} from './modules/home/components/libs/edit-info-modal/edit-info-modal.component';
+import {DropzoneModule} from 'ngx-dropzone-wrapper';
+import {DROPZONE_CONFIG} from 'ngx-dropzone-wrapper';
+import {DropzoneConfigInterface} from 'ngx-dropzone-wrapper';
 
 
 const config = new AuthServiceConfig([
@@ -92,21 +98,23 @@ export function provideConfig() {
         PipesComponent,
         RegisterComponent,
         SinglePostComponent,
-        PostsComponent,
         SidebarComponent,
+        SubscribeComponent,
+        AddPostComponent,
+        PostsHomeComponent,
         FaceLoginComponent,
         OwlCarouselComponent,
         RoadComponent,
         TravelComponent,
         AboutComponent,
-        AdminProfileComponent
+        AdminProfileComponent,
+        EditInfoModalComponent
     ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         BrowserAnimationsModule,
         MatButtonModule,
-        MatDialogModule,
         MatListModule,
         MatToolbarModule,
         FormsModule, ReactiveFormsModule,
@@ -130,6 +138,8 @@ export function provideConfig() {
         CKEditorModule,
         MatTabsModule,
         MatMenuModule,
+        MatDialogModule,
+        DropzoneModule,
         ShareButtonModule,
         ToastrModule.forRoot(),
         ShareButtonsModule.withConfig({
@@ -153,7 +163,7 @@ export function provideConfig() {
         ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
     bootstrap: [AppComponent],
-    entryComponents: [LoginComponent, RegisterComponent],
+    entryComponents: [LoginComponent, RegisterComponent, EditInfoModalComponent],
 })
 
 export class AppModule {

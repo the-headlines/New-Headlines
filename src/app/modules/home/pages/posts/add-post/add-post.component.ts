@@ -7,7 +7,7 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 import {AuthService} from '../../../../../services/auth.service';
 import {Router} from '@angular/router';
 
-export interface Food {
+export interface Categorie {
     value: string;
     viewValue: string;
 }
@@ -20,7 +20,7 @@ export interface Food {
 
 export class AddPostComponent implements OnInit {
 
-    foods: Food[] = [
+    categories: Categorie[] = [
         {value: 'hooked-news-0', viewValue: 'Hooked News'},
         {value: 'road-to-fame-1', viewValue: 'Road to fame'},
         {value: 'came-pictures-2', viewValue: 'Camera Pictures'},

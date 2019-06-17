@@ -1,7 +1,7 @@
 <app-header></app-header>
 <div class="content">
     <div class="post_content">
-        <div class="row">
+        <div class="row main">
             <div class="col-md-12">
                 <div class="profile_container">
                     <div class="right_side">
@@ -11,7 +11,7 @@
                                 <mat-form-field>
                                     <mat-label>Choose a Section</mat-label>
                                     <mat-select>
-                                        <mat-option *ngFor="let food of foods" [value]="food.value">
+                                        <mat-option *ngFor="let food of categories" [value]="food.value">
                                             {{food.viewValue}}
                                         </mat-option>
                                     </mat-select>
