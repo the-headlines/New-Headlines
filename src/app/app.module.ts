@@ -131,6 +131,7 @@ export function provideConfig() {
         MatTabsModule,
         MatMenuModule,
         ShareButtonModule,
+        ToastrModule.forRoot(),
         ShareButtonsModule.withConfig({
             debug: true
         })
@@ -143,7 +144,13 @@ export function provideConfig() {
             provide: HTTP_INTERCEPTORS,
             useClass: TokenInterceptorService,
             multi: true
-        }],
+        },
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: RequestInterceptor,
+            multi: true
+        }
+        ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
     bootstrap: [AppComponent],
     entryComponents: [LoginComponent, RegisterComponent],
