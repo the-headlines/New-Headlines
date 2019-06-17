@@ -68,7 +68,6 @@ export class LoginComponent implements OnInit {
         this.auth.checkLogin(data).subscribe((r: any) => {
 
 
-            this.common.userData = JWT(r.token);
             localStorage.setItem('full_name', r.fullname);
             localStorage.setItem('userInf', JSON.stringify(r['token']));
             this.subject.setUserData({...JWT(r.token), ...{fullName: r.fullname}});
