@@ -17,11 +17,8 @@ export class StatusBarComponent implements OnInit {
     constructor(private renderer: Renderer2) {
 
         this.renderer.listen('window', 'click', (e: Event) => {
-            if (e.target !== this.toggleButton.nativeElement && e.target !== this.share.nativeElement) {
+            if (e.target != this.toggleButton.nativeElement) {
                 this.isShown = false;
-
-                console.log(this.toggleButton);
-                console.log(this.share);
             }
         });
 
@@ -33,7 +30,6 @@ export class StatusBarComponent implements OnInit {
     }
 
     show(single) {
-        console.log('clicked');
         this.isShown = true;
         this.currentPost = single;
     }
