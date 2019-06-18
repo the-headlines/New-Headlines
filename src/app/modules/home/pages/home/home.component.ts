@@ -57,7 +57,7 @@ export class HomeComponent implements OnInit {
     ];
     fakeArr = [];
     currentPost = {};
-    changeText: boolean;
+    openNum: boolean;
 
     filterByVotes(vote) {
 
@@ -84,7 +84,7 @@ export class HomeComponent implements OnInit {
             this.ipAddress = data;
         });
 
-        this.changeText = false;
+        this.openNum = false;
     }
 
     ngOnInit() {

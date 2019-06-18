@@ -15,31 +15,26 @@
                                 <div class="Like like_btn">
                                     <img src="../../../../../assets/images/vote.png" alt="">
                                     <div class="Like__link js-hover">Votes
-                                        <span class="hovered_number">100</span>
+                                        <span class="hovered_number" (mouseover)="openNum=true"
+                                              (mouseout)="openNum=false">100</span>
                                     </div>
                                     <div class="Emojis">
                                         <div class="Emoji Emoji--like">
                                             <div class="">
                                                 <button class="op-blue">Like</button>
-                                                <p class="num" style="display: none;">20</p>
+                                                <p class="num" *ngIf="openNum">20</p>
                                             </div>
                                         </div>
                                         <div class="Emoji Emoji--love">
                                             <div class="">
-                                                <button class="gray">ok</button>
-                                                <p class="num" style="display: none;">30</p>
+                                                <button class="gray">Important</button>
+                                                <p class="num" *ngIf="openNum">30</p>
                                             </div>
                                         </div>
                                         <div class="Emoji Emoji--love">
                                             <div class="">
-                                                <button class="blue">Awesome</button>
-                                                <p class="num" style="display: none;">30</p>
-                                            </div>
-                                        </div>
-                                        <div class="Emoji Emoji--love">
-                                            <div class="">
-                                                <button class="blue">Great</button>
-                                                <p class="num" style="display: none;">30</p>
+                                                <button class="blue">Interesting</button>
+                                                <p class="num" *ngIf="openNum">30</p>
                                             </div>
                                         </div>
                                     </div>
@@ -125,26 +120,26 @@
                                             <img src="../../../../../assets/images/vote.png" alt="">
 
                                             <div class="Like__link js-hover">Votes
-                                                <span class="hovered_number" (mouseover)="changeText=true"
-                                                      (mouseout)="changeText=false">100</span>
+                                                <span class="hovered_number" (mouseover)="openNum=true"
+                                                      (mouseout)="openNum=false">100</span>
                                             </div>
                                             <div class="Emojis">
                                                 <div class="Emoji Emoji--like">
                                                     <div class="">
                                                         <button class="op-blue">Like</button>
-                                                        <p class="num" *ngIf="changeText">20</p>
+                                                        <p class="num" *ngIf="openNum">20</p>
                                                     </div>
                                                 </div>
                                                 <div class="Emoji Emoji--love">
                                                     <div class="">
                                                         <button class="gray">Important</button>
-                                                        <p class="num" style="display: none;">30</p>
+                                                        <p class="num" *ngIf="openNum">30</p>
                                                     </div>
                                                 </div>
                                                 <div class="Emoji Emoji--love">
                                                     <div class="">
                                                         <button class="blue">Interesting</button>
-                                                        <p class="num" style="display: none;">30</p>
+                                                        <p class="num" *ngIf="openNum">30</p>
                                                     </div>
                                                 </div>
                                             </div>
