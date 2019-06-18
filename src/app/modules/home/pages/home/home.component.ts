@@ -56,8 +56,7 @@ export class HomeComponent implements OnInit {
         }
     ];
     fakeArr = [];
-    currentPost = {};
-    openNum: boolean;
+
 
     filterByVotes(vote) {
 
@@ -83,12 +82,9 @@ export class HomeComponent implements OnInit {
             console.log('th data', data);
             this.ipAddress = data;
         });
-
-        this.openNum = false;
     }
 
     ngOnInit() {
-
         if (this.checkUser()) {
             this.userLoggedIn = JSON.parse(localStorage.getItem('userInf'));
         }
@@ -96,14 +92,6 @@ export class HomeComponent implements OnInit {
         this.get();
 
         this.cs.set('Test', 'Hello World');
-        // console.log(this.cs.get('Test'));
-    }
-
-    isShown: boolean = false;
-
-    show(single) {
-        this.isShown = true;
-        this.currentPost = single;
     }
 
     public set sessionId(value: string) {
@@ -160,17 +148,6 @@ export class HomeComponent implements OnInit {
 
             this.posts = data['result'];
         });
-
-        /*    for (let i = started; i < ended; i++) {
-
-              if (typeof this.postData['result'][i] == 'undefined') {
-                break;
-              }
-
-              this.start = i;
-              this.posts.push(this.postData['result'][i]);
-            }*/
-
     }
 
     getSingle(id) {
