@@ -56,7 +56,7 @@ export class SinglePostComponent implements OnInit {
 
         const token = localStorage.getItem('userInf');
         if (token) {
-console.log(token)
+            console.log(token);
             this.userData = JWT(token);
         }
 
@@ -113,6 +113,8 @@ console.log(token)
     }
 
     addComments(data) {
+
+        console.log(this.postForm.value);
         this.home.addComments(data).subscribe((returData) => {
             console.log(returData);
             if (!returData) {

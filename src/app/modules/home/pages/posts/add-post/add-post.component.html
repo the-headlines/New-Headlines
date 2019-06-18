@@ -1,59 +1,71 @@
 <app-header></app-header>
 <div class="content">
-    <div class="post_content">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="profile_container">
-                    <div class="right_side">
-                        <div class="posts_box">
-                            <div class="sub_headline post_a_link">
-                                <h2> Post a link</h2>
-                                <mat-form-field>
-                                    <mat-label>Choose a Section</mat-label>
-                                    <mat-select>
-                                        <mat-option *ngFor="let food of foods" [value]="food.value">
-                                            {{food.viewValue}}
-                                        </mat-option>
-                                    </mat-select>
-                                </mat-form-field>
-                            </div>
-                            <div class="choose_pic_or_link">
-                                <mat-tab-group mat-.align-tabs="start">
-                                    <mat-tab label="Choose a picture">
-                                        <dropzone class="dropzone" (error)="onUploadError($event)"
-                                                  (addedFile)="onUploadSuccess($event)"
-                                                  *ngIf="type === 'component'" [disabled]="disabled"
-                                                  [message]="'Click or drag images here to upload'"
-                                                  (init)="onUploadInit($event)"></dropzone>
-                                        <div *ngIf="type === 'directive'" class="dropzone dropzone-container"
-                                             (init)="onUploadInit($event)" (error)="onUploadError($event)"
-                                             (success)="onUploadSuccess($event)"></div>
-                                        <div class="description">
-                                            <h3>Description</h3>
-                                            <form action="" [formGroup]="postForm">
+    <form action="" [formGroup]="postForm">
+        <div class="post_content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="profile_container">
+                        <div class="right_side">
+                            <div class="posts_box">
+                                <div class="sub_headline post_a_link">
+                                    <h2> Post a link</h2>
+                                    <mat-form-field>
+                                        <mat-label>Choose a Section</mat-label>
+                                        <mat-select formControlName="category">
+                                            <mat-option *ngFor="let food of foods" [value]="getValue(food)">
+                                                {{food.viewValue}}
+                                            </mat-option>
+                                        </mat-select>
+                                        <mat-error *ngIf="postForm.get('category').hasError('required')">Section name is
+                                            required
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                                <div class="choose_pic_or_link">
+                                    <mat-tab-group mat-.align-tabs="start">
+                                        <mat-tab label="Choose a picture">
+                                            <dropzone class="dropzone" (error)="onUploadError($event)"
+                                                      (addedFile)="onUploadSuccess($event)"
+                                                      *ngIf="type === 'component'" [disabled]="disabled"
+                                                      [message]="'Click or drag images here to upload'"
+                                                      (init)="onUploadInit($event)"></dropzone>
+                                            <div *ngIf="type === 'directive'" class="dropzone dropzone-container"
+                                                 (init)="onUploadInit($event)" (error)="onUploadError($event)"
+                                                 (success)="onUploadSuccess($event)"></div>
+
+                                            <div class="description">
+                                                <h3>Description</h3>
                                                 <ckeditor formControlName="description">
                                                     <ckbutton [name]="'saveButton'" [command]="'saveCmd'"
                                                               [icon]="'save.png'"
                                                               [label]="'Save Document'"
                                                               [toolbar]="'clipboard,1'"></ckbutton>
                                                 </ckeditor>
-                                            </form>
+                                            </div>
+                                            <!--                                            <mat-error-->
+                                            <!--                                                    *ngIf="postForm.get('description').dirty && postForm.get('description').hasError('required')">-->
+                                            <!--                                                Post-->
+                                            <!--                                                description is required-->
+                                            <!--                                            </mat-error>-->
+                                        </mat-tab>
+                                        <mat-tab label="Link">
+                                            <div class="link">
+                                                <h3>Link</h3>
+                                                <input type="text" placeholder="Enter post link" formControlName="link">
+                                                <mat-error *ngIf="postForm.get('link').hasError('required')">Link
+                                                    is required
+                                                </mat-error>
+                                            </div>
+                                        </mat-tab>
+                                    </mat-tab-group>
+
+                                    <div class="post_or_cancel">
+                                        <button class="blue">NSFW</button>
+                                        <div>
+                                            <a class="red">Cancel</a>
+                                            <a class="blue"
+                                               (click)="upload_files()">Post</a>
                                         </div>
-                                        <button (click)="createPost()">Create Post</button>
-                                        {{newPost | async | json}}
-                                    </mat-tab>
-                                    <mat-tab label="Link">
-                                        <div class="link">
-                                            <h3>Link</h3>
-                                            <input type="text" placeholder="Enter post link">
-                                        </div>
-                                    </mat-tab>
-                                </mat-tab-group>
-                                <div class="post_or_cancel">
-                                    <button class="blue">NSFW</button>
-                                    <div>
-                                        <a class="red">Cancel</a>
-                                        <a routerLink="/posts/home-posts" class="blue" (click)="upload_files()">Post</a>
                                     </div>
                                 </div>
                             </div>
@@ -62,6 +74,6 @@
                 </div>
             </div>
         </div>
-    </div>
+    </form>
 </div>
 <app-footer></app-footer>

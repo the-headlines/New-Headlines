@@ -15,7 +15,7 @@ export class AuthService {
     }
 
     public uploadPost(data) {
-        return this.http.post(Base.url + '/api/user/post', data);
+        return this.http.post(Base.url + '/api/news', data);
     }
 
     public getPosts() {

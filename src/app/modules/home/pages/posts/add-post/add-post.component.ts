@@ -3,9 +3,10 @@ import {DropzoneConfigInterface} from 'ngx-dropzone-wrapper';
 import {HttpClient} from '@angular/common/http';
 import {Post} from '../../../../../post';
 import {Observable} from 'rxjs';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../../../../../services/auth.service';
 import {Router} from '@angular/router';
+import {PostsService} from '../../../../../services/posts.service';
 
 export interface Food {
     value: string;
@@ -48,38 +49,42 @@ export class AddPostComponent implements OnInit {
         private http: HttpClient,
         private fb: FormBuilder,
         private auth: AuthService,
-        private router: Router
+        private router: Router,
+        private posts: PostsService
     ) {
     }
 
     ngOnInit() {
         this.postForm = this.fb.group({
-            description: [null]
+            description: [null],
+            link: [null, Validators.required],
+            category: [null, Validators.required]
         });
     }
 
     upload_files() {
         console.log(this.postForm.value);
-        let formData = new FormData();
-        formData.append('description', this.postForm.value['description']);
-        console.log(this.files);
-        this.files.map(file => {
-            formData.append('story_imgs', file.name);
-            formData.append('story_img_files', file, file.name);
-            console.log(file.name);
-        });
-        formData.forEach(entries => console.log(entries));
 
-        this.auth.uploadPost(formData).subscribe((r: any) => {
-            console.log('ff', r);
-            if (r['status'] == 0) {
-                console.log('aa');
-                alert('Login/Password invalid');
-                return false;
-            }
-            this.router.navigate['/posts/home-posts'];
-            localStorage.setItem('this.postForm', JSON.stringify(r));
-        });
+
+        if (this.postForm.valid) {
+            const formData = new FormData();
+            formData.append('description', this.postForm.value['description']);
+            formData.append('link', 'https://www.screencast.com/t/PvBm6P97Cf'); //this.postForm.value['link']
+            formData.append('category', this.postForm.value['category']);
+            // console.log(this.files);
+            this.files.map(file => {
+                formData.append('story_imgs', file.name);
+                formData.append('story_img_files', file, file.name);
+                // console.log(file.name);
+            });
+            // formData.forEach(entries => console.log(entries));
+
+            this.auth.uploadPost(formData).subscribe((r: any) => {
+
+                this.router.navigate(['/posts/home-posts']);
+                // localStorage.setItem('this.postForm', JSON.stringify(r));
+            });
+        }
     }
 
 
@@ -106,6 +111,13 @@ export class AddPostComponent implements OnInit {
             body: 'sfd',
             title: ''
         };
-        this.newPost = this.http.post(this.POST_URL + '/api/user/signup', data);
+        this.posts.postData(data).subscribe(dt => {
+
+        });
+        // this.newPost = this.http.post(this.POST_URL + '/api/user/signup', data);
+    }
+
+    getValue(food) {
+        return food.viewValue.replace(/ /g, '');
     }
 }
