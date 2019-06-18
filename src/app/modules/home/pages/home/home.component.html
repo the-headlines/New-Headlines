@@ -1,7 +1,7 @@
 <script src="../../../../app.component.ts"></script>
 <app-header></app-header>
 <div class="content">
-    <div class="row">
+    <div class="main row no-gutters">
         <section class="col-md-8" style="padding-right: 37px">
             <div class="carusel-block">
                 <app-owl-carousel></app-owl-carousel>
@@ -15,31 +15,26 @@
                                 <div class="Like like_btn">
                                     <img src="../../../../../assets/images/vote.png" alt="">
                                     <div class="Like__link js-hover">Votes
-                                        <span class="hovered_number">100</span>
+                                        <span class="hovered_number" (mouseover)="openNum=true"
+                                              (mouseout)="openNum=false">100</span>
                                     </div>
                                     <div class="Emojis">
                                         <div class="Emoji Emoji--like">
                                             <div class="">
                                                 <button class="op-blue">Like</button>
-                                                <p class="num" style="display: none;">20</p>
+                                                <p class="num" *ngIf="openNum">20</p>
                                             </div>
                                         </div>
                                         <div class="Emoji Emoji--love">
                                             <div class="">
-                                                <button class="gray">ok</button>
-                                                <p class="num" style="display: none;">30</p>
+                                                <button class="gray">Important</button>
+                                                <p class="num" *ngIf="openNum">30</p>
                                             </div>
                                         </div>
                                         <div class="Emoji Emoji--love">
                                             <div class="">
-                                                <button class="blue">Awesome</button>
-                                                <p class="num" style="display: none;">30</p>
-                                            </div>
-                                        </div>
-                                        <div class="Emoji Emoji--love">
-                                            <div class="">
-                                                <button class="blue">Great</button>
-                                                <p class="num" style="display: none;">30</p>
+                                                <button class="blue">Interesting</button>
+                                                <p class="num" *ngIf="openNum">30</p>
                                             </div>
                                         </div>
                                     </div>
@@ -48,7 +43,7 @@
                         </li>
                         <li>
                             <a href="">
-                                View<span>20</span>
+                                View<span>100</span>
                             </a>
                         </li>
                         <li>
@@ -59,18 +54,19 @@
                         </li>
                         <li>
                             <a href="">
-                                Critics<span>35</span>
+                                Questions <span>35</span>
                             </a>
                         </li>
                         <li>
-                            <button type="button" class="share">
+                            <button type="button" class="share" (click)="show()">
                                 <i class="fas fa-share"></i>
                                 Share<span></span></button>
-                            <div class="share_post" style="display: none;">
+                            <div class="share_post" *ngIf="isShown">
                                 <ul>
                                     <li>
                                         <button><i class="fas fa-link"></i> Copy Link</button>
-                                        <button><img src="images/shuffle.png" alt="">Crosspost</button>
+                                        <button><img src="../../../../../assets/images/shuffle.png" alt="">Crosspost
+                                        </button>
                                         <button><i class="fas fa-code"></i>Embed</button>
                                     </li>
                                 </ul>
@@ -124,31 +120,26 @@
                                             <img src="../../../../../assets/images/vote.png" alt="">
 
                                             <div class="Like__link js-hover">Votes
-                                                <span class="hovered_number">100</span>
+                                                <span class="hovered_number" (mouseover)="openNum=true"
+                                                      (mouseout)="openNum=false">100</span>
                                             </div>
                                             <div class="Emojis">
                                                 <div class="Emoji Emoji--like">
                                                     <div class="">
                                                         <button class="op-blue">Like</button>
-                                                        <p class="num" style="display: none;">20</p>
+                                                        <p class="num" *ngIf="openNum">20</p>
                                                     </div>
                                                 </div>
                                                 <div class="Emoji Emoji--love">
                                                     <div class="">
-                                                        <button class="gray">ok</button>
-                                                        <p class="num" style="display: none;">30</p>
+                                                        <button class="gray">Important</button>
+                                                        <p class="num" *ngIf="openNum">30</p>
                                                     </div>
                                                 </div>
                                                 <div class="Emoji Emoji--love">
                                                     <div class="">
-                                                        <button class="blue">Awesome</button>
-                                                        <p class="num" style="display: none;">30</p>
-                                                    </div>
-                                                </div>
-                                                <div class="Emoji Emoji--love">
-                                                    <div class="">
-                                                        <button class="blue">Great</button>
-                                                        <p class="num" style="display: none;">30</p>
+                                                        <button class="blue">Interesting</button>
+                                                        <p class="num" *ngIf="openNum">30</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -172,15 +163,16 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <button type="button" class="share">
+                                    <button type="button" class="share" (click)="show(single)">
                                         <i class="fas fa-share"></i>
                                         Share<span></span>
                                     </button>
-                                    <div class="share_post" style="display: none;">
+                                    <div class="share_post" *ngIf="isShown && single === currentPost" #menu>
                                         <ul>
                                             <li>
                                                 <button><i class="fas fa-link"></i> Copy Link</button>
-                                                <button><img src="../../../../../assets/images/shuffle.png" alt="">Crosspost</button>
+                                                <button><img src="../../../../../assets/images/shuffle.png" alt="">Crosspost
+                                                </button>
                                                 <button><i class="fas fa-code"></i>Embed</button>
                                             </li>
                                         </ul>

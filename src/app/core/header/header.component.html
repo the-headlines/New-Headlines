@@ -31,14 +31,13 @@
                     <li class="logout">
                         <ul *ngIf="checkUser()">
                             <li class="header-notification">
-                                <button mat-button [matMenuTriggerFor]="belowMenu">
-                                    <div class="bell">
+                                <button mat-button [matMenuTriggerFor]="belowMenu" class="not_btn">
+                                    <span class="bell">
                                         <i class="fas fa-bell"></i>
                                         <span class="badge bg-c-red">5</span>
-                                    </div>
+                                    </span>
                                 </button>
                                 <mat-menu #belowMenu="matMenu" yPosition="below">
-
                                     <h6>Notifications:</h6>
                                     <div class="margin_top">
                                         <div class="media">
@@ -75,21 +74,21 @@
                                 </mat-menu>
                             </li>
                             <li class="user-profile header-notification">
-                                <button mat-button [matMenuTriggerFor]="beforeMenu">
+                                <button mat-button [matMenuTriggerFor]="beforeMenu" class="user_name">
 
                                     <span>{{userData?userData.fullName :'/n/a'}}</span>
                                     <i class="feather icon-chevron-down"></i>
                                 </button>
-                                <mat-menu #beforeMenu="matMenu" yPosition="below">
+                                <mat-menu #beforeMenu="matMenu" yPosition="below" class="profile_links">
                                     <ul>
                                         <li>
                                             <a mat-button routerLink="/profile">My Profile</a>
                                         </li>
                                         <li>
-                                            <a mat-button routerLink="">Manage Posts</a>
+                                            <a mat-button routerLink="/managePost">Manage Posts</a>
                                         </li>
                                         <li>
-                                            <a mat-button routerLink="">Subscribe</a>
+                                            <a mat-button routerLink="/subscribe">Subscribe</a>
                                         </li>
                                         <li>
                                             <a mat-button (click)="logOut()">LogOut</a>

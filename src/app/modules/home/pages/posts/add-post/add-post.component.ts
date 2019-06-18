@@ -8,7 +8,7 @@ import {AuthService} from '../../../../../services/auth.service';
 import {Router} from '@angular/router';
 import {PostsService} from '../../../../../services/posts.service';
 
-export interface Food {
+export interface Categorie {
     value: string;
     viewValue: string;
 }
@@ -21,14 +21,14 @@ export interface Food {
 
 export class AddPostComponent implements OnInit {
 
-    foods: Food[] = [
-        {value: 'hooked-news-0', viewValue: 'Hooked News'},
-        {value: 'road-to-fame-1', viewValue: 'Road to fame'},
-        {value: 'came-pictures-2', viewValue: 'Camera Pictures'},
-        {value: 'jump-startup-3', viewValue: 'Jump Startup'},
-        {value: 'travel-monkey-4', viewValue: 'Travel Monkey'},
-        {value: 'fantastic-deals-5', viewValue: 'Fantastic Deals'},
-        {value: 'videos-6', viewValue: 'Videos'}
+    categories: Categorie[] = [
+        {value: 'HookedNews', viewValue: 'Hooked News'},
+        {value: 'RoadToFame', viewValue: 'Road to fame'},
+        {value: 'CameraPictures', viewValue: 'Camera Pictures'},
+        {value: 'JumpStartup', viewValue: 'Jump Startup'},
+        {value: 'Travel Monkey', viewValue: 'Travel Monkey'},
+        {value: 'FantasticDeals', viewValue: 'Fantastic Deals'},
+        {value: 'Videos', viewValue: 'Videos'}
     ];
 
     newPost: Observable<any>;
@@ -58,7 +58,8 @@ export class AddPostComponent implements OnInit {
         this.postForm = this.fb.group({
             description: [null],
             link: [null, Validators.required],
-            category: [null, Validators.required]
+            category: [null, Validators.required],
+            video: [false]
         });
     }
 
@@ -69,8 +70,9 @@ export class AddPostComponent implements OnInit {
         if (this.postForm.valid) {
             const formData = new FormData();
             formData.append('description', this.postForm.value['description']);
-            formData.append('link', 'https://www.screencast.com/t/PvBm6P97Cf'); //this.postForm.value['link']
+            formData.append('link', this.postForm.value['link']);
             formData.append('category', this.postForm.value['category']);
+            // formData.append('video', false);
             // console.log(this.files);
             this.files.map(file => {
                 formData.append('story_imgs', file.name);
@@ -79,7 +81,7 @@ export class AddPostComponent implements OnInit {
             });
             // formData.forEach(entries => console.log(entries));
 
-            this.auth.uploadPost(formData).subscribe((r: any) => {
+            this.auth.uploadPost(this.postForm.value).subscribe((r: any) => {
 
                 this.router.navigate(['/posts/home-posts']);
                 // localStorage.setItem('this.postForm', JSON.stringify(r));

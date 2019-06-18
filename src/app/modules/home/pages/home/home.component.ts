@@ -8,7 +8,7 @@ import {HttpClient} from '@angular/common/http';
 @Component({
     selector: 'app-home',
     templateUrl: './home.component.html',
-    styleUrls: ['./home.component.scss']
+    styleUrls: ['./home.component.scss'],
 })
 
 export class HomeComponent implements OnInit {
@@ -56,7 +56,8 @@ export class HomeComponent implements OnInit {
         }
     ];
     fakeArr = [];
-
+    currentPost = {};
+    openNum: boolean;
 
     filterByVotes(vote) {
 
@@ -76,18 +77,14 @@ export class HomeComponent implements OnInit {
         localStorage.setItem('isLoggedIn', 'true');
     }
 
-
     constructor(private home: HomeService, private router: Router, private cs: CookieService, private http: HttpClient) {
         this._sessionId = cs.get('sessionId');
         this.http.get<{ ip: string }>('https://jsonip.com').subscribe(data => {
             console.log('th data', data);
             this.ipAddress = data;
         });
-    }
 
-    public set sessionId(value: string) {
-        this._sessionId = value;
-        this.cs.set('sessionId', value);
+        this.openNum = false;
     }
 
     ngOnInit() {
@@ -100,6 +97,18 @@ export class HomeComponent implements OnInit {
 
         this.cs.set('Test', 'Hello World');
         // console.log(this.cs.get('Test'));
+    }
+
+    isShown: boolean = false;
+
+    show(single) {
+        this.isShown = true;
+        this.currentPost = single;
+    }
+
+    public set sessionId(value: string) {
+        this._sessionId = value;
+        this.cs.set('sessionId', value);
     }
 
     get() {

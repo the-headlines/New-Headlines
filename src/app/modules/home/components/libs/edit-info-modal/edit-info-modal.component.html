@@ -1,0 +1,57 @@
+<div *ngIf="name === name">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Change name</h5>
+                <button type="button" class="close" #closest data-dismiss="modal" mat-dialog-close aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Display Name</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby=""
+                               placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Full Name</label>
+                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="">
+                    </div>
+                    <div class="profile_image">
+                        <p>Profile Image</p>
+                    </div>
+                </form>
+
+                <dropzone class="dropzone" (error)="onUploadError($event)"
+                          (addedFile)="onUploadSuccess($event)"
+                          *ngIf="type === 'component'" [disabled]="disabled"
+                          [message]="'Click or drag images here to upload'"
+                          (init)="onUploadInit($event)"></dropzone>
+                <div *ngIf="type === 'directive'" class="dropzone dropzone-container"
+                     (init)="onUploadInit($event)" (error)="onUploadError($event)"
+                     (success)="onUploadSuccess($event)"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Save</button>
+                <button type="button" class="close" #closest data-dismiss="modal" mat-dialog-close aria-label="Close">
+                    Cancel
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="name === email">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            k,mfe
+        </div>
+    </div>
+</div>
+
+<div *ngIf="name == pass">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        FWsef
+    </div>
+</div>
