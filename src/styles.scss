@@ -1244,12 +1244,44 @@ a:hover {
   }
 }
 
-.modal-content {
+.changeMainInfo .modal-content {
   width: 434px;
   height: auto;
   box-shadow: 0 2px 17px 3px rgba(0, 0, 0, 0.13);
   background-color: #fff;
-  border-radius: unset;
+  border-radius: unset !important;
+}
+
+.changeMainInfo .modal-title {
+  font-family: 'Lato-Black';
+  font-size: 14px;
+}
+
+.changeMainInfo .modal-body .form-group {
+  //display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.changeMainInfo .modal-body .form-group label {
+  width: 60%;
+  font-family: 'Lato-Regular', sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 0.92;
+  letter-spacing: 1.4px;
+  text-align: left;
+  color: #000000;
+}
+
+.changeMainInfo .modal-footer button {
+  background: unset;
+  border: unset;
+  font-size: 16px;
+  font-family: 'Lato-Regular';
+  opacity: 1;
 }
 
 .logo_and_close {

@@ -452,7 +452,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 21px;
+  margin-top: 21px;
+  height: 34px;
 }
 
 .post_or_cancel a, button {
@@ -474,14 +475,26 @@
 
 .post_or_cancel .blue {
   background-color: #3788c6;
+  height: 100% !important;
 }
 
 .post_or_cancel a.blue {
-  display: inline-block;
+  background-color: #3788c6;
+  width: 48px;
+  height: 100% !important;
+  padding: 0 15px;
+}
+
+.post_or_cance .mat-button-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100% !important;
+
+}
+
+.post_or_cancel div {
   height: 100%;
-  line-height: unset;
-  padding: 7px;
-  cursor: pointer;
 }
 
 .post_or_cancel .red {
@@ -489,8 +502,8 @@
   display: inline-block;
   height: 100%;
   line-height: unset;
-  padding: 7px;
   margin-right: 15px;
+  padding: 0 15px;
 }
 
 .link {
@@ -542,8 +555,9 @@
 }
 
 
-.postBtn{
-  width: 76px;
+.postBtn {
+  width: 48px;
+  height: 31px !important;
+  padding: 0;
   text-align: center;
 }
-
