@@ -23,7 +23,7 @@
                                 </div>
                                 <div class="choose_pic_or_link">
                                     <mat-tab-group mat-align-tabs="start" [selectedIndex]="1">
-                                        <mat-tab label="Choose a picture">
+                                        <mat-tab label="Choose a picture" [disabled]="true">
                                             <dropzone class="dropzone" (error)="onUploadError($event)"
                                                       (addedFile)="onUploadSuccess($event)"
                                                       *ngIf="type === 'component'" [disabled]="disabled"
@@ -52,10 +52,10 @@
                                             <div class="description">
                                                 <h3>Description</h3>
                                                 <ckeditor formControlName="description">
-                                                    <ckbutton [name]="'saveButton'" [command]="'saveCmd'"
-                                                              [icon]="'save.png'"
-                                                              [label]="'Save Document'"
-                                                              [toolbar]="'clipboard,1'"></ckbutton>
+<!--                                                    <ckbutton [name]="'saveButton'" [command]="'saveCmd'"-->
+<!--                                                              [icon]="'save.png'"-->
+<!--                                                              [label]="'Save Document'"-->
+<!--                                                              [toolbar]="'clipboard,1'"></ckbutton>-->
                                                 </ckeditor>
                                             </div>
 
