@@ -14,6 +14,7 @@ import {AdminProfileComponent} from './modules/home/components/admin/admin-profi
 import {AddPostComponent} from './modules/home/pages/posts/add-post/add-post.component';
 import {SubscribeComponent} from './modules/home/pages/posts/subscribe/subscribe.component';
 import {PostsHomeComponent} from './modules/home/pages/posts/posts-home/posts-home.component';
+import {NotificationsBoxComponent} from './core/notifications-box/notifications-box.component';
 
 const routes: Routes = [
     {path: '', component: HomeComponent},
@@ -31,6 +32,7 @@ const routes: Routes = [
     {path: 'post/:id', component: SinglePostComponent},
     {path: 'subscribe', component: SubscribeComponent},
     {path: 'managePost', component: PostsHomeComponent},
+    {path: 'notifications', component: NotificationsBoxComponent},
 ];
 
 @NgModule({

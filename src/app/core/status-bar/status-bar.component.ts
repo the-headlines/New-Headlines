@@ -1,4 +1,5 @@
 import {Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-status-bar',
@@ -12,9 +13,9 @@ export class StatusBarComponent implements OnInit {
     isShown = false;
     currentPost = {};
     openNum: boolean;
+    routerUrl: string;
 
-
-    constructor(private renderer: Renderer2) {
+    constructor(private renderer: Renderer2, public router: Router) {
 
         this.renderer.listen('window', 'click', (e: Event) => {
             if (e.target !== this.toggleButton.nativeElement) {
@@ -26,11 +27,14 @@ export class StatusBarComponent implements OnInit {
     }
 
     ngOnInit() {
-
+        this.routerUrl = this.router.url;
+        console.log(this.router.url);
     }
 
     show(single) {
         this.isShown = true;
         this.currentPost = single;
     }
+
+
 }

@@ -12,21 +12,59 @@
                           (mouseout)="openNum=false">100</span>
                 </div>
                 <div class="Emojis">
+
+
                     <div class="Emoji Emoji--like">
                         <div class="">
                             <button class="op-blue">Like</button>
                             <p class="num" *ngIf="openNum">20</p>
                         </div>
                     </div>
-                    <div class="Emoji Emoji--love">
+                    <div class="Emoji Emoji--love" [hidden]="routerUrl === '/home'">
+                        <div class="">
+                            <button class="gray">ok</button>
+                            <p class="num" *ngIf="openNum">30</p>
+                        </div>
+                    </div>
+                    <div class="Emoji Emoji--love" [hidden]="routerUrl === '/home'">
+                        <div class="">
+                            <button class="blue">Awesome</button>
+                            <p class="num" *ngIf="openNum">30</p>
+                        </div>
+                    </div>
+                    <div class="Emoji Emoji--love" [hidden]="routerUrl === '/home'">
+                        <div class="">
+                            <button class="blue">Great</button>
+                            <p class="num" *ngIf="openNum">30</p>
+                        </div>
+                    </div>
+                    <div class="Emoji Emoji--love" [hidden]="routerUrl === '/road'">
                         <div class="">
                             <button class="gray">Important</button>
                             <p class="num" *ngIf="openNum">30</p>
                         </div>
                     </div>
-                    <div class="Emoji Emoji--love">
+                    <div class="Emoji Emoji--love" [hidden]="routerUrl === '/road'">
                         <div class="">
                             <button class="blue">Interesting</button>
+                            <p class="num" *ngIf="openNum">30</p>
+                        </div>
+                    </div>
+                    <div class="Emoji Emoji--love" [hidden]="routerUrl === '/road'">
+                        <div class="">
+                            <button class="gray">hawt</button>
+                            <p class="num" *ngIf="openNum">30</p>
+                        </div>
+                    </div>
+                    <div class="Emoji Emoji--love" [hidden]="routerUrl === '/road'">
+                        <div class="">
+                            <button class="blue">Kool</button>
+                            <p class="num" *ngIf="openNum">30</p>
+                        </div>
+                    </div>
+                    <div class="Emoji Emoji--love" [hidden]="routerUrl === '/road'">
+                        <div class="">
+                            <button class="blue">Funny</button>
                             <p class="num" *ngIf="openNum">30</p>
                         </div>
                     </div>

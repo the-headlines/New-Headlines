@@ -1,0 +1,138 @@
+.main .header-notification {
+  width: 94%;
+  margin: 0 auto;
+}
+.profile-notification a {
+  font-size: 15px;
+  padding-left: 0;
+}
+
+.profile-notification a {
+  color: #333;
+}
+
+.dropdown-toggle {
+  line-height: 4.4;
+  padding: 0;
+  cursor: pointer;
+  position: relative;
+}
+
+.profile-notification li:hover {
+  background-color: #f1f1f1;
+}
+
+.show-notification li.active {
+  background-color: #f1f1f1;
+}
+
+.badge {
+  border-radius: 50%;
+  right: -12px;
+  position: absolute;
+  top: 12px;
+  color: #fff;
+  padding: 4px;
+  width: 19px;
+  -webkit-animation: not-blink 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+  animation: not-blink 2.1s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+}
+
+.bg-c-red {
+  background: #FF5370;
+}
+
+span.badge {
+  display: inline-block;
+}
+
+.not_dropdown:after {
+  display: none;
+}
+
+li.margin_top {
+  margin-top: 40px;
+}
+
+.media-body a.notification-user, .media-body a.notification-user span {
+  font-size: 14px;
+  font-family: 'Lato-Regular';
+  margin-bottom: 15px;
+  display: block;
+  text-transform: capitalize;
+}
+
+.media-body a.notification-user span {
+  display: inline-block;
+  margin-bottom: 0;
+}
+
+.notification-msg, .notification-quality {
+  border: 1px solid #a6a6a6;
+  text-align: left;
+  font-size: 12px;
+}
+
+.notification-msg p, .notification-quality p, .notification-quality p span {
+  text-align: left;
+  color: black;
+  font-size: 13px;
+  font-family: 'Lato-Regular';
+  width: auto;
+}
+
+.notification-quality {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.media {
+  border-bottom: 1px solid #a6a6a6;
+  margin-bottom: 20px;
+}
+
+.media-body {
+  padding: 0 20px 20px;
+}
+
+.notification-quality p span, .media-body h5.notification-user span {
+  font-family: 'latoBlack';
+}
+
+.notification-quality p span {
+  padding-right: 4px;
+}
+
+.notifications_wrapper {
+  background: white;
+  padding: 20px;
+}
+
+.notifications_wrapper .media-body p {
+  margin: 10px 20px;
+}
+
+.media-body a.notification-user, .media-body a.notification-user span {
+  font-size: 14px !important;
+  font-family: 'Lato-Regular' !important;
+  margin-bottom: 15px !important;
+  text-transform: capitalize !important;
+  color: black;
+}
+
+.media-body a.notification-user span {
+  display: inline-block;
+  margin-bottom: 0;
+}
+
+.notification-view{
+  text-align: center;
+}
+.notification-view h6{
+  font-family: 'Lato-Black', sans-serif;
+}
+
+.notification-quality p span, .media-body h5.notification-user span {
+  font-family: 'Lato-Black';
+}

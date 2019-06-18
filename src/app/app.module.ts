@@ -70,6 +70,7 @@ import {DropzoneModule} from 'ngx-dropzone-wrapper';
 import {DROPZONE_CONFIG} from 'ngx-dropzone-wrapper';
 import {DropzoneConfigInterface} from 'ngx-dropzone-wrapper';
 import { StatusBarComponent } from './core/status-bar/status-bar.component';
+import { NotificationsBoxComponent } from './core/notifications-box/notifications-box.component';
 
 
 const config = new AuthServiceConfig([
@@ -111,7 +112,8 @@ export function provideConfig() {
         AboutComponent,
         AdminProfileComponent,
         EditInfoModalComponent,
-        StatusBarComponent
+        StatusBarComponent,
+        NotificationsBoxComponent
     ],
     imports: [
         BrowserModule,
