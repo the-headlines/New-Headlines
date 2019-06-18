@@ -63,6 +63,8 @@ export class AddPostComponent implements OnInit {
             category: [null, Validators.required],
             video: [false]
         });
+
+        this.postForm.patchValue({category: 0});
     }
 
     upload_files() {
@@ -134,8 +136,8 @@ export class AddPostComponent implements OnInit {
             toolbarGroups: [
                 // { name: 'document',    groups: [ 'doctools', 'mode', 'document' ] },
                 // { name: 'editing',     groups: [  'selection', 'spellchecker' ] },
-                { name: 'basicstyles', groups: [ 'basicstyles' ] },
-                { name: 'paragraph', groups: [  'blocks'] },
+                {name: 'basicstyles', groups: ['basicstyles']},
+                {name: 'paragraph', groups: ['blocks']},
                 // { name: 'clipboard',   groups: [ 'clipboard', 'undo' ] },
                 // { name: 'forms' }
             ],

@@ -10,8 +10,8 @@
                                 <div class="sub_headline post_a_link">
                                     <h2> Post a link</h2>
                                     <mat-form-field>
-                                        <mat-label>Choose a Section</mat-label>
                                         <mat-select formControlName="category">
+                                            <mat-option disabled [value]="0">Choose a Section</mat-option>
                                             <mat-option *ngFor="let food of categories" [value]="getValue(food)">
                                                 {{food.viewValue}}
                                             </mat-option>
@@ -43,7 +43,7 @@
                                         <mat-tab label="Link">
                                             <div class="link">
                                                 <h3>Link</h3>
-                                                <input type="text" placeholder="Enter post link" formControlName="link">
+                                                <input type="text" placeholder="Url" formControlName="link">
                                                 <mat-error *ngIf="postForm.get('link').hasError('required')">Link
                                                     is required
                                                 </mat-error>
@@ -66,9 +66,12 @@
                                     <div class="post_or_cancel">
                                         <button class="blue">NSFW</button>
                                         <div>
-                                            <a class="red">Cancel</a>
-                                            <a class="blue"
-                                               (click)="upload_files()">Post</a>
+                                            <button mat-raised-button  class="red">
+                                                Cancel
+                                            </button>
+                                            <button mat-raised-button class="blue" (click)="upload_files()">
+                                                Post
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
