@@ -362,6 +362,7 @@
 
 .post_a_link {
   margin-bottom: 26px;
+  height: 85px !important;
 }
 
 .post_a_link select {
@@ -490,11 +491,14 @@
   align-items: center;
   justify-content: center;
   height: 100% !important;
-
 }
 
 .post_or_cancel div {
   height: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .post_or_cancel .red {
