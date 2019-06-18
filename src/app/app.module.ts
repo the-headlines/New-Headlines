@@ -68,6 +68,7 @@ import {EditInfoModalComponent} from './modules/home/components/libs/edit-info-m
 import {DropzoneModule} from 'ngx-dropzone-wrapper';
 import {DROPZONE_CONFIG} from 'ngx-dropzone-wrapper';
 import {DropzoneConfigInterface} from 'ngx-dropzone-wrapper';
+import { StatusBarComponent } from './core/status-bar/status-bar.component';
 
 
 const config = new AuthServiceConfig([
@@ -108,7 +109,8 @@ export function provideConfig() {
         TravelComponent,
         AboutComponent,
         AdminProfileComponent,
-        EditInfoModalComponent
+        EditInfoModalComponent,
+        StatusBarComponent
     ],
     imports: [
         BrowserModule,
