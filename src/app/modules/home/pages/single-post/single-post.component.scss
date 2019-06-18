@@ -1,6 +1,6 @@
 /*single post*/
 @mixin reset-list {
-  font-family: 'latoRegular', sans-serif;
+  font-family: 'Lato-Regular', sans-serif;
   font-size: 18px;
   font-weight: 300;
   font-style: normal;
@@ -20,7 +20,7 @@
 
     h3 {
 
-      font-family: 'latoSemiBold';
+      font-family: 'Lato-Semi-Bold';
       font-size: 26px;
       font-weight: 600;
       font-style: normal;
@@ -33,7 +33,7 @@
 
     .blog_post_text {
       opacity: 0.83;
-      font-family: 'latoRegular';
+      font-family: 'Lato-Regular';
       font-size: 18px;
       font-weight: normal;
       font-style: normal;
@@ -53,7 +53,7 @@
   }
 
   .sub_title {
-    font-family: 'latoRegular';
+    font-family: 'Lato-Regular';
     font-size: 24px;
     font-weight: normal;
     font-style: normal;
@@ -91,7 +91,7 @@
 
       label {
         height: 14px;
-        font-family: 'latoRegular';
+        font-family: 'Lato-Regular';
         font-size: 19px;
         font-weight: normal;
         font-style: normal;
@@ -128,7 +128,7 @@
           h4 {
             display: flex;
             justify-content: space-between;
-            font-family: 'latoRegular';
+            font-family: 'Lato-Regular';
             font-size: 22px;
             font-weight: normal;
             font-style: normal;
@@ -160,7 +160,7 @@
           padding: 18px 51px 17px 24px;
 
           p {
-            font-family: 'latoRegular';
+            font-family: 'Lato-Regular';
             font-size: 19px;
             color: rgba(0, 0, 0, 0.83);
             font-weight: normal;
@@ -176,7 +176,7 @@
     }
 
     .show_more {
-      font-family: 'latoSemiBold';
+      font-family: 'Lato-Semi-Bold';
       font-size: 20px;
       font-weight: 600;
       font-style: normal;
@@ -197,7 +197,7 @@
     }
 
     .article_title h3 {
-      font-family: 'latoSemiBold';
+      font-family: 'Lato-Semi-Bold';
       font-size: 17px;
       font-weight: 600;
       font-style: normal;
@@ -228,7 +228,7 @@
     -ms-user-select: none;
     user-select: none;
     margin-left: 26px;
-    font-family: 'latoRegular';
+    font-family: 'Lato-Regular';
     font-size: 19.5px;
     font-weight: normal;
     font-style: normal;
@@ -318,7 +318,7 @@
       background-color: #3788c6;
       border: unset;
       color: white;
-      font-family: 'latoBold';
+      font-family: 'Lato-Bold';
       font-size: 9px;
       font-weight: normal;
       font-style: normal;
@@ -355,14 +355,14 @@
     h2 {
       color: #817f7f;
       text-transform: uppercase;
-      font-family: 'latoBlack', sans-serif;
+      font-family: 'Lato-Black', sans-serif;
       font-size: 14px;
       margin: 0;
     }
 
     .dropdown-toggle {
       color: #7496f9;
-      font-family: 'latoBlack';
+      font-family: 'Lato-Black';
       padding-left: 15px;
       margin: 0;
 
@@ -419,13 +419,13 @@
     h3 {
       color: #4c73be;
       padding-bottom: 15px;
-      font-family: 'latoBlack', sans-serif;
+      font-family: 'Lato-Black', sans-serif;
       font-size: 14px;
       letter-spacing: 3px;
     }
 
     h5.main_com {
-      font-family: 'latoRegular';
+      font-family: 'Lato-Regular';
       font-size: 20px;
       margin: 0;
     }
@@ -439,7 +439,7 @@
     background: unset;
     border: unset;
     color: black;
-    font-family: 'latoBold';
+    font-family: 'Lato-Bold';
     padding: 5px 0;
   }
 
