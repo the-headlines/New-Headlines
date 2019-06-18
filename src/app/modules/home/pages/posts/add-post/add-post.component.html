@@ -22,7 +22,7 @@
                                     </mat-form-field>
                                 </div>
                                 <div class="choose_pic_or_link">
-                                    <mat-tab-group mat-.align-tabs="start">
+                                    <mat-tab-group mat-align-tabs="start" [selectedIndex]="1">
                                         <mat-tab label="Choose a picture">
                                             <dropzone class="dropzone" (error)="onUploadError($event)"
                                                       (addedFile)="onUploadSuccess($event)"
@@ -33,15 +33,7 @@
                                                  (init)="onUploadInit($event)" (error)="onUploadError($event)"
                                                  (success)="onUploadSuccess($event)"></div>
 
-                                            <div class="description">
-                                                <h3>Description</h3>
-                                                <ckeditor formControlName="description">
-                                                    <ckbutton [name]="'saveButton'" [command]="'saveCmd'"
-                                                              [icon]="'save.png'"
-                                                              [label]="'Save Document'"
-                                                              [toolbar]="'clipboard,1'"></ckbutton>
-                                                </ckeditor>
-                                            </div>
+
                                             <!--                                            <mat-error-->
                                             <!--                                                    *ngIf="postForm.get('description').dirty && postForm.get('description').hasError('required')">-->
                                             <!--                                                Post-->
@@ -56,6 +48,18 @@
                                                     is required
                                                 </mat-error>
                                             </div>
+
+                                            <div class="description">
+                                                <h3>Description</h3>
+                                                <ckeditor formControlName="description">
+                                                    <ckbutton [name]="'saveButton'" [command]="'saveCmd'"
+                                                              [icon]="'save.png'"
+                                                              [label]="'Save Document'"
+                                                              [toolbar]="'clipboard,1'"></ckbutton>
+                                                </ckeditor>
+                                            </div>
+
+                                            <mat-slide-toggle (change)="setVideo($event)">Video</mat-slide-toggle>
                                         </mat-tab>
                                     </mat-tab-group>
 

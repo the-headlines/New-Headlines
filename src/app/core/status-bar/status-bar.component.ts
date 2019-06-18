@@ -17,7 +17,7 @@ export class StatusBarComponent implements OnInit {
     constructor(private renderer: Renderer2) {
 
         this.renderer.listen('window', 'click', (e: Event) => {
-            if (e.target !== this.toggleButton.nativeElement && e.target !== this.share.nativeElement) {
+            if (this.share && e.target !== this.toggleButton.nativeElement && e.target !== this.share.nativeElement) {
                 this.isShown = false;
 
                 console.log(this.toggleButton);

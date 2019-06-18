@@ -36,4 +36,8 @@ export class AsideComponent implements OnInit {
             }
         });
     }
+
+    strip_tags(str) {
+        return str.replace(/<[^>]*>/g, '');
+    }
 }

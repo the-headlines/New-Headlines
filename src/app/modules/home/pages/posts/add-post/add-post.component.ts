@@ -24,7 +24,7 @@ export class AddPostComponent implements OnInit {
 
     categories: Categorie[] = [
         {value: 'HookedNews', viewValue: 'Hooked News'},
-        {value: 'RoadToFame', viewValue: 'Road to fame'},
+        {value: 'RoadToFame', viewValue: 'Road To Fame'},
         {value: 'CameraPictures', viewValue: 'Camera Pictures'},
         {value: 'JumpStartup', viewValue: 'Jump Startup'},
         {value: 'TravelMonkey', viewValue: 'Travel Monkey'},
@@ -59,7 +59,7 @@ export class AddPostComponent implements OnInit {
     ngOnInit() {
         this.postForm = this.fb.group({
             description: [null],
-            link: [null, Validators.required],
+            link: [null],
             category: [null, Validators.required],
             video: [false]
         });
@@ -93,15 +93,15 @@ export class AddPostComponent implements OnInit {
 
 
     public onUploadInit(args: any): void {
-        console.log('onUploadInit:', args);
+        // console.log('onUploadInit:', args);
     }
 
     public onUploadError(args: any): void {
-        console.log('onUploadError:', args);
+        // console.log('onUploadError:', args);
     }
 
     public onUploadSuccess(args: any): void {
-        console.log('onUploadSuccess:', args);
+        // console.log('onUploadSuccess:', args);
         this.files.push(args);
     }
 
@@ -119,6 +119,10 @@ export class AddPostComponent implements OnInit {
 
         });
         // this.newPost = this.http.post(this.POST_URL + '/api/user/signup', data);
+    }
+
+    setVideo(e) {
+        this.postForm.patchValue({video: e.checked});
     }
 
     getValue(food) {

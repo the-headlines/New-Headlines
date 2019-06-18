@@ -37,7 +37,8 @@ import {
     MatSortModule,
     MatPaginatorModule,
     MatSelectModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSlideToggleModule
 } from '@angular/material';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {SinglePostComponent} from './modules/home/pages/single-post/single-post.component';
@@ -141,6 +142,7 @@ export function provideConfig() {
         MatTabsModule,
         MatMenuModule,
         MatDialogModule,
+        MatSlideToggleModule,
         DropzoneModule,
         ShareButtonModule,
         ToastrModule.forRoot(),

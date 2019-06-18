@@ -14,7 +14,7 @@
                             </div>
                             <div class="text-block">
                                 <h5 class="title" (click)="getSingle(singleLastet.link)">{{singleLastet.title}}</h5>
-                                <p class="description">{{singleLastet.description}}</p>
+                                <p class="description">{{strip_tags(singleLastet.description)}}</p>
                                 <span class="date">{{singleLastet.created_date}}</span>
                             </div>
                         </li>

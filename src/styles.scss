@@ -1927,6 +1927,10 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
   margin: 0;
 }
 
+.mat-tab-body-content {
+  overflow: hidden !important;
+}
+
 //media queries
 @media only screen and (max-width: 1600px) {
   body {
