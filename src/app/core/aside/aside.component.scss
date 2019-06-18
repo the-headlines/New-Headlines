@@ -17,6 +17,20 @@
   margin: 0 auto 20px;
   cursor: pointer;
 
+  .mat-tab-label{
+    flex-grow: 1;
+    list-style: none;
+    border: solid 1px #CCC;
+    text-align: center;
+    cursor: pointer;
+    font-family: 'BrandonText-Regular', sans-serif;
+    font-size: 15px;
+    text-transform: uppercase;
+    word-break: break-all;
+    padding: 10px 0;
+    margin: 0;
+  }
+
   .title {
     font-family: 'Lato-Black';
     font-size: 1em;

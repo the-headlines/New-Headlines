@@ -20,51 +20,88 @@
                             <p class="num" *ngIf="openNum">20</p>
                         </div>
                     </div>
-                    <div class="Emoji Emoji--love" [hidden]="routerUrl === '/home'">
+                    <div class="Emoji Emoji--love" [hidden]="routerUrl !== '/road'">
                         <div class="">
                             <button class="gray">ok</button>
                             <p class="num" *ngIf="openNum">30</p>
                         </div>
                     </div>
-                    <div class="Emoji Emoji--love" [hidden]="routerUrl === '/home'">
+                    <div class="Emoji Emoji--love" [hidden]="routerUrl !== '/road'">
                         <div class="">
                             <button class="blue">Awesome</button>
                             <p class="num" *ngIf="openNum">30</p>
                         </div>
                     </div>
-                    <div class="Emoji Emoji--love" [hidden]="routerUrl === '/home'">
+                    <div class="Emoji Emoji--love" [hidden]="routerUrl !== '/road'">
                         <div class="">
                             <button class="blue">Great</button>
                             <p class="num" *ngIf="openNum">30</p>
                         </div>
                     </div>
-                    <div class="Emoji Emoji--love" [hidden]="routerUrl === '/road'">
+
+                    <div class="Emoji Emoji--love" [hidden]="routerUrl !== '/home'">
                         <div class="">
                             <button class="gray">Important</button>
                             <p class="num" *ngIf="openNum">30</p>
                         </div>
                     </div>
-                    <div class="Emoji Emoji--love" [hidden]="routerUrl === '/road'">
+                    <div class="Emoji Emoji--love" [hidden]="routerUrl  !== '/home'">
                         <div class="">
                             <button class="blue">Interesting</button>
                             <p class="num" *ngIf="openNum">30</p>
                         </div>
                     </div>
-                    <div class="Emoji Emoji--love" [hidden]="routerUrl === '/road'">
+                    <div class="Emoji Emoji--love" [hidden]="routerUrl !== '/pictures'">
                         <div class="">
                             <button class="gray">hawt</button>
                             <p class="num" *ngIf="openNum">30</p>
                         </div>
                     </div>
-                    <div class="Emoji Emoji--love" [hidden]="routerUrl === '/road'">
+                    <div class="Emoji Emoji--love" [hidden]="routerUrl !== '/pictures'">
                         <div class="">
                             <button class="blue">Kool</button>
                             <p class="num" *ngIf="openNum">30</p>
                         </div>
                     </div>
-                    <div class="Emoji Emoji--love" [hidden]="routerUrl === '/road'">
+                    <div class="Emoji Emoji--love" [hidden]="routerUrl !== '/pictures'">
                         <div class="">
                             <button class="blue">Funny</button>
+                            <p class="num" *ngIf="openNum">30</p>
+                        </div>
+                    </div>
+                    <div class="Emoji Emoji--love" [hidden]="routerUrl !== '/commerce'">
+                        <div class="">
+                            <button class="gray">Promising</button>
+                            <p class="num" *ngIf="openNum">30</p>
+                        </div>
+                    </div>
+                    <div class="Emoji Emoji--haha" [hidden]="routerUrl !== '/commerce'">
+                        <div class="">
+                            <button class="blue">Useful</button>
+                            <p class="num" *ngIf="openNum">50</p>
+                        </div>
+                    </div>
+                    <div class="Emoji Emoji--love" [hidden]="routerUrl !== '/travel'">
+                        <div class="">
+                            <button class="gray">Recommend</button>
+                            <p class="num" *ngIf="openNum">30</p>
+                        </div>
+                    </div>
+                    <div class="Emoji Emoji--love" [hidden]="routerUrl !== '/deals'">
+                        <div class="">
+                            <button class="gray">Genuine</button>
+                            <p class="num" *ngIf="openNum">30</p>
+                        </div>
+                    </div>
+                    <div class="Emoji Emoji--love" [hidden]="routerUrl !== '/video'">
+                        <div class="">
+                            <button class="gray">Refreshing</button>
+                            <p class="num" *ngIf="openNum">30</p>
+                        </div>
+                    </div>
+                    <div class="Emoji Emoji--love" [hidden]="routerUrl !== '/video'">
+                        <div class="">
+                            <button class="gray">Useful</button>
                             <p class="num" *ngIf="openNum">30</p>
                         </div>
                     </div>
@@ -77,17 +114,40 @@
             View<span>20</span>
         </a>
     </li>
-    <li>
+    <li [hidden]="routerUrl !== '/home' && routerUrl !== '/road' && routerUrl !== '/deals' && routerUrl !== '/video'">
         <a routerLink="">
             <i class="far fa-comment"></i>
             Comments<span>35</span>
         </a>
     </li>
-    <li>
+    <li [hidden]="routerUrl !== '/home' && routerUrl !== '/commerce' && routerUrl !== '/travel' && routerUrl !== '/deals'">
         <a routerLink="">
-            Critics<span>35</span>
+            Questions <span>35</span>
         </a>
     </li>
+    <li [hidden]="routerUrl !== '/road'">
+        <a routerLink="">
+            Critics <span>35</span>
+        </a>
+    </li>
+
+    <li [hidden]="routerUrl !== '/pictures'">
+        <a routerLink="">
+            Fans <span>35</span>
+        </a>
+    </li>
+    <li [hidden]="routerUrl !== '/pictures' && routerUrl !== '/travel'">
+        <a routerLink="">
+            Suggestions <span>35</span>
+        </a>
+    </li>
+
+    <li [hidden]="routerUrl !== '/commerce'">
+        <a routerLink="">
+            <i class="far fa-comment"></i>  Feedback <span>35</span>
+        </a>
+    </li>
+
     <li>
         <button type="button" class="share" (click)="show(single)" #toggleButton>
             <i class="fas fa-share"></i>
