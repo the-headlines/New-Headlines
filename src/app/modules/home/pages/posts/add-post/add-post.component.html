@@ -51,11 +51,11 @@
 
                                             <div class="description">
                                                 <h3>Description</h3>
-                                                <ckeditor formControlName="description">
-<!--                                                    <ckbutton [name]="'saveButton'" [command]="'saveCmd'"-->
-<!--                                                              [icon]="'save.png'"-->
-<!--                                                              [label]="'Save Document'"-->
-<!--                                                              [toolbar]="'clipboard,1'"></ckbutton>-->
+                                                <ckeditor formControlName="description" [config]="getToolbarConfig()">
+                                                    <ckbutton [name]="'saveButton'" [command]="'saveCmd'"
+                                                              [icon]="'save.png'"
+                                                              [label]="'Save Document'"
+                                                              [toolbar]="'clipboard,1'"></ckbutton>
                                                 </ckeditor>
                                             </div>
 

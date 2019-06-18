@@ -128,4 +128,18 @@ export class AddPostComponent implements OnInit {
     getValue(food) {
         return food.viewValue.replace(/ /g, '');
     }
+
+    getToolbarConfig() {
+        return {
+            toolbarGroups: [
+                // { name: 'document',    groups: [ 'doctools', 'mode', 'document' ] },
+                // { name: 'editing',     groups: [  'selection', 'spellchecker' ] },
+                { name: 'basicstyles', groups: [ 'basicstyles' ] },
+                { name: 'paragraph', groups: [  'blocks'] },
+                // { name: 'clipboard',   groups: [ 'clipboard', 'undo' ] },
+                // { name: 'forms' }
+            ],
+            removeButtons: 'CreateDiv,Subscript,Superscript,Strike'
+        };
+    }
 }
