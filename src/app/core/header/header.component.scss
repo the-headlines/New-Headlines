@@ -144,6 +144,9 @@ header {
 
         li {
 
+          .mat-button-wrapper{
+            font-size: 17px;
+          }
           &.post {
             background-color: #3788c6;
             color: white;
@@ -170,6 +173,7 @@ header {
 
               span {
                 color: white;
+                font-size: 17px !important;
               }
             }
           }
