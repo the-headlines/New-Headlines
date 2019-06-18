@@ -7,6 +7,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../../../../../services/auth.service';
 import {Router} from '@angular/router';
 import {PostsService} from '../../../../../services/posts.service';
+import {ToastrService} from 'ngx-toastr';
 
 export interface Categorie {
     value: string;
@@ -26,7 +27,7 @@ export class AddPostComponent implements OnInit {
         {value: 'RoadToFame', viewValue: 'Road to fame'},
         {value: 'CameraPictures', viewValue: 'Camera Pictures'},
         {value: 'JumpStartup', viewValue: 'Jump Startup'},
-        {value: 'Travel Monkey', viewValue: 'Travel Monkey'},
+        {value: 'TravelMonkey', viewValue: 'Travel Monkey'},
         {value: 'FantasticDeals', viewValue: 'Fantastic Deals'},
         {value: 'Videos', viewValue: 'Videos'}
     ];
@@ -50,7 +51,8 @@ export class AddPostComponent implements OnInit {
         private fb: FormBuilder,
         private auth: AuthService,
         private router: Router,
-        private posts: PostsService
+        private posts: PostsService,
+        private toastr: ToastrService
     ) {
     }
 
@@ -82,8 +84,8 @@ export class AddPostComponent implements OnInit {
             // formData.forEach(entries => console.log(entries));
 
             this.auth.uploadPost(this.postForm.value).subscribe((r: any) => {
-
-                this.router.navigate(['/posts/home-posts']);
+                this.toastr.success('The post has been added successfully');
+                this.router.navigate(['/']);
                 // localStorage.setItem('this.postForm', JSON.stringify(r));
             });
         }
