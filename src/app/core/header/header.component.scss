@@ -171,10 +171,11 @@ header {
             background-color: #3788c6;
             color: white;
             margin-right: 15px;
-            padding: 0px 26px;
+            padding: 0 20px;
 
             a {
               text-transform: uppercase;
+              padding: 0;
 
               .mat-button-wrapper {
                 font-size: 16px !important;
