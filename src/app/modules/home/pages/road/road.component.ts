@@ -63,13 +63,13 @@ export class RoadComponent implements OnInit {
 
             /*  this.postData = data;*/
             this.count = data['count'];
-            this.pagimate(data);
+            this.paginate(data);
             this.posts = data;
             return this.posts;
         });
     }
 
-    pagimate(data) {
+    paginate(data) {
 
         this.posts = data['result'];
 
@@ -145,7 +145,7 @@ export class RoadComponent implements OnInit {
 
             /*  this.postData = data;*/
             this.count = data['count'];
-            this.pagimate(data);
+            this.paginate(data);
             this.messages = data;
             return this.messages;
         });
@@ -170,7 +170,7 @@ export class RoadComponent implements OnInit {
 
             /*  this.postData = data;*/
             this.count = data['count'];
-            this.pagimate(data);
+            this.paginate(data);
             this.messages = data;
             return this.messages;
         });

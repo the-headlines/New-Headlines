@@ -142,11 +142,15 @@ header {
         align-items: center;
         margin: 0;
 
-        li {
+        @media screen and (max-width: 768px) {
+          justify-content: flex-end;
+        }
 
-          .mat-button-wrapper{
+        li {
+          .mat-button-wrapper {
             font-size: 17px;
           }
+
           &.post {
             background-color: #3788c6;
             color: white;
@@ -156,6 +160,9 @@ header {
             a {
               text-transform: uppercase;
 
+              .mat-button-wrapper{
+                font-size: 16px !important;
+              }
               span {
                 color: white
               }
@@ -170,8 +177,11 @@ header {
 
             a {
               text-transform: uppercase;
-              padding: 0 19px !important;
+              //padding: 0 19px !important;
 
+              .mat-button-wrapper{
+                font-size: 16px !important;
+              }
               span {
                 color: white;
                 font-size: 17px !important;
@@ -283,7 +293,12 @@ header {
 
 mat-sidenav-container {
   position: inherit;
-  height: 100vh;
+  height: 100vh !important;
+
+  .mat-drawer:not(.mat-drawer-side) {
+    box-shadow: 0 8px 10px -5px rgba(0,0,0,.2), 0 16px 24px 2px rgba(0,0,0,.14), 0 6px 30px 5px rgba(0,0,0,.12);
+    width: 50vw;
+  }
 }
 
 mat-toolbar {
@@ -711,10 +726,10 @@ li.margin_top {
   min-width: auto;
 }
 
-.user_name{
+.user_name {
   position: relative;
 
-  &:after{
+  &:after {
     position: absolute;
     top: 50%;
     right: 0;
