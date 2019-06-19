@@ -46,7 +46,7 @@
                     <div class="loop_items item" *ngFor="let single of posts.news">
                         <div class="img-block">
                             <img src="{{single.extractedImage}}" class="img-fluid" alt="" (click)="getSingle(single._id)">
-                            <app-status-bar></app-status-bar>
+                            <app-status-bar [single]="single"></app-status-bar>
                         </div>
                         <div class="text-block">
                             <p>{{single.extractedDescription}}</p>

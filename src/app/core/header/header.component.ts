@@ -3,9 +3,9 @@ import {ModalDialog} from '../../modules/home/components/libs/modal.dialog';
 import {MatDialog} from '@angular/material';
 import {SocialUser} from 'angularx-social-login';
 import {AuthService} from 'angularx-social-login';
-import * as JWT from 'jwt-decode';
 import {CommonService} from '../../services/common.service';
 import {SubjectService} from '../../services/subject.service';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -23,7 +23,8 @@ export class HeaderComponent implements OnInit {
         private dialog: MatDialog,
         private authService: AuthService,
         private common: CommonService,
-        private subject: SubjectService
+        private subject: SubjectService,
+        public router: Router
     ) {
 
         this.subject.getUserData().subscribe((dt: any) => {

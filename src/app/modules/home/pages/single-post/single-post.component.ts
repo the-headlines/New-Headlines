@@ -37,7 +37,7 @@ export class SinglePostComponent implements OnInit, OnDestroy {
         private subject: SubjectService
     ) {
         this.id = this.route.snapshot.paramMap.get('id');
-        this.getSinglePost(this.id);
+
         this.postForm = this.fb.group({
             text: '',
             newsId: ''
@@ -73,6 +73,7 @@ export class SinglePostComponent implements OnInit, OnDestroy {
             this.route.params.subscribe(dt => {
                 this.postId = dt.id;
                 this.postForm.patchValue({newsId: dt.id});
+                this.getSinglePost(this.postId);
             })
         );
 
@@ -112,21 +113,12 @@ export class SinglePostComponent implements OnInit, OnDestroy {
 
     getSinglePost(id) {
         this.home.getSinglePost(id).subscribe((data) => {
-            console.log(data);
-            if (!data) {
-                return false;
-            }
 
-            if (!data['status'] && data['status'] == 0) {
-                alert('Empty data!!');
-                return false;
-            }
-
-            this.singlePost = data['result']['post'];
-            this.comments = data['result']['comment'];
-            this.related = data['result']['related'];
-            this.commentCount = data['comment_count'];
-            this.start = data['result']['comment'].length;
+            this.singlePost = data;
+            // this.comments = data['result']['comment'];
+            // this.related = data['result']['related'];
+            // this.commentCount = data['comment_count'];
+            // this.start = data['result']['comment'].length;
 
         });
     }

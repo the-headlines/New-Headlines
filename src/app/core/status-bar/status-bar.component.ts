@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
+import {Component, ElementRef, Input, OnInit, Renderer2, ViewChild} from '@angular/core';
 import {Router} from '@angular/router';
 
 @Component({
@@ -9,6 +9,8 @@ import {Router} from '@angular/router';
 export class StatusBarComponent implements OnInit {
     @ViewChild('toggleButton') toggleButton: ElementRef;
     @ViewChild('share') share: ElementRef;
+
+    @Input() single;
 
     isShown = false;
     currentPost = {};
@@ -28,7 +30,6 @@ export class StatusBarComponent implements OnInit {
 
     ngOnInit() {
         this.routerUrl = this.router.url;
-        console.log(this.router.url);
     }
 
     show(single) {

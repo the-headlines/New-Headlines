@@ -65,7 +65,6 @@ export class RoadComponent implements OnInit {
             this.count = data['count'];
             this.paginate(data);
             this.posts = data;
-            return this.posts;
         });
     }
 

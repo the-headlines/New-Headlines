@@ -15,19 +15,19 @@ export class HomeService {
     }
 
     getPictures() {
-        return this.http.get(Base.url + '/api/news/CameraPictures?pagesize=100&page=1');
+        return this.http.get(Base.url + '/api/news/category/CameraPictures?pagesize=100&page=1');
     }
 
     getRoadToFame() {
-        return this.http.get(Base.url + '/api/news/RoadToFame?pagesize=100&page=1');
+        return this.http.get(Base.url + '/api/news/category/RoadToFame?pagesize=100&page=1');
     }
 
     getDeals() {
-        return this.http.get(Base.url + '/api/news/FantasticDeals?pagesize=100&page=1');
+        return this.http.get(Base.url + '/api/news/category/FantasticDeals?pagesize=100&page=1');
     }
 
     getCommerce() {
-        return this.http.get(Base.url + '/api/news/JumpStartups?pagesize=100&page=1');
+        return this.http.get(Base.url + '/api/news/category/JumpStartups?pagesize=100&page=1');
     }
 
     getVoiceValue() {
@@ -47,7 +47,8 @@ export class HomeService {
     }
 
     public getSinglePost(id) {
-        return this.http.get(Base.url + '/single/' + id + '');
+        console.log(Base.url + '/api/news/' + id );
+        return this.http.get(Base.url + '/api/news/' + id + '');
     }
 
     /*Add comment*/

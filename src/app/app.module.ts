@@ -14,7 +14,6 @@ import {PicturesComponent} from './modules/home/pages/pictures/pictures.componen
 import {VideoComponent} from './modules/home/pages/video/video.component';
 import {LoginComponent} from './modules/home/components/login/login.component';
 import {DirectivesComponent} from './shared/directives/directives.component';
-import {PipesComponent} from './shared/pipes/pipes.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {RegisterComponent} from './modules/home/components/register/register.component';
@@ -71,6 +70,7 @@ import {DROPZONE_CONFIG} from 'ngx-dropzone-wrapper';
 import {DropzoneConfigInterface} from 'ngx-dropzone-wrapper';
 import { StatusBarComponent } from './core/status-bar/status-bar.component';
 import { NotificationsBoxComponent } from './core/notifications-box/notifications-box.component';
+import { StripHtmlTagsPipe } from './shared/pipes/strip-html-tags.pipe';
 
 
 const config = new AuthServiceConfig([
@@ -98,7 +98,6 @@ export function provideConfig() {
         VideoComponent,
         LoginComponent,
         DirectivesComponent,
-        PipesComponent,
         RegisterComponent,
         SinglePostComponent,
         SidebarComponent,
@@ -113,7 +112,8 @@ export function provideConfig() {
         AdminProfileComponent,
         EditInfoModalComponent,
         StatusBarComponent,
-        NotificationsBoxComponent
+        NotificationsBoxComponent,
+        StripHtmlTagsPipe
     ],
     imports: [
         BrowserModule,
