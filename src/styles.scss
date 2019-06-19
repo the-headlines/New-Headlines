@@ -2385,7 +2385,7 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
     top: 100%;
     z-index: 99999;
     right: 0;
-    background-color: black;
+    background-color: unset;
     position: absolute;
     flex-direction: column;
     text-align: center;
@@ -2538,12 +2538,6 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
 
   .logo a img {
     width: 100%;
-  }
-}
-
-@media screen and (max-width: 992px) and (min-width: 768px) {
-  .logo p {
-    display: none;
   }
 }
 

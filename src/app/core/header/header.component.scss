@@ -134,6 +134,14 @@ header {
             width: 100%;
           }
         }
+
+        @media screen and (max-width: 992px) {
+          width: 100%;
+
+          a {
+            width: 30%;
+          }
+        }
       }
 
       ul {
@@ -141,6 +149,14 @@ header {
         justify-content: space-between;
         align-items: center;
         margin: 0;
+
+        @media screen and (max-width: 1024px) and (min-width: 768px) {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-top: 30px;
+          margin-left: 10px;
+        }
 
         @media screen and (max-width: 768px) {
           justify-content: flex-end;
@@ -160,9 +176,10 @@ header {
             a {
               text-transform: uppercase;
 
-              .mat-button-wrapper{
+              .mat-button-wrapper {
                 font-size: 16px !important;
               }
+
               span {
                 color: white
               }
@@ -179,9 +196,10 @@ header {
               text-transform: uppercase;
               //padding: 0 19px !important;
 
-              .mat-button-wrapper{
+              .mat-button-wrapper {
                 font-size: 16px !important;
               }
+
               span {
                 color: white;
                 font-size: 17px !important;
@@ -207,6 +225,12 @@ header {
       font-size: 1.2em;
       color: #727377;
       margin-bottom: 30px;
+
+      @media screen and (max-width: 768px) {
+        height: 100%;
+        top: 80px;
+        margin: unset;
+      }
 
       li {
         padding: 5px 0;
@@ -291,13 +315,14 @@ header {
   color: red;
 }
 
-mat-sidenav-container {
+mat-sidenav-container.mat-drawer-container.mat-sidenav-container.mat-drawer-transition.mat-drawer-opened {
   position: inherit;
   height: 100vh !important;
 
   .mat-drawer:not(.mat-drawer-side) {
-    box-shadow: 0 8px 10px -5px rgba(0,0,0,.2), 0 16px 24px 2px rgba(0,0,0,.14), 0 6px 30px 5px rgba(0,0,0,.12);
-    width: 50vw;
+    box-shadow: 0 8px 10px -5px rgba(0, 0, 0, .2), 0 16px 24px 2px rgba(0, 0, 0, .14), 0 6px 30px 5px rgba(0, 0, 0, .12);
+    width: 71vw;
+    left: 0;
   }
 }
 
