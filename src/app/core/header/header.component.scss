@@ -171,12 +171,12 @@ header {
             background-color: #3788c6;
             color: white;
             margin-right: 15px;
-            padding: 0 20px;
             border-radius: 5px;
 
             a {
               text-transform: uppercase;
-              padding: 0;
+              width: 100%;
+              padding: 0 20px;
 
               .mat-button-wrapper {
                 font-size: 16px !important;
