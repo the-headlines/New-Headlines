@@ -172,6 +172,7 @@ header {
             color: white;
             margin-right: 15px;
             padding: 0 20px;
+            border-radius: 5px;
 
             a {
               text-transform: uppercase;
@@ -191,19 +192,12 @@ header {
             text-align: center;
             background-color: #e14040;
             color: white;
-            //width: 200px;
+            border-radius: 5px;
 
             a {
               text-transform: uppercase;
-              //padding: 0 19px !important;
-
-              .mat-button-wrapper {
-                font-size: 16px !important;
-              }
-
               span {
                 color: white;
-                font-size: 17px !important;
               }
             }
           }

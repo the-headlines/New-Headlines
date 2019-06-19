@@ -243,8 +243,8 @@ img {
       border-radius: 20px;
 
       button {
-        font-family: 'latoRegular', sans-serif;
-        font-size: 1em;
+        font-family: 'Lato-Regular', sans-serif;
+        font-size: 14px;
         font-weight: bold;
         letter-spacing: 0.5px;
         color: black;
@@ -267,14 +267,12 @@ img {
   border: solid 1px #959595;
   background-color: #fff;
   width: 100%;
-  /* margin: 0 auto 24px; */
   padding: 0 20px;
 }
 
 .cdk-overlay-container {
   z-index: 999999;
 }
-
 
 .pagination-block {
   display: flex;
@@ -2033,14 +2031,13 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
 }
 
 .mat-tab-header-pagination.mat-tab-header-pagination-after.mat-elevation-z4.mat-ripple,
-.mat-tab-header-pagination.mat-tab-header-pagination-before.mat-elevation-z4.mat-ripple.mat-tab-header-pagination-disabled
-{
+.mat-tab-header-pagination.mat-tab-header-pagination-before.mat-elevation-z4.mat-ripple.mat-tab-header-pagination-disabled {
   display: none;
 }
 
 
-.login span.mat-button-wrapper, .post span.mat-button-wrapper{
-  font-size: 14px;
+.login span.mat-button-wrapper, .post span.mat-button-wrapper {
+  font-size: 13px;
 }
 
 //media queries
