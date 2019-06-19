@@ -45,12 +45,12 @@ export class VideoComponent implements OnInit {
 
             /*  this.postData = data;*/
             this.count = data['count'];
-            this.pagimate(data);
+            this.paginate(data);
         });
     }
 
 
-    pagimate(data) {
+    paginate(data) {
 
         this.posts = data['result'];
 

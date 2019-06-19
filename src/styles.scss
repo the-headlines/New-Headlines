@@ -667,6 +667,11 @@ img {
   background-color: #fff;
   border: solid 1px #959595;
   padding: 40px 40px 0;
+
+  @media screen and (max-width: 1800px) {
+    padding: 40px 20px 15px !important;
+    width: 100% !important;
+  }
 }
 
 .top-news {
@@ -1369,6 +1374,8 @@ a:hover {
     margin-top: 47px;
     margin-bottom: 25px;
     border-radius: 0;
+
+
   }
 }
 
@@ -1626,11 +1633,11 @@ label {
   border: none;
   opacity: 1;
   position: absolute;
-  left: -30%;
+  left: -13%;
   right: 0;
   visibility: visible;
   overflow: visible;
-  width: 22rem;
+  width: 15rem;
   padding: 15px 20px;
   -webkit-transform: translateY(20px);
   transform: translateY(20px);
@@ -1644,12 +1651,16 @@ label {
     position: absolute;
     border-radius: 3px;
     top: -8px;
-    left: 100px;
+    left: 80px;
     box-shadow: -5px -5px 12px -2px rgba(0, 0, 0, 0.3);
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
     z-index: 1002;
   }
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-underline {
+  display: none;
 }
 
 .header-notification a {
@@ -2021,6 +2032,17 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
   overflow: hidden !important;
 }
 
+.mat-tab-header-pagination.mat-tab-header-pagination-after.mat-elevation-z4.mat-ripple,
+.mat-tab-header-pagination.mat-tab-header-pagination-before.mat-elevation-z4.mat-ripple.mat-tab-header-pagination-disabled
+{
+  display: none;
+}
+
+
+.login span.mat-button-wrapper{
+  font-size: 16px;
+}
+
 //media queries
 @media only screen and (max-width: 1600px) {
   body {
@@ -2363,7 +2385,7 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
     top: 100%;
     z-index: 99999;
     right: 0;
-    background-color: black;
+    background-color: unset;
     position: absolute;
     flex-direction: column;
     text-align: center;
@@ -2516,12 +2538,6 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
 
   .logo a img {
     width: 100%;
-  }
-}
-
-@media screen and (max-width: 992px) and (min-width: 768px) {
-  .logo p {
-    display: none;
   }
 }
 
@@ -2699,4 +2715,9 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
   .menu ul li {
     margin-left: 5%;
   }
+  .sidebar {
+    padding: 40px 20px 15px !important;
+    width: 100% !important;
+  }
 }
+

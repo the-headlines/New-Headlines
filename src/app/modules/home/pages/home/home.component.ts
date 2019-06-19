@@ -81,15 +81,17 @@ export class HomeComponent implements OnInit {
 
             /*  this.postData = data;*/
             this.count = data['count'];
-            this.pagimate(data);
+            console.log(this.count, 'count');
+            this.paginate(data);
             this.posts = data;
             return this.posts;
         });
     }
 
-    pagimate(data) {
-
-        this.posts = data['result'];
+    paginate(data) {
+        this.posts = data;
+        this.count = data['count'];
+        console.log(this.count, 'pagination');
 
         const cnt = Math.ceil(this.count / this.pageCount);
 
@@ -152,7 +154,7 @@ export class HomeComponent implements OnInit {
 
             /*  this.postData = data;*/
             this.count = data['count'];
-            this.pagimate(data);
+            this.paginate(data);
             this.messages = data;
             return this.messages;
         });
@@ -176,7 +178,7 @@ export class HomeComponent implements OnInit {
 
             /*  this.postData = data;*/
             this.count = data['count'];
-            this.pagimate(data);
+            this.paginate(data);
             this.messages = data;
             return this.messages;
         });

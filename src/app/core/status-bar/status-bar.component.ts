@@ -35,6 +35,7 @@ export class StatusBarComponent implements OnInit {
         this.isShown = true;
         this.currentPost = single;
     }
-
-
+    getSingle(id) {
+        this.router.navigate(['/post', id]);
+    }
 }
