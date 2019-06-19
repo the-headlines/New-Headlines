@@ -1,10 +1,13 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {AuthService} from '../../../../services/auth.service';
-import {ActivatedRoute, ParamMap, Router} from '@angular/router';
+import {ActivatedRoute, NavigationStart, ParamMap, Router} from '@angular/router';
 import {HomeService} from '../../../../services/home.service';
 import {FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material';
 import * as JWT from 'jwt-decode';
+import {SubjectService} from '../../../../services/subject.service';
+import {Subscription} from 'rxjs';
+import {filter} from 'rxjs/operators';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
     isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -18,23 +21,30 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     templateUrl: './single-post.component.html',
     styleUrls: ['./single-post.component.scss']
 })
-export class SinglePostComponent implements OnInit {
+export class SinglePostComponent implements OnInit, OnDestroy {
     isEdit = false;
     postForm: FormGroup;
+    userData: any = {};
+
+    subscriptions: Subscription[] = [];
 
     constructor(
         private auth: AuthService,
         private router: Router,
         private route: ActivatedRoute,
         private home: HomeService,
-        private fb: FormBuilder
+        private fb: FormBuilder,
+        private subject: SubjectService
     ) {
         this.id = this.route.snapshot.paramMap.get('id');
         this.getSinglePost(this.id);
         this.postForm = this.fb.group({
-            comment: ''
+            text: '',
+            newsId: ''
         });
-        this.postForm.controls.comment.disable();
+        // this.postForm.controls.comment.disable();
+
+
     }
 
     id;
@@ -46,7 +56,7 @@ export class SinglePostComponent implements OnInit {
     pageCount = 4;
     commentCount = 0;
     showCk = false;
-    userData;
+    postId;
 
     isDisabled(): boolean {
         return this.isEdit;
@@ -54,13 +64,27 @@ export class SinglePostComponent implements OnInit {
 
     ngOnInit() {
 
-        const token = localStorage.getItem('userInf');
-        if (token) {
-            console.log(token);
-            this.userData = JWT(token);
-        }
+        // const token = localStorage.getItem('userInf');
+        // if (token) {
+        //     console.log(token);
+        //     this.userData = JWT(token);
+        // }
+        this.subscriptions.push(
+            this.route.params.subscribe(dt => {
+                this.postId = dt.id;
+                this.postForm.patchValue({newsId: dt.id});
+            })
+        );
 
-        console.log(this.userData);
+        this.subscriptions.push(this.subject.getUserData().subscribe((dt: any) => {
+            console.log(dt);
+            this.userData = dt;
+        }));
+
+        this.userData.fullName = localStorage.getItem('full_name');
+        // this.postForm.patchValue({user: this.userData.fullName});
+
+        // console.log(this.userData);
     }
 
     ckeditorContent: any;
@@ -112,9 +136,10 @@ export class SinglePostComponent implements OnInit {
         this.getSinglePost(id);
     }
 
-    addComments(data) {
+    addComments() {
 
         console.log(this.postForm.value);
+        const data = this.postForm.value;
         this.home.addComments(data).subscribe((returData) => {
             console.log(returData);
             if (!returData) {
@@ -162,5 +187,9 @@ export class SinglePostComponent implements OnInit {
 
             this.start += data['result'].length;
         });
+    }
+
+    ngOnDestroy() {
+        this.subscriptions.forEach(s => s.unsubscribe());
     }
 }

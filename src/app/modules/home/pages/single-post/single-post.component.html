@@ -213,20 +213,19 @@
                 </div>
 
                 <div class="leave_comment">
-                    <form action="">
-                        <div class="commented_by">
-                            <p>Comment as <span> Bruce Reid</span></p>
+                        <div class="commented_by" *ngIf="userData && userData.fullName">
+                            <p>Comment as <span>{{userData.fullName}}</span>
                         </div>
                         <div class="border">
                             <form [formGroup]="postForm">
-
-                                <ckeditor formControlName="comment" *ngIf="showCk"
+<!--                                <input formControlName="text">-->
+                                <ckeditor formControlName="text" *ngIf="showCk"
                                           name="message" class="add_comm_or_question_area"
                                 >
-                                    <ckbutton [name]="'saveButton'" [command]="'saveCmd'" (click)="save($event)"
+                                    <!--                                    <ckbutton [name]="'saveButton'" [command]="'saveCmd'" -->
 
-                                              [label]="'Save Document'"
-                                              [toolbar]="'clipboard,1'"></ckbutton>
+                                    <!--                                              [label]="'Save Document'"-->
+                                    <!--                                              [toolbar]="'clipboard,1'"></ckbutton>-->
                                     <!--                                              [icon]="'save.png'"-->
                                 </ckeditor>
                                 <div class="comments_or_question">
@@ -243,10 +242,10 @@
                                             value="Make CKEditor editable again">Question
                                     </button>
                                     <button type="button" class="post_btn" [hidden]="!showCk"
-                                            (click)="addComments(addComment)">Post
+                                            (click)="addComments()">Post
                                     </button>
                                 </div>
-                                <div *ngIf="postForm.get('comment').hasError('required')">Comment is required</div>
+                                <div *ngIf="postForm.get('text').hasError('required')">Comment is required</div>
                             </form>
                         </div>
                         <div class="how_many_com_and_quest">
@@ -267,7 +266,7 @@
                                 </div>
                             </div>
                         </div>
-                    </form>
+<!--                    </form>-->
                 </div>
 
                 <div class="user_name_of_comments" *ngIf="addCommentData.length != 0">
