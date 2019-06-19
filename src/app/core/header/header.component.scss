@@ -169,12 +169,28 @@ header {
 
           &.post {
             background-color: #3788c6;
-            color: white;
-            margin-right: 15px;
-            padding: 0px 26px;
+            box-sizing: border-box;
+            text-align: center;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            line-height: 24px;
+            text-transform: uppercase;
+            color: rgb(255, 255, 255);
+            fill: rgb(255, 255, 255);
+            display: block;
+            border-width: 1px;
+            border-style: solid;
+            border-image: initial;
+            border-radius: 4px;
+            text-decoration: none;
+            width: 120px;
+            margin-right: 16px;
 
             a {
               text-transform: uppercase;
+              width: 100%;
+              padding: 0 20px;
 
               .mat-button-wrapper {
                 font-size: 16px !important;
@@ -190,19 +206,17 @@ header {
             text-align: center;
             background-color: #e14040;
             color: white;
-            //width: 200px;
+            border-width: 1px;
+            border-style: solid;
+            border-image: initial;
+            border-radius: 4px;
+            text-decoration: none;
 
             a {
               text-transform: uppercase;
-              //padding: 0 19px !important;
-
-              .mat-button-wrapper {
-                font-size: 16px !important;
-              }
 
               span {
                 color: white;
-                font-size: 17px !important;
               }
             }
           }
