@@ -97,6 +97,14 @@ export class HomeComponent implements OnInit {
         });
     }
 
+    isShown: boolean = false ;
+
+    toggleShow() {
+
+        this.isShown = ! this.isShown;
+
+    }
+
     paginate(data) {
         this.posts = data;
         this.count = data['count'];
