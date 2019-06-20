@@ -45,6 +45,8 @@ export class AddPostComponent implements OnInit {
     postForm: FormGroup;
 
     files = [];
+    videoLink = false;
+    selectedCategory;
 
     constructor(
         private http: HttpClient,
@@ -143,5 +145,12 @@ export class AddPostComponent implements OnInit {
             ],
             removeButtons: 'CreateDiv,Subscript,Superscript,Strike'
         };
+    }
+
+    getCurrentSection(category) {
+        console.log(category);
+        this.selectedCategory = category;
+        this.videoLink = category === 'Videos';
+        this.postForm.patchValue({video: this.videoLink});
     }
 }

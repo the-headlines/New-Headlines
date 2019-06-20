@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import * as Base from '../../../../configs/config';
 import {HomeService} from '../../../../services/home.service';
 import {Router} from '@angular/router';
+import * as moment from 'moment';
 
 @Component({
     selector: 'app-video',
@@ -34,18 +35,15 @@ export class VideoComponent implements OnInit {
     get() {
         this.home.getVideo().subscribe((data) => {
 
-            if (!data) {
-                return false;
-            }
+            data['news'].sort((a, b) => {
+                return moment(b['createdAt']).unix() - moment(a['createdAt']).unix();
+            });
 
-            if (!data['status'] && data['status'] == 0) {
-                alert('No data');
-                return false;
-            }
 
             /*  this.postData = data;*/
             this.count = data['count'];
-            this.paginate(data);
+            this.posts = data;
+            // this.paginate(data);
         });
     }
 

@@ -10,7 +10,7 @@
                                 <div class="sub_headline post_a_link">
                                     <h2> Post a link</h2>
                                     <mat-form-field>
-                                        <mat-select formControlName="category">
+                                        <mat-select formControlName="category" (selectionChange)="getCurrentSection($event.value)">
                                             <mat-option disabled [value]="0">Choose a Section</mat-option>
                                             <mat-option *ngFor="let food of categories" [value]="getValue(food)">
                                                 {{food.viewValue}}

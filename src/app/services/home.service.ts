@@ -47,11 +47,11 @@ export class HomeService {
     }
 
     public getVideo() {
-        return this.http.get(Base.url + '/api/news/Videos?pagesize=100&page=1');
+        return this.http.get(Base.url + '/api/news/category/Videos?pagesize=100&page=1');
     }
 
     public getSinglePost(id) {
-        console.log(Base.url + '/api/news/' + id );
+        console.log(Base.url + '/api/news/' + id);
         return this.http.get(Base.url + '/api/news/' + id + '');
     }
 

@@ -27,15 +27,29 @@
                     </div>
                 </div>
                 <div class="item">
-                    <div class="img-block">
-                        <div class="video_block">
-                            <img src="" class="img-fluid" alt="">
-                        </div>
-                        <app-status-bar></app-status-bar>
-                    </div>
-                    <div class="text-block">
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                            Lorem Ipsum has been the industry's standard dummy text ever since the</p>
+                    <div class="news-block carusel-block" *ngIf="posts">
+                        <ng-container *ngFor="let post of posts.news">
+
+                            <div class="item">
+                                <div class="text-block">
+                                    <div class="description">
+                                        <h5 class="title">{{post.extractedTitle}}</h5>
+                                        <p class="text">{{post.description|stripTags}}</p>
+                                    </div>
+
+                                </div>
+                                <div class="img-block">
+                                    <a href="{{post.link}}" target="_blank">
+
+                                        <img src="{{post.extractedImage}}" class="img-fluid" alt="">
+                                    </a>
+                                    <app-status-bar></app-status-bar>
+                                </div>
+                                <div class="text-block">
+                                    <p>{{post.extractedDescription}}</p>
+                                </div>
+                            </div>
+                        </ng-container>
                     </div>
                 </div>
             </div>
