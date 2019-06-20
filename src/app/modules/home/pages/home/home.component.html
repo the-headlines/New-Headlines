@@ -45,19 +45,40 @@
                     </div>
                     <div class="loop_items item posts_items" *ngFor="let single of posts.news">
                         <div class="post_wrapper">
-                            <div class="user_news">
+                            <div class="user_posts">
                                 <div class="userName">
                                     <div>
                                         <h3>User Nmae</h3>
                                         <p class="updateDate">1 min</p>
                                     </div>
                                     <div class="storyOptions">
-
                                         <button (click)="toggleShow()"><i class="fas fa-ellipsis-h"></i></button>
-                                        <div *ngIf="isShown">
+                                        <div *ngIf="isShown" class="save_caret_menu_item ">
                                             <ul>
-                                                <li>egarga</li>
-                                                <li>geareagr</li>
+                                                <li>
+                                                    <div>
+                                                        <h3><i class="far fa-bookmark"></i> Save link</h3>
+                                                        <p>Add this to your saved item</p>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div>
+                                                        <h3><i class="fas fa-link"></i> Copy link</h3>
+                                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div>
+                                                        <h3><i class="far fa-clipboard"></i> Post</h3>
+                                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div>
+                                                        <h3><i class="fas fa-bug"></i> Report</h3>
+                                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                                    </div>
+                                                </li>
                                             </ul>
                                         </div>
                                     </div>

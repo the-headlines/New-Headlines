@@ -380,8 +380,7 @@ img {
 
 .news-block {
   .posts_items {
-    width: 500px;
-    height: 493px;
+    width: 600px;
     border: 1px solid #dddfe2;
     border-radius: 3px;
     background-color: #fff;
@@ -391,8 +390,7 @@ img {
   .post_wrapper {
     background-color: #f2f3f5;
     margin-bottom: 0;
-    width: 500px;
-    height: 340px;
+    width: 100%;
 
     .img-block {
       height: 261px;
@@ -405,7 +403,8 @@ img {
     }
 
     .text-block {
-      margin-bottom: 25px;
+      padding: 21px;
+      margin: 0;
 
       p {
         margin: 0;
@@ -420,6 +419,7 @@ img {
   align-items: center;
   margin: 20px 0;
   text-transform: capitalize;
+  padding: 0 20px;
 
   a {
     &:hover {
@@ -2063,6 +2063,70 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
 .login span.mat-button-wrapper, .post span.mat-button-wrapper {
   font-size: 11px;
   font-family: 'Lato-Black';
+}
+
+
+.user_posts .userName {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+}
+
+.user_posts .userName .updateDate {
+  font-size: 12px;
+  margin: 0;
+  font-family: 'Lato-Bold';
+}
+
+.save_caret_menu_item {
+  position: absolute;
+  background: white;
+  padding: 5px 0;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, .15);
+  border-radius: 3px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, .3);
+  width: 250px;
+}
+
+.save_caret_menu_item ul li div {
+  border: solid #fff;
+  border-width: 1px 0;
+  color: #1d2129;
+  font-size: 12px;
+  -webkit-font-smoothing: antialiased;
+  font-weight: normal;
+  line-height: 22px;
+  padding: 0 12px;
+  cursor: pointer;
+}
+
+.save_caret_menu_item ul li div h3 {
+  color: #1d2129;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+  white-space: normal;
+  font-family: 'Lato-Black';
+}
+
+.save_caret_menu_item ul li div p {
+  color: #90949c;
+  font-size: 11px;
+  font-weight: normal;
+  line-height: 16px;
+  white-space: normal;
+  font-family: 'Lato-Regular';
+}
+
+.save_caret_menu_item ul {
+  margin: unset;
+  padding: 5px;
+}
+
+.storyOptions button {
+  background: unset;
+  border: unset;
 }
 
 //media queries
