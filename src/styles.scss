@@ -676,6 +676,10 @@ img {
     padding: 40px 20px 15px !important;
     width: 100% !important;
   }
+
+  .mat-tab-body-wrapper {
+    margin-top: 20px;
+  }
 }
 
 .top-news {
@@ -698,12 +702,6 @@ img {
 
   .text-block {
     width: 57%;
-  }
-
-  .item {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 50px;
   }
 
   .show-more {
@@ -1675,9 +1673,9 @@ label {
 }
 
 div#mat-tab-label-0-0, div#mat-tab-label-0-1 {
-  flex-grow: 1;
-  list-style: none;
-  border: solid 1px #CCC;
+  //flex-grow: 1;
+  //list-style: none;
+  //border: solid 1px #CCC;
   text-align: center;
   cursor: pointer;
   font-family: 'BrandonText-Regular', sans-serif;
@@ -1698,11 +1696,9 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
 
 .mat-tab-label.mat-ripple.ng-star-inserted.mat-tab-label-active {
   transition: all 0.2s ease-out;
-  background-color: #3788c6;
-  color: white;
   cursor: pointer;
   opacity: 1;
-  border: unset !important;
+  border-bottom: 3px solid #3788c6;
 }
 
 .mat-tab-label .mat-tab-label-content {
@@ -1719,14 +1715,12 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
   background-color: #ffffff;
 }
 
-
 .profile_links li a {
   text-transform: uppercase !important;
 }
 
+
 //owl carousel
-
-
 .owl-prev, .owl-next {
   position: absolute !important;
   top: 40%;
