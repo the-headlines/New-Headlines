@@ -11,7 +11,7 @@ export class HomeService {
     }
 
     getData() {
-        return this.http.get(Base.url + '/api/news?pagesize=100&page=1');
+        return this.http.get(Base.url + '/api/news/category/HookedNews?pagesize=100&page=1');
     }
 
     getPictures() {

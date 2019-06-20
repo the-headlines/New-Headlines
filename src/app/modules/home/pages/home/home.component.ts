@@ -4,6 +4,7 @@ import * as Base from '../../../../configs/config.js';
 import {Router} from '@angular/router';
 import {CookieService} from 'ngx-cookie-service';
 import {HttpClient} from '@angular/common/http';
+import * as moment from 'moment';
 
 @Component({
     selector: 'app-home',
@@ -79,9 +80,17 @@ export class HomeComponent implements OnInit {
                 return false;
             }
 
+
+            data['news'].sort((a, b) => {
+                return moment(b['createdAt']).unix() - moment(a['createdAt']).unix();
+            });
+
+
+
             /*  this.postData = data;*/
             this.count = data['count'];
-            console.log(this.count, 'count');
+            // console.log(this.count, 'count');
+
             this.paginate(data);
             this.posts = data;
             return this.posts;
@@ -91,7 +100,7 @@ export class HomeComponent implements OnInit {
     paginate(data) {
         this.posts = data;
         this.count = data['count'];
-        console.log(this.count, 'pagination');
+        // console.log(this.count, 'pagination');
 
         const cnt = Math.ceil(this.count / this.pageCount);
 
