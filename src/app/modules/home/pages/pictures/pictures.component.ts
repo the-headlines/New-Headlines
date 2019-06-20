@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {HomeService} from '../../../../services/home.service';
 import {Router} from '@angular/router';
 import * as Base from '../../../../configs/config';
+import * as moment from 'moment';
 
 @Component({
     selector: 'app-pictures',
@@ -34,18 +35,14 @@ export class PicturesComponent implements OnInit {
     get() {
         this.home.getPictures().subscribe((data) => {
 
-            if (!data) {
-                return false;
-            }
-
-            if (!data['status'] && data['status'] == 0) {
-                alert('No data');
-                return false;
-            }
+            data['news'].sort((a, b) => {
+                return moment(b['createdAt']).unix() - moment(a['createdAt']).unix();
+            });
 
             /*  this.postData = data;*/
             this.count = data['count'];
-            this.paginate(data);
+            this.posts = data;
+            // this.paginate(data);
         });
     }
 

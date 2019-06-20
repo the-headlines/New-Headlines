@@ -32,7 +32,7 @@ export class AsideComponent implements OnInit {
                 return false;
             } else {
                 this.lastet = data;
-                return console.log('sss', this.lastet);
+                // return console.log('sss', this.lastet);
             }
         });
     }

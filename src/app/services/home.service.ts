@@ -30,6 +30,10 @@ export class HomeService {
         return this.http.get(Base.url + '/api/news/category/JumpStartups?pagesize=100&page=1');
     }
 
+    getTravel() {
+        return this.http.get(Base.url + '/api/news/category/TravelMonkey?pagesize=100&page=1');
+    }
+
     getVoiceValue() {
         return this.http.get(Base.url + '/api/news');
     }

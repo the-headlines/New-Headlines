@@ -2,46 +2,71 @@
 <div class="content">
     <div class="main row no-gutters">
         <section class="col-md-8" style="padding-right: 37px">
-            <div class="carusel-block">
-                <app-owl-carousel></app-owl-carousel>
-                <div class="img-block">
-                    <div class="slider_bottom_icons">
-                        <app-status-bar></app-status-bar>
+            <!--            <div class="carusel-block">-->
+            <!--                <app-owl-carousel></app-owl-carousel>-->
+            <!--                <div class="img-block">-->
+            <!--                    <div class="slider_bottom_icons">-->
+            <!--                        <app-status-bar></app-status-bar>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!--            </div>-->
+            <!--            <div class="news-block carusel-block">-->
+            <!--                <div class="text-block">-->
+            <!--                    <div class="description">-->
+            <!--                        <h5 class="title">Travel News</h5>-->
+            <!--                        <p class="text">Around the world</p>-->
+            <!--                    </div>-->
+            <!--                    <div class="filter deals_filter">-->
+            <!--                        <span>filters:</span>-->
+            <!--                        <ul class="menu">-->
+            <!--                            <li class="orange"><button>New</button></li>-->
+            <!--                            <li class="yellow"><button>Score</button></li>-->
+            <!--                            <li class="gray"><button>Recommend</button></li>-->
+            <!--                            <li class="op-orange"><button>Suggestions</button></li>-->
+            <!--                        </ul>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!--                <div class="item">-->
+            <!--                    <div class="img-block">-->
+            <!--                        <img src="" class="img-fluid" alt="">-->
+            <!--                        <app-status-bar></app-status-bar>-->
+            <!--                    </div>-->
+            <!--                    <div class="text-block">-->
+            <!--                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.-->
+            <!--                            Lorem Ipsum has been the industry's standard dummy text ever since the</p>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!--            </div>-->
+            <div class="news-block carusel-block" *ngIf="posts">
+                <ng-container *ngFor="let post of posts.news">
+
+                    <div class="item">
+                        <div class="text-block">
+                            <div class="description">
+                                <h5 class="title">{{post.extractedTitle}}</h5>
+                                <p class="text">{{post.description|stripTags}}</p>
+                            </div>
+
+                        </div>
+                        <div class="img-block">
+                            <a href="{{post.link}}" target="_blank">
+
+                                <img src="{{post.extractedImage}}" class="img-fluid" alt="">
+                            </a>
+                            <app-status-bar></app-status-bar>
+                        </div>
+                        <div class="text-block">
+                            <p>{{post.extractedDescription}}</p>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="news-block carusel-block">
-                <div class="text-block">
-                    <div class="description">
-                        <h5 class="title">Travel News</h5>
-                        <p class="text">Around the world</p>
-                    </div>
-                    <div class="filter deals_filter">
-                        <span>filters:</span>
-                        <ul class="menu">
-                            <li class="orange"><button>New</button></li>
-                            <li class="yellow"><button>Score</button></li>
-                            <li class="gray"><button>Recommend</button></li>
-                            <li class="op-orange"><button>Suggestions</button></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="img-block">
-                        <img src="" class="img-fluid" alt="">
-                        <app-status-bar></app-status-bar>
-                    </div>
-                    <div class="text-block">
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                            Lorem Ipsum has been the industry's standard dummy text ever since the</p>
-                    </div>
-                </div>
+                </ng-container>
+<!--                <app-aside class="col-md-5"></app-aside>-->
             </div>
         </section>
-
-        <aside class="col-md-4" style="padding-left: 37px">
-            <app-aside></app-aside>
-        </aside>
     </div>
+
+    <aside class="col-md-4" style="padding-left: 37px">
+        <app-aside></app-aside>
+    </aside>
 </div>
 <app-footer></app-footer>

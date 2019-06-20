@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {HomeService} from '../../../../services/home.service';
 import * as Base from '../../../../configs/config.js';
 import {Router} from '@angular/router';
+import * as moment from 'moment';
 
 @Component({
     selector: 'app-commerce',
@@ -34,18 +35,15 @@ export class CommerceComponent implements OnInit {
     get() {
         this.home.getCommerce().subscribe((data) => {
 
-            if (!data) {
-                return false;
-            }
+            data['news'].sort((a, b) => {
+                return moment(b['createdAt']).unix() - moment(a['createdAt']).unix();
+            });
 
-            if (!data['status'] && data['status'] == 0) {
-                alert('No data');
-                return false;
-            }
-
+            this.posts = data;
+            console.log(this.posts);
             /*  this.postData = data;*/
             this.count = data['count'];
-            this.paginate(data);
+            // this.paginate(data);
         });
     }
 
@@ -65,7 +63,7 @@ export class CommerceComponent implements OnInit {
         let ended = (this.pageCount) * el.target.id;
         let started = ended - this.pageCount;
 
-        this.home.getPost({"end": ended, "start": started}).subscribe((data) => {
+        this.home.getPost({'end': ended, 'start': started}).subscribe((data) => {
 
             if (!data) {
                 return false;
