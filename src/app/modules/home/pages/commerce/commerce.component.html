@@ -13,7 +13,7 @@
             <div class="news-block carusel-block">
                 <div class="item">
                     <div class="text-block">
-                        <ng-container *ngFor="let post of posts.news">
+                        <ng-container *ngFor="let post of posts.news|searchNews:searchTerm">
 
                             <div class="item">
                                 <div class="text-block">

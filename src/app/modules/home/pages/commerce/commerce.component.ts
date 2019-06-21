@@ -3,6 +3,7 @@ import {HomeService} from '../../../../services/home.service';
 import * as Base from '../../../../configs/config.js';
 import {Router} from '@angular/router';
 import * as moment from 'moment';
+import {SubjectService} from '../../../../services/subject.service';
 
 @Component({
     selector: 'app-commerce',
@@ -10,10 +11,6 @@ import * as moment from 'moment';
     styleUrls: ['./commerce.component.scss']
 })
 export class CommerceComponent implements OnInit {
-
-    constructor(private home: HomeService, private router: Router) {
-    }
-
     posts: any = [];
     base = Base.imgPath;
     userLoggined: any = [];
@@ -22,12 +19,21 @@ export class CommerceComponent implements OnInit {
     /*  postData: any = [];*/
     count = 0;
     pages = [];
+    searchTerm;
+
+    constructor(private home: HomeService, private router: Router, private subject: SubjectService) {
+    }
+
 
     ngOnInit() {
 
         if (this.checkUser()) {
             this.userLoggined = JSON.parse(localStorage.getItem('userInf'));
         }
+
+        this.subject.getSearch().subscribe(s => {
+            this.searchTerm = s;
+        });
 
         this.get();
     }

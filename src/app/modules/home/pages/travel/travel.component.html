@@ -38,7 +38,7 @@
             <!--                </div>-->
             <!--            </div>-->
             <div class="news-block carusel-block" *ngIf="posts">
-                <ng-container *ngFor="let post of posts.news">
+                <ng-container *ngFor="let post of posts.news|searchNews:searchTerm">
 
                     <div class="item">
                         <div class="text-block">
@@ -60,7 +60,7 @@
                         </div>
                     </div>
                 </ng-container>
-<!--                <app-aside class="col-md-5"></app-aside>-->
+                <!--                <app-aside class="col-md-5"></app-aside>-->
             </div>
         </section>
         <aside class="col-md-4" style="padding-left: 37px">

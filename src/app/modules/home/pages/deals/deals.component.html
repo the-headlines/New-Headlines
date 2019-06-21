@@ -2,14 +2,14 @@
 <div class="content">
     <div class="row">
         <section class="col-md-8" style="padding-right: 37px">
-<!--            <div class="carusel-block">-->
-<!--                <app-owl-carousel></app-owl-carousel>-->
-<!--                <div class="img-block">-->
-<!--                    <div class="slider_bottom_icons">-->
-<!--                        <app-status-bar></app-status-bar>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
+            <!--            <div class="carusel-block">-->
+            <!--                <app-owl-carousel></app-owl-carousel>-->
+            <!--                <div class="img-block">-->
+            <!--                    <div class="slider_bottom_icons">-->
+            <!--                        <app-status-bar></app-status-bar>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!--            </div>-->
             <div class="news-block carusel-block">
                 <div class="text-block">
                     <div class="description">
@@ -19,16 +19,26 @@
                     <div class="filter deals_filter">
                         <span>filters:</span>
                         <ul class="menu">
-                            <li class="orange"><button>New</button></li>
-                            <li class="yellow"><button>Score</button></li>
-                            <li class="gray"><button>Genuine</button></li>
-                            <li class="op-orange"><button>Feedback</button></li>
-                            <li class="purple"><button>Questions</button></li>
+                            <li class="orange">
+                                <button>New</button>
+                            </li>
+                            <li class="yellow">
+                                <button>Score</button>
+                            </li>
+                            <li class="gray">
+                                <button>Genuine</button>
+                            </li>
+                            <li class="op-orange">
+                                <button>Feedback</button>
+                            </li>
+                            <li class="purple">
+                                <button>Questions</button>
+                            </li>
                         </ul>
                     </div>
                 </div>
                 <div class="item">
-                    <ng-container *ngFor="let post of posts.news">
+                    <ng-container *ngFor="let post of posts.news|searchNews:searchTerm">
 
                         <div class="item">
                             <div class="text-block">
@@ -50,14 +60,14 @@
                             </div>
                         </div>
                     </ng-container>
-<!--                    <div class="img-block">-->
-<!--                        <img src="" class="img-fluid" alt="">-->
-<!--                        <app-status-bar></app-status-bar>-->
-<!--                    </div>-->
-<!--                    <div class="text-block">-->
-<!--                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.-->
-<!--                            Lorem Ipsum has been the industry's standard dummy text ever since the</p>-->
-<!--                    </div>-->
+                    <!--                    <div class="img-block">-->
+                    <!--                        <img src="" class="img-fluid" alt="">-->
+                    <!--                        <app-status-bar></app-status-bar>-->
+                    <!--                    </div>-->
+                    <!--                    <div class="text-block">-->
+                    <!--                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.-->
+                    <!--                            Lorem Ipsum has been the industry's standard dummy text ever since the</p>-->
+                    <!--                    </div>-->
                 </div>
             </div>
         </section>

@@ -5,6 +5,8 @@ import {Router} from '@angular/router';
 import {CookieService} from 'ngx-cookie-service';
 import {HttpClient} from '@angular/common/http';
 import * as moment from 'moment';
+import {Subject} from 'rxjs';
+import {SubjectService} from '../../../../services/subject.service';
 
 @Component({
     selector: 'app-road',
@@ -23,13 +25,20 @@ export class RoadComponent implements OnInit {
     pages = [];
     messages: any = [];
     ipAddress: any;
+    searchTerm = '';
 
-    constructor(private home: HomeService, private router: Router, private cs: CookieService, private http: HttpClient) {
+    constructor(
+        private home: HomeService,
+        private router: Router,
+        private cs: CookieService,
+        private http: HttpClient,
+        private subject: SubjectService
+    ) {
         this._sessionId = cs.get('sessionId');
-        this.http.get<{ ip: string }>('https://jsonip.com').subscribe(data => {
-            console.log('th data', data);
-            this.ipAddress = data;
-        });
+        // this.http.get<{ ip: string }>('https://jsonip.com').subscribe(data => {
+        //     console.log('th data', data);
+        //     this.ipAddress = data;
+        // });
     }
 
     public set sessionId(value: string) {
@@ -43,10 +52,14 @@ export class RoadComponent implements OnInit {
             this.userLoggedIn = JSON.parse(localStorage.getItem('userInf'));
         }
 
+        this.subject.getSearch().subscribe(s => {
+            this.searchTerm = s;
+        });
+
         this.get();
 
         this.cs.set('Test', 'Hello World');
-        console.log(this.cs.get('Test'));
+        // console.log(this.cs.get('Test'));
     }
 
 

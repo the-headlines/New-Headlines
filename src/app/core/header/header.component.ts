@@ -2,10 +2,13 @@ import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {ModalDialog} from '../../modules/home/components/libs/modal.dialog';
 import {MatDialog} from '@angular/material';
 import {SocialUser} from 'angularx-social-login';
-import {AuthService} from 'angularx-social-login';
+import {AuthService as authS} from 'angularx-social-login';
+import {AuthService} from '../../services/auth.service';
 import {CommonService} from '../../services/common.service';
 import {SubjectService} from '../../services/subject.service';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
+import {FormBuilder} from '@angular/forms';
+import {hasOwnProperty} from 'tslint/lib/utils';
 
 
 @Component({
@@ -18,17 +21,32 @@ export class HeaderComponent implements OnInit {
     private user: SocialUser;
     @ViewChild('closest') closest: ElementRef;
     userData: any = {};
+    searchForm;
+    searchAllowed = false;
 
     constructor(
         private dialog: MatDialog,
-        private authService: AuthService,
+        private authService: authS,
+        public auth: AuthService,
         private common: CommonService,
         private subject: SubjectService,
-        public router: Router
+        public router: Router,
+        private route: ActivatedRoute,
+        private _fb: FormBuilder
     ) {
+
+        this.searchForm = this._fb.group({
+            searchTerm: ''
+        });
 
         this.subject.getUserData().subscribe((dt: any) => {
             this.userData.fullName = dt.fullName;
+        });
+
+        this.route.data.subscribe(dt => {
+            if (dt.hasOwnProperty('search')) {
+                this.searchAllowed = dt.search;
+            }
         });
 
         this.userData.fullName = localStorage.getItem('full_name');
@@ -109,9 +127,14 @@ export class HeaderComponent implements OnInit {
         ModalDialog.openDialog(1, this.dialog);
     }
 
+    doSearch() {
+        this.subject.setSearch(this.searchForm.value['searchTerm']);
+    }
+
     logOut(): void {
         this.authService.signOut();
         localStorage.setItem('userInf', null);
+        localStorage.setItem('token', '');
         localStorage.setItem('full_name', null);
     }
 }

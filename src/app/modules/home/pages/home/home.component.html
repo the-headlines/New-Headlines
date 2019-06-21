@@ -43,7 +43,8 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="loop_items item posts_items" *ngFor="let single of posts.news">
+                    <div class="loop_items item posts_items"
+                         *ngFor="let single of filteredPosts.news| searchNews: searchTerm">
                         <div class="post_wrapper">
                             <div class="user_posts">
                                 <div class="userName">

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HomeService} from '../../../../services/home.service';
 import * as moment from 'moment';
+import {SubjectService} from '../../../../services/subject.service';
 
 @Component({
     selector: 'app-travel',
@@ -9,14 +10,19 @@ import * as moment from 'moment';
 })
 export class TravelComponent implements OnInit {
     posts: any = [];
+    searchTerm = '';
 
     constructor(
-        private home: HomeService
+        private home: HomeService,
+        private subject: SubjectService
     ) {
     }
 
     ngOnInit() {
         this.getPosts();
+        this.subject.getSearch().subscribe(s => {
+            this.searchTerm = s;
+        });
     }
 
     getPosts() {

@@ -3,6 +3,7 @@ import * as Base from '../../../../configs/config';
 import {HomeService} from '../../../../services/home.service';
 import {Router} from '@angular/router';
 import * as moment from 'moment';
+import {SubjectService} from '../../../../services/subject.service';
 
 @Component({
     selector: 'app-video',
@@ -11,7 +12,7 @@ import * as moment from 'moment';
 })
 export class VideoComponent implements OnInit {
 
-    constructor(private home: HomeService, private router: Router) {
+    constructor(private home: HomeService, private router: Router, private subject: SubjectService) {
     }
 
     posts: any = [];
@@ -22,12 +23,17 @@ export class VideoComponent implements OnInit {
     // /*  postData: any = [];*/
     count = 0;
     pages = [];
+    searchTerm;
 
     ngOnInit() {
 
         if (this.checkUser()) {
             this.userLoggined = JSON.parse(localStorage.getItem('userInf'));
         }
+
+        this.subject.getSearch().subscribe(s => {
+            this.searchTerm = s;
+        });
 
         this.get();
     }

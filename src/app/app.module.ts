@@ -61,17 +61,21 @@ import {ShareButtonModule} from '@ngx-share/button';
 import {CKEditorModule} from 'ng2-ckeditor';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatMenuModule} from '@angular/material/menu';
-import { AdminProfileComponent } from './modules/home/components/admin/admin-profile/admin-profile.component';
+import {AdminProfileComponent} from './modules/home/components/admin/admin-profile/admin-profile.component';
 import {ToastrModule} from 'ngx-toastr';
 import {RequestInterceptor} from './shared/helpers/http.interceptor';
 import {EditInfoModalComponent} from './modules/home/components/libs/edit-info-modal/edit-info-modal.component';
 import {DropzoneModule} from 'ngx-dropzone-wrapper';
 import {DROPZONE_CONFIG} from 'ngx-dropzone-wrapper';
 import {DropzoneConfigInterface} from 'ngx-dropzone-wrapper';
-import { StatusBarComponent } from './core/status-bar/status-bar.component';
-import { NotificationsBoxComponent } from './core/notifications-box/notifications-box.component';
-import { StripHtmlTagsPipe } from './shared/pipes/strip-html-tags.pipe';
-
+import {StatusBarComponent} from './core/status-bar/status-bar.component';
+import {NotificationsBoxComponent} from './core/notifications-box/notifications-box.component';
+import {StripHtmlTagsPipe} from './shared/pipes/strip-html-tags.pipe';
+import {JwtHelperService} from '@auth0/angular-jwt';
+import {AuthService} from './services/auth.service';
+import {JwtModule} from '@auth0/angular-jwt';
+import {SearchNewsPipe} from './shared/pipes/search-news.pipe';
+import {FilterPipeModule} from 'ngx-filter-pipe';
 
 const config = new AuthServiceConfig([
     {
@@ -82,6 +86,13 @@ const config = new AuthServiceConfig([
 
 export function provideConfig() {
     return config;
+}
+
+
+// Token getter for JWT module
+export function tokenGetter() {
+    const token = localStorage.getItem('token');
+    return token ? token : '';
 }
 
 @NgModule({
@@ -113,7 +124,8 @@ export function provideConfig() {
         EditInfoModalComponent,
         StatusBarComponent,
         NotificationsBoxComponent,
-        StripHtmlTagsPipe
+        StripHtmlTagsPipe,
+        SearchNewsPipe
     ],
     imports: [
         BrowserModule,
@@ -150,12 +162,20 @@ export function provideConfig() {
         ToastrModule.forRoot(),
         ShareButtonsModule.withConfig({
             debug: true
-        })
+        }),
+        JwtModule.forRoot({
+            config: {
+                tokenGetter: tokenGetter,
+                whitelistedDomains: ['localhost:3000'],
+                blacklistedRoutes: ['localhost:3000/auth/']
+            }
+        }),
+        FilterPipeModule
     ],
     providers: [{
         provide: AuthServiceConfig,
         useFactory: provideConfig
-    }, CookieService,
+    }, CookieService, JwtHelperService, AuthService,
         {
             provide: HTTP_INTERCEPTORS,
             useClass: TokenInterceptorService,
@@ -165,8 +185,9 @@ export function provideConfig() {
             provide: HTTP_INTERCEPTORS,
             useClass: RequestInterceptor,
             multi: true
-        }
-        ],
+        },
+        SearchNewsPipe
+    ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
     bootstrap: [AppComponent],
     entryComponents: [LoginComponent, RegisterComponent, EditInfoModalComponent],

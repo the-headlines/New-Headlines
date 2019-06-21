@@ -15,20 +15,56 @@ import {AddPostComponent} from './modules/home/pages/posts/add-post/add-post.com
 import {SubscribeComponent} from './modules/home/pages/posts/subscribe/subscribe.component';
 import {PostsHomeComponent} from './modules/home/pages/posts/posts-home/posts-home.component';
 import {NotificationsBoxComponent} from './core/notifications-box/notifications-box.component';
+import {AuthGuard} from './shared/guards/auth.guard';
 
 const routes: Routes = [
     {path: '', component: HomeComponent},
-    {path: 'home', component: HomeComponent},
-    {path: 'road', component: RoadComponent},
-    {path: 'commerce', component: CommerceComponent},
-    {path: 'deals', component: DealsComponent},
-    {path: 'feedback', component: FeedbackComponent},
-    {path: 'pictures', component: PicturesComponent},
-    {path: 'video', component: VideoComponent},
-    {path: 'travel', component: TravelComponent},
+    {
+        path: 'home', component: HomeComponent, data: {
+            search: true
+        }
+    },
+    {
+        path: 'road', component: RoadComponent,
+        data: {
+            search: true
+        }
+    },
+    {
+        path: 'commerce', component: CommerceComponent,
+        data: {
+            search: true
+        }
+    },
+    {
+        path: 'deals', component: DealsComponent, data: {
+            search: true
+        }
+    },
+    {
+        path: 'feedback', component: FeedbackComponent,
+        data: {
+            search: true
+        }
+    },
+    {
+        path: 'pictures', component: PicturesComponent, data: {
+            search: true
+        }
+    },
+    {
+        path: 'video', component: VideoComponent, data: {
+            search: true
+        }
+    },
+    {
+        path: 'travel', component: TravelComponent, data: {
+            search: true
+        }
+    },
     {path: 'about', component: AboutComponent},
     {path: 'profile', component: AdminProfileComponent},
-    {path: 'add-post', component: AddPostComponent},
+    {path: 'add-post', component: AddPostComponent, canActivate: [AuthGuard]},
     {path: 'post/:id', component: SinglePostComponent},
     {path: 'subscribe', component: SubscribeComponent},
     {path: 'managePost', component: PostsHomeComponent},

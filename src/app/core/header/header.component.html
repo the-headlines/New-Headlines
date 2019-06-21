@@ -7,16 +7,20 @@
                         <img src="../../../assets/images/logo_white_background.jpg" alt="">
                     </a>
                     <div class="search_box">
-                        <p>Readers decide "The Headlines" <a routerLink="/about">more... </a></p>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Search" aria-label="search"
-                                   aria-describedby="basic-addon1">
-                            <div class="input-group-prepend">
+                        <form [formGroup]="searchForm" *ngIf="searchAllowed">
+
+                            <p>Readers decide "The Headlines" <a routerLink="/about">more... </a></p>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Search" aria-label="search"
+                                       formControlName="searchTerm" aria-describedby="basic-addon1"
+                                       (keyup)="doSearch()">
+                                <div class="input-group-prepend">
                                     <span class="input-group-text" id="basic-addon1">
                                         <i class="fas fa-search"></i>
                                     </span>
+                                </div>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
                 <ul>
@@ -25,7 +29,7 @@
                         <a *ngIf="checkUser() && router.url!='/add-post'" routerLink="/add-post" mat-button>post</a>
                     </li>
                     <li class="login">
-                        <a *ngIf="!checkUser()" mat-button (click)="showLogin()">login / sign up</a>
+                        <a *ngIf="!auth.loggedIn()" mat-button (click)="showLogin()">login / sign up</a>
                         <a *ngIf="checkUser()" style="color: white">{{userLoggined.name}}</a>
                     </li>
                     <li class="logout">
@@ -42,7 +46,8 @@
                                     <div class="margin_top">
                                         <div class="media">
                                             <div class="media-body">
-                                                <a class="notification-user" routerLink="/notifications">Prince John voted
+                                                <a class="notification-user" routerLink="/notifications">Prince John
+                                                    voted
                                                     <span>Important May 28</span>
                                                 </a>
                                                 <div class="notification-msg">
@@ -57,10 +62,10 @@
                                     </div>
                                 </mat-menu>
                             </li>
-                            <li class="user-profile header-notification">
+                            <li class="user-profile header-notification" *ngIf="auth.loggedIn()">
                                 <button mat-button [matMenuTriggerFor]="beforeMenu" class="user_name">
 
-                                    <span>{{userData?userData.fullName :'/n/a'}}</span>
+                                    <span>{{userData ? userData.fullName : '/n/a'}}</span>
                                     <i class="feather icon-chevron-down"></i>
                                 </button>
                                 <mat-menu #beforeMenu="matMenu" yPosition="below" class="profile_links">

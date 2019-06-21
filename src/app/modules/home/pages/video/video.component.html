@@ -19,16 +19,24 @@
                     <div class="filter commerce_filters">
                         <span>filters:</span>
                         <ul class="menu">
-                            <li class="orange"><button>New</button></li>
-                            <li class="yellow"><button>Score</button></li>
-                            <li class="op-blue"><button>Refreshing</button></li>
-                            <li class="blue"><button>Useful</button></li>
+                            <li class="orange">
+                                <button>New</button>
+                            </li>
+                            <li class="yellow">
+                                <button>Score</button>
+                            </li>
+                            <li class="op-blue">
+                                <button>Refreshing</button>
+                            </li>
+                            <li class="blue">
+                                <button>Useful</button>
+                            </li>
                         </ul>
                     </div>
                 </div>
                 <div class="item">
                     <div class="news-block carusel-block" *ngIf="posts">
-                        <ng-container *ngFor="let post of posts.news">
+                        <ng-container *ngFor="let post of posts.news|searchNews:searchTerm">
 
                             <div class="item">
                                 <div class="text-block">

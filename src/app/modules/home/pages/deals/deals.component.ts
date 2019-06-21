@@ -3,6 +3,7 @@ import {HomeService} from '../../../../services/home.service';
 import {Router} from '@angular/router';
 import * as Base from '../../../../configs/config';
 import * as moment from 'moment';
+import {SubjectService} from '../../../../services/subject.service';
 
 @Component({
     selector: 'app-deals',
@@ -11,7 +12,7 @@ import * as moment from 'moment';
 })
 export class DealsComponent implements OnInit {
 
-    constructor(private home: HomeService, private router: Router) {
+    constructor(private home: HomeService, private router: Router, private subject: SubjectService) {
     }
 
     posts: any = [];
@@ -21,6 +22,7 @@ export class DealsComponent implements OnInit {
     start = 0;
     count = 0;
     pages = [];
+    searchTerm;
 
     ngOnInit() {
 
@@ -29,6 +31,10 @@ export class DealsComponent implements OnInit {
         }
 
         this.get();
+
+        this.subject.getSearch().subscribe(s => {
+            this.searchTerm = s;
+        });
     }
 
     get() {

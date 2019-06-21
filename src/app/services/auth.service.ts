@@ -4,14 +4,17 @@ import {HttpHeaders} from '@angular/common/http';
 
 import * as Base from '../configs/config';
 
-@Injectable({
-    providedIn: 'root'
-})
+// JWT helper
+import {JwtHelperService} from '@auth0/angular-jwt';
+
+@Injectable()
 export class AuthService {
 
     userData;
 
-    constructor(private http: HttpClient) {
+    constructor(
+        private http: HttpClient,
+        private jwtHelper: JwtHelperService) {
     }
 
     public uploadPost(data) {
@@ -38,6 +41,13 @@ export class AuthService {
 
     public getToken() {
         return localStorage.getItem('token');
+    }
+
+    /**
+     * Checks to see if user logged in/ token expired
+     */
+    loggedIn() {
+        return !this.jwtHelper.isTokenExpired();
     }
 }
 

@@ -5,6 +5,10 @@ import {Router} from '@angular/router';
 import {CookieService} from 'ngx-cookie-service';
 import {HttpClient} from '@angular/common/http';
 import * as moment from 'moment';
+import {Subject} from 'rxjs';
+import {SubjectService} from '../../../../services/subject.service';
+import {SearchNewsPipe} from '../../../../shared/pipes/search-news.pipe';
+import {FilterPipe} from 'ngx-filter-pipe';
 
 @Component({
     selector: 'app-home',
@@ -25,7 +29,8 @@ export class HomeComponent implements OnInit {
     messages: any = [];
     ipAddress: any;
     fakeArr = [];
-
+    filteredPosts: any = {news: []};
+    searchTerm = '';
 
     filterByVotes(vote) {
 
@@ -45,7 +50,13 @@ export class HomeComponent implements OnInit {
         localStorage.setItem('isLoggedIn', 'true');
     }
 
-    constructor(private home: HomeService, private router: Router, private cs: CookieService, private http: HttpClient) {
+    constructor(
+        private home: HomeService,
+        private router: Router,
+        private cs: CookieService,
+        private http: HttpClient,
+        private subject: SubjectService,
+    ) {
         this._sessionId = cs.get('sessionId');
         this.http.get<{ ip: string }>('https://jsonip.com').subscribe(data => {
             console.log('th data', data);
@@ -61,6 +72,10 @@ export class HomeComponent implements OnInit {
         this.get();
 
         this.cs.set('Test', 'Hello World');
+
+        this.subject.getSearch().subscribe(s => {
+            this.searchTerm = s;
+        });
     }
 
     public set sessionId(value: string) {
@@ -86,22 +101,22 @@ export class HomeComponent implements OnInit {
             });
 
 
-
             /*  this.postData = data;*/
             this.count = data['count'];
             // console.log(this.count, 'count');
 
             this.paginate(data);
             this.posts = data;
+            this.filteredPosts = data;
             return this.posts;
         });
     }
 
-    isShown: boolean = false ;
+    isShown: boolean = false;
 
     toggleShow() {
 
-        this.isShown = ! this.isShown;
+        this.isShown = !this.isShown;
 
     }
 

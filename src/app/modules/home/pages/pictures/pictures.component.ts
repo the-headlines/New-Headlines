@@ -3,6 +3,7 @@ import {HomeService} from '../../../../services/home.service';
 import {Router} from '@angular/router';
 import * as Base from '../../../../configs/config';
 import * as moment from 'moment';
+import {SubjectService} from '../../../../services/subject.service';
 
 @Component({
     selector: 'app-pictures',
@@ -10,8 +11,9 @@ import * as moment from 'moment';
     styleUrls: ['./pictures.component.scss']
 })
 export class PicturesComponent implements OnInit {
+    searchTerm;
 
-    constructor(private home: HomeService, private router: Router) {
+    constructor(private home: HomeService, private router: Router, private subject: SubjectService) {
     }
 
     posts: any = [];
@@ -28,6 +30,10 @@ export class PicturesComponent implements OnInit {
         if (this.checkUser()) {
             this.userLoggined = JSON.parse(localStorage.getItem('userInf'));
         }
+
+        this.subject.getSearch().subscribe(s => {
+            this.searchTerm = s;
+        });
 
         this.get();
     }
@@ -62,7 +68,7 @@ export class PicturesComponent implements OnInit {
         let ended = (this.pageCount) * el.target.id;
         let started = ended - this.pageCount;
 
-        this.home.getPost({"end": ended, "start": started}).subscribe((data) => {
+        this.home.getPost({'end': ended, 'start': started}).subscribe((data) => {
 
             if (!data) {
                 return false;
