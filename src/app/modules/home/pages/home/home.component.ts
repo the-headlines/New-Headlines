@@ -29,13 +29,13 @@ export class HomeComponent implements OnInit {
     messages: any = [];
     ipAddress: any;
     fakeArr = [];
-<<<<<<< HEAD
+
     filteredPosts: any = {news: []};
     searchTerm = '';
 
     currentPost = {};
 
->>>>>>> add some changes
+
 
     filterByVotes(vote) {
 
