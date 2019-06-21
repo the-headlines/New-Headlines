@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit {
 <<<<<<< HEAD
     filteredPosts: any = {news: []};
     searchTerm = '';
-=======
+
     currentPost = {};
 
 >>>>>>> add some changes
