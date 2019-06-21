@@ -425,6 +425,7 @@ img {
     &:hover {
       text-decoration: none;
       transition: 1000ms;
+      color: #3788c6 !important;
     }
   }
 
@@ -1853,6 +1854,11 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
   font-family: "Lato-Black";
 }
 
+.Like__link:hover {
+  color: #3788c6;
+  transition: 800ms;
+}
+
 .hovered_number {
   margin-left: 10px;
   font-size: 10px;
@@ -2076,6 +2082,15 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
   font-size: 12px;
   margin: 0;
   font-family: 'Lato-Bold';
+}
+
+.user_posts .userName h3 {
+  font-size: 14px;
+}
+
+.user_posts .userName h3 span {
+  color: #3788c6 !important;
+  font-size: 16px;
 }
 
 .save_caret_menu_item {
