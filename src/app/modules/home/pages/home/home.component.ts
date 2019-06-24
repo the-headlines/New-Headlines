@@ -121,6 +121,10 @@ export class HomeComponent implements OnInit {
 
     }
 
+    getLinkSource(link) {
+
+    }
+
     paginate(data) {
         this.posts = data;
         this.count = data['count'];
