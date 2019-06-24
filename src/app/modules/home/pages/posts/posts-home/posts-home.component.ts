@@ -47,10 +47,10 @@ export class PostsHomeComponent implements OnInit {
 
     getData() {
         this.data = [
-            {date: new Date(), link: 'https://www.bbc.co.uk/sport/live/football/47034381', section: 'General news', edit_post: ''},
-            {date: new Date(), link: 'https://www.bbc.co.uk/sport/live/football/47034381', section: 'General news', edit_post: ''},
-            {date: new Date(), link: 'https://www.bbc.co.uk/sport/live/football/47034381', section: 'General news', edit_post: ''},
-            {date: new Date(), link: 'https://www.bbc.co.uk/sport/live/football/47034381', section: 'General news', edit_post: ''},
+            {date: new Date(), link: 'https://www.bbc.co.uk/sport/live/football/47034381', section: 'General news'},
+            {date: new Date(), link: 'https://www.bbc.co.uk/sport/live/football/47034381', section: 'General news'},
+            {date: new Date(), link: 'https://www.bbc.co.uk/sport/live/football/47034381', section: 'General news'},
+            {date: new Date(), link: 'https://www.bbc.co.uk/sport/live/football/47034381', section: 'General news'},
         ];
         this.data.map(row => {
             row.isEditable = false;

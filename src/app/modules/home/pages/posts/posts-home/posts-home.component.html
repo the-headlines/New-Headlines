@@ -8,35 +8,10 @@
                         <div class="posts_box">
                             <div class="sub_headline">
                                 <h2> Posts</h2>
-                                <h3>All your posts</h3>
+                                <h3>All my posts</h3>
                             </div>
-                            <div class="text_desc">
-                                <ul>
-                                    <li>
-                                        <p>Please post any links (videos links, news link and social media links)
-                                            related to politics, Business, Cinema, Music and any other general news in
-                                            new stories section</p>
-                                    </li>
-                                    <li>
-                                        <p>
-                                            Any other videos other than politics, Business, Cinema, Music post in Videos
-                                            section
-                                        </p>
-                                    </li>
-                                    <li>
-                                        <p>Post any pictures in camera pictures section (funny pictures, jokes, links or
-                                            videos from social media)</p>
-                                    </li>
-                                    <li>
-                                        <p>Post any Start up news links and videos in Jump start section</p>
-                                    </li>
-                                    <li>
-                                        <p>Post any deals in fantastic bargain section</p>
-                                    </li>
-                                </ul>
-                            </div>
+
                             <div class="my_posts">
-                                <h3>My posts</h3>
                                 <div class="posts_table">
                                     <p-dataTable [immutable]="false" [value]="data" [editable]="true">
                                         <p-column field="date" header="Date">
@@ -63,15 +38,6 @@
                                                 </div>
                                             </ng-template>
                                         </p-column>
-                                        <p-column field="edit_post" header="Edit Post">
-                                            <ng-template let-row="rowData" pTemplate="body">
-                                                <div *ngIf="!row.isEditable">{{row.edit_post}}</div>
-                                                <div *ngIf="row.isEditable">
-                                                    <input type="text" [(ngModel)]="row.edit_post">
-                                                </div>
-                                            </ng-template>
-                                        </p-column>
-
                                         <p-column field="" header="" [style]="{'text-align':'center'}">
                                             <ng-template let-row="rowData" pTemplate="body">
                                                 <div class="edit_or_delete">
@@ -114,7 +80,7 @@
                                         </p-column>
                                         <p-column field="" header="" [style]="{'text-align':'center'}">
                                             <ng-template let-row="rowData" pTemplate="body">
-                                                <button (click)="save(row)">Save</button>
+                                                <button (click)="save(row)" class="save_info">Save</button>
                                             </ng-template>
                                         </p-column>
                                     </p-dataTable>
