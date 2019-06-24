@@ -86,12 +86,21 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="short_desc">
+                                <a href="{{single.link}}">{{single.link}}</a>
+                                <h6>{{single.description}}</h6>
+                            </div>
+
                             <div class="img-block">
                                 <img src="{{single.extractedImage}}" class="img-fluid" alt=""
                                      (click)="getSingle(single._id)">
                             </div>
                             <div class="text-block">
-                                <p>{{single.extractedDescription}}</p>
+                                <a href="{{single.link}}" class="text_block_link" target="_blank">
+                                    <h5 class="news_link">BBC.com</h5>
+                                    <h3 class="news_title">{{single.extractedTitle}}</h3>
+                                    <p class="news_desc">{{single.extractedDescription}}</p>
+                                </a>
                             </div>
                         </div>
                         <app-status-bar [single]="single"></app-status-bar>
