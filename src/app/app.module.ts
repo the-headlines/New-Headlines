@@ -71,11 +71,14 @@ import {DropzoneConfigInterface} from 'ngx-dropzone-wrapper';
 import {StatusBarComponent} from './core/status-bar/status-bar.component';
 import {NotificationsBoxComponent} from './core/notifications-box/notifications-box.component';
 import {StripHtmlTagsPipe} from './shared/pipes/strip-html-tags.pipe';
+import {PrimeTemplate} from 'primeng/shared';
 import {JwtHelperService} from '@auth0/angular-jwt';
 import {AuthService} from './services/auth.service';
 import {JwtModule} from '@auth0/angular-jwt';
 import {SearchNewsPipe} from './shared/pipes/search-news.pipe';
 import {FilterPipeModule} from 'ngx-filter-pipe';
+import {DataTableModule} from 'primeng/primeng';
+
 
 const config = new AuthServiceConfig([
     {
@@ -159,6 +162,7 @@ export function tokenGetter() {
         MatSlideToggleModule,
         DropzoneModule,
         ShareButtonModule,
+        DataTableModule,
         ToastrModule.forRoot(),
         ShareButtonsModule.withConfig({
             debug: true
