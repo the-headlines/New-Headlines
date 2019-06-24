@@ -51,7 +51,7 @@
                                     <div>
                                         <h3><span>Posted by</span>
                                             {{single.creator.name}}</h3>
-                                        <p class="updateDate">1 min</p>
+                                        <p class="updateDate" [matTooltip]="getDateFormatted(single.createdAt)">{{getDateFormatted(single.createdAt, false)}}</p>
                                     </div>
                                     <div class="storyOptions">
                                         <button (click)="toggleShow(single)"><i class="fas fa-ellipsis-h"></i></button>
