@@ -137,7 +137,7 @@
             <div class="single_blog_post">
                 <div class="post_title_and_desc">
                     <h3>{{singlePost.extractedTitle}}</h3>
-                    <p>{{singlePost.description}}</p>
+                    <p>{{singlePost.description|stripTags}}</p>
                     <ul class="view-icons-block">
                         <li>
                             <a href="" class="score">Score <span>200</span></a>
@@ -148,7 +148,7 @@
                                     <img src="../../../../../assets/images/vote.png" alt="">
 
                                     <span class="Like__link js-hover">Votes
-                                            <div class="hovered_number">100</div>
+                                            <div class="votesCount">{{votes.length}}</div> <!-- hovered_number-->
                                         </span>
                                     <div class="Emojis">
                                         <div class="Emoji Emoji--like">
@@ -214,60 +214,60 @@
                 </div>
 
                 <div class="leave_comment">
-                        <div class="commented_by" *ngIf="userData && userData.fullName">
-                            <p>Comment as <span>{{userData.fullName}}</span>
-                        </div>
-                        <div class="border">
-                            <form [formGroup]="postForm">
-<!--                                <input formControlName="text">-->
-                                <ckeditor formControlName="text" *ngIf="showCk"
-                                          name="message" class="add_comm_or_question_area"
-                                >
-                                    <!--                                    <ckbutton [name]="'saveButton'" [command]="'saveCmd'" -->
+                    <div class="commented_by" *ngIf="userData && userData.fullName">
+                        <p>Comment as <span>{{userData.fullName}}</span>
+                    </div>
+                    <div class="border">
+                        <form [formGroup]="postForm">
+                            <!--                                <input formControlName="text">-->
+                            <ckeditor formControlName="text" *ngIf="showCk"
+                                      name="message" class="add_comm_or_question_area"
+                            >
+                                <!--                                    <ckbutton [name]="'saveButton'" [command]="'saveCmd'" -->
 
-                                    <!--                                              [label]="'Save Document'"-->
-                                    <!--                                              [toolbar]="'clipboard,1'"></ckbutton>-->
-                                    <!--                                              [icon]="'save.png'"-->
-                                </ckeditor>
-                                <div class="comments_or_question">
-                                    <button id="cancel" type="button" [hidden]="!showCk" (click)="showCk = false">
-                                        Cancel
-                                    </button>
+                                <!--                                              [label]="'Save Document'"-->
+                                <!--                                              [toolbar]="'clipboard,1'"></ckbutton>-->
+                                <!--                                              [icon]="'save.png'"-->
+                            </ckeditor>
+                            <div class="comments_or_question">
+                                <button id="cancel" type="button" [hidden]="!showCk" (click)="showCk = false">
+                                    Cancel
+                                </button>
 
-                                    <button id="readOnlyOn" (click)="showCk = true" [hidden]="showCk"
-                                            type="button"
-                                            value="Make CKEditor read-only">Comments
-                                    </button>
-                                    <button id="readOnlyOff" [hidden]="showCk"
-                                            (click)="showCk = true" type="button "
-                                            value="Make CKEditor editable again">Question
-                                    </button>
-                                    <button type="button" class="post_btn" [hidden]="!showCk"
-                                            (click)="addComments()">Post
-                                    </button>
-                                </div>
-                                <div *ngIf="postForm.get('text').hasError('required')">Comment is required</div>
-                            </form>
-                        </div>
-                        <div class="how_many_com_and_quest">
-                            <p><span>10</span>Comments</p>
-                            <p><span>20</span>Question</p>
-                        </div>
-                        <div class="sort">
-                            <h2>Sort by </h2>
-                            <div class="dropdown">
-                                <p class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown"
-                                   aria-haspopup="true" aria-expanded="false">
-                                    Best
-                                </p>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#">Best 1</a>
-                                    <a class="dropdown-item" href="#">Best 1</a>
-                                    <a class="dropdown-item" href="#">Best 1</a>
-                                </div>
+                                <button id="readOnlyOn" (click)="showCk = true" [hidden]="showCk"
+                                        type="button"
+                                        value="Make CKEditor read-only">Comments
+                                </button>
+                                <button id="readOnlyOff" [hidden]="showCk"
+                                        (click)="showCk = true" type="button "
+                                        value="Make CKEditor editable again">Question
+                                </button>
+                                <button type="button" class="post_btn" [hidden]="!showCk"
+                                        (click)="addComments()">Post
+                                </button>
+                            </div>
+                            <div *ngIf="postForm.get('text').hasError('required')">Comment is required</div>
+                        </form>
+                    </div>
+                    <div class="how_many_com_and_quest">
+                        <p><span>10</span>Comments</p>
+                        <p><span>20</span>Question</p>
+                    </div>
+                    <div class="sort">
+                        <h2>Sort by </h2>
+                        <div class="dropdown">
+                            <p class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown"
+                               aria-haspopup="true" aria-expanded="false">
+                                Best
+                            </p>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#">Best 1</a>
+                                <a class="dropdown-item" href="#">Best 1</a>
+                                <a class="dropdown-item" href="#">Best 1</a>
                             </div>
                         </div>
-<!--                    </form>-->
+                    </div>
+                    <!--                    </form>-->
                 </div>
 
                 <div class="user_name_of_comments" *ngIf="addCommentData.length != 0">

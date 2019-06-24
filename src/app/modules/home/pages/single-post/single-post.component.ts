@@ -57,6 +57,7 @@ export class SinglePostComponent implements OnInit, OnDestroy {
     commentCount = 0;
     showCk = false;
     postId;
+    votes = [];
 
     isDisabled(): boolean {
         return this.isEdit;
@@ -74,6 +75,7 @@ export class SinglePostComponent implements OnInit, OnDestroy {
                 this.postId = dt.id;
                 this.postForm.patchValue({newsId: dt.id});
                 this.getSinglePost(this.postId);
+                this.getPostVotes(this.postId);
             })
         );
 
@@ -120,6 +122,12 @@ export class SinglePostComponent implements OnInit, OnDestroy {
             // this.commentCount = data['comment_count'];
             // this.start = data['result']['comment'].length;
 
+        });
+    }
+
+    getPostVotes(id) {
+        this.home.getPostVotes(id).subscribe((dt: any) => {
+            this.votes = dt['votes'];
         });
     }
 

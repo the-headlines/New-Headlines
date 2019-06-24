@@ -55,6 +55,10 @@ export class HomeService {
         return this.http.get(Base.url + '/api/news/' + id + '');
     }
 
+    public getPostVotes(id) {
+        return this.http.get(Base.url + '/api/news/' + id + '/vote');
+    }
+
     /*Add comment*/
     public addComments(data) {
         return this.http.post(Base.url + '/api/comments', data);
