@@ -6,6 +6,7 @@ import {Pipe, PipeTransform} from '@angular/core';
 export class SearchNewsPipe implements PipeTransform {
 
     transform(posts: any, value: any): any {
+        value = value.toLowerCase();
         if (!value) {
             return posts;
         }
