@@ -29,13 +29,9 @@ export class HomeComponent implements OnInit {
     messages: any = [];
     ipAddress: any;
     fakeArr = [];
-
     filteredPosts: any = {news: []};
     searchTerm = '';
-
     currentPost = {};
-
-
 
     filterByVotes(vote) {
 
