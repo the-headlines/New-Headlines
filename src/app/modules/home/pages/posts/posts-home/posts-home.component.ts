@@ -32,7 +32,8 @@ export class PostsHomeComponent implements OnInit {
             date: '',
             link: '',
             section: '',
-            edit_post: ''
+            Edit: '',
+            Save: ''
         });
         this.data[this.data.length - 1].isEditable = true;
     }
@@ -47,7 +48,7 @@ export class PostsHomeComponent implements OnInit {
 
     getData() {
         this.data = [
-            {date: new Date(), link: 'https://www.bbc.co.uk/sport/live/football/47034381', section: 'General news'},
+            {date: new Date(), link: 'https://www.bbc.co.uk/sport/live/football/47034381', section: 'General news', Edit: '', Save: ''},
             {date: new Date(), link: 'https://www.bbc.co.uk/sport/live/football/47034381', section: 'General news'},
             {date: new Date(), link: 'https://www.bbc.co.uk/sport/live/football/47034381', section: 'General news'},
             {date: new Date(), link: 'https://www.bbc.co.uk/sport/live/football/47034381', section: 'General news'},
