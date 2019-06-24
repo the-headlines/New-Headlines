@@ -78,6 +78,7 @@ import {JwtModule} from '@auth0/angular-jwt';
 import {SearchNewsPipe} from './shared/pipes/search-news.pipe';
 import {FilterPipeModule} from 'ngx-filter-pipe';
 import {DataTableModule} from 'primeng/primeng';
+import { StoryOptionsComponent } from './core/story-options/story-options.component';
 
 
 const config = new AuthServiceConfig([
@@ -128,7 +129,8 @@ export function tokenGetter() {
         StatusBarComponent,
         NotificationsBoxComponent,
         StripHtmlTagsPipe,
-        SearchNewsPipe
+        SearchNewsPipe,
+        StoryOptionsComponent
     ],
     imports: [
         BrowserModule,
