@@ -49,12 +49,13 @@
                             <div class="user_posts">
                                 <div class="userName">
                                     <div>
-                                        <h3>User Nmae</h3>
+                                        <h3><span>Posted by</span>
+                                            User Nmae</h3>
                                         <p class="updateDate">1 min</p>
                                     </div>
                                     <div class="storyOptions">
-                                        <button (click)="toggleShow()"><i class="fas fa-ellipsis-h"></i></button>
-                                        <div *ngIf="isShown" class="save_caret_menu_item ">
+                                        <button (click)="toggleShow(single)"><i class="fas fa-ellipsis-h"></i></button>
+                                        <div *ngIf="isShown && single === currentPost" class="save_caret_menu_item ">
                                             <ul>
                                                 <li>
                                                     <div>

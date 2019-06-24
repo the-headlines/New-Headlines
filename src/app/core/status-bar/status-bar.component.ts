@@ -19,11 +19,19 @@ export class StatusBarComponent implements OnInit {
 
     constructor(private renderer: Renderer2, public router: Router) {
 
+
         this.renderer.listen('window', 'click', (e: Event) => {
             if (this.toggleButton && e.target !== this.toggleButton.nativeElement) {
                 this.isShown = false;
             }
         });
+
+        // this.renderer.listen('window', 'click', (e: Event) => {
+        //     if (e.target !== this.toggleButton.nativeEllement) {
+        //         this.isShown = false;
+        //     }
+        // });
+
 
         this.openNum = false;
     }
@@ -36,6 +44,7 @@ export class StatusBarComponent implements OnInit {
         this.isShown = true;
         this.currentPost = single;
     }
+
     getSingle(id) {
         this.router.navigate(['/post', id]);
     }

@@ -29,8 +29,13 @@ export class HomeComponent implements OnInit {
     messages: any = [];
     ipAddress: any;
     fakeArr = [];
+
     filteredPosts: any = {news: []};
     searchTerm = '';
+
+    currentPost = {};
+
+
 
     filterByVotes(vote) {
 
@@ -114,7 +119,7 @@ export class HomeComponent implements OnInit {
 
     isShown: boolean = false;
 
-    toggleShow() {
+    toggleShow(single) {
 
         this.isShown = !this.isShown;
 
