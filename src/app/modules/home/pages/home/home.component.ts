@@ -9,6 +9,7 @@ import {Subject} from 'rxjs';
 import {SubjectService} from '../../../../services/subject.service';
 import {SearchNewsPipe} from '../../../../shared/pipes/search-news.pipe';
 import {FilterPipe} from 'ngx-filter-pipe';
+import * as psl from 'psl';
 
 @Component({
     selector: 'app-home',
@@ -121,8 +122,26 @@ export class HomeComponent implements OnInit {
 
     }
 
-    getLinkSource(link) {
+    /**
+     * Gets link source(host name) from url
+     * @param url
+     */
+    getLinkSource(url) {
+        let hostname;
 
+        if (url.indexOf('//') > -1) {
+            hostname = url.split('/')[2];
+        } else {
+            hostname = url.split('/')[0];
+        }
+
+        // find & remove port number
+        hostname = hostname.split(':')[0];
+
+        // find & remove "?"
+        hostname = hostname.split('?')[0];
+
+        return hostname;
     }
 
     paginate(data) {
