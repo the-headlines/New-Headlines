@@ -50,7 +50,7 @@
                                 <div class="userName">
                                     <div>
                                         <h3><span>Posted by</span>
-                                            User Nmae</h3>
+                                            {{single.creator.name}}</h3>
                                         <p class="updateDate">1 min</p>
                                     </div>
                                     <div class="storyOptions">
@@ -97,7 +97,7 @@
                             </div>
                             <div class="text-block">
                                 <a href="{{single.link}}" class="text_block_link" target="_blank">
-                                    <h5 class="news_link">BBC.com</h5>
+                                    <h5 class="news_link">{{getLinkSource(single.link)}}</h5>
                                     <h3 class="news_title">{{single.extractedTitle}}</h3>
                                     <p class="news_desc">{{single.extractedDescription}}</p>
                                 </a>

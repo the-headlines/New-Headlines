@@ -1,6 +1,7 @@
-a{
+a {
   text-decoration: none;
 }
+
 .text_block_link {
   & {
     color: black;
@@ -32,12 +33,14 @@ a{
     a {
       font-family: 'Lato-Bold';
       color: #405c94;
+      font-size: 14px;
     }
 
     h6 {
       color: #1e2128;
       padding: 10px 0;
       font-family: 'Lato-Regular';
+      text-transform: capitalize;
     }
   }
 }
