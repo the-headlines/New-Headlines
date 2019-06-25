@@ -41,7 +41,6 @@ export class PostsHomeComponent implements OnInit {
         this.delRow = this.data.indexOf(row);
         this.data.splice(this.delRow, 1);
         console.log(this.data);
-
     }
 }
 
@@ -54,5 +53,5 @@ export interface PeriodicElement {
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-    {date: "1", link: 'Hydrogen', section: 1.0079, edit: 'H', save: 'save'},
+    {date: '1', link: 'Hydrogen', section: 1.0079, edit: 'H', save: 'save'},
 ];

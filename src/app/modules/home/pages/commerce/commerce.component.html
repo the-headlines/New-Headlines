@@ -1,7 +1,7 @@
 <app-header></app-header>
 <div class="content">
     <div class="row">
-        <section class="col-md-8">
+        <section class="col-md-8" style="padding-right: 37px">
             <div class="carusel-block">
                 <app-owl-carousel></app-owl-carousel>
                 <div class="img-block">
@@ -10,64 +10,72 @@
                     </div>
                 </div>
             </div>
+
             <div class="news-block carusel-block">
                 <div class="item">
                     <div class="text-block">
-                        <ng-container *ngFor="let post of posts.news|searchNews:searchTerm">
-
-                            <div class="item">
-                                <div class="text-block">
-                                    <div class="description">
-                                        <h5 class="title">{{post.extractedTitle}}</h5>
-                                        <p class="text">{{post.description|stripTags}}</p>
-                                    </div>
-
-                                </div>
-                                <div class="img-block">
-                                    <a href="{{post.link}}" target="_blank">
-
-                                        <img src="{{post.extractedImage}}" class="img-fluid" alt="">
-                                    </a>
-                                    <app-status-bar></app-status-bar>
-                                </div>
-                                <div class="text-block">
-                                    <p>{{post.extractedDescription}}</p>
-                                </div>
-                            </div>
-                        </ng-container>
-
+                        <div class="description">
+                            <h5></h5>
+                            <p></p>
+                        </div>
                         <div class="filter">
                             <span>filters:</span>
                             <ul class="menu">
-                                <li class="blue_lg">
-                                    <button type="button">New</button>
+                                <li class="orange">
+                                    <button>New</button>
                                 </li>
-                                <li class="orange_lg">
+                                <li class="yellow">
                                     <button>Score</button>
                                 </li>
-                                <li class="yellow_lg">
-                                    <button type="button">Promising</button>
+                                <li class="op-orange">
+                                    <button>Promising</button>
                                 </li>
-                                <li class="green_lg">
-                                    <button type="button">Useful</button>
+                                <li class="gray">
+                                    <button>Useful</button>
                                 </li>
-                                <li class="green_lg">
-                                    <button type="button">Feedback</button>
+                                <li class="op-blue">
+                                    <button>Feedback</button>
                                 </li>
                             </ul>
                         </div>
                     </div>
-                    <div class="img-block">
-<!--                        <img src="../../../../../assets/images" class="img-fluid" alt="">-->
-                        <app-status-bar></app-status-bar>
-                    </div>
-                    <div class="text-block">
-                        <p>desc</p>
-                    </div>
                 </div>
 
-                <app-aside class="col-md-5"></app-aside>
+                <div class="loop_items item posts_items">
+                    <div class="text-block">
+                        <ng-container *ngFor="let post of posts.news|searchNews:searchTerm">
+                            <div class="post_wrapper">
+                                <div class="user_posts">
+                                    <div class="userName">
+                                        <div>
+                                            <h3>
+                                                <span>Posted by</span>
+                                                {{post.creator.name}}</h3>
+                                            <p class="updateDate"
+                                               [matTooltip]="getDateFormatted(post.createdAt)">{{getDateFormatted(post.createdAt, false)}}</p>
+                                        </div>
+                                        <app-story-options></app-story-options>
+                                    </div>
+                                </div>
+                                <div class="short_desc">
+                                    <a href="{{post.link}}">{{post.link}}</a>
+                                    <h6>{{post.description|stripTags}}</h6>
+                                </div>
+                                <div class="img-block">
+                                    <img src="{{post.extractedImage}}" class="img-fluid" alt="">
+                                </div>
 
+                                <div class="text-block">
+                                    <a href="{{post.link}}" class="text_block_link" target="_blank">
+                                        <h5 class="news_link">{{getLinkSource(post.link)}}</h5>
+                                        <h3 class="news_title">{{post.extractedTitle}}</h3>
+                                        <p class="news_desc">{{post.extractedDescription}}</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
             </div>
             <div class="pagination-block">
                 <ul>
@@ -77,7 +85,7 @@
                 </ul>
             </div>
         </section>
-        <app-aside></app-aside>
+        <app-aside class="col-md-4" style="padding-left: 37px"></app-aside>
     </div>
 </div>
 <app-footer></app-footer>
