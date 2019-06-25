@@ -2146,6 +2146,7 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
 .user_posts .userName h3 {
   font-size: 12px;
   text-transform: capitalize;
+  margin: 0;
 }
 
 .user_posts .userName h3 span {
@@ -2162,6 +2163,17 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
   border-radius: 3px;
   box-shadow: 0 3px 8px rgba(0, 0, 0, .3);
   width: 250px;
+
+
+  ul {
+    li {
+      margin: 5px 0;
+    }
+  }
+}
+
+.posts_table table {
+  width: 100%;
 }
 
 .save_caret_menu_item ul li div {
@@ -2192,6 +2204,7 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
   line-height: 16px;
   white-space: normal;
   font-family: 'Lato-Regular';
+  margin: 0;
 }
 
 .save_caret_menu_item ul {
