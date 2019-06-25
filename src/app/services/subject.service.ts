@@ -10,6 +10,7 @@ export class SubjectService {
 
     public userData = new Subject<any>();
     public searchData = new Subject<string>();
+    public dialogState = new Subject<string>();
 
     constructor() {
     }
@@ -37,6 +38,14 @@ export class SubjectService {
 
     getSearch(): Observable<any> {
         return this.searchData.asObservable();
+    }
+
+    setDialogState(value) {
+        this.dialogState.next(value);
+    }
+
+    getDialogState(): Observable<any> {
+        return this.dialogState.asObservable();
     }
 
 

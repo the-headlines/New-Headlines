@@ -43,6 +43,12 @@ export class HeaderComponent implements OnInit {
             this.userData.fullName = dt.fullName;
         });
 
+        this.subject.getDialogState().subscribe((dt) => {
+            if (dt.state === 'closed') {
+                ModalDialog.openDialog(dt.dialog === 'login' ? 2 : 1, this.dialog);
+            }
+        });
+
         this.route.data.subscribe(dt => {
             if (dt.hasOwnProperty('search')) {
                 this.searchAllowed = dt.search;
@@ -136,5 +142,9 @@ export class HeaderComponent implements OnInit {
         localStorage.setItem('userInf', null);
         localStorage.setItem('token', '');
         localStorage.setItem('full_name', null);
+    }
+
+    openRegister() {
+
     }
 }

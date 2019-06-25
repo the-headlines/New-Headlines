@@ -1,10 +1,10 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import {AuthService} from '../../../../services/auth.service';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
 import {Router} from '@angular/router';
 import {ModalDialog} from '../libs/modal.dialog';
-import {MatDialog} from '@angular/material';
+import {MatDialog, MatDialogRef} from '@angular/material';
 import * as JWT from 'jwt-decode';
 import {CommonService} from '../../../../services/common.service';
 import {SubjectService} from '../../../../services/subject.service';
@@ -25,6 +25,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 
 export class LoginComponent implements OnInit {
     @ViewChild('closest') closest: ElementRef;
+    @Output() openRegister = new EventEmitter();
 
     emailFormControl = new FormControl('', [
         Validators.required,
@@ -44,7 +45,8 @@ export class LoginComponent implements OnInit {
         private router: Router,
         private matDialog: MatDialog,
         private common: CommonService,
-        private subject: SubjectService
+        private subject: SubjectService,
+        private loginDialogRef: MatDialogRef<LoginComponent>
     ) {
     }
 
@@ -52,7 +54,9 @@ export class LoginComponent implements OnInit {
     }
 
     showLogin() {
-        ModalDialog.openDialog(2, this.matDialog);
+        this.loginDialogRef.close();
+        this.subject.setDialogState({state: 'closed', dialog: 'login'});
+        // ModalDialog.openDialog(2, this.matDialog);
     }
 
     get() {

@@ -6,6 +6,7 @@ import {Router} from '@angular/router';
 import {ModalDialog} from '../libs/modal.dialog';
 import {MatDialog} from '@angular/material';
 import {ToastrService} from 'ngx-toastr';
+import {SubjectService} from '../../../../services/subject.service';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
     isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -48,7 +49,8 @@ export class RegisterComponent implements OnInit {
         private auth: AuthService,
         private router: Router,
         private matDialog: MatDialog,
-        private toastr: ToastrService
+        private toastr: ToastrService,
+        private subject: SubjectService
     ) {
     }
 
@@ -57,7 +59,8 @@ export class RegisterComponent implements OnInit {
     }
 
     showLogin() {
-        ModalDialog.openDialog(1, this.matDialog);
+        this.subject.setDialogState({state: 'closed', dialog: 'register'});
+        // ModalDialog.openDialog(1, this.matDialog);
     }
 
     get() {
