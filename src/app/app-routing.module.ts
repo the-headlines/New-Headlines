@@ -18,7 +18,11 @@ import {NotificationsBoxComponent} from './core/notifications-box/notifications-
 import {AuthGuard} from './shared/guards/auth.guard';
 
 const routes: Routes = [
-    {path: '', component: HomeComponent},
+    {
+        path: '', component: HomeComponent, data: {
+            search: true
+        }
+    },
     {
         path: 'home', component: HomeComponent, data: {
             search: true

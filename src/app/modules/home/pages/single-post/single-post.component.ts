@@ -189,7 +189,15 @@ export class SinglePostComponent implements OnInit, OnDestroy {
         });
     }
 
+    vote(type, id) {
+        this.home.doVoting(id, {voteCategory: type}).subscribe(dt => {
+            console.log(dt);
+        });
+    }
+
     ngOnDestroy() {
         this.subscriptions.forEach(s => s.unsubscribe());
     }
+
+
 }
