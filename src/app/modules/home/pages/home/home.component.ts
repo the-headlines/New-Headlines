@@ -70,14 +70,16 @@ export class HomeComponent implements OnInit {
         if (this.checkUser()) {
             this.userLoggedIn = JSON.parse(localStorage.getItem('userInf'));
         }
-
         this.get();
 
         this.cs.set('Test', 'Hello World');
 
         this.subject.getSearch().subscribe(s => {
+
             this.searchTerm = s;
         });
+
+
     }
 
     public set sessionId(value: string) {

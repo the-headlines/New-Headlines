@@ -10,7 +10,8 @@
                     <ul>
                         <li class="item" *ngFor="let singleLastet of lastet.news">
                             <div class="img-block">
-                                <img src="../../../assets/images/{{singleLastet.img}}" class="img-fluid" alt="">
+                                <img *ngIf="singleLastet.img" src="../../../assets/images/{{singleLastet.img}}"
+                                     class="img-fluid" alt="">
                             </div>
                             <div class="text-block">
                                 <h5 class="title" (click)="getSingle(singleLastet.link)">{{singleLastet.title}}</h5>
@@ -30,7 +31,8 @@
                     <ul>
                         <li class="item" *ngFor="let singleLastet of lastet.news">
                             <div class="img-block">
-                                <img src="../../../assets/images/{{singleLastet.img}}" class="img-fluid" alt="">
+                                <img *ngIf="singleLastet.img" src="../../../assets/images/{{singleLastet.img}}"
+                                     class="img-fluid" alt="">
                             </div>
                             <div class="text-block">
                                 <h5 class="title" (click)="getSingle(singleLastet.link)">{{singleLastet.title}}</h5>

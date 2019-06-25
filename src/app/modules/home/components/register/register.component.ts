@@ -4,7 +4,7 @@ import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/form
 import {ErrorStateMatcher} from '@angular/material/core';
 import {Router} from '@angular/router';
 import {ModalDialog} from '../libs/modal.dialog';
-import {MatDialog} from '@angular/material';
+import {MatDialog, MatDialogRef} from '@angular/material';
 import {ToastrService} from 'ngx-toastr';
 import {SubjectService} from '../../../../services/subject.service';
 
@@ -50,7 +50,8 @@ export class RegisterComponent implements OnInit {
         private router: Router,
         private matDialog: MatDialog,
         private toastr: ToastrService,
-        private subject: SubjectService
+        private subject: SubjectService,
+        private registerDialogRef: MatDialogRef<RegisterComponent>
     ) {
     }
 
@@ -59,6 +60,7 @@ export class RegisterComponent implements OnInit {
     }
 
     showLogin() {
+        this.registerDialogRef.close();
         this.subject.setDialogState({state: 'closed', dialog: 'register'});
         // ModalDialog.openDialog(1, this.matDialog);
     }
