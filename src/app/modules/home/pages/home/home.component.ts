@@ -60,10 +60,10 @@ export class HomeComponent implements OnInit {
         private subject: SubjectService,
     ) {
         this._sessionId = cs.get('sessionId');
-        this.http.get<{ ip: string }>('https://jsonip.com').subscribe(data => {
-            console.log('th data', data);
-            this.ipAddress = data;
-        });
+        // this.http.get<{ ip: string }>('https://jsonip.com').subscribe(data => {
+        //     console.log('th data', data);
+        //     this.ipAddress = data;
+        // });
     }
 
     ngOnInit() {

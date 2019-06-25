@@ -46,7 +46,7 @@ export class CommerceComponent implements OnInit {
             });
 
             this.posts = data;
-            console.log(this.posts);
+            // console.log(this.posts);
             /*  this.postData = data;*/
             this.count = data['count'];
             // this.paginate(data);
