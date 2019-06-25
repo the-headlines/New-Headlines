@@ -153,23 +153,19 @@
                                     <div class="Emojis">
                                         <div class="Emoji Emoji--like">
                                             <div class="">
-                                                <i class="fas fa-thumbs-up likeBtn" [class.blueColor]="upwote"
-                                                   (click)="vote('Like', singlePost._id)"></i>
+                                                <button class="op-blue" (click)="vote('Like', singlePost._id)" [class.gray]="!upwote">Like</button>
                                                 <p class="num">20</p>
                                             </div>
                                         </div>
                                         <div class="Emoji Emoji--love">
                                             <div class="">
-                                                <button class="gray" (click)="vote('Promising', singlePost._id)">
-                                                    Promising
-                                                </button>
+                                                <button class="gray" (click)="vote('Promising', singlePost._id)">Promising</button>
                                                 <p class="num">30</p>
                                             </div>
                                         </div>
                                         <div class="Emoji Emoji--haha">
                                             <div class="">
-                                                <button class="blue" (click)="vote('Useful', singlePost._id)">Useful
-                                                </button>
+                                                <button class="blue" (click)="vote('Useful', singlePost._id)">Useful</button>
                                                 <p class="num">50</p>
                                             </div>
                                         </div>
