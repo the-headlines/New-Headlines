@@ -29,7 +29,7 @@ export class FeedbackComponent implements OnInit {
 
     ngOnInit() {
         this.getLasted();
-        console.log(this.lastet);
+        // console.log(this.lastet);
     }
 
     get() {
@@ -46,7 +46,7 @@ export class FeedbackComponent implements OnInit {
 
     getLasted() {
         this.aside.getLasted().subscribe((data) => {
-            console.log(data);
+            // console.log(data);
             if (!data) {
                 return false;
             }

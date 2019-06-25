@@ -51,7 +51,6 @@ export class HomeService {
     }
 
     public getSinglePost(id) {
-        console.log(Base.url + '/api/news/' + id);
         return this.http.get(Base.url + '/api/news/' + id + '');
     }
 
