@@ -80,7 +80,6 @@ import {FilterPipeModule} from 'ngx-filter-pipe';
 import {DataTableModule} from 'primeng/primeng';
 import { StoryOptionsComponent } from './core/story-options/story-options.component';
 
-
 const config = new AuthServiceConfig([
     {
         id: FacebookLoginProvider.PROVIDER_ID,

@@ -43,7 +43,8 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="loop_items item posts_items" *ngFor="let single of filteredPosts.news| searchNews: searchTerm">
+                    <div class="loop_items item posts_items"
+                         *ngFor="let single of filteredPosts.news| searchNews: searchTerm">
                         <div class="post_wrapper">
                             <div class="user_posts">
                                 <div class="userName">
@@ -51,7 +52,8 @@
                                         <h3>
                                             <span>Posted by</span>
                                             {{single.creator.name}}</h3>
-                                        <p class="updateDate" [matTooltip]="getDateFormatted(single.createdAt)">{{getDateFormatted(single.createdAt, false)}}</p>
+                                        <p class="updateDate"
+                                           [matTooltip]="getDateFormatted(single.createdAt)">{{getDateFormatted(single.createdAt, false)}}</p>
                                     </div>
                                     <app-story-options></app-story-options>
                                 </div>

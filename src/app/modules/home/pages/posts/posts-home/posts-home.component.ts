@@ -1,4 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatTableDataSource} from '@angular/material/table';
 
 @Component({
     selector: 'app-posts-home',
@@ -6,6 +8,12 @@ import {Component, OnInit} from '@angular/core';
     styleUrls: ['./posts-home.component.scss']
 })
 export class PostsHomeComponent implements OnInit {
+    displayedColumns: string[] = ['date', 'link', 'section', 'edit', 'save'];
+    dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+
+    @ViewChild(MatPaginator) paginator: MatPaginator;
+
+
     data: any = [];
     delRow;
 
@@ -13,6 +21,7 @@ export class PostsHomeComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        this.dataSource.paginator = this.paginator;
     }
 
     editRow(row) {
@@ -27,17 +36,6 @@ export class PostsHomeComponent implements OnInit {
         row.isEditable = false;
     }
 
-    addNew() {
-        this.data.push({
-            date: '',
-            link: '',
-            section: '',
-            Edit: '',
-            Save: ''
-        });
-        this.data[this.data.length - 1].isEditable = true;
-    }
-
     delete(row) {
         console.log(row);
         this.delRow = this.data.indexOf(row);
@@ -45,16 +43,16 @@ export class PostsHomeComponent implements OnInit {
         console.log(this.data);
 
     }
-
-    getData() {
-        this.data = [
-            {date: new Date(), link: 'https://www.bbc.co.uk/sport/live/football/47034381', section: 'General news', Edit: '', Save: ''},
-            {date: new Date(), link: 'https://www.bbc.co.uk/sport/live/football/47034381', section: 'General news'},
-            {date: new Date(), link: 'https://www.bbc.co.uk/sport/live/football/47034381', section: 'General news'},
-            {date: new Date(), link: 'https://www.bbc.co.uk/sport/live/football/47034381', section: 'General news'},
-        ];
-        this.data.map(row => {
-            row.isEditable = false;
-        });
-    }
 }
+
+export interface PeriodicElement {
+    date: string;
+    link: string;
+    section: number;
+    edit: string;
+    save: string;
+}
+
+const ELEMENT_DATA: PeriodicElement[] = [
+    {date: "1", link: 'Hydrogen', section: 1.0079, edit: 'H', save: 'save'},
+];
