@@ -58,7 +58,7 @@ export class SinglePostComponent implements OnInit, OnDestroy {
     showCk = false;
     postId;
     votes = [];
-    upwote = true;
+    upwote = false;
 
     isDisabled(): boolean {
         return this.isEdit;
@@ -191,7 +191,10 @@ export class SinglePostComponent implements OnInit, OnDestroy {
     }
 
     vote(type, id) {
-        this.upwote = !this.upwote;
+        if (type === 'Like') {
+
+            this.upwote = !this.upwote;
+        }
         this.home.doVoting(id, {voteCategory: type}).subscribe(dt => {
             // console.log(dt);
         });

@@ -35,7 +35,7 @@
                     <li class="logout">
                         <ul *ngIf="checkUser()">
                             <li class="header-notification">
-                                <button mat-button [matMenuTriggerFor]="belowMenu" class="not_btn">
+                                <button mat-button [matMenuTriggerFor]="belowMenu" class="not_btn" *ngIf="auth.loggedIn()">
                                     <span class="bell">
                                         <i class="fas fa-bell"></i>
                                         <span class="badge bg-c-red">5</span>

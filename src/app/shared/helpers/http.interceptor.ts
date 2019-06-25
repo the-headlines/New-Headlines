@@ -29,8 +29,6 @@ export class RequestInterceptor implements HttpInterceptor {
             if (err instanceof HttpErrorResponse) {
                 const message = err.error.message;
                 if (message) {
-
-                    console.log(err);
                     this.toastr.error('', message.replace(/<(.|\n)*?>/g, ''));
                 }
             }
