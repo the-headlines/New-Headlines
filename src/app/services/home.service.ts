@@ -11,7 +11,7 @@ export class HomeService {
     }
 
     getData() {
-        return this.http.get(Base.url + '/api/news/category/HookedNews?pagesize=100&page=1');
+        return this.http.get(Base.url + '/api/news/category/Influence?pagesize=100&page=1');
     }
 
     getPictures() {
@@ -19,11 +19,11 @@ export class HomeService {
     }
 
     getRoadToFame() {
-        return this.http.get(Base.url + '/api/news/category/RoadToFame?pagesize=100&page=1');
+        return this.http.get(Base.url + '/api/news/category/StyleAndSweat?pagesize=100&page=1');
     }
 
     getDeals() {
-        return this.http.get(Base.url + '/api/news/category/FantasticDeals?pagesize=100&page=1');
+        return this.http.get(Base.url + '/api/news/category/LoveDesigns?pagesize=100&page=1');
     }
 
     getCommerce() {
@@ -31,7 +31,7 @@ export class HomeService {
     }
 
     getTravel() {
-        return this.http.get(Base.url + '/api/news/category/TravelMonkey?pagesize=100&page=1');
+        return this.http.get(Base.url + '/api/news/category/HumanStories?pagesize=100&page=1');
     }
 
     getVoiceValue() {
