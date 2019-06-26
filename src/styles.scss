@@ -1809,13 +1809,21 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
   background-color: #ffffff;
 }
 
-.profile_links li a {
-  text-transform: uppercase !important;
 
-  span {
+.profile_links {
+  width: 10px!important;
+  li a {
+    text-transform: uppercase !important;
 
-    font-size: 14px !important;
+    span {
+
+      font-size: 14px !important;
+    }
   }
+}
+
+.mat-menu-content{
+  width: 183px!important;
 }
 
 
@@ -2201,9 +2209,9 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
   padding: 0 12px;
   cursor: pointer;
 
-  &:hover{
+  &:hover {
 
-    h3, p{
+    h3, p {
       color: cornflowerblue;
       transition: 500ms;
     }
@@ -2240,12 +2248,13 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
 }
 
 
-.cdk-overlay-container{
-  left:0;
+.cdk-overlay-container {
+  left: 0;
   top: 100px;
 }
-.cdk-overlay-connected-position-bounding-box{
-  top:0 !important;
+
+.cdk-overlay-connected-position-bounding-box {
+  top: 0 !important;
 
 }
 

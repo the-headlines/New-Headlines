@@ -30,7 +30,7 @@
                     </li>
                     <li class="login">
                         <a *ngIf="!auth.loggedIn()" mat-button (click)="showLogin()">login / sign up</a>
-                        <a *ngIf="checkUser()" style="color: white" >{{userLoggined.name}}</a>
+                        <a *ngIf="checkUser()" style="color: white">{{userLoggined.name}}</a>
                     </li>
                     <li class="logout">
                         <ul *ngIf="checkUser()">
@@ -62,15 +62,15 @@
                                     </div>
                                 </mat-menu>
                             </li>
-                            <li class="user-profile header-notification" *ngIf="auth.loggedIn()" >
+                            <li class="user-profile header-notification" *ngIf="auth.loggedIn()">
                                 <button mat-button [matMenuTriggerFor]="beforeMenu" #trigger="matMenuTrigger"
-                                        (mouseenter)="trigger.openMenu()"  class="user_name">
+                                        (mouseenter)="trigger.openMenu()" class="user_name">
 
                                     <span class="userFullName">{{userData ? userData.fullName : '/n/a'}}</span>
                                     <i class="feather icon-chevron-down"></i>
                                 </button>
-                                <mat-menu #beforeMenu="matMenu" yPosition="below" class="profile_links" >
-                                    <ul (mouseleave)="trigger.closeMenu()">
+                                <mat-menu #beforeMenu="matMenu" yPosition="below" >
+                                    <ul  class="profile_links" (mouseleave)="trigger.closeMenu()">
                                         <li>
                                             <a mat-button routerLink="/profile">My Profile</a>
                                         </li>

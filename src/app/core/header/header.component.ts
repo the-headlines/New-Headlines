@@ -112,7 +112,6 @@ export class HeaderComponent implements OnInit {
     }
 
     goToLink(link) {
-        console.log(link)
         this.router.navigate([link]);
         window.scrollTo(0, 0);
     }
