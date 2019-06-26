@@ -29,8 +29,6 @@ export class AddPostComponent implements OnInit {
         {value: 'Human stories', viewValue: 'HumanStories'},
         {value: 'JumpStartups', viewValue: 'Jump Startups'},
         {value: 'LoveDesigns', viewValue: 'Love Designs'},
-        {value: 'TravelMonkey', viewValue: 'Travel Monkey'},
-        {value: 'FantasticDeals', viewValue: 'Fantastic Deals'},
         {value: 'Videos', viewValue: 'Videos'}
     ];
 

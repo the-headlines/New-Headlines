@@ -94,7 +94,7 @@
                                 </div>
                                 <div class="text-block">
                                     <h5 class="title" (click)="getSingle(singleLastet.id)">{{singleLastet.title}}</h5>
-                                    <p class="description">{{singleLastet.desc}}</p>
+                                    <p class="description">{{singleLastet.desc|stripTags}}</p>
                                     <span class="date">{{singleLastet.creted_date}}</span>
                                 </div>
                             </li>

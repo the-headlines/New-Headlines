@@ -71,8 +71,8 @@
                                     <span class="userFullName">{{userData ? userData.fullName : '/n/a'}}</span>
                                     <i class="feather icon-chevron-down"></i>
                                 </button>
-                                <mat-menu #beforeMenu="matMenu" yPosition="below" >
-                                    <ul  class="profile_links" (mouseleave)="trigger.closeMenu()">
+                                <mat-menu #beforeMenu="matMenu" yPosition="below">
+                                    <ul class="profile_links" (mouseleave)="trigger.closeMenu()">
                                         <li>
                                             <a mat-button routerLink="/profile">My Profile</a>
                                         </li>
@@ -108,22 +108,24 @@
                                        matTooltip="Politics, Business and General new">Influence</a>
                                 </li>
                                 <li ng-class="{ active: isActive('/road') }" routerLinkActive="active">
-                                    <a routerLink="/road" matTooltip="Cinema, Music and Sports news">Style and sweat</a>
+                                    <a (click)="goToLink('/road')" matTooltip="Cinema, Music and Sports news">Style and
+                                        sweat</a>
                                 </li>
                                 <li ng-class="{ active: isActive('/pictures') }" routerLinkActive="active">
-                                    <a routerLink="/pictures" matTooltip="Post your Pictures">Camera Pictures</a>
+                                    <a (click)="goToLink('/pictures')" matTooltip="Post your Pictures">Camera
+                                        Pictures</a>
                                 </li>
                                 <li ng-class="{ active: isActive('/commerce') }" routerLinkActive="active">
-                                    <a routerLink="/commerce" matTooltip="START UP NEWS">Jump startups</a>
+                                    <a (click)="goToLink('/commerce')" matTooltip="START UP NEWS">Jump startups</a>
                                 </li>
                                 <li ng-class="{ active: isActive('/travel') }" routerLinkActive="active">
-                                    <a routerLink="/travel" matTooltip="TRAVEL NEWS">Human stories</a>
+                                    <a (click)="goToLink('/travel')" matTooltip="TRAVEL NEWS">Human stories</a>
                                 </li>
                                 <li ng-class="{ active: isActive('/deals') }" routerLinkActive="active">
-                                    <a routerLink="/deals" matTooltip="DEALS">Love Designs</a>
+                                    <a (click)="goToLink('/deals')" matTooltip="DEALS">Love Designs</a>
                                 </li>
                                 <li ng-class="{ active: isActive('/video') }" routerLinkActive="active">
-                                    <a routerLink="/video" matTooltip="VIDEOS">videos</a>
+                                    <a (click)="goToLink('/video')" matTooltip="VIDEOS">videos</a>
                                 </li>
                                 <li ng-class="{ active: isActive('/feedback') }" routerLinkActive="active">
                                     <a routerLink="/feedback">feedback</a>
