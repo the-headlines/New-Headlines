@@ -10,6 +10,7 @@ import {SubjectService} from '../../../../services/subject.service';
 import {SearchNewsPipe} from '../../../../shared/pipes/search-news.pipe';
 import {FilterPipe} from 'ngx-filter-pipe';
 import * as psl from 'psl';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
     selector: 'app-home',
@@ -58,6 +59,7 @@ export class HomeComponent implements OnInit {
         private cs: CookieService,
         private http: HttpClient,
         private subject: SubjectService,
+        private toastr: ToastrService
     ) {
         this._sessionId = cs.get('sessionId');
         // this.http.get<{ ip: string }>('https://jsonip.com').subscribe(data => {
@@ -78,6 +80,8 @@ export class HomeComponent implements OnInit {
 
             this.searchTerm = s;
         });
+
+        // this.toastr.success('Hello from here', '', {disableTimeOut: true});
 
 
     }
@@ -245,7 +249,7 @@ export class HomeComponent implements OnInit {
     getDateFormatted(createdDate, onlyDate = true) {
 
 
-        if(!onlyDate) {
+        if (!onlyDate) {
 
             const a = moment(); // date now
             const b = moment(createdDate); // post created date
@@ -272,14 +276,9 @@ export class HomeComponent implements OnInit {
                     }
                 }
             }
+        } else {
+            return moment(createdDate).format('MMMM Do YYYY, h:mm:ss a');
         }
-
-        else {
-            return moment(createdDate).format('MMMM Do YYYY, h:mm:ss a')
-        }
-
-
-
 
 
     }
