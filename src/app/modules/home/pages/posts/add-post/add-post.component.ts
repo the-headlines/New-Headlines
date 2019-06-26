@@ -23,10 +23,12 @@ export interface Categorie {
 export class AddPostComponent implements OnInit {
 
     categories: Categorie[] = [
-        {value: 'HookedNews', viewValue: 'Hooked News'},
-        {value: 'RoadToFame', viewValue: 'Road To Fame'},
+        {value: 'Influence', viewValue: 'Influence'},
+        {value: 'Style and Sweat', viewValue: 'StyleAndSweat'},
         {value: 'CameraPictures', viewValue: 'Camera Pictures'},
+        {value: 'Human stories', viewValue: 'HumanStories'},
         {value: 'JumpStartups', viewValue: 'Jump Startups'},
+        {value: 'LoveDesigns', viewValue: 'Love Designs'},
         {value: 'TravelMonkey', viewValue: 'Travel Monkey'},
         {value: 'FantasticDeals', viewValue: 'Fantastic Deals'},
         {value: 'Videos', viewValue: 'Videos'}
