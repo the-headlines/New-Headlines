@@ -111,6 +111,12 @@ export class HeaderComponent implements OnInit {
         }
     }
 
+    goToLink(link) {
+        console.log(link)
+        this.router.navigate([link]);
+        window.scrollTo(0, 0);
+    }
+
     checkUser() {
         let userLoggined = localStorage.getItem('userInf');
 
@@ -142,9 +148,5 @@ export class HeaderComponent implements OnInit {
         localStorage.setItem('userInf', null);
         localStorage.setItem('token', '');
         localStorage.setItem('full_name', null);
-    }
-
-    openRegister() {
-
     }
 }

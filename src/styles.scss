@@ -1757,6 +1757,13 @@ label {
   font-family: 'Lato-Regular' !important;
 }
 
+
+.user-profile.header-notification {
+  .userFullName {
+    font-size: 14px;
+  }
+}
+
 div#mat-tab-label-0-0, div#mat-tab-label-0-1 {
   //flex-grow: 1;
   //list-style: none;
@@ -1802,6 +1809,11 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
 
 .profile_links li a {
   text-transform: uppercase !important;
+
+  span {
+
+    font-size: 14px !important;
+  }
 }
 
 
@@ -2215,6 +2227,16 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
 .storyOptions button {
   background: unset;
   border: unset;
+}
+
+
+.cdk-overlay-container{
+  left:0;
+  top: 100px;
+}
+.cdk-overlay-connected-position-bounding-box{
+  top:0 !important;
+
 }
 
 //media queries

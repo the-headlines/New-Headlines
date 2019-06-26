@@ -30,7 +30,7 @@
                     </li>
                     <li class="login">
                         <a *ngIf="!auth.loggedIn()" mat-button (click)="showLogin()">login / sign up</a>
-                        <a *ngIf="checkUser()" style="color: white">{{userLoggined.name}}</a>
+                        <a *ngIf="checkUser()" style="color: white" >{{userLoggined.name}}</a>
                     </li>
                     <li class="logout">
                         <ul *ngIf="checkUser()">
@@ -62,14 +62,15 @@
                                     </div>
                                 </mat-menu>
                             </li>
-                            <li class="user-profile header-notification" *ngIf="auth.loggedIn()">
-                                <button mat-button [matMenuTriggerFor]="beforeMenu" class="user_name">
+                            <li class="user-profile header-notification" *ngIf="auth.loggedIn()" >
+                                <button mat-button [matMenuTriggerFor]="beforeMenu" #trigger="matMenuTrigger"
+                                        (mouseenter)="trigger.openMenu()"  class="user_name">
 
-                                    <span>{{userData ? userData.fullName : '/n/a'}}</span>
+                                    <span class="userFullName">{{userData ? userData.fullName : '/n/a'}}</span>
                                     <i class="feather icon-chevron-down"></i>
                                 </button>
-                                <mat-menu #beforeMenu="matMenu" yPosition="below" class="profile_links">
-                                    <ul>
+                                <mat-menu #beforeMenu="matMenu" yPosition="below" class="profile_links" >
+                                    <ul (mouseleave)="trigger.closeMenu()">
                                         <li>
                                             <a mat-button routerLink="/profile">My Profile</a>
                                         </li>
@@ -101,7 +102,7 @@
                             </div>
                             <ul class="toggle none-768">
                                 <li ng-class="{ active: isActive('/') }" routerLinkActive="active">
-                                    <a routerLink="/home"
+                                    <a (click)="goToLink('/home')"
                                        matTooltip="Politics, Business and General new">HOOKED NEWS</a>
                                 </li>
                                 <li ng-class="{ active: isActive('/road') }" routerLinkActive="active">
