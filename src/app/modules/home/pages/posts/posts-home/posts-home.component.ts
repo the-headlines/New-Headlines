@@ -8,39 +8,18 @@ import {MatTableDataSource} from '@angular/material/table';
     styleUrls: ['./posts-home.component.scss']
 })
 export class PostsHomeComponent implements OnInit {
-    displayedColumns: string[] = ['date', 'link', 'section', 'edit', 'save'];
+    displayedColumns: string[] = ['date', 'link', 'section', 'edit', 'actions'];
     dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
     @ViewChild(MatPaginator) paginator: MatPaginator;
 
-
     data: any = [];
-    delRow;
 
     constructor() {
     }
 
     ngOnInit(): void {
         this.dataSource.paginator = this.paginator;
-    }
-
-    editRow(row) {
-        this.data.filter(row => row.isEditable).map(r => {
-            r.isEditable = false;
-            return r;
-        });
-        row.isEditable = true;
-    }
-
-    save(row) {
-        row.isEditable = false;
-    }
-
-    delete(row) {
-        console.log(row);
-        this.delRow = this.data.indexOf(row);
-        this.data.splice(this.delRow, 1);
-        console.log(this.data);
     }
 }
 
@@ -49,9 +28,9 @@ export interface PeriodicElement {
     link: string;
     section: number;
     edit: string;
-    save: string;
+    actions: string;
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-    {date: '1', link: 'Hydrogen', section: 1.0079, edit: 'H', save: 'save'},
+    {date: '1', link: 'Hydrogen', section: 1.0079, edit: 'H', actions: ''},
 ];
