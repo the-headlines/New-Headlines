@@ -11,7 +11,8 @@
 
                             <p>Readers decide "The Headlines" <a routerLink="/about">more... </a></p>
                             <div class="input-group mb-3">
-                                <input type="text" class="form-control searchInput" placeholder="Search" aria-label="search"
+                                <input type="text" class="form-control searchInput" placeholder="Search"
+                                       aria-label="search"
                                        formControlName="searchTerm" aria-describedby="basic-addon1"
                                        (keyup)="doSearch()">
                                 <div class="input-group-prepend searchButton">
@@ -35,7 +36,8 @@
                     <li class="logout">
                         <ul *ngIf="checkUser()">
                             <li class="header-notification">
-                                <button mat-button [matMenuTriggerFor]="belowMenu" class="not_btn" *ngIf="auth.loggedIn()">
+                                <button mat-button [matMenuTriggerFor]="belowMenu" class="not_btn"
+                                        *ngIf="auth.loggedIn()">
                                     <span class="bell">
                                         <i class="fas fa-bell"></i>
                                         <span class="badge bg-c-red">5</span>
@@ -104,21 +106,23 @@
                                 <li ng-class="{ active: isActive('/') }" routerLinkActive="active">
                                     <a (click)="goToLink('/home')"
                                        matTooltip="Politics, Business and General new">HOOKED NEWS</a>
+                                    <a routerLink="/home"
+                                       matTooltip="Politics, Business and General new">Influence</a>
                                 </li>
                                 <li ng-class="{ active: isActive('/road') }" routerLinkActive="active">
-                                    <a routerLink="/road" matTooltip="Cinema, Music and Sports news">ROAD TO FAME</a>
+                                    <a routerLink="/road" matTooltip="Cinema, Music and Sports news">Style and sweat</a>
                                 </li>
                                 <li ng-class="{ active: isActive('/pictures') }" routerLinkActive="active">
                                     <a routerLink="/pictures" matTooltip="Post your Pictures">Camera Pictures</a>
                                 </li>
                                 <li ng-class="{ active: isActive('/commerce') }" routerLinkActive="active">
-                                    <a routerLink="/commerce" matTooltip="START UP NEWS">Jump startup</a>
+                                    <a routerLink="/commerce" matTooltip="START UP NEWS">Jump startups</a>
                                 </li>
                                 <li ng-class="{ active: isActive('/travel') }" routerLinkActive="active">
-                                    <a routerLink="/travel" matTooltip="TRAVEL NEWS">TRAVEL MONKEY</a>
+                                    <a routerLink="/travel" matTooltip="TRAVEL NEWS">Human stories</a>
                                 </li>
                                 <li ng-class="{ active: isActive('/deals') }" routerLinkActive="active">
-                                    <a routerLink="/deals" matTooltip="DEALS">Genuine Deals</a>
+                                    <a routerLink="/deals" matTooltip="DEALS">Love Designs</a>
                                 </li>
                                 <li ng-class="{ active: isActive('/video') }" routerLinkActive="active">
                                     <a routerLink="/video" matTooltip="VIDEOS">videos</a>
