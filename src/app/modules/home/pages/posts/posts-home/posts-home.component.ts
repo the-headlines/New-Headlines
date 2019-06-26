@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
+import {Categorie} from '../add-post/add-post.component';
 
 @Component({
     selector: 'app-posts-home',
@@ -10,10 +11,20 @@ import {MatTableDataSource} from '@angular/material/table';
 export class PostsHomeComponent implements OnInit {
     displayedColumns: string[] = ['date', 'link', 'section', 'edit', 'actions'];
     dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
-
     @ViewChild(MatPaginator) paginator: MatPaginator;
-
     data: any = [];
+    selectedValue: string;
+
+
+    categories: Categorie[] = [
+        {value: 'Influence', viewValue: 'Influence'},
+        {value: 'StyleAndSweat', viewValue: 'Style and sweat'},
+        {value: 'CameraPictures', viewValue: 'Camera Pictures'},
+        {value: 'JumpStartups', viewValue: 'Jump Startups'},
+        {value: 'HumanStories', viewValue: 'Human Stories'},
+        {value: 'LoveDesign', viewValue: 'Love Designs'},
+        {value: 'Videos', viewValue: 'Videos'}
+    ];
 
     constructor() {
     }
