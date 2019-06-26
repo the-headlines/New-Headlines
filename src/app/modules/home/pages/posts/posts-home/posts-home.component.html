@@ -7,8 +7,7 @@
                     <div class="">
                         <div class="posts_box">
                             <div class="sub_headline">
-                                <h2> Posts </h2>
-                                <h3> All my posts </h3>
+                                <h3> My posts </h3>
                             </div>
                             <div class="my_posts">
                                 <div class="posts_table">
@@ -53,7 +52,8 @@
                                             <ng-container matColumnDef="actions">
                                                 <th mat-header-cell *matHeaderCellDef>Save</th>
                                                 <td mat-cell *matCellDef="let row">
-                                                    <button mat-icon-button matTooltip="Click to Edit" class="iconbutton" color="primary">
+                                                    <button mat-icon-button matTooltip="Click to Save"
+                                                            class="iconbutton" class="save_data">
                                                         <mat-icon aria-label="save" (click)="save()">Save</mat-icon>
                                                     </button>
                                                 </td>

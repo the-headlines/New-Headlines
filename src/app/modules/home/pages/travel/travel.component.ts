@@ -36,6 +36,7 @@ export class TravelComponent implements OnInit {
 
         });
     }
+
     getLinkSource(url) {
         let hostname;
 
@@ -57,7 +58,7 @@ export class TravelComponent implements OnInit {
     getDateFormatted(createdDate, onlyDate = true) {
 
 
-        if(!onlyDate) {
+        if (!onlyDate) {
 
             const a = moment(); // date now
             const b = moment(createdDate); // post created date
@@ -84,14 +85,9 @@ export class TravelComponent implements OnInit {
                     }
                 }
             }
+        } else {
+            return moment(createdDate).format('MMMM Do YYYY, h:mm:ss a');
         }
-
-        else {
-            return moment(createdDate).format('MMMM Do YYYY, h:mm:ss a')
-        }
-
-
-
 
 
     }

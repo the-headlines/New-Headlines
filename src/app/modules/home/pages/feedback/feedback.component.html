@@ -1,5 +1,5 @@
 <app-header></app-header>
-<div class="content" style="margin-top: 250px">
+<div class="content">
     <div class="main row no-gutters">
         <div class="col-md-8">
             <div class="get_in_touch">
@@ -23,7 +23,6 @@
                     <div class="col-md-6">
                         <div class="get_touch_form">
                             <h3>Get in touch</h3>
-
                             <form action="" method="post">
                                 <div class="form-group">
                                     <div class="example-full-width">
@@ -90,7 +89,8 @@
                         <ul>
                             <li class="item" *ngFor="let singleLastet of lastet">
                                 <div class="img-block">
-                                    <img *ngIf="singleLastet.img" src="../../../assets/images/{{singleLastet.img}}" class="img-fluid" alt="">
+                                    <img *ngIf="singleLastet.img" src="../../../assets/images/{{singleLastet.img}}"
+                                         class="img-fluid" alt="">
                                 </div>
                                 <div class="text-block">
                                     <h5 class="title" (click)="getSingle(singleLastet.id)">{{singleLastet.title}}</h5>
