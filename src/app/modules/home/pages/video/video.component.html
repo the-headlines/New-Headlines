@@ -38,7 +38,6 @@
                 </div>
 
                 <div class="loop_items item posts_items">
-                    <ng-container *ngFor="let post of posts.news|searchNews:searchTerm">
                         <ng-container *ngFor="let post of posts.news|searchNews:searchTerm">
                             <div class="post_wrapper">
                                 <div class="user_posts">
@@ -70,7 +69,6 @@
                                 </div>
                             </div>
                             <app-status-bar></app-status-bar>
-                        </ng-container>
                     </ng-container>
                 </div>
             </div>
