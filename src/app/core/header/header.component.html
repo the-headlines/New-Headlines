@@ -103,31 +103,31 @@
                                 <i class="fas fa-bars"></i>
                             </div>
                             <ul class="toggle none-768">
-                                <li ng-class="{ active: isActive('/home') }" routerLinkActive="active">
+                                <li routerLinkActive="active" [class.active]="router.url==='/home'">
                                     <a (click)="goToLink('/home')"
                                        matTooltip="Politics, Business and General new">Influence</a>
                                 </li>
-                                <li ng-class="{ active: isActive('/road') }" routerLinkActive="active">
+                                <li [class.active]="router.url==='/road'" routerLinkActive="active">
                                     <a (click)="goToLink('/road')" matTooltip="Cinema, Music and Sports news">Style and
                                         sweat</a>
                                 </li>
-                                <li ng-class="{ active: isActive('/pictures') }" routerLinkActive="active">
+                                <li [class.active]="router.url==='/pictures'" routerLinkActive="active">
                                     <a (click)="goToLink('/pictures')" matTooltip="Post your Pictures">Camera
                                         Pictures</a>
                                 </li>
-                                <li ng-class="{ active: isActive('/commerce') }" routerLinkActive="active">
+                                <li [class.active]="router.url==='/commerce'" routerLinkActive="active">
                                     <a (click)="goToLink('/commerce')" matTooltip="START UP NEWS">Jump startups</a>
                                 </li>
-                                <li ng-class="{ active: isActive('/travel') }" routerLinkActive="active">
+                                <li [class.active]="router.url==='/travel'" routerLinkActive="active">
                                     <a (click)="goToLink('/travel')" matTooltip="TRAVEL NEWS">Human stories</a>
                                 </li>
-                                <li ng-class="{ active: isActive('/deals') }" routerLinkActive="active">
+                                <li [class.active]="router.url==='/deals'" routerLinkActive="active">
                                     <a (click)="goToLink('/deals')" matTooltip="DEALS">Love Designs</a>
                                 </li>
-                                <li ng-class="{ active: isActive('/video') }" routerLinkActive="active">
+                                <li [class.active]="router.url==='/video'" routerLinkActive="active">
                                     <a (click)="goToLink('/video')" matTooltip="VIDEOS">videos</a>
                                 </li>
-                                <li ng-class="{ active: isActive('/feedback') }" routerLinkActive="active">
+                                <li [class.active]="router.url==='/feedback'" routerLinkActive="active">
                                     <a routerLink="/feedback">feedback</a>
                                 </li>
                             </ul>
