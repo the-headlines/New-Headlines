@@ -270,9 +270,10 @@ img {
 .modal-body .mat-input-element {
   height: 47px;
   border: solid 1px #959595;
-  background-color: #fff;
+  background-color: #fafafa;
   width: 100%;
   padding: 0 20px;
+  border-radius: 7px;
 }
 
 .cdk-overlay-container {
@@ -1481,6 +1482,7 @@ a:hover {
   color: #7d7c7c;
   display: block;
   text-align: right;
+  margin-bottom: 10px;
 }
 
 .have_account {
@@ -1701,9 +1703,16 @@ textarea {
 }
 
 label {
-  &#mat-form-field-label-3, &#mat-form-field-label-1, &#mat-form-field-label-5 {
-    padding-left: 20px;
+  &#mat-form-field-label-3,
+  &#mat-form-field-label-1,
+  &#mat-form-field-label-5,
+  #mat-form-field-label-7 {
+    padding: 5px 0 0 20px;
   }
+}
+
+label#mat-form-field-label-7, label#mat-form-field-label-9{
+  padding: 5px 0 0 20px;
 }
 
 .sub_headline {
