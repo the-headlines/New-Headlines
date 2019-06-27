@@ -306,6 +306,12 @@ img {
   }
 }
 
+
+.profile_container .mat-select-trigger {
+  padding-top: 7px !important;
+}
+
+
 .carousel-caption {
   position: absolute;
   right: 0;
@@ -1498,25 +1504,12 @@ a:hover {
     text-align: center;
     margin-bottom: 47px;
   }
-
-  button {
-    font-family: 'Lato-Regular';
-    font-size: 17.5px;
-    font-weight: normal;
-    font-style: normal;
-    font-stretch: normal;
-    letter-spacing: normal;
-    text-align: center;
-    color: #414242;
-    height: 60px;
-    border-radius: 10px;
-    border: solid 1px #004cb3;
-    background-color: unset;
-    display: block;
-    margin: 0 auto;
-    width: 152px;
-  }
 }
+
+label#mat-form-field-label-11 {
+  padding: 5px 20px;
+}
+
 
 .forgot_pass {
   font-family: 'Lato-Regular';
@@ -1529,6 +1522,10 @@ a:hover {
   text-align: right;
   margin-bottom: 50px;
   color: #7d7c7c;
+}
+
+.modal-body form button.login .mat-button-wrapper {
+  font-size: 20px;
 }
 
 .modal-body {
@@ -1706,7 +1703,7 @@ label {
   &#mat-form-field-label-1,
   &#mat-form-field-label-5,
   #mat-form-field-label-7 {
-    padding: 5px 0 0 20px;
+    padding: 2px 0 0 20px;
   }
 }
 

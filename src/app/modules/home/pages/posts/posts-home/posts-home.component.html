@@ -11,13 +11,6 @@
                             </div>
                             <div class="my_posts">
                                 <form>
-<!--                                    <label for="sections">Choose a section</label>-->
-<!--                                    <select id="sections" [(ngModel)]="selectedValue" name="food"-->
-<!--                                            (selectionChange)="selectCategory($event)">-->
-<!--                                        <option *ngFor="let food of categories"-->
-<!--                                                [value]="food.value">{{food.viewValue}}</option>-->
-<!--                                    </select>-->
-
                                     <mat-form-field>
                                         <mat-label>Choose a section</mat-label>
                                         <mat-select [(ngModel)]="selectedValue" name="food"
@@ -28,71 +21,47 @@
                                         </mat-select>
                                     </mat-form-field>
                                 </form>
-
-                                <div class="loop_items item posts_items">
-                                    <ng-container>
-                                        <ng-container>
+                                <ng-container class="news-block">
+                                    <div class="user_posts" *ngIf="filteredPosts">
+                                        <div class="loop_items item posts_items"
+                                             *ngFor="let single of filteredPosts.news| searchNews: searchTerm">
                                             <div class="post_wrapper">
-                                                <div class="user_posts" *ngIf="filteredPosts">
-                                                    <div class="loop_items item posts_items"
-                                                         *ngFor="let single of filteredPosts.news| searchNews: searchTerm">
-                                                        <div class="post_wrapper">
-                                                            <div class="user_posts">
-                                                                <div class="userName">
-                                                                    <div>
-                                                                        <h3>
-                                                                            <span>Posted by</span>
-                                                                            {{single.creator.name}}</h3>
-                                                                        <p class="updateDate"
-                                                                           [matTooltip]="single.createdAt|formattedDate">{{single.createdAt|formattedDate:false}}</p>
-                                                                    </div>
-                                                                    <app-story-options></app-story-options>
-                                                                </div>
-                                                            </div>
-                                                            <div class="short_desc">
-                                                                <a href="{{single.link}}">{{single.link}}</a>
-                                                                <h6>{{single.description|stripTags}}</h6>
-                                                            </div>
-
-                                                            <div class="img-block">
-                                                                <img src="{{single.extractedImage}}" class="img-fluid"
-                                                                     alt=""
-                                                                     (click)="getSingle(single._id)">
-                                                            </div>
-                                                            <div class="text-block">
-                                                                <a href="{{single.link}}" class="text_block_link"
-                                                                   target="_blank">
-                                                                    <h5 class="news_link">{{single.link|getUrlBase}}</h5>
-                                                                    <h3 class="news_title">{{single.extractedTitle}}</h3>
-                                                                    <p class="news_desc">{{single.extractedDescription}}</p>
-                                                                </a>
-                                                            </div>
+                                                <div class="user_posts">
+                                                    <div class="userName">
+                                                        <div>
+                                                            <h3>
+                                                                <span>Posted by</span>
+                                                                {{single.creator.name}}</h3>
+                                                            <p class="updateDate"
+                                                               [matTooltip]="single.createdAt|formattedDate">{{single.createdAt|formattedDate:false}}</p>
                                                         </div>
-                                                        <app-status-bar [single]="single"></app-status-bar>
+                                                        <app-story-options></app-story-options>
                                                     </div>
                                                 </div>
-                                                <div *ngIf="filteredPosts && filteredPosts.news.length===0 && categorySelected">
-                                                    You haven't posted news in this category.
-                                                </div>
                                                 <div class="short_desc">
-                                                    <a href="#"></a>
-                                                    <h6></h6>
+                                                    <a href="{{single.link}}">{{single.link}}</a>
+                                                    <h6>{{single.description|stripTags}}</h6>
                                                 </div>
                                                 <div class="img-block">
-                                                    <img src="" class="img-fluid" alt="">
+                                                    <img src="{{single.extractedImage}}" class="img-fluid"
+                                                         alt=""
+                                                         (click)="getSingle(single._id)">
                                                 </div>
-
                                                 <div class="text-block">
-                                                    <a href="" class="text_block_link" target="_blank">
-                                                        <h5 class="news_link"></h5>
-                                                        <h3 class="news_title"></h3>
-                                                        <p class="news_desc"></p>
+                                                    <a href="{{single.link}}" class="text_block_link"
+                                                       target="_blank">
+                                                        <h5 class="news_link">{{single.link|getUrlBase}}</h5>
+                                                        <h3 class="news_title">{{single.extractedTitle}}</h3>
+                                                        <p class="news_desc">{{single.extractedDescription}}</p>
                                                     </a>
                                                 </div>
                                             </div>
-                                        </ng-container>
-                                    </ng-container>
-                                </div>
+                                        </div>
+                                    </div>
+                                    <div *ngIf="filteredPosts && filteredPosts.news.length===0 && categorySelected">
+                                        You haven't posted news in this category.
+                                    </div>
+                                </ng-container>
                             </div>
                         </div>
                     </div>

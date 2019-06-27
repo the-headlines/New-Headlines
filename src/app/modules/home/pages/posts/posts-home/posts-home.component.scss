@@ -165,7 +165,7 @@ p-dataTable {
     }
   }
 
-  select{
+  select {
     position: relative;
     box-sizing: border-box;
     min-width: 300px;
@@ -187,4 +187,18 @@ p-dataTable {
     color: rgb(28, 28, 28);
     padding: 0 10px;
   }
+}
+
+
+.my_posts .posts_items {
+  width: 600px;
+  border: 1px solid #dddfe2;
+  border-radius: 3px;
+  background-color: #fff;
+  margin: 40px 0;
+  padding: 0;
+}
+
+.my_posts .posts_items .text-block {
+  padding: 10px 15px;
 }
