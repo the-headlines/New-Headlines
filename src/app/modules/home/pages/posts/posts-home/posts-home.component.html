@@ -11,22 +11,22 @@
                             </div>
                             <div class="my_posts">
                                 <form>
-                                    <label for="sections">Choose a section</label>
-                                    <select id="sections" [(ngModel)]="selectedValue" name="food"
-                                            (selectionChange)="selectCategory($event)">
-                                        <option *ngFor="let food of categories"
-                                                [value]="food.value">{{food.viewValue}}</option>
-                                    </select>
+<!--                                    <label for="sections">Choose a section</label>-->
+<!--                                    <select id="sections" [(ngModel)]="selectedValue" name="food"-->
+<!--                                            (selectionChange)="selectCategory($event)">-->
+<!--                                        <option *ngFor="let food of categories"-->
+<!--                                                [value]="food.value">{{food.viewValue}}</option>-->
+<!--                                    </select>-->
 
-                                    <!--                                    <mat-form-field>-->
-                                    <!--                                        <mat-label>Choose a section</mat-label>-->
-                                    <!--                                        <mat-select [(ngModel)]="selectedValue" name="food"-->
-                                    <!--                                                    (selectionChange)="selectCategory($event)">-->
-                                    <!--                                            <mat-option *ngFor="let food of categories" [value]="food.value">-->
-                                    <!--                                                {{food.viewValue}}-->
-                                    <!--                                            </mat-option>-->
-                                    <!--                                        </mat-select>-->
-                                    <!--                                    </mat-form-field>-->
+                                    <mat-form-field>
+                                        <mat-label>Choose a section</mat-label>
+                                        <mat-select [(ngModel)]="selectedValue" name="food"
+                                                    (selectionChange)="selectCategory($event)">
+                                            <mat-option *ngFor="let food of categories" [value]="food.value">
+                                                {{food.viewValue}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
                                 </form>
 
                                 <div class="loop_items item posts_items">
