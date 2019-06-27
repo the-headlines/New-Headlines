@@ -1813,7 +1813,8 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
 
 
 .profile_links {
-  width: 10px!important;
+  width: 10px !important;
+
   li a {
     text-transform: uppercase !important;
 
@@ -1824,8 +1825,8 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
   }
 }
 
-.mat-menu-content{
-  width: 183px!important;
+.mat-menu-content {
+  width: 183px !important;
 }
 
 
@@ -2263,6 +2264,18 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
   background-color:#A5A5A5!important;
   font-size: 14px;
   width: 210px!important;
+}
+
+.post_content .mat-form-field-infix {
+  padding: 0 !important;
+  border-radius: 6px;
+  padding-top: 8px;
+  box-shadow: 1px 1px 1px #cacaca;
+}
+
+.mat-option-text {
+  overflow: visible !important;
+  font-size: 15px;
 }
 
 //media queries
