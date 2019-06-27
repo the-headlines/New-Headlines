@@ -13,7 +13,8 @@
                                 <form>
                                     <mat-form-field>
                                         <mat-label>Choose a section</mat-label>
-                                        <mat-select [(ngModel)]="selectedValue" name="food">
+                                        <mat-select [(ngModel)]="selectedValue" name="food"
+                                                    (selectionChange)="selectCategory($event)">
                                             <mat-option *ngFor="let food of categories" [value]="food.value">
                                                 {{food.viewValue}}
                                             </mat-option>
@@ -21,19 +22,46 @@
                                     </mat-form-field>
                                 </form>
 
-                                <div class="loop_items item posts_items" >
+                                <div class="loop_items item posts_items">
                                     <ng-container>
                                         <ng-container>
                                             <div class="post_wrapper">
-                                                <div class="user_posts">
-                                                    <div class="userName">
-                                                        <div>
-                                                            <h3>
-                                                                <span>Posted by</span>  </h3>
-                                                            <p class="updateDate">
+                                                <div class="user_posts" *ngIf="filteredPosts">
+                                                    <div class="loop_items item posts_items"
+                                                         *ngFor="let single of filteredPosts.news| searchNews: searchTerm">
+                                                        <div class="post_wrapper">
+                                                            <div class="user_posts">
+                                                                <div class="userName">
+                                                                    <div>
+                                                                        <h3>
+                                                                            <span>Posted by</span>
+                                                                            {{single.creator.name}}</h3>
+                                                                        <p class="updateDate"
+                                                                           [matTooltip]="single.createdAt|formattedDate">{{single.createdAt|formattedDate:false}}</p>
+                                                                    </div>
+                                                                    <app-story-options></app-story-options>
+                                                                </div>
+                                                            </div>
+                                                            <div class="short_desc">
+                                                                <a href="{{single.link}}">{{single.link}}</a>
+                                                                <h6>{{single.description|stripTags}}</h6>
+                                                            </div>
 
-                                                            </p>
+                                                            <div class="img-block">
+                                                                <img src="{{single.extractedImage}}" class="img-fluid"
+                                                                     alt=""
+                                                                     (click)="getSingle(single._id)">
+                                                            </div>
+                                                            <div class="text-block">
+                                                                <a href="{{single.link}}" class="text_block_link"
+                                                                   target="_blank">
+                                                                    <h5 class="news_link">{{single.link|getUrlBase}}</h5>
+                                                                    <h3 class="news_title">{{single.extractedTitle}}</h3>
+                                                                    <p class="news_desc">{{single.extractedDescription}}</p>
+                                                                </a>
+                                                            </div>
                                                         </div>
+                                                        <app-status-bar [single]="single"></app-status-bar>
                                                     </div>
                                                 </div>
                                                 <div class="short_desc">

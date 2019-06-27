@@ -53,7 +53,7 @@
                                             <span>Posted by</span>
                                             {{single.creator.name}}</h3>
                                         <p class="updateDate"
-                                           [matTooltip]="getDateFormatted(single.createdAt)">{{getDateFormatted(single.createdAt, false)}}</p>
+                                           [matTooltip]="single.createdAt|formattedDate">{{single.createdAt|formattedDate:false}}</p>
                                     </div>
                                     <app-story-options></app-story-options>
                                 </div>

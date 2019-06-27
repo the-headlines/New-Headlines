@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import {Categorie} from '../add-post/add-post.component';
+import {HomeService} from '../../../../../services/home.service';
 
 @Component({
     selector: 'app-posts-home',
@@ -14,6 +15,7 @@ export class PostsHomeComponent implements OnInit {
     @ViewChild(MatPaginator) paginator: MatPaginator;
     data: any = [];
     selectedValue: string;
+    filteredPosts;
 
 
     categories: Categorie[] = [
@@ -22,15 +24,23 @@ export class PostsHomeComponent implements OnInit {
         {value: 'CameraPictures', viewValue: 'Camera Pictures'},
         {value: 'JumpStartups', viewValue: 'Jump Startups'},
         {value: 'HumanStories', viewValue: 'Human Stories'},
-        {value: 'LoveDesign', viewValue: 'Love Designs'},
+        {value: 'LoveDesigns', viewValue: 'Love Designs'},
         {value: 'Videos', viewValue: 'Videos'}
     ];
 
-    constructor() {
+    constructor(
+        private home: HomeService
+    ) {
     }
 
     ngOnInit(): void {
         this.dataSource.paginator = this.paginator;
+    }
+
+    selectCategory(c) {
+        this.home.getPostsByCategory(c.source.value).subscribe(dt => {
+            this.filteredPosts = dt;
+        });
     }
 }
 

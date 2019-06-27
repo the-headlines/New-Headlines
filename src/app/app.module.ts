@@ -79,6 +79,8 @@ import {SearchNewsPipe} from './shared/pipes/search-news.pipe';
 import {FilterPipeModule} from 'ngx-filter-pipe';
 import {DataTableModule} from 'primeng/primeng';
 import { StoryOptionsComponent } from './core/story-options/story-options.component';
+import { GetPostDateFormattedPipe } from './shared/pipes/get-post-date-formatted.pipe';
+import { GetUrlBasePipe } from './shared/pipes/get-url-base.pipe';
 
 const config = new AuthServiceConfig([
     {
@@ -129,7 +131,9 @@ export function tokenGetter() {
         NotificationsBoxComponent,
         StripHtmlTagsPipe,
         SearchNewsPipe,
-        StoryOptionsComponent
+        StoryOptionsComponent,
+        GetPostDateFormattedPipe,
+        GetUrlBasePipe
     ],
     imports: [
         BrowserModule,

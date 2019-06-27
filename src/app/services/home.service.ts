@@ -34,6 +34,10 @@ export class HomeService {
         return this.http.get(Base.url + '/api/news/category/HumanStories?pagesize=100&page=1');
     }
 
+    getPostsByCategory(category) {
+        return this.http.get(`${Base.url}/api/user/news/${category}?pagesize=100&page=1`);
+    }
+
     getVoiceValue() {
         return this.http.get(Base.url + '/api/news');
     }
@@ -58,7 +62,7 @@ export class HomeService {
         return this.http.get(Base.url + '/api/news/' + id + '/vote');
     }
 
-    doVoting(id,data) {
+    doVoting(id, data) {
         return this.http.post(Base.url + '/api/news/' + id + '/vote', data);
     }
 
