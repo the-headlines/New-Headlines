@@ -17,6 +17,7 @@ export class PostsHomeComponent implements OnInit {
     data: any = [];
     selectedValue: string;
     filteredPosts;
+    categorySelected = false;
 
 
     categories: Categorie[] = [
@@ -44,6 +45,7 @@ export class PostsHomeComponent implements OnInit {
                 return moment(b['createdAt']).unix() - moment(a['createdAt']).unix();
             });
             this.filteredPosts = dt;
+            this.categorySelected = true;
         });
     }
 }

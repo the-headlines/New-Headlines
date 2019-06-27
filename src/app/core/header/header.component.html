@@ -66,13 +66,13 @@
                             </li>
                             <li class="user-profile header-notification" *ngIf="auth.loggedIn()">
                                 <button mat-button [matMenuTriggerFor]="beforeMenu" #trigger="matMenuTrigger"
-                                        (mouseenter)="trigger.openMenu()" class="user_name">
+                                        (click)="trigger.openMenu()" class="user_name">
 
                                     <span class="userFullName">{{userData ? userData.fullName : '/n/a'}}</span>
                                     <i class="feather icon-chevron-down"></i>
                                 </button>
                                 <mat-menu #beforeMenu="matMenu" yPosition="below">
-                                    <ul class="profile_links" (mouseleave)="trigger.closeMenu()">
+                                    <ul class="profile_links">
                                         <li>
                                             <a mat-button routerLink="/profile">My Profile</a>
                                         </li>

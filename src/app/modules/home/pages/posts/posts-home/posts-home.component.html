@@ -64,6 +64,9 @@
                                                         <app-status-bar [single]="single"></app-status-bar>
                                                     </div>
                                                 </div>
+                                                <div *ngIf="filteredPosts && filteredPosts.news.length===0 && categorySelected">
+                                                    You haven't posted news in this category.
+                                                </div>
                                                 <div class="short_desc">
                                                     <a href="#"></a>
                                                     <h6></h6>
