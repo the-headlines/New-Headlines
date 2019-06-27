@@ -81,7 +81,7 @@ export class HomeComponent implements OnInit {
             this.searchTerm = s;
         });
 
-        this.toastr.success('Hello from here', '', {disableTimeOut: true});
+        // this.toastr.success('Hello from here', '', {disableTimeOut: true});
 
 
     }
