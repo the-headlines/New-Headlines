@@ -3,6 +3,7 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import {Categorie} from '../add-post/add-post.component';
 import {HomeService} from '../../../../../services/home.service';
+import * as moment from 'moment';
 
 @Component({
     selector: 'app-posts-home',
@@ -39,6 +40,9 @@ export class PostsHomeComponent implements OnInit {
 
     selectCategory(c) {
         this.home.getPostsByCategory(c.source.value).subscribe(dt => {
+            dt['news'].sort((a, b) => {
+                return moment(b['createdAt']).unix() - moment(a['createdAt']).unix();
+            });
             this.filteredPosts = dt;
         });
     }
