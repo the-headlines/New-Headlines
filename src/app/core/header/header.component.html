@@ -36,8 +36,7 @@
                     <li class="logout">
                         <ul *ngIf="checkUser()">
                             <li class="header-notification">
-                                <button mat-button [matMenuTriggerFor]="belowMenu" class="not_btn"
-                                        *ngIf="auth.loggedIn()">
+                                <button mat-button [matMenuTriggerFor]="belowMenu" class="not_btn" *ngIf="auth.loggedIn()">
                                     <span class="bell">
                                         <i class="fas fa-bell"></i>
                                         <span class="badge bg-c-red">5</span>
@@ -65,12 +64,10 @@
                                 </mat-menu>
                             </li>
                             <li class="user-profile header-notification" *ngIf="auth.loggedIn()">
-                                <button mat-button [matMenuTriggerFor]="beforeMenu" #trigger="matMenuTrigger"
-                                        (click)="trigger.openMenu()" class="user_name">
-
+                                <span [matMenuTriggerFor]="beforeMenu" class="user_name">
                                     <span class="userFullName">{{userData ? userData.fullName : '/n/a'}}</span>
                                     <i class="feather icon-chevron-down"></i>
-                                </button>
+                                </span>
                                 <mat-menu #beforeMenu="matMenu" yPosition="below">
                                     <ul class="profile_links">
                                         <li>
