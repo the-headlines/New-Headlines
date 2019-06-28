@@ -4,6 +4,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import {Categorie} from '../add-post/add-post.component';
 import {HomeService} from '../../../../../services/home.service';
 import * as moment from 'moment';
+import {PostsService} from '../../../../../services/posts.service';
 
 @Component({
     selector: 'app-posts-home',
@@ -11,7 +12,7 @@ import * as moment from 'moment';
     styleUrls: ['./posts-home.component.scss']
 })
 export class PostsHomeComponent implements OnInit {
-    displayedColumns: string[] = ['extractedTitle', 'createdAt', 'actions'];
+    displayedColumns: string[] = ['extractedImage', 'extractedTitle', 'createdAt', 'actions'];
     dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
     @ViewChild(MatPaginator) paginator: MatPaginator;
     data: any = [];
@@ -32,7 +33,8 @@ export class PostsHomeComponent implements OnInit {
     ];
 
     constructor(
-        private home: HomeService
+        private home: HomeService,
+        private postsService: PostsService
     ) {
     }
 
@@ -53,6 +55,17 @@ export class PostsHomeComponent implements OnInit {
 
     getPostDate(dt) {
         return moment(dt).format('DD/MM/YYYY');
+    }
+
+    getBackgroundUrl(url) {
+        return `url(${url})`;
+    }
+
+    removePost(id) {
+        this.postsService.remove(id).subscribe((dt: any) => {
+            this.posts = dt;
+            this.filteredPosts = new MatTableDataSource(dt.news);
+        });
     }
 }
 

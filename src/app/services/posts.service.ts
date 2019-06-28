@@ -18,8 +18,8 @@ export class PostsService {
         return this.http.get(Base.url + '/');
     }
 
-    public deletePosts() {
-        return this.http.delete(Base.url + '/api/news/5c5bee3e9e51fd2fd2b05200');
+    public remove(id) {
+        return this.http.delete(Base.url + '/api/news/' + id);
     }
 
     public updateUserInfo(data) {
