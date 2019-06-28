@@ -5,7 +5,7 @@ import {Post} from '../../../../../post';
 import {Observable} from 'rxjs';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../../../../../services/auth.service';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {PostsService} from '../../../../../services/posts.service';
 import {ToastrService} from 'ngx-toastr';
 
@@ -53,9 +53,16 @@ export class AddPostComponent implements OnInit {
         private fb: FormBuilder,
         private auth: AuthService,
         private router: Router,
+        private route: ActivatedRoute,
         private posts: PostsService,
         private toastr: ToastrService
     ) {
+
+        const id = this.route.snapshot.params.id;
+
+        if (id) {
+
+        }
     }
 
     ngOnInit() {

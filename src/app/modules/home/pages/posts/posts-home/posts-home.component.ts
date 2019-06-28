@@ -5,6 +5,7 @@ import {Categorie} from '../add-post/add-post.component';
 import {HomeService} from '../../../../../services/home.service';
 import * as moment from 'moment';
 import {PostsService} from '../../../../../services/posts.service';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-posts-home',
@@ -34,7 +35,8 @@ export class PostsHomeComponent implements OnInit {
 
     constructor(
         private home: HomeService,
-        private postsService: PostsService
+        private postsService: PostsService,
+        public router: Router
     ) {
     }
 
@@ -66,6 +68,10 @@ export class PostsHomeComponent implements OnInit {
             this.posts = dt;
             this.filteredPosts = new MatTableDataSource(dt.news);
         });
+    }
+
+    editPost(id) {
+        this.router.navigate([`editPost/${id}/`]);
     }
 }
 
