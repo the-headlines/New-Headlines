@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {HomeService} from '../../../../services/home.service';
 import * as Base from '../../../../configs/config.js';
 import {Router} from '@angular/router';
@@ -34,6 +34,9 @@ export class HomeComponent implements OnInit {
     filteredPosts: any = {news: []};
     searchTerm = '';
     currentPost = {};
+    defaultRecords = 5;
+
+    @ViewChild('paginator') paginator;
 
     filterByVotes(vote) {
 
@@ -69,86 +72,48 @@ export class HomeComponent implements OnInit {
     }
 
     ngOnInit() {
-        if (this.checkUser()) {
-            this.userLoggedIn = JSON.parse(localStorage.getItem('userInf'));
-        }
+        // if (this.checkUser()) {
+        //     this.userLoggedIn = JSON.parse(localStorage.getItem('userInf'));
+        // }
+        // this.cs.set('Test', 'Hello World');
         this.get();
-
-        this.cs.set('Test', 'Hello World');
-
         this.subject.getSearch().subscribe(s => {
-
             this.searchTerm = s;
         });
 
-        // this.toastr.success('Hello from here', '', {disableTimeOut: true});
-
-
     }
 
-    public set sessionId(value: string) {
-        this._sessionId = value;
-        this.cs.set('sessionId', value);
-    }
+    // public set sessionId(value: string) {
+    //     this._sessionId = value;
+    //     this.cs.set('sessionId', value);
+    // }
 
     get() {
-        this.home.getData().subscribe((data) => {
-
-            if (!data) {
-                return false;
-            }
-
-            if (!data[status] && data[status] === 0) {
-                alert('No data');
-                return false;
-            }
-
+        this.home.getData().subscribe((data:any) => {
 
             data['news'].sort((a, b) => {
                 return moment(b['createdAt']).unix() - moment(a['createdAt']).unix();
             });
 
+            this.posts = data;
+            this.filteredPosts.news = data.news.slice(0, this.defaultRecords);
 
             /*  this.postData = data;*/
-            this.count = data['count'];
+            // this.count = data['count'];
             // console.log(this.count, 'count');
 
-            this.paginate(data);
-            this.posts = data;
-            this.filteredPosts = data;
-            return this.posts;
+            // this.paginate(data);
+            // this.posts = data;
+            // this.filteredPosts = data;
+            //
+
+            // this.filteredPosts.paginator = this.paginator;
+            //
+            // console.log(this.posts);
+            // return this.posts;
         });
     }
 
-    isShown: boolean = false;
-
-    toggleShow(single) {
-
-        this.isShown = !this.isShown;
-
-    }
-
-    /**
-     * Gets link source(host name) from url
-     * @param url
-     */
-    getLinkSource(url) {
-        let hostname;
-
-        if (url.indexOf('//') > -1) {
-            hostname = url.split('/')[2];
-        } else {
-            hostname = url.split('/')[0];
-        }
-
-        // find & remove port number
-        hostname = hostname.split(':')[0];
-
-        // find & remove "?"
-        hostname = hostname.split('?')[0];
-
-        return hostname;
-    }
 
     paginate(data) {
         this.posts = data;
@@ -244,5 +209,15 @@ export class HomeComponent implements OnInit {
             this.messages = data;
             return this.messages;
         });
+    }
+
+    handle(e) {
+        console.log(this.filteredPosts);
+        this.filteredPosts.news = this.posts.news.slice(e.pageIndex * e.pageSize,
+            e.pageIndex * e.pageSize + e.pageSize);
+    }
+
+    getLength(d) {
+        return d ? d.length : 0;
     }
 }

@@ -20,6 +20,8 @@ export class CommerceComponent implements OnInit {
     count = 0;
     pages = [];
     searchTerm;
+    defaultRecords = 5;
+    filteredPosts;
 
     constructor(private home: HomeService, private router: Router, private subject: SubjectService) {
     }
@@ -39,13 +41,17 @@ export class CommerceComponent implements OnInit {
     }
 
     get() {
-        this.home.getCommerce().subscribe((data) => {
+        this.home.getCommerce().subscribe((data: any) => {
 
             data['news'].sort((a, b) => {
                 return moment(b['createdAt']).unix() - moment(a['createdAt']).unix();
             });
 
             this.posts = data;
+
+            this.posts = data;
+            this.filteredPosts.news = data.news.slice(0, this.defaultRecords);
+
             // console.log(this.posts);
             /*  this.postData = data;*/
             this.count = data['count'];

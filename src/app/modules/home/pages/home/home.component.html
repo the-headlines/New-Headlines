@@ -43,6 +43,12 @@
                             </ul>
                         </div>
                     </div>
+                    <mat-paginator *ngIf="posts.news" (page)="handle($event)" #paginator
+                                   [length]="getLength(posts.news| searchNews: searchTerm)"
+                                   [pageSize]="defaultRecords"
+                                   [pageSizeOptions]="[2,5,10,25,100]">
+                    </mat-paginator>
+
                     <div class="loop_items item posts_items"
                          *ngFor="let single of filteredPosts.news| searchNews: searchTerm">
                         <div class="post_wrapper">
@@ -59,7 +65,7 @@
                                 </div>
                             </div>
                             <div class="short_desc">
-                                <a href="{{single.link}}">{{single.link}}</a>
+                                <!--                                <a href="{{single.link}}">{{single.link}}</a>-->
                                 <h6>{{single.description|stripTags}}</h6>
                             </div>
 
@@ -69,7 +75,7 @@
                             </div>
                             <div class="text-block">
                                 <a href="{{single.link}}" class="text_block_link" target="_blank">
-                                    <h5 class="news_link">{{getLinkSource(single.link)}}</h5>
+                                    <h5 class="news_link">{{single.link|getUrlBase}}</h5>
                                     <h3 class="news_title">{{single.extractedTitle}}</h3>
                                     <p class="news_desc">{{single.extractedDescription}}</p>
                                 </a>
