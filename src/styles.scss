@@ -266,13 +266,13 @@ img {
   }
 }
 
-
 .modal-body .mat-input-element {
   height: 47px;
   border: solid 1px #959595;
-  background-color: #fff;
+  background-color: #fafafa;
   width: 100%;
   padding: 0 20px;
+  border-radius: 7px;
 }
 
 .cdk-overlay-container {
@@ -305,6 +305,12 @@ img {
     }
   }
 }
+
+
+.profile_container .mat-select-trigger {
+  padding-top: 7px !important;
+}
+
 
 .carousel-caption {
   position: absolute;
@@ -1497,25 +1503,12 @@ a:hover {
     text-align: center;
     margin-bottom: 47px;
   }
-
-  button {
-    font-family: 'Lato-Regular';
-    font-size: 17.5px;
-    font-weight: normal;
-    font-style: normal;
-    font-stretch: normal;
-    letter-spacing: normal;
-    text-align: center;
-    color: #414242;
-    height: 60px;
-    border-radius: 10px;
-    border: solid 1px #004cb3;
-    background-color: unset;
-    display: block;
-    margin: 0 auto;
-    width: 152px;
-  }
 }
+
+label#mat-form-field-label-11 {
+  padding: 5px 20px;
+}
+
 
 .forgot_pass {
   font-family: 'Lato-Regular';
@@ -1528,6 +1521,10 @@ a:hover {
   text-align: right;
   margin-bottom: 50px;
   color: #7d7c7c;
+}
+
+.modal-body form button.login .mat-button-wrapper {
+  font-size: 20px;
 }
 
 .modal-body {
@@ -1701,9 +1698,16 @@ textarea {
 }
 
 label {
-  &#mat-form-field-label-3, &#mat-form-field-label-1, &#mat-form-field-label-5 {
-    padding-left: 20px;
+  &#mat-form-field-label-3,
+  &#mat-form-field-label-1,
+  &#mat-form-field-label-5,
+  #mat-form-field-label-7 {
+    padding: 2px 0 0 20px;
   }
+}
+
+label#mat-form-field-label-7, label#mat-form-field-label-9 {
+  padding: 5px 0 0 20px;
 }
 
 .sub_headline {
@@ -2261,25 +2265,37 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
 }
 
 .toast-success {
-  background-color:#A5A5A5!important;
+  background-color: #A5A5A5 !important;
   font-size: 14px;
-  width: 210px!important;
-}
-
-#toast-container>.toast-success {
-  background-image: url("data:image/svg+xml;charset=utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' width='10' height='10'><path fill='rgb(255,255,255)' d='M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z'/></svg>")!important;
+  width: 210px !important;
 }
 
 .post_content .mat-form-field-infix {
-  padding: 0 !important;
-  border-radius: 6px;
   padding-top: 8px;
-  box-shadow: 1px 1px 1px #cacaca;
+  position: relative;
+  box-sizing: border-box;
+  min-width: 300px;
+  height: 40px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgb(255, 255, 255) 0px 0px 0px 0px;
+  border-radius: 4px;
+  transition: box-shadow 0.2s ease 0s;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(237, 239, 241);
+  border-image: initial;
 }
 
 .mat-option-text {
   overflow: visible !important;
   font-size: 15px;
+}
+
+.toast-message {
+  word-wrap: break-word;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 //media queries

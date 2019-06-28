@@ -164,4 +164,41 @@ p-dataTable {
       margin-bottom: 60px;
     }
   }
+
+  select {
+    position: relative;
+    box-sizing: border-box;
+    min-width: 300px;
+    height: 40px;
+    box-shadow: rgb(255, 255, 255) 0px 0px 0px 0px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 4px;
+    transition: box-shadow 0.2s ease 0s;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(237, 239, 241);
+    border-image: initial;
+    display: block;
+    caret-color: rgb(0, 121, 211);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+    vertical-align: middle;
+    color: rgb(28, 28, 28);
+    padding: 0 10px;
+  }
+}
+
+
+.my_posts .posts_items {
+  width: 600px;
+  border: 1px solid #dddfe2;
+  border-radius: 3px;
+  background-color: #fff;
+  margin: 40px 0;
+  padding: 0;
+}
+
+.my_posts .posts_items .text-block {
+  padding: 10px 15px;
 }
