@@ -20,10 +20,12 @@ export class CommerceComponent implements OnInit {
     count = 0;
     pages = [];
     searchTerm;
-    defaultRecords = 5;
-    filteredPosts;
 
-    constructor(private home: HomeService, private router: Router, private subject: SubjectService) {
+    constructor(
+        private home: HomeService,
+        private router: Router,
+        private subject: SubjectService
+    ) {
     }
 
 
@@ -48,10 +50,6 @@ export class CommerceComponent implements OnInit {
             });
 
             this.posts = data;
-
-            this.posts = data;
-            this.filteredPosts.news = data.news.slice(0, this.defaultRecords);
-
             // console.log(this.posts);
             /*  this.postData = data;*/
             this.count = data['count'];

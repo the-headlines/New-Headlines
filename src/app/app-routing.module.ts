@@ -71,7 +71,7 @@ const routes: Routes = [
     {path: 'add-post', component: AddPostComponent, canActivate: [AuthGuard]},
     {path: 'post/:id', component: SinglePostComponent},
     {path: 'subscribe', component: SubscribeComponent},
-    {path: 'managePost', component: PostsHomeComponent},
+    {path: 'managePost', component: PostsHomeComponent, canActivate: [AuthGuard]},
     {path: 'notifications', component: NotificationsBoxComponent},
 ];
 

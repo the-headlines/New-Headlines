@@ -212,7 +212,6 @@ export class HomeComponent implements OnInit {
     }
 
     handle(e) {
-        console.log(this.filteredPosts);
         this.filteredPosts.news = this.posts.news.slice(e.pageIndex * e.pageSize,
             e.pageIndex * e.pageSize + e.pageSize);
     }

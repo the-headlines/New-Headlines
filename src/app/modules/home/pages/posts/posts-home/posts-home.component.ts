@@ -11,12 +11,13 @@ import * as moment from 'moment';
     styleUrls: ['./posts-home.component.scss']
 })
 export class PostsHomeComponent implements OnInit {
-    displayedColumns: string[] = ['date', 'link', 'section', 'edit', 'actions'];
+    displayedColumns: string[] = ['extractedTitle', 'createdAt', 'actions'];
     dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
     @ViewChild(MatPaginator) paginator: MatPaginator;
     data: any = [];
     selectedValue: string;
-    filteredPosts;
+    filteredPosts: any = [];
+    posts;
     categorySelected = false;
 
 
@@ -40,13 +41,18 @@ export class PostsHomeComponent implements OnInit {
     }
 
     selectCategory(c) {
-        this.home.getPostsByCategory(c.source.value).subscribe(dt => {
+        this.home.getPostsByCategory(c.source.value).subscribe((dt: any) => {
             dt['news'].sort((a, b) => {
                 return moment(b['createdAt']).unix() - moment(a['createdAt']).unix();
             });
-            this.filteredPosts = dt;
+            this.posts = dt;
+            this.filteredPosts = new MatTableDataSource(dt.news);
             this.categorySelected = true;
         });
+    }
+
+    getPostDate(dt) {
+        return moment(dt).format('DD/MM/YYYY');
     }
 }
 

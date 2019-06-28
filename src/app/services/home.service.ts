@@ -11,31 +11,31 @@ export class HomeService {
     }
 
     getData() {
-        return this.http.get(Base.url + '/api/news/category/Influence?pagesize=100&page=1');
+        return this.http.get(Base.url + '/api/news/category/Influence?pagesize=30&page=1');
     }
 
     getPictures() {
-        return this.http.get(Base.url + '/api/news/category/CameraPictures?pagesize=100&page=1');
+        return this.http.get(Base.url + '/api/news/category/CameraPictures?pagesize=30&page=1');
     }
 
     getRoadToFame() {
-        return this.http.get(Base.url + '/api/news/category/StyleAndSweat?pagesize=100&page=1');
+        return this.http.get(Base.url + '/api/news/category/StyleAndSweat?pagesize=30&page=1');
     }
 
     getDeals() {
-        return this.http.get(Base.url + '/api/news/category/LoveDesigns?pagesize=100&page=1');
+        return this.http.get(Base.url + '/api/news/category/LoveDesigns?pagesize=30&page=1');
     }
 
     getCommerce() {
-        return this.http.get(Base.url + '/api/news/category/JumpStartups?pagesize=100&page=1');
+        return this.http.get(Base.url + '/api/news/category/JumpStartups?pagesize=30&page=1');
     }
 
     getTravel() {
-        return this.http.get(Base.url + '/api/news/category/HumanStories?pagesize=100&page=1');
+        return this.http.get(Base.url + '/api/news/category/HumanStories?pagesize=30&page=1');
     }
 
     getPostsByCategory(category) {
-        return this.http.get(`${Base.url}/api/user/news/${category}?pagesize=100&page=1`);
+        return this.http.get(`${Base.url}/api/user/news/${category}?pagesize=30&page=1`);
     }
 
     getVoiceValue() {

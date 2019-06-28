@@ -43,11 +43,11 @@
                             </ul>
                         </div>
                     </div>
-                    <mat-paginator *ngIf="posts.news" (page)="handle($event)" #paginator
-                                   [length]="getLength(posts.news| searchNews: searchTerm)"
-                                   [pageSize]="defaultRecords"
-                                   [pageSizeOptions]="[2,5,10,25,100]">
-                    </mat-paginator>
+<!--                    <mat-paginator *ngIf="posts.news" (page)="handle($event)" #paginator-->
+<!--                                   [length]="getLength(posts.news| searchNews: searchTerm)"-->
+<!--                                   [pageSize]="defaultRecords"-->
+<!--                                   [pageSizeOptions]="[2,5,10,25,100]">-->
+<!--                    </mat-paginator>-->
 
                     <div class="loop_items item posts_items"
                          *ngFor="let single of filteredPosts.news| searchNews: searchTerm">
