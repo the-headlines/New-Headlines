@@ -28,10 +28,10 @@ export class PostsHomeComponent implements OnInit {
 
     categories: Categorie[] = [
         {value: 'Influence', viewValue: 'Influence'},
-        {value: 'StyleAndSweat', viewValue: 'Style and sweat'},
+        {value: 'StyleAndSweat', viewValue: 'Style And Sweat'},
         {value: 'CameraPictures', viewValue: 'Camera Pictures'},
-        {value: 'JumpStartups', viewValue: 'Jump Startups'},
         {value: 'HumanStories', viewValue: 'Human Stories'},
+        {value: 'JumpStartups', viewValue: 'Jump Startups'},
         {value: 'LoveDesigns', viewValue: 'Love Designs'},
         {value: 'Videos', viewValue: 'Videos'}
     ];

@@ -37,40 +37,37 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="loop_items item posts_items">
-                    <ng-container *ngFor="let post of posts.news|searchNews:searchTerm">
-                        <div class="post_wrapper">
-                            <div class="user_posts">
-                                <div class="userName">
-                                    <div>
-                                        <h3>
-                                            <span>Posted by</span>
-                                            {{post.creator.name}}</h3>
-                                        <p class="updateDate"
-                                           [matTooltip]="getDateFormatted(post.createdAt)">{{getDateFormatted(post.createdAt, false)}}</p>
-                                    </div>
-                                    <app-story-options></app-story-options>
+                <div *ngFor="let post of posts.news|searchNews:searchTerm" class="loop_items item posts_items">
+                    <div class="post_wrapper">
+                        <div class="user_posts">
+                            <div class="userName">
+                                <div>
+                                    <h3>
+                                        <span>Posted by</span>
+                                        {{post.creator.name}}</h3>
+                                    <p class="updateDate"
+                                       [matTooltip]="getDateFormatted(post.createdAt)">{{getDateFormatted(post.createdAt, false)}}</p>
                                 </div>
-                            </div>
-                            <div class="short_desc">
-<!--                                <a href="{{post.link}}">{{post.link}}</a>-->
-                                <h6>{{post.description|stripTags}}</h6>
-                            </div>
-                            <div class="img-block">
-                                <img src="{{post.extractedImage}}" class="img-fluid" alt="">
-                            </div>
-
-                            <div class="text-block">
-                                <a href="{{post.link}}" class="text_block_link" target="_blank">
-                                    <h5 class="news_link">{{getLinkSource(post.link)}}</h5>
-                                    <h3 class="news_title">{{post.extractedTitle}}</h3>
-                                    <p class="news_desc">{{post.extractedDescription}}</p>
-                                </a>
+                                <app-story-options></app-story-options>
                             </div>
                         </div>
-                        <app-status-bar></app-status-bar>
-                    </ng-container>
+                        <div class="short_desc">
+                            <!--                                <a href="{{post.link}}">{{post.link}}</a>-->
+                            <h6>{{post.description|stripTags}}</h6>
+                        </div>
+                        <div class="img-block">
+                            <img src="{{post.extractedImage}}" class="img-fluid" alt="">
+                        </div>
+
+                        <div class="text-block">
+                            <a href="{{post.link}}" class="text_block_link" target="_blank">
+                                <h5 class="news_link">{{getLinkSource(post.link)}}</h5>
+                                <h3 class="news_title">{{post.extractedTitle}}</h3>
+                                <p class="news_desc">{{post.extractedDescription}}</p>
+                            </a>
+                        </div>
+                    </div>
+                    <app-status-bar></app-status-bar>
                 </div>
             </div>
         </section>

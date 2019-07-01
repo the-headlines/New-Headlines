@@ -12,9 +12,9 @@
                             <div class="my_posts">
                                 <form>
                                     <mat-form-field>
-                                        <mat-label>Choose a section</mat-label>
                                         <mat-select [(ngModel)]="selectedValue" name="food"
                                                     (selectionChange)="selectCategory($event)">
+                                            <mat-option disabled [value]="0">Choose a Section</mat-option>
                                             <mat-option *ngFor="let food of categories" [value]="food.value">
                                                 {{food.viewValue}}
                                             </mat-option>

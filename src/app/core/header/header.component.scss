@@ -149,6 +149,7 @@ header {
         justify-content: space-between;
         align-items: center;
         margin: 0;
+        width: 18%;
 
         @media screen and (max-width: 1024px) and (min-width: 768px) {
           display: flex;
@@ -792,3 +793,6 @@ li.margin_top {
 
 /*header end*/
 
+.header-notification{
+  margin-right: 15px;
+}

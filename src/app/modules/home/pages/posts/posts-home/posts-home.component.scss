@@ -87,10 +87,11 @@ p-dataTable {
 }
 
 .post_box_cont {
-  padding-top: 180px;
+  padding-top: 140px;
   padding-bottom: 50px;
 
   .posts_box {
+    padding-top: 50px;
     background: white;
   }
 }
@@ -159,9 +160,10 @@ p-dataTable {
     margin: 0 auto;
 
     h3 {
-      border-bottom: 3px solid #e14040;
-      padding-bottom: 20px;
-      margin-bottom: 60px;
+      //border-bottom: 3px solid #e14040;
+      padding-bottom: 0;
+      margin-bottom: 30px;
+      text-transform: capitalize;
     }
   }
 
