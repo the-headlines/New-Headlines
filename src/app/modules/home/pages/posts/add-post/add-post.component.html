@@ -10,7 +10,8 @@
                                 <div class="sub_headline post_a_link">
                                     <h2> Post a link</h2>
                                     <mat-form-field>
-                                        <mat-select formControlName="category" (selectionChange)="getCurrentSection($event.value)">
+                                        <mat-select formControlName="category"
+                                                    (selectionChange)="getCurrentSection($event.value)">
                                             <mat-option disabled [value]="0">Choose a Section</mat-option>
                                             <mat-option *ngFor="let food of categories" [value]="getValue(food)">
                                                 {{food.viewValue}}
@@ -32,13 +33,11 @@
                                             <div *ngIf="type === 'directive'" class="dropzone dropzone-container"
                                                  (init)="onUploadInit($event)" (error)="onUploadError($event)"
                                                  (success)="onUploadSuccess($event)"></div>
-
-
-                                            <!--                                            <mat-error-->
-                                            <!--                                                    *ngIf="postForm.get('description').dirty && postForm.get('description').hasError('required')">-->
-                                            <!--                                                Post-->
-                                            <!--                                                description is required-->
-                                            <!--                                            </mat-error>-->
+                                            <!--<mat-error-->
+                                            <!--*ngIf="postForm.get('description').dirty && postForm.get('description').hasError('required')">-->
+                                            <!--Post-->
+                                            <!--description is required-->
+                                            <!--</mat-error>-->
                                         </mat-tab>
                                         <mat-tab label="Link">
                                             <div class="link">
@@ -66,7 +65,7 @@
                                     <div class="post_or_cancel">
                                         <button class="blue">NSFW</button>
                                         <div>
-                                            <button mat-raised-button  class="red cancelPost">
+                                            <button mat-raised-button class="red cancelPost">
                                                 Cancel
                                             </button>
                                             <button mat-raised-button class="blue postBtn" (click)="upload_files()">

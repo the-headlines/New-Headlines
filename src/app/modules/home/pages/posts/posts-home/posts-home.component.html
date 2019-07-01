@@ -10,9 +10,9 @@
                                 <h3> My posts </h3>
                             </div>
                             <div class="my_posts">
-                                <form>
+                                <form [formGroup]="postForm">
                                     <mat-form-field>
-                                        <mat-select [(ngModel)]="selectedValue" name="food"
+                                        <mat-select name="food" formControlName="category"
                                                     (selectionChange)="selectCategory($event)">
                                             <mat-option disabled [value]="0">Choose a Section</mat-option>
                                             <mat-option *ngFor="let food of categories" [value]="food.value">
@@ -22,14 +22,9 @@
                                     </mat-form-field>
                                 </form>
 
-
-                                <ng-container class="news-block"
-                                >
-
+                                <ng-container class="news-block">
                                     <table mat-table [dataSource]="filteredPosts" class="mat-elevation-z8 postsTable"
                                            *ngIf="categorySelected && posts && posts.news && posts.news.length!==0">
-
-
                                         <!-- Name Column -->
                                         <ng-container matColumnDef="extractedTitle">
                                             <th mat-header-cell *matHeaderCellDef> Name of the post</th>
@@ -69,12 +64,9 @@
                                             </td>
                                         </ng-container>
 
-
                                         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                                         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
                                     </table>
-
-
                                     <!--                                    <div class="user_posts" *ngIf="filteredPosts">-->
                                     <!--                                        <div class="loop_items item posts_items"-->
                                     <!--                                             *ngFor="let single of filteredPosts.news| searchNews: searchTerm">-->
