@@ -17,10 +17,9 @@
                     <div class="Emoji Emoji--like">
                         <div class="">
                             <button class="blue" (click)="vote('Like', single._id)" [class.gray]="!upwote"
-                                    [hidden]="routerUrl !== '/road' && routerUrl !== '/travel' && routerUrl !== '/commerce' && routerUrl !== '/videos'">
+                                    [hidden]="routerUrl !== '/road' && routerUrl !== '/travel' && routerUrl !== '/commerce' && routerUrl !== '/video'">
                                 Like
                                 <p class="num" *ngIf="openNum">20</p>
-
                             </button>
                         </div>
                     </div>
@@ -119,7 +118,7 @@
                     <!--</div>-->
                     <div class="Emoji Emoji--love" [hidden]="routerUrl !== '/deals'">
                         <div class="">
-                            <button class="gray">Love the colour</button>
+                            <button class="gray heart"><i class="fas fa-heart"></i> the colour</button>
                             <p class="num" *ngIf="openNum">30</p>
                         </div>
                     </div>

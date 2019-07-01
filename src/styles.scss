@@ -403,13 +403,27 @@ img {
   width: auto;
 }
 
+.heart i {
+  color: rgb(244, 50, 42) !important;
+}
+
+.toast-success.ngx-toastr.ng-trigger.ng-trigger-flyInOut {
+  width: auto !important;
+  min-width: auto;
+}
+
+.toast-success.ngx-toastr.ng-trigger.ng-trigger-flyInOut .toast-message{
+  width: auto !important;
+  min-width: auto;
+}
+
 .news-block {
   .posts_items {
     width: 600px;
     border: 1px solid #dddfe2;
     border-radius: 3px;
     background-color: #fff;
-    margin: 40px 0;
+    margin: 10px 0;
   }
 
   .post_wrapper {
@@ -2299,13 +2313,6 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
 .mat-option-text {
   overflow: visible !important;
   font-size: 15px;
-}
-
-.toast-message {
-  word-wrap: break-word;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
 }
 
 //media queries
