@@ -47,6 +47,7 @@ export class AddPostComponent implements OnInit {
     files = [];
     videoLink = false;
     selectedCategory;
+    editCase = false;
 
     constructor(
         private http: HttpClient,
@@ -58,11 +59,7 @@ export class AddPostComponent implements OnInit {
         private toastr: ToastrService
     ) {
 
-        const id = this.route.snapshot.params.id;
 
-        if (id) {
-
-        }
     }
 
     ngOnInit() {
@@ -74,11 +71,21 @@ export class AddPostComponent implements OnInit {
         });
 
         this.postForm.patchValue({category: 0});
+
+
+        const id = this.route.snapshot.params.id;
+        if (id) {
+            this.editCase = true;
+            this.posts.getPost(id).subscribe(dt => {
+                this.postForm.patchValue(dt);
+
+            });
+        }
+
+
     }
 
     upload_files() {
-        console.log(this.postForm.value);
-
 
         if (this.postForm.valid) {
             const formData = new FormData();
@@ -94,11 +101,21 @@ export class AddPostComponent implements OnInit {
             });
             // formData.forEach(entries => console.log(entries));
 
-            this.auth.uploadPost(this.postForm.value).subscribe((r: any) => {
-                this.toastr.success('The post has been added successfully');
-                this.router.navigate(['/']);
-                // localStorage.setItem('this.postForm', JSON.stringify(r));
-            });
+            if (!this.editCase) {
+                this.auth.uploadPost(this.postForm.value).subscribe((r: any) => {
+                    this.toastr.success('The post has been added successfully');
+                    this.router.navigate(['/']);
+                    // localStorage.setItem('this.postForm', JSON.stringify(r));
+                });
+            } else {
+                this.posts.update(this.route.snapshot.params.id, this.postForm.value).subscribe((r: any) => {
+                    this.toastr.success('The post has been updated successfully');
+                    this.router.navigate(['/']);
+                    // localStorage.setItem('this.postForm', JSON.stringify(r));
+                });
+            }
+
+
         }
     }
 

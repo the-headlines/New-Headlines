@@ -14,8 +14,12 @@ export class PostsService {
         return this.http.post(Base.url + '/api/news?=', data);
     }
 
-    public getPosts() {
-        return this.http.get(Base.url + '/');
+    public getPost(id) {
+        return this.http.get(Base.url + '/api/news/' + id);
+    }
+
+    public update(id, data) {
+        return this.http.put(Base.url + '/api/news/' + id, data);
     }
 
     public remove(id) {
