@@ -149,6 +149,10 @@ export class AddPostComponent implements OnInit {
         // this.newPost = this.http.post(this.POST_URL + '/api/user/signup', data);
     }
 
+    cancelPosting() {
+        this.router.navigate([this.editCase ? '/managePost' : '/']);
+    }
+
     setVideo(e) {
         this.postForm.patchValue({video: e.checked});
     }
