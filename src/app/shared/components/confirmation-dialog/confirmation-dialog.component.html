@@ -1,0 +1,8 @@
+<div class="dialogContainer">
+    <p>Are you sure you want to remove the current post?</p>
+
+    <div class="actions">
+        <button mat-flat-button (click)="cancel()">Cancel</button>
+        <button mat-raised-button color="warn" [mat-dialog-close]="true" cdkFocusInitial>Remove</button>
+    </div>
+</div>

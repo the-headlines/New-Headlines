@@ -37,7 +37,7 @@ import {
     MatPaginatorModule,
     MatSelectModule,
     MatDialogModule,
-    MatSlideToggleModule
+    MatSlideToggleModule, MatDialogRef
 } from '@angular/material';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {SinglePostComponent} from './modules/home/pages/single-post/single-post.component';
@@ -78,9 +78,10 @@ import {JwtModule} from '@auth0/angular-jwt';
 import {SearchNewsPipe} from './shared/pipes/search-news.pipe';
 import {FilterPipeModule} from 'ngx-filter-pipe';
 import {DataTableModule} from 'primeng/primeng';
-import { StoryOptionsComponent } from './core/story-options/story-options.component';
-import { GetPostDateFormattedPipe } from './shared/pipes/get-post-date-formatted.pipe';
-import { GetUrlBasePipe } from './shared/pipes/get-url-base.pipe';
+import {StoryOptionsComponent} from './core/story-options/story-options.component';
+import {GetPostDateFormattedPipe} from './shared/pipes/get-post-date-formatted.pipe';
+import {GetUrlBasePipe} from './shared/pipes/get-url-base.pipe';
+import {ConfirmationDialogComponent} from './shared/components/confirmation-dialog/confirmation-dialog.component';
 
 const config = new AuthServiceConfig([
     {
@@ -133,7 +134,8 @@ export function tokenGetter() {
         SearchNewsPipe,
         StoryOptionsComponent,
         GetPostDateFormattedPipe,
-        GetUrlBasePipe
+        GetUrlBasePipe,
+        ConfirmationDialogComponent
     ],
     imports: [
         BrowserModule,
@@ -195,11 +197,12 @@ export function tokenGetter() {
             useClass: RequestInterceptor,
             multi: true
         },
+        { provide: MatDialogRef, useValue: {} },
         SearchNewsPipe
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
     bootstrap: [AppComponent],
-    entryComponents: [LoginComponent, RegisterComponent, EditInfoModalComponent],
+    entryComponents: [LoginComponent, RegisterComponent, EditInfoModalComponent, ConfirmationDialogComponent],
 })
 
 export class AppModule {
