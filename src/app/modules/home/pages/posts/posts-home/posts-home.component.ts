@@ -6,6 +6,8 @@ import {HomeService} from '../../../../../services/home.service';
 import * as moment from 'moment';
 import {PostsService} from '../../../../../services/posts.service';
 import {Router} from '@angular/router';
+import {MatDialog, MatDialogRef} from '@angular/material';
+import {ConfirmationDialogComponent} from '../../../../../shared/components/confirmation-dialog/confirmation-dialog.component';
 
 @Component({
     selector: 'app-posts-home',
@@ -36,7 +38,9 @@ export class PostsHomeComponent implements OnInit {
     constructor(
         private home: HomeService,
         private postsService: PostsService,
-        public router: Router
+        public router: Router,
+        private matDialog: MatDialog,
+        private dialogRef: MatDialogRef<ConfirmationDialogComponent>
     ) {
     }
 
@@ -64,10 +68,25 @@ export class PostsHomeComponent implements OnInit {
     }
 
     removePost(id) {
-        this.postsService.remove(id).subscribe((dt: any) => {
-            this.posts = dt;
-            this.filteredPosts = new MatTableDataSource(dt.news);
+        this.dialogRef = this.matDialog.open(ConfirmationDialogComponent, {
+            data: {
+                width: '700px',
+                height: '400px'
+            }
         });
+
+
+        this.dialogRef.afterClosed().subscribe(c => {
+            if (c) {
+                this.postsService.remove(id).subscribe((dt: any) => {
+                    this.posts = dt;
+                    this.filteredPosts = new MatTableDataSource(dt.news);
+                });
+            }
+
+        });
+
+
     }
 
     editPost(id) {
