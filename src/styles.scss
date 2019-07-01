@@ -268,11 +268,30 @@ img {
 
 .modal-body .mat-input-element {
   height: 47px;
-  border: solid 1px #959595;
   background-color: #fafafa;
-  width: 100%;
   padding: 0 20px;
-  border-radius: 7px;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 3px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #262626;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  font-size: 14px;
+  position: relative;
+  -webkit-appearance: none;
+  width: 100%;
+  border: 1px solid #efefef;
 }
 
 .cdk-overlay-container {
@@ -689,8 +708,6 @@ a {
   .mat-form-field-infix {
     width: 240px !important;
     border: 1px solid #999 !important;
-    height: 39px;
-    background-color: #fff;
     font-family: "Lato-Regular";
     font-size: 12px;
     font-style: normal;
@@ -700,15 +717,15 @@ a {
   }
 
   .ng-star-inserted {
-    background-color: unset;
-    font-family: "Lato-Regular";
-    font-size: 14px;
-    font-style: normal;
-    font-stretch: normal;
-    text-align: left;
-    color: #000000;
+    //background-color: unset;
+    //font-family: "Lato-Regular";
+    //font-size: 14px;
+    //font-style: normal;
+    //font-stretch: normal;
+    //text-align: left;
+    //color: #000000;
     padding-left: 3px;
-    padding-top: 4px;
+    //padding-top: 4px;
   }
 
   .mat-select-panel .mat-option.mat-selected:not(.mat-option-multiple) {
@@ -763,14 +780,6 @@ a {
 /*main section end*/
 
 .sidebar {
-  background-color: #fff;
-  border: solid 1px #959595;
-  padding: 40px 40px 0;
-
-  @media screen and (max-width: 1800px) {
-    padding: 40px 20px 15px !important;
-    width: 100% !important;
-  }
 
   .mat-tab-body-wrapper {
     margin-top: 20px;
@@ -1524,7 +1533,9 @@ label#mat-form-field-label-11 {
 }
 
 .modal-body form button.login .mat-button-wrapper {
-  font-size: 20px;
+  font-family: "Lato-Regular";
+  font-size: 17px;
+  font-weight: normal;
 }
 
 .modal-body {
@@ -1688,7 +1699,6 @@ textarea {
   color: red;
 }
 
-
 .news-block .img-block img {
   width: 100%;
 }
@@ -1701,13 +1711,16 @@ label {
   &#mat-form-field-label-3,
   &#mat-form-field-label-1,
   &#mat-form-field-label-5,
-  #mat-form-field-label-7 {
-    padding: 2px 0 0 20px;
+  &#mat-form-field-label-7 {
+    padding: 12px 0 0 20px;
+    font-size: 14px;
   }
 }
 
-label#mat-form-field-label-7, label#mat-form-field-label-9 {
-  padding: 5px 0 0 20px;
+label#mat-form-field-label-7,
+label#mat-form-field-label-9 {
+  padding: 12px 0 0 20px;
+  font-size: 14px;
 }
 
 .sub_headline {
@@ -1737,6 +1750,7 @@ label#mat-form-field-label-7, label#mat-form-field-label-9 {
   -webkit-transform: translateY(20px);
   transform: translateY(20px);
   z-index: 9999999;
+  top: 80px;
 
   &:before {
     content: "";
@@ -2012,8 +2026,9 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
     letter-spacing: 0.5px;
     text-align: center;
     text-transform: uppercase;
-    color: white;
+    color: #807f81;
     border: none;
+    background: white;
 
     &:first-child {
       padding: 0 20px;
@@ -2257,7 +2272,7 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
 
 .cdk-overlay-container {
   left: 0;
-  top: 100px;
+  //top: 100px;
 }
 
 .cdk-overlay-connected-position-bounding-box {
@@ -2271,7 +2286,6 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
 }
 
 .post_content .mat-form-field-infix {
-  padding-top: 8px;
   position: relative;
   box-sizing: border-box;
   min-width: 300px;
@@ -2280,10 +2294,6 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
   box-shadow: rgb(255, 255, 255) 0px 0px 0px 0px;
   border-radius: 4px;
   transition: box-shadow 0.2s ease 0s;
-  border-width: 1px;
-  border-style: solid;
-  border-color: rgb(237, 239, 241);
-  border-image: initial;
 }
 
 .mat-option-text {

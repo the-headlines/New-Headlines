@@ -16,27 +16,36 @@
 
                     <div class="Emoji Emoji--like">
                         <div class="">
-                            <button class="blue" (click)="vote('Like', single._id)" [class.gray]="!upwote">
+                            <button class="blue" (click)="vote('Like', single._id)" [class.gray]="!upwote"
+                                    [hidden]="routerUrl !== '/road' && routerUrl !== '/travel' && routerUrl !== '/commerce' && routerUrl !== '/videos'">
                                 Like
+                                <p class="num" *ngIf="openNum">20</p>
+
                             </button>
-                            <p class="num" *ngIf="openNum">20</p>
                         </div>
                     </div>
+                    <div class="Emoji Emoji--love" [hidden]="routerUrl !== '/pictures'">
+                        <div class="">
+                            <button class="gray">Awesome</button>
+                            <p class="num" *ngIf="openNum">30</p>
+                        </div>
+                    </div>
+
                     <div class="Emoji Emoji--love" [hidden]="routerUrl !== '/road'">
                         <div class="">
-                            <button class="gray">ok</button>
+                            <button class="gray">Good</button>
                             <p class="num" *ngIf="openNum">30</p>
                         </div>
                     </div>
                     <div class="Emoji Emoji--love" [hidden]="routerUrl !== '/road'">
                         <div class="">
-                            <button class="blue">Awesome</button>
+                            <button class="blue">Top Class</button>
                             <p class="num" *ngIf="openNum">30</p>
                         </div>
                     </div>
                     <div class="Emoji Emoji--love" [hidden]="routerUrl !== '/road'">
                         <div class="">
-                            <button class="blue">Great</button>
+                            <button class="blue">Magic</button>
                             <p class="num" *ngIf="openNum">30</p>
                         </div>
                     </div>
@@ -53,6 +62,19 @@
                             <p class="num" *ngIf="openNum">30</p>
                         </div>
                     </div>
+                    <div class="Emoji Emoji--love" [hidden]="routerUrl  !== '/home' && routerUrl !== '/'">
+                        <div class="">
+                            <button class="blue">Investigate</button>
+                            <p class="num" *ngIf="openNum">30</p>
+                        </div>
+                    </div>
+                    <div class="Emoji Emoji--love" [hidden]="routerUrl  !== '/home' && routerUrl !== '/'">
+                        <div class="">
+                            <button class="blue">Resign</button>
+                            <p class="num" *ngIf="openNum">30</p>
+                        </div>
+                    </div>
+
                     <div class="Emoji Emoji--love" [hidden]="routerUrl !== '/pictures'">
                         <div class="">
                             <button class="gray">hawt</button>
@@ -77,21 +99,39 @@
                             <p class="num" *ngIf="openNum">30</p>
                         </div>
                     </div>
-                    <div class="Emoji Emoji--haha" [hidden]="routerUrl !== '/commerce'">
+                    <div class="Emoji Emoji--love" [hidden]="routerUrl !== '/travel'">
+                        <div class="">
+                            <button class="gray">Inspring</button>
+                            <p class="num" *ngIf="openNum">30</p>
+                        </div>
+                    </div>
+                    <div class="Emoji Emoji--haha" [hidden]="routerUrl !== '/videos'">
                         <div class="">
                             <button class="blue">Useful</button>
                             <p class="num" *ngIf="openNum">50</p>
                         </div>
                     </div>
-                    <div class="Emoji Emoji--love" [hidden]="routerUrl !== '/travel'">
+                    <!--<div class="Emoji Emoji&#45;&#45;love" [hidden]="routerUrl !== '/travel'">-->
+                    <!--<div class="">-->
+                    <!--<button class="gray">Recommend</button>-->
+                    <!--<p class="num" *ngIf="openNum">30</p>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <div class="Emoji Emoji--love" [hidden]="routerUrl !== '/deals'">
                         <div class="">
-                            <button class="gray">Recommend</button>
+                            <button class="gray">Love the colour</button>
                             <p class="num" *ngIf="openNum">30</p>
                         </div>
                     </div>
                     <div class="Emoji Emoji--love" [hidden]="routerUrl !== '/deals'">
                         <div class="">
-                            <button class="gray">Genuine</button>
+                            <button class="gray">Grand</button>
+                            <p class="num" *ngIf="openNum">30</p>
+                        </div>
+                    </div>
+                    <div class="Emoji Emoji--love" [hidden]="routerUrl !== '/deals'">
+                        <div class="">
+                            <button class="gray">Creative</button>
                             <p class="num" *ngIf="openNum">30</p>
                         </div>
                     </div>

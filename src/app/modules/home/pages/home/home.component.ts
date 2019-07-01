@@ -81,6 +81,8 @@ export class HomeComponent implements OnInit {
             this.searchTerm = s;
         });
 
+
+        // this.toastr.success('Hello from here', '', {disableTimeOut: true});
     }
 
     // public set sessionId(value: string) {

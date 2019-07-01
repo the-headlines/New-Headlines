@@ -27,7 +27,7 @@
                 <ul>
                     <li class="post" ng-class="{ active: isActive('/posts') }">
                         <a *ngIf="!checkUser()" mat-button (click)="showLogin()">post</a>
-                        <a *ngIf="checkUser() && router.url!='/add-post'" routerLink="/add-post" mat-button>post</a>
+                        <a *ngIf="checkUser()" routerLink="/add-post" mat-button>post</a>
                     </li>
                     <li class="login">
                         <a *ngIf="!auth.loggedIn()" mat-button (click)="showLogin()">login / sign up</a>
@@ -36,7 +36,8 @@
                     <li class="logout">
                         <ul *ngIf="checkUser()">
                             <li class="header-notification">
-                                <button mat-button [matMenuTriggerFor]="belowMenu" class="not_btn" *ngIf="auth.loggedIn()">
+                                <button mat-button [matMenuTriggerFor]="belowMenu" class="not_btn"
+                                        *ngIf="auth.loggedIn()">
                                     <span class="bell">
                                         <i class="fas fa-bell"></i>
                                         <span class="badge bg-c-red">5</span>
@@ -65,7 +66,7 @@
                             </li>
                             <li class="user-profile header-notification" *ngIf="auth.loggedIn()">
                                 <button mat-button [matMenuTriggerFor]="beforeMenu" #trigger="matMenuTrigger"
-                                         class="user_name">
+                                        class="user_name">
 
                                     <span class="userFullName">{{userData ? userData.fullName : '/n/a'}}</span>
                                     <i class="feather icon-chevron-down"></i>

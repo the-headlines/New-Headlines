@@ -74,6 +74,7 @@
     box-shadow: 0 2px 17px 3px rgba(0, 0, 0, 0.13);
     background-color: #ffffff;
     border-radius: unset;
+    margin-top: -132px;
   }
 
   &-title {
@@ -132,20 +133,23 @@
     }
 
     button.login {
-      width: 100%;
-      height: 47px;
-      border: solid 1px #959595;
-      background-color: #3788c6;
-      color: white;
-      font-family: 'Lato-Regular';
-      font-size: 20px;
+      font-family: "Lato-Regular";
+      font-size: 17px;
       font-weight: normal;
       font-style: normal;
       font-stretch: normal;
-      letter-spacing: normal;
+      /* line-height: 0.76; */
+      /* letter-spacing: 0.4px; */
+      color: #ffffff;
+      border: unset;
+      display: inline-block;
+      /* padding: 3px; */
       text-align: center;
-      margin-top: 0;
-      margin-bottom: 0;
+      background: #4e98e9;
+      width: 100%;
+      margin-bottom: 25px;
+      border-radius: 5px;
+      height: 39px;
 
 
        .mat-button-wrapper{
