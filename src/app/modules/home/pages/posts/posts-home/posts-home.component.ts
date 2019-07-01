@@ -8,6 +8,7 @@ import {PostsService} from '../../../../../services/posts.service';
 import {Router} from '@angular/router';
 import {MatDialog, MatDialogRef} from '@angular/material';
 import {ConfirmationDialogComponent} from '../../../../../shared/components/confirmation-dialog/confirmation-dialog.component';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
     selector: 'app-posts-home',
@@ -40,7 +41,8 @@ export class PostsHomeComponent implements OnInit {
         private postsService: PostsService,
         public router: Router,
         private matDialog: MatDialog,
-        private dialogRef: MatDialogRef<ConfirmationDialogComponent>
+        private dialogRef: MatDialogRef<ConfirmationDialogComponent>,
+        private toastr: ToastrService
     ) {
     }
 
@@ -81,6 +83,7 @@ export class PostsHomeComponent implements OnInit {
                 this.postsService.remove(id).subscribe((dt: any) => {
                     this.posts = dt;
                     this.filteredPosts = new MatTableDataSource(dt.news);
+                    this.toastr.success('The post has been removed successfully');
                 });
             }
 
