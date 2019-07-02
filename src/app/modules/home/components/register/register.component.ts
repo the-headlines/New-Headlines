@@ -7,6 +7,7 @@ import {ModalDialog} from '../libs/modal.dialog';
 import {MatDialog, MatDialogRef} from '@angular/material';
 import {ToastrService} from 'ngx-toastr';
 import {SubjectService} from '../../../../services/subject.service';
+import {FormGroup, FormBuilder} from '@angular/forms';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
     isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -23,6 +24,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 
 export class RegisterComponent implements OnInit {
     @ViewChild('loginButt') loginButt: ElementRef;
+    options: FormGroup;
 
     emailFormControl = new FormControl('', [
         Validators.required,
@@ -51,8 +53,13 @@ export class RegisterComponent implements OnInit {
         private matDialog: MatDialog,
         private toastr: ToastrService,
         private subject: SubjectService,
-        private registerDialogRef: MatDialogRef<RegisterComponent>
+        private registerDialogRef: MatDialogRef<RegisterComponent>,
+        private fb: FormBuilder
     ) {
+        this.options = fb.group({
+            hideRequired: false,
+            floatLabel: 'always',
+        });
     }
 
     ngOnInit() {

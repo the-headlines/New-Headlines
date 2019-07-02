@@ -8,6 +8,7 @@ import {MatDialog, MatDialogRef} from '@angular/material';
 import * as JWT from 'jwt-decode';
 import {CommonService} from '../../../../services/common.service';
 import {SubjectService} from '../../../../services/subject.service';
+import {FormGroup, FormBuilder} from '@angular/forms';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
     isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -26,6 +27,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 export class LoginComponent implements OnInit {
     @ViewChild('closest') closest: ElementRef;
     @Output() openRegister = new EventEmitter();
+    options: FormGroup;
 
     emailFormControl = new FormControl('', [
         Validators.required,
@@ -46,8 +48,13 @@ export class LoginComponent implements OnInit {
         private matDialog: MatDialog,
         private common: CommonService,
         private subject: SubjectService,
-        private loginDialogRef: MatDialogRef<LoginComponent>
+        private loginDialogRef: MatDialogRef<LoginComponent>,
+        private fb: FormBuilder
     ) {
+        this.options = fb.group({
+            hideRequired: false,
+            floatLabel: 'always',
+        });
     }
 
     ngOnInit() {

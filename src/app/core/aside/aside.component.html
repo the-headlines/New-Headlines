@@ -8,7 +8,7 @@
                         Headlines
                     </ng-template>
                     <ul>
-                        <li class="item" *ngFor="let singleLastet of lastet.news">
+                        <li class="item" *ngFor="let singleLastet of lastet.news | slice:0:show let i=index">
                             <div class="img-block">
                                 <img *ngIf="singleLastet.img" src="../../../assets/images/{{singleLastet.img}}"
                                      class="img-fluid" alt="">
@@ -21,28 +21,8 @@
                         </li>
                     </ul>
                     <div class="show-more">
-                        <span class=" active">Show more</span>
-                    </div>
-                </mat-tab>
-                <mat-tab>
-                    <ng-template mat-tab-label>
-                        <mat-icon>Questions</mat-icon>
-                    </ng-template>
-                    <ul>
-                        <li class="item" *ngFor="let singleLastet of lastet.news">
-                            <div class="img-block">
-                                <img *ngIf="singleLastet.img" src="../../../assets/images/{{singleLastet.img}}"
-                                     class="img-fluid" alt="">
-                            </div>
-                            <div class="text-block">
-                                <h5 class="title" (click)="getSingle(singleLastet.link)">{{singleLastet.title}}</h5>
-                                <p class="description">{{singleLastet.description|stripTags}}</p>
-                                <span class="date">{{singleLastet.created_date}}</span>
-                            </div>
-                        </li>
-                    </ul>
-                    <div class="show-more">
-                        <span class=" active">Show more</span>
+                        <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
+                                       (page)="onPageChanged($event)"></mat-paginator>
                     </div>
                 </mat-tab>
             </mat-tab-group>
@@ -55,7 +35,7 @@
                 <div class="s1m7ksmt-0 drEVnI">
                     <div class="s3m0u52-0 bdzHTz">
                         <div>
-                            <a class="s1m7ksmt-1 ebuWXQ" routerLink="">about us</a>
+                            <a class="s1m7ksmt-1 ebuWXQ" routerLink="">about</a>
                             <a class="s1m7ksmt-1 ebuWXQ" routerLink="">content policy</a>
                         </div>
                     </div>

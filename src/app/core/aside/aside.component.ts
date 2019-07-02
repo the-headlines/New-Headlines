@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AsideService} from '../../services/aside.service';
 import {Router} from '@angular/router';
+import {PageEvent} from '@angular/material';
 
 @Component({
     selector: 'app-aside',
@@ -8,12 +9,36 @@ import {Router} from '@angular/router';
     styleUrls: ['./aside.component.scss']
 })
 export class AsideComponent implements OnInit {
+    show = 5;
 
+    // MatPaginator Inputs
+    length = 10;
+    pageSize = 5;
+    pageSizeOptions: number[] = [1, 2, 3, 4, 5];
+
+    // MatPaginator Output
+    pageEvent: PageEvent;
+
+    datasource = [];
+    lastet: any = [];
 
     constructor(private  aside: AsideService, private router: Router) {
+        for (let i = 0; i < 20; i++) {
+            let dummyObject = this.lastet.singleLastet;
+            this.datasource.push(dummyObject);
+        }
+        this.lastet = this.datasource.slice(0, this.pageSize);
     }
 
-    lastet: any = [];
+    setPageSizeOptions(setPageSizeOptionsInput: string) {
+        this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
+    }
+
+    onPageChanged(e) {
+        let firstCut = e.pageIndex * e.pageSize;
+        let secondCut = firstCut + e.pageSize;
+        this.lastet = this.datasource.slice(firstCut, secondCut);
+    }
 
     ngOnInit() {
         this.getLasted();
