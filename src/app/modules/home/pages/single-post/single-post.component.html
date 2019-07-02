@@ -153,19 +153,24 @@
                                     <div class="Emojis">
                                         <div class="Emoji Emoji--like">
                                             <div class="">
-                                                <button class="blue" (click)="vote('Like', singlePost._id)" [class.gray]="!upwote">Like</button>
+                                                <button class="blue" (click)="vote('Like', singlePost._id)"
+                                                        [class.gray]="!upwote">Like
+                                                </button>
                                                 <p class="num">20</p>
                                             </div>
                                         </div>
                                         <div class="Emoji Emoji--love">
                                             <div class="">
-                                                <button class="gray" (click)="vote('Promising', singlePost._id)">Promising</button>
+                                                <button class="gray" (click)="vote('Promising', singlePost._id)">
+                                                    Promising
+                                                </button>
                                                 <p class="num">30</p>
                                             </div>
                                         </div>
                                         <div class="Emoji Emoji--haha">
                                             <div class="">
-                                                <button class="blue" (click)="vote('Useful', singlePost._id)">Useful</button>
+                                                <button class="blue" (click)="vote('Useful', singlePost._id)">Useful
+                                                </button>
                                                 <p class="num">50</p>
                                             </div>
                                         </div>
@@ -218,17 +223,20 @@
                         <p>Comment as <span>{{userData.fullName}}</span>
                     </div>
                     <div class="border">
-                        <form [formGroup]="postForm">
-                            <!--                                <input formControlName="text">-->
-                            <ckeditor formControlName="text" *ngIf="showCk"
-                                      name="message" class="add_comm_or_question_area"
-                            >
-                                <!--                                    <ckbutton [name]="'saveButton'" [command]="'saveCmd'" -->
+                        <form [formGroup]="postForm" class="postCommentsForm">
+                            <textarea formControlName="text" (keypress)="onEditorChange($event)"></textarea>
+                            <mat-checkbox [checked]="postOnEnter" color="primary">
+                                <small class="enterHint">Send on "Enter"</small>
+                            </mat-checkbox>
+                            <!--                            <ckeditor formControlName="text" *ngIf="showCk" (keyup)="onEditorChange($event)"-->
+                            <!--                                      name="message" class="add_comm_or_question_area"-->
+                            <!--                            >-->
+                            <!--                                &lt;!&ndash;                                    <ckbutton [name]="'saveButton'" [command]="'saveCmd'" &ndash;&gt;-->
 
-                                <!--                                              [label]="'Save Document'"-->
-                                <!--                                              [toolbar]="'clipboard,1'"></ckbutton>-->
-                                <!--                                              [icon]="'save.png'"-->
-                            </ckeditor>
+                            <!--                                &lt;!&ndash;                                              [label]="'Save Document'"&ndash;&gt;-->
+                            <!--                                &lt;!&ndash;                                              [toolbar]="'clipboard,1'"></ckbutton>&ndash;&gt;-->
+                            <!--                                &lt;!&ndash;                                              [icon]="'save.png'"&ndash;&gt;-->
+                            <!--                            </ckeditor>-->
                             <div class="comments_or_question">
                                 <button id="cancel" type="button" [hidden]="!showCk" (click)="showCk = false">
                                     Cancel
