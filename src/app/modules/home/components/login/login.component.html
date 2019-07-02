@@ -15,7 +15,7 @@
                 <form action="" method="post">
                     <div class="form-group">
                         <div class="example-full-width">
-                            <mat-form-field class="login-inp">
+                            <mat-form-field class="login-inp" [floatLabel]="'never'">
                                 <input matInput placeholder="Email" [formControl]="emailFormControl"
                                        [errorStateMatcher]="matcher" name="email" [(ngModel)]="userLoginInf.email">
 <!--                                <mat-error-->
@@ -33,6 +33,8 @@
                             <mat-form-field class="login-inp">
                                 <label>Password</label>
                                 <input matInput type="password"[formControl]="passFormControl"
+                            <mat-form-field class="login-inp" [floatLabel]="'never'">
+                                <input matInput type="password" placeholder="Password" [formControl]="passFormControl"
                                        [errorStateMatcher]="matcher" name="password"
                                        [(ngModel)]="userLoginInf.password">
 <!--                                <mat-error *ngIf="passFormControl.hasError('required')">-->
