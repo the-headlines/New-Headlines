@@ -9,6 +9,7 @@ import {Router} from '@angular/router';
 import {MatDialog, MatDialogRef} from '@angular/material';
 import {ConfirmationDialogComponent} from '../../../../../shared/components/confirmation-dialog/confirmation-dialog.component';
 import {ToastrService} from 'ngx-toastr';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
     selector: 'app-posts-home',
@@ -24,7 +25,7 @@ export class PostsHomeComponent implements OnInit {
     filteredPosts: any = [];
     posts;
     categorySelected = false;
-
+    postForm: FormGroup;
 
     categories: Categorie[] = [
         {value: 'Influence', viewValue: 'Influence'},
@@ -40,6 +41,7 @@ export class PostsHomeComponent implements OnInit {
         private home: HomeService,
         private postsService: PostsService,
         public router: Router,
+        private fb: FormBuilder,
         private matDialog: MatDialog,
         private dialogRef: MatDialogRef<ConfirmationDialogComponent>,
         private toastr: ToastrService
@@ -48,6 +50,15 @@ export class PostsHomeComponent implements OnInit {
 
     ngOnInit(): void {
         this.dataSource.paginator = this.paginator;
+
+        this.postForm = this.fb.group({
+            description: [null],
+            link: [null],
+            category: [null, Validators.required],
+            video: [false]
+        });
+
+        this.postForm.patchValue({category: 0});
     }
 
     selectCategory(c) {

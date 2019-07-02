@@ -412,7 +412,7 @@ img {
   min-width: auto;
 }
 
-.toast-success.ngx-toastr.ng-trigger.ng-trigger-flyInOut .toast-message{
+.toast-success.ngx-toastr.ng-trigger.ng-trigger-flyInOut .toast-message {
   width: auto !important;
   min-width: auto;
 }
@@ -2305,7 +2305,7 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
   min-width: 300px;
   height: 40px;
   background-color: rgb(255, 255, 255);
-  box-shadow: rgb(255, 255, 255) 0px 0px 0px 0px;
+  box-shadow: rgb(255, 255, 255) 0 0 0 0;
   border-radius: 4px;
   transition: box-shadow 0.2s ease 0s;
 }
@@ -2313,6 +2313,10 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
 .mat-option-text {
   overflow: visible !important;
   font-size: 15px;
+}
+
+.mat-select-value {
+  overflow: visible !important;
 }
 
 //media queries
@@ -2987,9 +2991,9 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
   .menu ul li {
     margin-left: 5%;
   }
+
   .sidebar {
     padding: 40px 20px 15px !important;
-    width: 100% !important;
   }
 }
 

@@ -149,7 +149,7 @@ header {
         justify-content: space-between;
         align-items: center;
         margin: 0;
-        width: 18%;
+        width: 25%;
 
         @media screen and (max-width: 1024px) and (min-width: 768px) {
           display: flex;
@@ -161,9 +161,11 @@ header {
 
         @media screen and (max-width: 768px) {
           justify-content: flex-end;
+          width: 100%;
         }
 
         li {
+
           .mat-button-wrapper {
             font-size: 17px;
           }
@@ -221,6 +223,7 @@ header {
               }
             }
           }
+
         }
       }
     }
@@ -786,13 +789,13 @@ li.margin_top {
 }
 
 .profile_links {
-  li a span{
+  li a span {
 
   }
 }
 
 /*header end*/
 
-.header-notification{
-  margin-right: 15px;
+.header-notification {
+  margin-right: 25px;
 }
