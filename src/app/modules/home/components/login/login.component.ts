@@ -30,12 +30,12 @@ export class LoginComponent implements OnInit {
     options: FormGroup;
 
     emailFormControl = new FormControl('', [
-        Validators.required,
-        Validators.email,
+        // Validators.required,
+        // Validators.email,
     ]);
 
     passFormControl = new FormControl('', [
-        Validators.required
+        // Validators.required
     ]);
 
     matcher = new MyErrorStateMatcher();
