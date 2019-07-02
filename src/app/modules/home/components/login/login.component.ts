@@ -28,12 +28,12 @@ export class LoginComponent implements OnInit {
     @Output() openRegister = new EventEmitter();
 
     emailFormControl = new FormControl('', [
-        Validators.required,
-        Validators.email,
+        // Validators.required,
+        // Validators.email,
     ]);
 
     passFormControl = new FormControl('', [
-        Validators.required
+        // Validators.required
     ]);
 
     matcher = new MyErrorStateMatcher();

@@ -147,5 +147,6 @@ export class HeaderComponent implements OnInit {
         localStorage.setItem('userInf', null);
         localStorage.setItem('token', '');
         localStorage.setItem('full_name', null);
+        this.router.navigate(['/']);
     }
 }
