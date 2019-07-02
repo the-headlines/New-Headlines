@@ -1729,6 +1729,7 @@ label {
   &#mat-form-field-label-7 {
     padding: 12px 0 0 20px;
     font-size: 14px;
+    color: #8e8e8e;
   }
 }
 
@@ -1736,6 +1737,7 @@ label#mat-form-field-label-7,
 label#mat-form-field-label-9 {
   padding: 12px 0 0 20px;
   font-size: 14px;
+  color: #8e8e8e;
 }
 
 .sub_headline {
@@ -2065,6 +2067,19 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
   }
 }
 
+.Emoji div button {
+  transition: 500ms;
+
+  i {
+    color: #3788cb;
+  }
+
+  &:hover {
+    color: #3788c6;
+    transition: 500ms;
+  }
+}
+
 .hovered_number:hover .num {
   display: block;
 }
@@ -2088,7 +2103,6 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
     -webkit-transform: scale(1) translate3d(0, -10%, 0);
     transform: scale(1) translate3d(0, -10%, 0);
   }
-
 }
 
 .num {
@@ -2328,6 +2342,14 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
   .topNewsPaginator .mat-paginator-range-label {
     display: none !important;
   }
+}
+
+
+.mat-form-field-appearance-legacy.mat-form-field-can-float .mat-input-server:focus + .mat-form-field-label-wrapper .mat-form-field-label, .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+  -webkit-transform: translateY(-1.28125em) scale(.75) perspective(100px) translateZ(.001px);
+  transform: translateY(-0.6em) scale(.75) perspective(100px) translateZ(0.001px);
+  -ms-transform: translateY(-1.28125em) scale(.75);
+  width: 100%;
 }
 
 //media queries

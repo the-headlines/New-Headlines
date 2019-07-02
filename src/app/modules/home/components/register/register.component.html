@@ -13,7 +13,7 @@
                 <form action="" method="post">
                     <div class="form-group">
                         <div class="example-full-width">
-                            <mat-form-field class="login-inp"  [floatLabel]="'never'">
+                            <mat-form-field class="login-inp">
                                 <input matInput placeholder="Email Address" [formControl]="emailFormControl"
                                        [errorStateMatcher]="matcher" name="email" [(ngModel)]="userRegisInf.email">
                                 <mat-error
@@ -26,10 +26,9 @@
                             </mat-form-field>
                         </div>
                     </div>
-
                     <div class="form-group">
                         <div class="example-full-width">
-                            <mat-form-field class="login-inp" [floatLabel]="'never'">
+                            <mat-form-field class="login-inp">
                                 <input matInput placeholder="Full Name" [formControl]="nameFormControl"
                                        [errorStateMatcher]="matcher" name="name" [(ngModel)]="userRegisInf.name">
                                 <mat-error
@@ -41,21 +40,10 @@
                             </mat-form-field>
                         </div>
                     </div>
-
-                    <!--                    <div class="form-group">-->
-                    <!--                        <div class="example-full-width">-->
-                    <!--                            <mat-form-field class="login-inp">-->
-                    <!--                                <input matInput placeholder="User Name" [formControl]="userFormControl" [errorStateMatcher]="matcher" name="userName" [(ngModel)]="userRegisInf.username">-->
-                    <!--                                <mat-error *ngIf="userFormControl.hasError('name') && !userFormControl.hasError('required')">Please enter a valid email address</mat-error>-->
-                    <!--                                <mat-error *ngIf="userFormControl.hasError('required')">User Name is <strong>required</strong></mat-error>-->
-                    <!--                            </mat-form-field>-->
-                    <!--                        </div>-->
-                    <!--                    </div>-->
-
-
                     <div class="form-group">
                         <div class="example-full-width">
-                            <mat-form-field class="login-inp" [floatLabel]="'never'">
+                            <!--[floatLabel]="'never'"-->
+                            <mat-form-field class="login-inp">
                                 <input matInput type="password" placeholder="Password" [formControl]="passFormControl"
                                        [errorStateMatcher]="matcher" name="pass" [(ngModel)]="userRegisInf.password">
                                 <mat-error *ngIf="passFormControl.hasError('required')">
@@ -64,12 +52,8 @@
                             </mat-form-field>
                         </div>
                     </div>
-
-                    <!--                            [disabled]="passFormControl.hasError('required') || (emailFormControl.hasError('email') || emailFormControl.hasError('required'))"-->
-                    <button
-                            mat-raised-button (click)="checkRegister(userRegisInf)" class="login">Sign up
-                    </button>
-
+                    <!--[disabled]="passFormControl.hasError('required') || (emailFormControl.hasError('email') || emailFormControl.hasError('required'))"-->
+                    <button mat-raised-button (click)="checkRegister(userRegisInf)" class="login">Sign up</button>
                     <div class="have_account">
                         <a href="#"></a>
                         <button class="dont_have_account" mat-dialog-close #loginButt mat-button (click)="showLogin()">
