@@ -9,8 +9,7 @@ import {HomeService} from '../../services/home.service';
 })
 export class StatusBarComponent implements OnInit {
     @ViewChild('toggleButton') toggleButton: ElementRef;
-    @ViewChild('share') share: ElementRef;
-
+    @ViewChild('check') check: ElementRef;
     @Input() single;
 
     isShown = false;
@@ -24,28 +23,24 @@ export class StatusBarComponent implements OnInit {
         public router: Router,
         private home: HomeService
     ) {
-
         this.renderer.listen('window', 'click', (e: Event) => {
             if (this.toggleButton && e.target !== this.toggleButton.nativeElement) {
                 this.isShown = false;
             }
         });
-        // this.renderer.listen('window', 'click', (e: Event) => {
-        //     if (e.target !== this.toggleButton.nativeEllement) {
-        //         this.isShown = false;
-        //     }
-        // });
 
         this.openNum = false;
     }
 
     ngOnInit() {
         this.routerUrl = this.router.url;
+        console.log(this.single)
     }
 
     show(single) {
-        this.isShown = true;
+        this.isShown = !this.isShown;
         this.currentPost = single;
+        console.log(this.currentPost)
     }
 
     vote(type, id) {

@@ -18,132 +18,155 @@
                         <div class="">
                             <button class="blue" (click)="vote('Like', single._id)" [class.gray]="!upwote"
                                     [hidden]="routerUrl !== '/road' && routerUrl !== '/travel' && routerUrl !== '/commerce' && routerUrl !== '/video'">
-                                <i class="fas fa-check"></i> Like
-                                <p class="num" *ngIf="openNum">20</p>
+                                <i class="fas fa-check" #check *ngIf="isShown && single === currentPost"></i> Like
+                                <span class="num" *ngIf="openNum">20</span>
                             </button>
                         </div>
                     </div>
                     <div class="Emoji Emoji--love" [hidden]="routerUrl !== '/pictures'">
                         <div class="">
-                            <button class="gray"><i class="fas fa-check"></i>Awesome</button>
-                            <p class="num" *ngIf="openNum">30</p>
-                        </div>
-                    </div>
-
-                    <div class="Emoji Emoji--love" [hidden]="routerUrl !== '/road'">
-                        <div class="">
-                            <button class="gray"><i class="fas fa-check"></i> Good</button>
-                            <p class="num" *ngIf="openNum">30</p>
+                            <button class="gray" (click)="show(single)" #toggleButton>
+                                <i class="fas fa-check" *ngIf="isShown && single === currentPost"></i>Awesome
+                                <span class="num" *ngIf="openNum">30</span></button>
                         </div>
                     </div>
                     <div class="Emoji Emoji--love" [hidden]="routerUrl !== '/road'">
                         <div class="">
-                            <button class="blue"><i class="fas fa-check"></i> Top Class</button>
-                            <p class="num" *ngIf="openNum">30</p>
+                            <button class="gray" (click)="show(single)" #toggleButton>
+                                <i class="fas fa-check" *ngIf="isShown && single === currentPost"></i>Good
+                                <span class="num" *ngIf="openNum">30</span></button>
                         </div>
                     </div>
                     <div class="Emoji Emoji--love" [hidden]="routerUrl !== '/road'">
                         <div class="">
-                            <button class="blue"><i class="fas fa-check"></i> Magic</button>
-                            <p class="num" *ngIf="openNum">30</p>
+                            <button class="blue" (click)="show(single)" #toggleButton>
+                                <i class="fas fa-check" *ngIf="isShown && single === currentPost"></i>
+                                Top Class
+                                <span class="num" *ngIf="openNum">30</span></button>
+                        </div>
+                    </div>
+                    <div class="Emoji Emoji--love" [hidden]="routerUrl !== '/road'">
+                        <div class="">
+                            <button class="blue" (click)="show(single)" #toggleButton>
+                                <i class="fas fa-check" *ngIf="isShown && single === currentPost"></i>
+                                Magic
+                                <span class="num" *ngIf="openNum">30</span></button>
                         </div>
                     </div>
 
                     <div class="Emoji Emoji--love" [hidden]="routerUrl !== '/home' && routerUrl !== '/'">
                         <div class="">
-                            <button class="gray"><i class="fas fa-check"></i> Important</button>
-                            <p class="num" *ngIf="openNum">30</p>
+                            <button class="gray" (click)="show(single)" #toggleButton>
+                                <i class=" fas fa-check" *ngIf="isShown && single === currentPost"></i> Important
+                                <span class="num" *ngIf="openNum">30</span></button>
                         </div>
                     </div>
                     <div class="Emoji Emoji--love" [hidden]="routerUrl  !== '/home' && routerUrl !== '/'">
                         <div class="">
-                            <button class="blue"><i class="fas fa-check"></i> Interesting</button>
-                            <p class="num" *ngIf="openNum">30</p>
+                            <button class="blue" (click)="show(single)" #toggleButton>
+                                <i class="fas fa-check" *ngIf="isShown && single === currentPost"></i>
+                                Interesting
+                                <span class="num" *ngIf="openNum">30</span></button>
                         </div>
                     </div>
                     <div class="Emoji Emoji--love" [hidden]="routerUrl  !== '/home' && routerUrl !== '/'">
                         <div class="">
-                            <button class="blue"><i class="fas fa-check"></i> Investigate</button>
-                            <p class="num" *ngIf="openNum">30</p>
+                            <button class="blue" (click)="show(single)" #toggleButton>
+                                <i class="fas fa-check" *ngIf="isShown && single === currentPost"></i>
+                                Investigate
+                                <span class="num" *ngIf="openNum">30</span></button>
                         </div>
                     </div>
                     <div class="Emoji Emoji--love" [hidden]="routerUrl  !== '/home' && routerUrl !== '/'">
                         <div class="">
-                            <button class="blue"><i class="fas fa-check"></i>Resign</button>
-                            <p class="num" *ngIf="openNum">30</p>
+                            <button class="blue" (click)="show(single)" #toggleButton>
+                                <i class="fas fa-check" *ngIf="isShown && single === currentPost"></i>Resign
+                                <span class="num" *ngIf="openNum">30</span></button>
                         </div>
                     </div>
 
                     <div class="Emoji Emoji--love" [hidden]="routerUrl !== '/pictures'">
                         <div class="">
-                            <button class="gray"><i class="fas fa-check"></i>hawt</button>
-                            <p class="num" *ngIf="openNum">30</p>
+                            <button class="gray" (click)="show(single)" #toggleButton>
+                                <i class=" fas fa-check" *ngIf="isShown && single === currentPost"></i>hawt
+                                <span class="num" *ngIf="openNum">30</span></button>
                         </div>
                     </div>
                     <div class="Emoji Emoji--love" [hidden]="routerUrl !== '/pictures'">
                         <div class="">
-                            <button class="blue"><i class="fas fa-check"></i>Kool</button>
-                            <p class="num" *ngIf="openNum">30</p>
+                            <button class="blue" (click)="show(single)" #toggleButton>
+                                <i class="fas fa-check" *ngIf="isShown && single === currentPost"></i>Kool
+                                <span class="num" *ngIf="openNum">30</span></button>
                         </div>
                     </div>
                     <div class="Emoji Emoji--love" [hidden]="routerUrl !== '/pictures'">
                         <div class="">
-                            <button class="blue"><i class="fas fa-check"></i>Funny</button>
-                            <p class="num" *ngIf="openNum">30</p>
+                            <button class="blue" (click)="show(single)" #toggleButton>
+                                <i class="fas fa-check" *ngIf="isShown && single === currentPost"></i>Funny
+                                <span class="num" *ngIf="openNum">30</span></button>
                         </div>
                     </div>
                     <div class="Emoji Emoji--love" [hidden]="routerUrl !== '/commerce'">
                         <div class="">
-                            <button class="gray"><i class="fas fa-check"></i>Promising</button>
-                            <p class="num" *ngIf="openNum">30</p>
+                            <button class="gray" (click)="show(single)" #toggleButton>
+                                <i class=" fas fa-check" *ngIf="isShown && single === currentPost"></i>Promising
+                                <span class="num" *ngIf="openNum">30</span></button>
                         </div>
                     </div>
                     <div class="Emoji Emoji--love" [hidden]="routerUrl !== '/travel'">
                         <div class="">
-                            <button class="gray"><i class="fas fa-check"></i>Inspring</button>
-                            <p class="num" *ngIf="openNum">30</p>
+                            <button class="gray" (click)="show(single)" #toggleButton>
+                                <i class=" fas fa-check" *ngIf="isShown && single === currentPost"></i>Inspring
+                                <span class="num" *ngIf="openNum">30</span></button>
                         </div>
                     </div>
                     <div class="Emoji Emoji--haha" [hidden]="routerUrl !== '/videos'">
                         <div class="">
-                            <button class="blue"><i class="fas fa-check"></i>Useful</button>
-                            <p class="num" *ngIf="openNum">50</p>
+                            <button class="blue" (click)="show(single)" #toggleButton>
+                                <i class="fas fa-check" *ngIf="isShown && single === currentPost"></i>Useful
+                                <span class="num" *ngIf="openNum">50</span></button>
                         </div>
                     </div>
                     <!--<div class="Emoji Emoji&#45;&#45;love" [hidden]="routerUrl !== '/travel'">-->
                     <!--<div class="">-->
-                    <!--<button class="gray">Recommend</button>-->
+                    <!--<button class="gray" (click)="clicked()">Recommend</button>-->
                     <!--<p class="num" *ngIf="openNum">30</p>-->
                     <!--</div>-->
                     <!--</div>-->
                     <div class="Emoji Emoji--love" [hidden]="routerUrl !== '/deals'">
                         <div class="">
-                            <button class="gray heart"><i class="fas fa-check"></i><i class="fas fa-heart"></i> the colour</button>
-                            <p class="num" *ngIf="openNum">30</p>
+                            <button class="gray" (click)="show(single)" #toggleButton>
+                                <i class=" fas fa-check" *ngIf="isShown && single === currentPost"></i>
+                                <i class="fas fa-heart heart"></i> the colour
+                                <span class="num" *ngIf="openNum">30</span></button>
                         </div>
                     </div>
                     <div class="Emoji Emoji--love" [hidden]="routerUrl !== '/deals'">
                         <div class="">
-                            <button class="gray"><i class="fas fa-check"></i>Grand</button>
-                            <p class="num" *ngIf="openNum">30</p>
+                            <button class="gray" (click)="show(single)" #toggleButton>
+                                <i class=" fas fa-check" *ngIf="isShown && single === currentPost"></i>Grand
+                                <span class="num" *ngIf="openNum">30</span></button>
                         </div>
                     </div>
                     <div class="Emoji Emoji--love" [hidden]="routerUrl !== '/deals'">
                         <div class="">
-                            <button class="gray"><i class="fas fa-check"></i>Creative</button>
-                            <p class="num" *ngIf="openNum">30</p>
+                            <button class="gray" (click)="show(single)" #toggleButton>
+                                <i class=" fas fa-check" *ngIf="isShown && single === currentPost"></i>Creative
+                                <span class="num" *ngIf="openNum">30</span></button>
                         </div>
                     </div>
                     <div class="Emoji Emoji--love" [hidden]="routerUrl !== '/video'">
                         <div class="">
-                            <button class="gray"><i class="fas fa-check"></i>Refreshing</button>
-                            <p class="num" *ngIf="openNum">30</p>
+                            <button class="gray" (click)="show(single)" #toggleButton>
+                                <i class=" fas fa-check" *ngIf="isShown && single === currentPost"></i>Refreshing
+                                <span class="num" *ngIf="openNum">30</span></button>
                         </div>
                     </div>
                     <div class="Emoji Emoji--love" [hidden]="routerUrl !== '/video'">
                         <div class="">
-                            <button class="gray"><i class="fas fa-check"></i>Useful</button>
-                            <p class="num" *ngIf="openNum">30</p>
+                            <button class="gray" (click)="show(single)" #toggleButton>
+                                <i class=" fas fa-check" *ngIf="isShown && single === currentPost"></i>Useful
+                                <span class="num" *ngIf="openNum">30</span></button>
                         </div>
                     </div>
                 </div>
@@ -187,7 +210,7 @@
         </a>
     </li>
     <!--    <li>-->
-    <!--        <button type="button" class="share" (click)="show(single)" #toggleButton>-->
+    <!--        <button type="button" class="share" (click)="show(single)" #toggleButton #toggleButton>-->
     <!--            <i class="fas fa-share"></i>-->
     <!--            Share<span></span>-->
     <!--        </button>-->
