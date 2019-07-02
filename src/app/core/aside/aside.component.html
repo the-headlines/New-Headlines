@@ -16,6 +16,8 @@
                         <img *ngIf="single.extractedImage"
                              src="{{single.extractedImage}}"
                              class="img-fluid" alt="">
+                        <img *ngIf="!single.extractedImage" src="../../../assets/images/no-image.png">
+
                     </div>
                     <div class="text-block">
                         <h5 class="title" (click)="getSingle(single.link)">{{single.extractedTitle}}</h5>
