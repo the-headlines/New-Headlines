@@ -59,6 +59,7 @@ export class SinglePostComponent implements OnInit, OnDestroy {
     postId;
     votes = [];
     upwote = false;
+    postOnEnter = true;
 
     isDisabled(): boolean {
         return this.isEdit;
@@ -198,6 +199,13 @@ export class SinglePostComponent implements OnInit, OnDestroy {
         this.home.doVoting(id, {voteCategory: type}).subscribe(dt => {
             // console.log(dt);
         });
+    }
+
+    onEditorChange(e) {
+        if (e.code === 'Enter') {
+            this.addComments();
+        }
+        console.log(e);
     }
 
     ngOnDestroy() {

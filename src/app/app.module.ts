@@ -37,7 +37,7 @@ import {
     MatPaginatorModule,
     MatSelectModule,
     MatDialogModule,
-    MatSlideToggleModule, MatDialogRef
+    MatSlideToggleModule, MatDialogRef, MatCheckboxModule
 } from '@angular/material';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {SinglePostComponent} from './modules/home/pages/single-post/single-post.component';
@@ -153,6 +153,7 @@ export function tokenGetter() {
         MatInputModule,
         MatTableModule,
         MatSortModule,
+        MatCheckboxModule,
         MatPaginatorModule,
         MatSelectModule,
         ScrollToModule.forRoot(),
@@ -197,7 +198,7 @@ export function tokenGetter() {
             useClass: RequestInterceptor,
             multi: true
         },
-        { provide: MatDialogRef, useValue: {} },
+        {provide: MatDialogRef, useValue: {}},
         SearchNewsPipe
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],

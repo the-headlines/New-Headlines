@@ -455,11 +455,21 @@
 
 }
 
+.postCommentsForm {
+  text-align: center;
+}
 
-.likeBtn{
+
+.likeBtn {
   margin-left: 10px;
 }
 
-.blueColor{
+.blueColor {
   color: #3788c6;
+}
+
+.enterHint {
+  margin-top: -3px;
+  display: block;
+  color: #c2c2c2;
 }
