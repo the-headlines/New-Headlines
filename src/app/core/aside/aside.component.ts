@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {AsideService} from '../../services/aside.service';
 import {Router} from '@angular/router';
+import {MatPaginator} from '@angular/material';
 
 @Component({
     selector: 'app-aside',
@@ -13,7 +14,10 @@ export class AsideComponent implements OnInit {
     constructor(private  aside: AsideService, private router: Router) {
     }
 
-    lastet: any = [];
+    posts: any = [];
+    filteredPosts: any = [];
+    defaultRecords = 5;
+    @ViewChild(MatPaginator) paginator: MatPaginator;
 
     ngOnInit() {
         this.getLasted();
@@ -24,14 +28,15 @@ export class AsideComponent implements OnInit {
     }
 
     getLasted() {
-        this.aside.getLasted().subscribe((data) => {
+        this.aside.getLasted().subscribe((data: any) => {
             if (!data) {
                 return false;
             } else if (!data['status'] && data['status'] == 0) {
                 alert('No data');
                 return false;
             } else {
-                this.lastet = data;
+                this.posts = data;
+                this.filteredPosts.news = data.news.slice(0, this.defaultRecords);
                 // return console.log('sss', this.lastet);
             }
         });
@@ -40,4 +45,15 @@ export class AsideComponent implements OnInit {
     strip_tags(str) {
         return str.replace(/<[^>]*>/g, '');
     }
+
+
+    handle(e) {
+        this.filteredPosts.news = this.posts.news.slice(e.pageIndex * e.pageSize,
+            e.pageIndex * e.pageSize + e.pageSize);
+    }
+
+    getLength(d) {
+        return d ? d.length : 0;
+    }
+
 }

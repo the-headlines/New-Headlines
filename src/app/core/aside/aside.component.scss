@@ -90,8 +90,18 @@
       letter-spacing: 1.8px;
       text-align: center;
       color: #000000;
-      margin-bottom: 50px;
+      margin-bottom: 10px;
       text-transform: uppercase;
+    }
+
+    .headlinesLabel {
+      text-transform: uppercase;
+      text-align: center;
+      display: block;
+    }
+
+    .todaysTopList {
+      margin-top: 25px;
     }
 
     .title {
@@ -253,7 +263,7 @@
       }
 
       img {
-        width: 39%;
+        width: 90%;
         height: 90px !important;
         margin-right: 4%;
         object-fit: cover;
