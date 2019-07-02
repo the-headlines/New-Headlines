@@ -43,7 +43,7 @@ export class AsideComponent implements OnInit {
     }
 
     strip_tags(str) {
-        return str.replace(/<[^>]*>/g, '');
+        return str ? str.replace(/<[^>]*>/g, '') : str;
     }
 
 
