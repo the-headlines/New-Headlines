@@ -36,10 +36,10 @@ export class HomeComponent implements OnInit {
     currentPost = {};
     defaultRecords = 5;
 
+
     @ViewChild('paginator') paginator;
 
     filterByVotes(vote) {
-
         function compare(a, b) {
             if (a[vote] < b[vote]) {
                 return 1;
@@ -81,7 +81,6 @@ export class HomeComponent implements OnInit {
             this.searchTerm = s;
         });
 
-
         // this.toastr.success('Hello from here', '', {disableTimeOut: true});
     }
 
@@ -91,7 +90,7 @@ export class HomeComponent implements OnInit {
     // }
 
     get() {
-        this.home.getData().subscribe((data:any) => {
+        this.home.getData().subscribe((data: any) => {
 
             data['news'].sort((a, b) => {
                 return moment(b['createdAt']).unix() - moment(a['createdAt']).unix();
