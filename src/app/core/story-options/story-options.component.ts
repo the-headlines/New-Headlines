@@ -31,5 +31,4 @@ export class StoryOptionsComponent implements OnInit {
         this.isShown = !this.isShown;
         this.currentPost = single;
     }
-
 }

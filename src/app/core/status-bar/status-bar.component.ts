@@ -8,13 +8,12 @@ import {HomeService} from '../../services/home.service';
     styleUrls: ['./status-bar.component.scss']
 })
 export class StatusBarComponent implements OnInit {
-    @ViewChild('toggleButton') toggleButton: ElementRef;
-    @ViewChild('share') share: ElementRef;
-
+    // @ViewChild('toggleButton') toggleButton: ElementRef;
+    // @ViewChild('check') check: ElementRef;
     @Input() single;
 
-    isShown = false;
-    currentPost = {};
+    isShown: boolean = false;
+    // currentPost = {};
     openNum: boolean;
     routerUrl: string;
     upwote = false;
@@ -24,28 +23,18 @@ export class StatusBarComponent implements OnInit {
         public router: Router,
         private home: HomeService
     ) {
-
-        this.renderer.listen('window', 'click', (e: Event) => {
-            if (this.toggleButton && e.target !== this.toggleButton.nativeElement) {
-                this.isShown = false;
-            }
-        });
-        // this.renderer.listen('window', 'click', (e: Event) => {
-        //     if (e.target !== this.toggleButton.nativeEllement) {
-        //         this.isShown = false;
-        //     }
-        // });
-
         this.openNum = false;
+    }
+
+    onClick(event) {
+        var target = event.target || event.srcElement || event.currentTarget;
+        console.log(target);
+        this.isShown = !this.isShown;
+        console.log(this);
     }
 
     ngOnInit() {
         this.routerUrl = this.router.url;
-    }
-
-    show(single) {
-        this.isShown = true;
-        this.currentPost = single;
     }
 
     vote(type, id) {

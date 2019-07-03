@@ -256,6 +256,8 @@
       display: flex;
       justify-content: space-between;
       margin-bottom: 50px;
+      height: 187px;
+      overflow: hidden;
 
       .img-block {
         width: 48%;
@@ -263,9 +265,9 @@
       }
 
       img {
-        width: 90%;
-        height: 90px !important;
-        margin-right: 4%;
+        width: 100%;
+        //height: 90px !important;
+        //margin-right: 4%;
         object-fit: cover;
       }
     }
