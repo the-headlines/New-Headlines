@@ -39,8 +39,9 @@ export class SinglePostComponent implements OnInit, OnDestroy {
         this.id = this.route.snapshot.paramMap.get('id');
 
         this.postForm = this.fb.group({
-            text: '',
-            newsId: ''
+            text: ['', Validators.required],
+            newsId: '',
+            type: 'Comment'
         });
         // this.postForm.controls.comment.disable();
 
@@ -140,22 +141,28 @@ export class SinglePostComponent implements OnInit, OnDestroy {
 
     addComments() {
 
-        console.log(this.postForm.value);
         const data = this.postForm.value;
-        this.home.addComments(data).subscribe((returData) => {
-            console.log(returData);
-            if (!returData) {
+        this.home.addComments(data).subscribe((d) => {
+            if (!d) {
                 return false;
             }
 
-            if (!returData['status'] && returData['status'] == 0) {
+            if (!d['status'] && d['status'] == 0) {
                 alert('Empty data!!');
                 return false;
             }
 
-            this.addCommentData.push(returData['result']);
-            console.log(this.addCommentData);
+            if (d['result']) {
+
+                this.addCommentData.push(d['result']);
+            }
+            this.postForm.patchValue({'text': ''});
         });
+    }
+
+    addQuestions() {
+        this.postForm.patchValue({type: 'Question'});
+        this.addComments();
     }
 
     checkUser() {
@@ -202,10 +209,15 @@ export class SinglePostComponent implements OnInit, OnDestroy {
     }
 
     onEditorChange(e) {
-        if (e.code === 'Enter') {
-            this.addComments();
+        const textVal = this.postForm.value.text.replace(/<(.|\n)*?>/g, '');
+        if (this.postForm.valid && e.key === 'Enter' && this.postOnEnter) {
+            if (textVal.includes('?')) {
+                this.addQuestions();
+            } else {
+
+                this.addComments();
+            }
         }
-        console.log(e);
     }
 
     ngOnDestroy() {

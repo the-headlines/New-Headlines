@@ -225,9 +225,7 @@
                     <div class="border">
                         <form [formGroup]="postForm" class="postCommentsForm">
                             <textarea formControlName="text" (keypress)="onEditorChange($event)"></textarea>
-                            <mat-checkbox [checked]="postOnEnter" color="primary">
-                                <small class="enterHint">Send on "Enter"</small>
-                            </mat-checkbox>
+
                             <!--                            <ckeditor formControlName="text" *ngIf="showCk" (keyup)="onEditorChange($event)"-->
                             <!--                                      name="message" class="add_comm_or_question_area"-->
                             <!--                            >-->
@@ -238,23 +236,34 @@
                             <!--                                &lt;!&ndash;                                              [icon]="'save.png'"&ndash;&gt;-->
                             <!--                            </ckeditor>-->
                             <div class="comments_or_question">
-                                <button id="cancel" type="button" [hidden]="!showCk" (click)="showCk = false">
-                                    Cancel
-                                </button>
+                                <div class="checkboxContainer">
 
-                                <button id="readOnlyOn" (click)="showCk = true" [hidden]="showCk"
-                                        type="button"
-                                        value="Make CKEditor read-only">Comments
-                                </button>
-                                <button id="readOnlyOff" [hidden]="showCk"
-                                        (click)="showCk = true" type="button "
-                                        value="Make CKEditor editable again">Question
-                                </button>
-                                <button type="button" class="post_btn" [hidden]="!showCk"
-                                        (click)="addComments()">Post
-                                </button>
+                                    <mat-checkbox [checked]="postOnEnter" color="primary"
+                                                  (change)="postOnEnter = !postOnEnter">
+                                        <small class="enterHint">Send on "Enter"</small>
+                                    </mat-checkbox>
+                                </div>
+                                <!--                                <button id="cancel" type="button" [hidden]="!showCk" (click)="showCk = false">-->
+                                <!--                                    Cancel-->
+                                <!--                                </button>-->
+
+                                <!--                                <button id="readOnlyOn" (click)="showCk = true" [hidden]="showCk"-->
+                                <!--                                        type="button"-->
+                                <!--                                        value="Make CKEditor read-only">Comments-->
+                                <!--                                </button>-->
+                                <!--                                <button id="readOnlyOff" [hidden]="showCk"-->
+                                <!--                                        (click)="showCk = true" type="button "-->
+                                <!--                                        value="Make CKEditor editable again">Question-->
+                                <!--                                </button>-->
+                                <div class="postBtnContainer">
+                                    <button type="button" class="post_btn" [hidden]="postOnEnter"
+                                            (click)="addComments()">Post
+                                    </button>
+                                </div>
                             </div>
-                            <div *ngIf="postForm.get('text').hasError('required')">Comment is required</div>
+<!--                            <div *ngIf="postForm.get('text').hasError('required') && postForm.get('text').touched">-->
+<!--                                Comment is required-->
+<!--                            </div>-->
                         </form>
                     </div>
                     <div class="how_many_com_and_quest">
@@ -278,7 +287,7 @@
                     <!--                    </form>-->
                 </div>
 
-                <div class="user_name_of_comments" *ngIf="addCommentData.length != 0">
+                <div class="user_name_of_comments" *ngIf="addCommentData && addCommentData.length != 0">
                     <div class="firset_user" *ngFor="let addCommentSingle of addCommentData">
                         <h3>{{addCommentSingle.name}} Bruce Reid</h3>
 
