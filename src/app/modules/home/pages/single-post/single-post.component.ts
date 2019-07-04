@@ -27,6 +27,7 @@ export class SinglePostComponent implements OnInit, OnDestroy {
     userData: any = {};
 
     subscriptions: Subscription[] = [];
+    questions = false;
 
     constructor(
         private auth: AuthService,
@@ -59,8 +60,12 @@ export class SinglePostComponent implements OnInit, OnDestroy {
     showCk = false;
     postId;
     votes = [];
-    upwote = false;
+    like = true;
     postOnEnter = true;
+    commentEditing = false;
+    selectedComment = null;
+
+    commentEditForm: FormGroup;
 
     isDisabled(): boolean {
         return this.isEdit;
@@ -76,6 +81,7 @@ export class SinglePostComponent implements OnInit, OnDestroy {
         this.subscriptions.push(
             this.route.params.subscribe(dt => {
                 this.postId = dt.id;
+                this.getComments();
                 this.postForm.patchValue({newsId: dt.id});
                 this.getSinglePost(this.postId);
                 this.getPostVotes(this.postId);
@@ -89,6 +95,13 @@ export class SinglePostComponent implements OnInit, OnDestroy {
 
         this.userData.fullName = localStorage.getItem('full_name');
         // this.postForm.patchValue({user: this.userData.fullName});
+
+        this.commentEditForm = this.fb.group({
+            id: [''],
+            text: [''],
+            type: ['Comment']
+        });
+
 
         // console.log(this.userData);
     }
@@ -199,11 +212,7 @@ export class SinglePostComponent implements OnInit, OnDestroy {
     }
 
     vote(type, id) {
-        if (type === 'Like') {
-
-            this.upwote = !this.upwote;
-        }
-        this.home.doVoting(id, {voteCategory: type}).subscribe(dt => {
+        this.home.doVoting(id, type).subscribe(dt => {
             // console.log(dt);
         });
     }
@@ -218,6 +227,42 @@ export class SinglePostComponent implements OnInit, OnDestroy {
                 this.addComments();
             }
         }
+    }
+
+    getComments() {
+        this.home.getCommentsForPost(this.postId).subscribe((dt: any) => {
+            this.comments = dt.comments;
+        });
+    }
+
+    changeCommentType(v) {
+        this.questions = v;
+        this.commentEditForm.patchValue({type: v ? 'Question' : 'Comment'});
+    }
+
+    editComment(c) {
+        this.commentEditing = true;
+        this.selectedComment = c;
+        this.commentEditForm.patchValue({'text': c.text, id: c._id});
+    }
+
+    updateComment() {
+        this.commentEditing = false;
+        this.selectedComment = null;
+        console.log('OK');
+        this.home.updateComment(this.commentEditForm.value).subscribe(dt => {
+
+        });
+    }
+
+    removeComment(id) {
+        this.home.deleteComment(id).subscribe(dt => {
+
+        });
+    }
+
+    getQuestionsLen(type) {
+       return this.comments.filter(c => c.type === type).length;
     }
 
     ngOnDestroy() {

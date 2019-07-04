@@ -63,12 +63,20 @@ export class HomeService {
     }
 
     doVoting(id, data) {
-        return this.http.post(Base.url + '/api/news/' + id + '/vote', data);
+        let urlPart;
+        if (data === 'Like') {
+            urlPart = 'likeunlike';
+        }
+        return this.http.post(Base.url + '/api/comments/' + id + '/' + urlPart, {});
     }
 
     /*Add comment*/
     public addComments(data) {
         return this.http.post(Base.url + '/api/comments', data);
+    }
+
+    getCommentsForPost(id) {
+        return this.http.get(Base.url + '/api/comments/' + id + '?pagesize=100&page=1');
     }
 
     /**/
@@ -77,12 +85,12 @@ export class HomeService {
     }
 
     /*Delete comment*/
-    public deleteComments(data) {
-        return this.http.post(Base.url + '/api/comments/5c5d54055f84b2158d165ba6', data);
+    public deleteComment(id) {
+        return this.http.delete(Base.url + '/api/comments/' + id);
     }
 
     /*Update Comment*/
     public updateComment(data) {
-        return this.http.put(Base.url + '/api/comments/5c5d557278aa771609b3ece5', data);
+        return this.http.put(Base.url + '/api/comments/' + data.id, data);
     }
 }
