@@ -132,6 +132,7 @@ header {
 
           img {
             width: 100%;
+            cursor: pointer;
           }
         }
 
@@ -277,9 +278,10 @@ header {
           font-family: 'BrandonText-Regular', sans-serif;
           font-size: 15px;
           text-transform: uppercase;
-          cursor: pointer;
+
           letter-spacing: normal;
           line-height: 1.5;
+          cursor: pointer;
         }
       }
     }
@@ -798,4 +800,38 @@ li.margin_top {
 
 .header-notification {
   margin-right: 25px;
+}
+
+@media screen and (max-width: 992px) and (min-width: 768px) {
+
+  header {
+    .navbar {
+      .logo {
+        justify-content: flex-start;
+
+        > div {
+          width: 66%;
+
+          a {
+            img {
+              width: 75%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+  header .navbar .logo p {
+    width: auto;
+    margin: 10px 20px;
+    text-align: center;
+    color: #bfbfbe;
+    font-family: 'BrandonText-Regular';
+    font-size: 17px;
+    word-break: break-all;
+    white-space: normal;
+  }
 }

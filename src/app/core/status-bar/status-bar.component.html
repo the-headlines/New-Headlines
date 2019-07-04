@@ -16,7 +16,7 @@
                         <div class="">
                             <button class="blue" (click)="vote('Like', single._id)" [class.gray]="!upwote"
                                     [hidden]="routerUrl !== '/road' && routerUrl !== '/travel' && routerUrl !== '/commerce' && routerUrl !== '/video'">
-                                <i class="fas fa-check" *ngIf="isShown"></i> Like
+                                <i class="fas fa-check" *ngIf="isShown"></i> {{vote}}
                                 <span class="num" *ngIf="openNum">20</span>
                             </button>
                         </div>
@@ -82,7 +82,6 @@
                                 <span class="num" *ngIf="openNum">30</span></button>
                         </div>
                     </div>
-
                     <div class="Emoji Emoji--love" [hidden]="routerUrl !== '/pictures'">
                         <div class="">
                             <button class="gray" (click)="onClick($event)">
@@ -90,6 +89,7 @@
                                 <span class="num" *ngIf="openNum">30</span></button>
                         </div>
                     </div>
+
                     <div class="Emoji Emoji--love" [hidden]="routerUrl !== '/pictures'">
                         <div class="">
                             <button class="blue" (click)="onClick($event)">
@@ -125,12 +125,7 @@
                                 <span class="num" *ngIf="openNum">50</span></button>
                         </div>
                     </div>
-                    <!--<div class="Emoji Emoji&#45;&#45;love" [hidden]="routerUrl !== '/travel'">-->
-                    <!--<div class="">-->
-                    <!--<button class="gray" (click)="clicked()">Recommend</button>-->
-                    <!--<p class="num" *ngIf="openNum">30</p>-->
-                    <!--</div>-->
-                    <!--</div>-->
+
                     <div class="Emoji Emoji--love" [hidden]="routerUrl !== '/deals'">
                         <div class="">
                             <button class="gray" (click)="onClick($event)">
@@ -207,20 +202,4 @@
             <i class="far fa-comment"></i> Feedback <span>35</span>
         </a>
     </li>
-    <!--    <li>-->
-    <!--        <button type="button" class="share" (click)="toggleShow()" #toggleButton #toggleButton>-->
-    <!--            <i class="fas fa-share"></i>-->
-    <!--            Share<span></span>-->
-    <!--        </button>-->
-    <!--        <div class="share_post" *ngIf="isShown" #share>-->
-    <!--            <ul>-->
-    <!--                <li>-->
-    <!--                    <button><i class="fas fa-link"></i> Copy Link</button>-->
-    <!--                    <button><img src="../../../../../assets/images/shuffle.png" alt="">Crosspost-->
-    <!--                    </button>-->
-    <!--                    <button><i class="fas fa-code"></i>Embed</button>-->
-    <!--                </li>-->
-    <!--            </ul>-->
-    <!--        </div>-->
-    <!--    </li>-->
 </ul>

@@ -14,6 +14,10 @@ export class HomeService {
         return this.http.get(Base.url + '/api/news/category/Influence?pagesize=30&page=1');
     }
 
+    getVotesData() {
+        return this.http.get(Base.url + '');
+    }
+
     getPictures() {
         return this.http.get(Base.url + '/api/news/category/CameraPictures?pagesize=30&page=1');
     }
