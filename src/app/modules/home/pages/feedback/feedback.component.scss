@@ -139,6 +139,40 @@
   height: 560px;
   overflow: auto;
 }
-.mat-form-field{
+
+.mat-form-field {
   width: 89%;
+}
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+
+  .get_in_touch {
+    width: 90%;
+    height: auto;
+  }
+
+  .get_touch_form {
+    padding-top: 50px;
+
+    h3 {
+      margin-bottom: 15px;
+    }
+  }
+
+  .contact_form {
+    position: relative;
+    margin-left: 0;
+
+
+    .contact_info {
+      ul {
+        li {
+          p {
+            letter-spacing: normal;
+            line-height: normal;
+          }
+        }
+      }
+    }
+  }
 }

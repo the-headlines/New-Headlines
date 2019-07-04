@@ -115,7 +115,6 @@ export class HomeComponent implements OnInit {
         });
     }
 
-
     paginate(data) {
         this.posts = data;
         this.count = data['count'];
