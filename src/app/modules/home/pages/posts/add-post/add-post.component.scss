@@ -545,7 +545,6 @@
   margin-bottom: 24px;
 }
 
-
 .sub_headline h2 {
   font-family: 'Lato-Regular';
   font-size: 30px;
@@ -558,10 +557,17 @@
   margin-bottom: 9px;
 }
 
-
 .postBtn {
   width: 48px;
   height: 31px !important;
   padding: 0;
   text-align: center;
+}
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+  .posts_box {
+    width: 100%;
+  }
+
+
 }
