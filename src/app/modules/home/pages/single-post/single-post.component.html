@@ -204,20 +204,20 @@
                             Questions<span>{{getQuestionsLen('Question')}}</span>
                         </a>
                     </li>
-                    <li>
-                        <button type="button" class="share">
-                            <i class="fas fa-share"></i>
-                            Share<span></span></button>
-                        <div class="share_post">
-                            <ul>
-                                <li>
-                                    <button><i class="fas fa-link"></i> Copy Link</button>
-                                    <button><img src="images/shuffle.png" alt="">Crosspost</button>
-                                    <button><i class="fas fa-code"></i>Embed</button>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
+<!--                    <li>-->
+<!--                        <button type="button" class="share">-->
+<!--                            <i class="fas fa-share"></i>-->
+<!--                            Share<span></span></button>-->
+<!--                        <div class="share_post">-->
+<!--                            <ul>-->
+<!--                                <li>-->
+<!--                                    <button><i class="fas fa-link"></i> Copy Link</button>-->
+<!--                                    <button><img src="images/shuffle.png" alt="">Crosspost</button>-->
+<!--                                    <button><i class="fas fa-code"></i>Embed</button>-->
+<!--                                </li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
+<!--                    </li>-->
                 </ul>
                 <div class="leave_comment" *ngIf="auth.loggedIn()">
                     <div class="commented_by" *ngIf="auth.loggedIn() && userData && userData.fullName">
