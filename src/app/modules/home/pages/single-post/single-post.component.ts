@@ -81,10 +81,13 @@ export class SinglePostComponent implements OnInit, OnDestroy {
         this.subscriptions.push(
             this.route.params.subscribe(dt => {
                 this.postId = dt.id;
-                this.getComments();
+
+                if (this.auth.loggedIn()) {
+                    this.getComments();
+                    this.getPostVotes(this.postId);
+                }
                 this.postForm.patchValue({newsId: dt.id});
                 this.getSinglePost(this.postId);
-                this.getPostVotes(this.postId);
             })
         );
 
@@ -169,6 +172,8 @@ export class SinglePostComponent implements OnInit, OnDestroy {
 
                 this.addCommentData.push(d['result']);
             }
+
+            this.getComments();
             this.postForm.patchValue({'text': ''});
         });
     }
@@ -249,20 +254,19 @@ export class SinglePostComponent implements OnInit, OnDestroy {
     updateComment() {
         this.commentEditing = false;
         this.selectedComment = null;
-        console.log('OK');
         this.home.updateComment(this.commentEditForm.value).subscribe(dt => {
-
+            this.getComments();
         });
     }
 
     removeComment(id) {
         this.home.deleteComment(id).subscribe(dt => {
-
+            this.getComments();
         });
     }
 
     getQuestionsLen(type) {
-       return this.comments.filter(c => c.type === type).length;
+        return this.comments.filter(c => c.type === type).length;
     }
 
     ngOnDestroy() {

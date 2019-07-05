@@ -483,7 +483,13 @@
   justify-content: space-between;
   width: 100%;
   max-width: 700px;
-  mat-icon{
+
+  mat-icon {
     cursor: pointer;
   }
+}
+
+.postImage {
+  //max-width: 700px;
+  //width: 100%;
 }
