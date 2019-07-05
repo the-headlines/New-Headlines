@@ -477,3 +477,13 @@
   display: block;
   color: #c2c2c2;
 }
+
+.commentContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 700px;
+  mat-icon{
+    cursor: pointer;
+  }
+}

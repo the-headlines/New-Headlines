@@ -185,14 +185,14 @@
                             </a>
                         </li>
                         <li>
-                            <a href="single.html">
+                            <a (click)="questions = false">
                                 <i class="far fa-comment"></i>
-                                Comments<span>35</span>
+                                Comments<span>{{getQuestionsLen('Comment')}}</span>
                             </a>
                         </li>
                         <li>
-                            <a href="single.html">
-                                Questions<span>35</span>
+                            <a (click)="questions = true">
+                                Questions<span>{{getQuestionsLen('Question')}}</span>
                             </a>
                         </li>
                         <li>
@@ -222,7 +222,7 @@
                     <div class="commented_by" *ngIf="auth.loggedIn() && userData && userData.fullName">
                         <p>Comment as <span>{{userData.fullName}}</span>
                     </div>
-                    <div class="border">
+                    <div class="border" *ngIf="auth.loggedIn()">
                         <form [formGroup]="postForm" class="postCommentsForm">
                             <textarea formControlName="text" (keypress)="onEditorChange($event)"></textarea>
 
@@ -261,14 +261,14 @@
                                     </button>
                                 </div>
                             </div>
-<!--                            <div *ngIf="postForm.get('text').hasError('required') && postForm.get('text').touched">-->
-<!--                                Comment is required-->
-<!--                            </div>-->
+                            <!--                            <div *ngIf="postForm.get('text').hasError('required') && postForm.get('text').touched">-->
+                            <!--                                Comment is required-->
+                            <!--                            </div>-->
                         </form>
                     </div>
                     <div class="how_many_com_and_quest">
-                        <p><span>10</span>Comments</p>
-                        <p><span>20</span>Question</p>
+                        <p (click)="changeCommentType(false)"><span>{{getQuestionsLen('Comment')}}</span>Comments</p>
+                        <p (click)="changeCommentType(true)"><span>{{getQuestionsLen('Question')}}</span>Questions</p>
                     </div>
                     <div class="sort">
                         <h2>Sort by </h2>
@@ -287,22 +287,66 @@
                     <!--                    </form>-->
                 </div>
 
-                <div class="user_name_of_comments" *ngIf="addCommentData && addCommentData.length != 0">
-                    <div class="firset_user" *ngFor="let addCommentSingle of addCommentData">
-                        <h3>{{addCommentSingle.name}} Bruce Reid</h3>
+                <!--                <div class="user_name_of_comments" *ngIf="addCommentData && addCommentData.length != 0">-->
+                <!--                    <div class="firset_user" *ngFor="let addCommentSingle of addCommentData">-->
+                <!--                        <h3>{{addCommentSingle.name}} Bruce Reid</h3>-->
 
-                        <h5 class="main_com">{{addCommentSingle.comment}} Lorem ipsum dolor </h5>
-                        <button type="button" class="reply">Reply</button>
-                        <ul>
-                            <li class="reply_name">
-                                <h4>John Store</h4>
-                                <h5 class="main_com">Who is Corrupted</h5>
-                                <button type="button" class="reply"> Reply</button>
-                            </li>
-                        </ul>
-                    </div>
-                    <button *ngIf="start<commentCount" class="show_more" (click)="loadMyChildComponent();">Show more
-                    </button>
+                <!--                        <h5 class="main_com">{{addCommentSingle.comment}} Lorem ipsum dolor </h5>-->
+                <!--                        <button type="button" class="reply">Reply</button>-->
+                <!--                        <ul>-->
+                <!--                            <li class="reply_name">-->
+                <!--                                <h4>John Store</h4>-->
+                <!--                                <h5 class="main_com">Who is Corrupted</h5>-->
+                <!--                                <button type="button" class="reply"> Reply</button>-->
+                <!--                            </li>-->
+                <!--                        </ul>-->
+                <!--                    </div>-->
+                <!--                    <button *ngIf="start<commentCount" class="show_more" (click)="loadMyChildComponent();">Show more-->
+                <!--                    </button>-->
+                <!--                </div>-->
+                <div class="comments" *ngIf="!questions">
+                    <ng-container *ngFor="let comment of comments">
+                        <div *ngIf="comment.type==='Comment'">
+                            <strong class="author">{{comment.creator._id}}</strong>
+                            <small class="date">{{comment.createdAt|formattedDate:false}}</small>
+                            <div class="commentContainer">
+                                <p class="comment"
+                                   *ngIf="!commentEditing || selectedComment!== comment">{{comment.text}}</p>
+                                <form *ngIf="commentEditing && selectedComment=== comment"
+                                      [formGroup]="commentEditForm">
+                                    <input formControlName="text" (keyup.enter)="updateComment()">
+                                </form>
+                                <div>
+                                    <mat-icon (click)="editComment(comment)">edit</mat-icon>
+                                    <mat-icon (click)="removeComment(comment._id)">clear</mat-icon>
+                                </div>
+                            </div>
+                            <div class="actions">
+                                <small>Like</small>
+                                <small> Reply</small>
+                                <small> Report</small>
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+                <div class="questions" *ngIf="questions">
+                    <ng-container *ngFor="let comment of comments">
+                        <div *ngIf="comment.type==='Question'">
+                            <strong class="author">{{comment.creator._id}}</strong>
+                            <small class="date">{{comment.createdAt|formattedDate:false}}</small>
+                            <p class="question">{{comment.text}}</p>
+                            <div class="commentContainer">
+                                <mat-icon>edit</mat-icon>
+                                <mat-icon>clear</mat-icon>
+                            </div>
+                            <div class="actions">
+                                <small>Like</small>
+                                <small> Reply</small>
+                                <small> Report</small>
+                            </div>
+                        </div>
+
+                    </ng-container>
                 </div>
             </div>
         </section>
