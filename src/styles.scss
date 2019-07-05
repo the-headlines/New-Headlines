@@ -1727,6 +1727,7 @@ label {
     padding: 12px 0 0 20px;
     font-size: 14px;
     color: #8e8e8e;
+    overflow: visible;
   }
 }
 
@@ -1793,7 +1794,6 @@ label#mat-form-field-label-9 {
   font-family: 'Lato-Regular' !important;
 }
 
-
 .user-profile.header-notification {
   .userFullName {
     font-size: 14px;
@@ -1801,9 +1801,6 @@ label#mat-form-field-label-9 {
 }
 
 div#mat-tab-label-0-0, div#mat-tab-label-0-1 {
-  //flex-grow: 1;
-  //list-style: none;
-  //border: solid 1px #CCC;
   text-align: center;
   cursor: pointer;
   font-family: 'BrandonText-Regular', sans-serif;
@@ -1815,7 +1812,6 @@ div#mat-tab-label-0-0, div#mat-tab-label-0-1 {
   opacity: 1;
   height: 37px;
 }
-
 
 mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted {
   display: block;
@@ -2341,8 +2337,8 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
   }
 }
 
-.mat-checkbox-background{
-  background-color: #7496f9!important;
+.mat-checkbox-background {
+  background-color: #7496f9 !important;
 }
 
 .mat-form-field-appearance-legacy.mat-form-field-can-float .mat-input-server:focus + .mat-form-field-label-wrapper .mat-form-field-label, .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
@@ -2814,8 +2810,18 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
   }
 
   .content {
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
+  }
+
+  .navbar {
+    .content {
+      width: 90%;
+    }
+  }
+
+  .Emojis {
+    left: 20px;
   }
 
   .posts_table table tbody th, td {
@@ -3027,8 +3033,26 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
 
 
 @media screen and (min-width: 320px) and (max-width: 768px) {
+
+  .save_caret_menu_item {
+    right: 0;
+  }
+
   .left_side {
     width: 100%;
+  }
+
+  .posts_box .mat-tab-label .mat-tab-label-content {
+    font-size: 14.5px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: 1.6px;
+    text-align: left;
+    display: block !important;
+    width: 100%;
+    padding-left: 10px;
+    text-transform: capitalize;
   }
 
   .mat-menu-content:not(:empty) {

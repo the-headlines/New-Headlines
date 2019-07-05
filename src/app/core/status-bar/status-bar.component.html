@@ -16,7 +16,7 @@
                         <div class="">
                             <button class="blue" (click)="vote('Like', single._id)" [class.gray]="!upwote"
                                     [hidden]="routerUrl !== '/road' && routerUrl !== '/travel' && routerUrl !== '/commerce' && routerUrl !== '/video'">
-                                <i class="fas fa-check" *ngIf="isShown"></i> {{vote}}
+                                <i class="fas fa-check" *ngIf="isShown"></i> Like
                                 <span class="num" *ngIf="openNum">20</span>
                             </button>
                         </div>
