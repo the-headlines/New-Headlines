@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, ElementRef, OnDestroy, OnInit, Renderer2, ViewChild} from '@angular/core';
 import {AuthService} from '../../../../services/auth.service';
 import {ActivatedRoute, NavigationStart, ParamMap, Router} from '@angular/router';
 import {HomeService} from '../../../../services/home.service';
@@ -23,12 +23,20 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
     styleUrls: ['./single-post.component.scss']
 })
 export class SinglePostComponent implements OnInit, OnDestroy {
+    @ViewChild('button') toggleButton: ElementRef;
+    @ViewChild('share') share: ElementRef;
+
     isEdit = false;
     postForm: FormGroup;
     userData: any = {};
-
     subscriptions: Subscription[] = [];
     questions = false;
+    show: boolean = false;
+
+    toggleDiv(event) {
+        this.show = !this.show;
+        this.selectedComment = event;
+    }
 
     constructor(
         private auth: AuthService,
@@ -36,7 +44,8 @@ export class SinglePostComponent implements OnInit, OnDestroy {
         private route: ActivatedRoute,
         private home: HomeService,
         private fb: FormBuilder,
-        private subject: SubjectService
+        private subject: SubjectService,
+        private renderer: Renderer2
     ) {
         this.id = this.route.snapshot.paramMap.get('id');
 
@@ -46,8 +55,12 @@ export class SinglePostComponent implements OnInit, OnDestroy {
             type: 'Comment'
         });
         // this.postForm.controls.comment.disable();
-
-
+        //
+        this.renderer.listen('window', 'click', (e: Event) => {
+            if (e.target !== this.toggleButton.nativeElement && e.target !== this.share.nativeElement) {
+                this.show = true;
+            }
+        });
     }
 
     id;
