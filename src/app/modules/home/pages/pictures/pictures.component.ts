@@ -171,8 +171,4 @@ export class PicturesComponent implements OnInit {
         return true;
     }
 
-    getSinglePost(id) {
-        this.router.navigate(['/post', id]);
-    }
-
 }

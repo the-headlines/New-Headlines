@@ -57,7 +57,7 @@ export class SinglePostComponent implements OnInit, OnDestroy {
         // this.postForm.controls.comment.disable();
         //
         this.renderer.listen('window', 'click', (e: Event) => {
-            if (e.target !== this.toggleButton.nativeElement && e.target !== this.share.nativeElement) {
+            if (this.toggleButton &&  this.share && e.target !== this.toggleButton.nativeElement && e.target !== this.share.nativeElement) {
                 this.show = true;
             }
         });
@@ -106,7 +106,6 @@ export class SinglePostComponent implements OnInit, OnDestroy {
         );
 
         this.subscriptions.push(this.subject.getUserData().subscribe((dt: any) => {
-            console.log(dt);
             this.userData = dt;
         }));
 
