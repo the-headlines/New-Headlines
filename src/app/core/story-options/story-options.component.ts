@@ -18,6 +18,7 @@ export class StoryOptionsComponent implements OnInit {
         this.renderer.listen('window', 'click', (e: Event) => {
             if (this.toggleButton && e.target !== this.toggleButton.nativeElement) {
                 this.isShown = false;
+                // console.log('window click');
             }
         });
 
@@ -30,5 +31,6 @@ export class StoryOptionsComponent implements OnInit {
     toggleShow(single) {
         this.isShown = !this.isShown;
         this.currentPost = single;
+        // console.log('button click')
     }
 }

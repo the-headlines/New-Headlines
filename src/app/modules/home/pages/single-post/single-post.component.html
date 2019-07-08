@@ -154,9 +154,9 @@
                         <div class="box">
                             <div class="Like like_btn">
                                 <img src="../../../../../assets/images/vote.png" alt="">
-                                <span class="Like__link js-hover">Votes
+                                <div class="Like__link js-hover">Votes
                                     <div class="votesCount">{{votes.length}}</div> <!-- hovered_number-->
-                                </span>
+                                </div>
                                 <div class="Emojis">
                                     <div class="Emoji Emoji--like">
                                         <div class="">
@@ -309,12 +309,12 @@
                                     <small class="date">{{comment.createdAt|formattedDate:false}}</small>
                                     <!--                            <div class="menuContainer">-->
                                 </div>
-                                <button mat-icon-button (click)="toggleDiv(comment)"
-                                        aria-label="Example icon-button with a menu" #button>
-                                    <mat-icon>more_vert</mat-icon>
+                                <button mat-icon-button (click)="toggleDiv(comment,button)"
+                                        aria-label="Example icon-button with a menu" >
+                                    <mat-icon #button>more_vert</mat-icon>
                                 </button>
                             </div>
-                            <div *ngIf="show && selectedComment === comment" class="comment_action" #share>
+                            <div *ngIf="show && selectedToggleBtn === button" class="comment_action" #share>
                                 <button mat-menu-item (click)="editComment(comment)">
                                     <mat-icon >edit</mat-icon>
                                     <span>Edit</span>

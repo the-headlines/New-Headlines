@@ -97,17 +97,40 @@
                     <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
                         <i class="fas fa-bars"></i>
                     </button>
-                    <div fxShow="true" fxHide.gt-sm>fwgf
+                    <div fxShow="true" fxHide.gt-sm>
                         <div class="user">
-                            <img src="" alt="">
-                            <div class="user_info">
-                                <ul>
-                                    <li><a href="">My Profile</a></li>
-                                    <li><a href="">Manage Posts</a></li>
-                                    <li><a href="">About</a></li>
-                                    <li><a href="">Privacy Police</a></li>
-                                    <li><a href="">Ads</a></li>
-                                </ul>
+                            <div>
+
+                                <img src="../../../assets/avatar/avatar.jpg" alt="">
+                                <div class="user_info" *ngIf="!checkUser()">
+                                    <ul class="">
+                                        <li class="login"><a *ngIf="!auth.loggedIn()" mat-button (click)="showLogin()">login
+                                            / sign up</a></li>
+                                    </ul>
+                                    <ul>
+                                        <li><a href="">About</a></li>
+                                        <li><a href="">Privacy Police</a></li>
+                                        <li><a href="">Ads</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div>
+                                <img src="../../../assets/avatar/avatar.jpg" alt="">
+                                <div class="user_info" *ngIf="checkUser()">
+                                    <ul>
+                                        <li>
+                                            <a *ngIf="checkUser()" style="color: white">{{userLoggined.name}}</a>
+                                        </li>
+                                    </ul>
+                                    <ul>
+                                        <li><a href="">My Profile</a></li>
+                                        <li><a href="">Manage Posts</a></li>
+                                        <li><a href="">About</a></li>
+                                        <li><a href="">Privacy Police</a></li>
+                                        <li><a href="">Ads</a></li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>

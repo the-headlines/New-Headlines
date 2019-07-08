@@ -32,11 +32,25 @@ export class SinglePostComponent implements OnInit, OnDestroy {
     subscriptions: Subscription[] = [];
     questions = false;
     show: boolean = false;
+    selectedToggleBtn;
 
-    toggleDiv(event) {
-        this.show = !this.show;
-        this.selectedComment = event;
-    }
+    id;
+    singlePost: any = [];
+    comments: any = [];
+    related: any = [];
+    addCommentData: any = [];
+    start = 0;
+    pageCount = 4;
+    commentCount = 0;
+    showCk = false;
+    postId;
+    votes = [];
+    like = true;
+    postOnEnter = true;
+    commentEditing = false;
+    selectedComment = null;
+
+    commentEditForm: FormGroup;
 
     constructor(
         private auth: AuthService,
@@ -57,29 +71,30 @@ export class SinglePostComponent implements OnInit, OnDestroy {
         // this.postForm.controls.comment.disable();
         //
         this.renderer.listen('window', 'click', (e: Event) => {
-            if (this.toggleButton &&  this.share && e.target !== this.toggleButton.nativeElement && e.target !== this.share.nativeElement) {
-                this.show = true;
+            // console.log(e.target);
+            // console.log(this.selectedToggleBtn._elementRef.nativeElement);
+            // console.log(this.selectedToggleBtn._elementRef.nativeElement !== e.target);
+
+
+            if (this.selectedToggleBtn) {
+
+                if (this.selectedToggleBtn._elementRef.nativeElement !== e.target) {
+                    this.show = false;
+                    this.selectedToggleBtn = null;
+                } else {
+                    this.show = true;
+                }
             }
+
+            if (!this.selectedToggleBtn && this.toggleButton && this.share && e.target !== this.toggleButton.nativeElement && e.target !== this.share.nativeElement) {
+                this.show = false;
+                // console.log('window click');
+            }
+
+
         });
     }
 
-    id;
-    singlePost: any = [];
-    comments: any = [];
-    related: any = [];
-    addCommentData: any = [];
-    start = 0;
-    pageCount = 4;
-    commentCount = 0;
-    showCk = false;
-    postId;
-    votes = [];
-    like = true;
-    postOnEnter = true;
-    commentEditing = false;
-    selectedComment = null;
-
-    commentEditForm: FormGroup;
 
     isDisabled(): boolean {
         return this.isEdit;
@@ -120,6 +135,15 @@ export class SinglePostComponent implements OnInit, OnDestroy {
 
 
         // console.log(this.userData);
+    }
+
+
+    toggleDiv(event, button) {
+        this.show = !this.show;
+        this.selectedComment = null;
+        this.selectedToggleBtn = button;
+        // console.log(button._elementRef.nativeElement)
+        // console.log('button click');
     }
 
     ckeditorContent: any;
