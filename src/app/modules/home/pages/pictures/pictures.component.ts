@@ -73,7 +73,7 @@ export class PicturesComponent implements OnInit {
     getDateFormatted(createdDate, onlyDate = true) {
 
 
-        if(!onlyDate) {
+        if (!onlyDate) {
 
             const a = moment(); // date now
             const b = moment(createdDate); // post created date
@@ -100,14 +100,9 @@ export class PicturesComponent implements OnInit {
                     }
                 }
             }
+        } else {
+            return moment(createdDate).format('MMMM Do YYYY, h:mm:ss a');
         }
-
-        else {
-            return moment(createdDate).format('MMMM Do YYYY, h:mm:ss a')
-        }
-
-
-
 
 
     }
@@ -154,7 +149,7 @@ export class PicturesComponent implements OnInit {
 
     }
 
-    getSingle(id) {
+    getSinglePost(id) {
         this.router.navigate(['/posts', id]);
     }
 
@@ -174,6 +169,10 @@ export class PicturesComponent implements OnInit {
             return false;
         }
         return true;
+    }
+
+    getSinglePost(id) {
+        this.router.navigate(['/post', id]);
     }
 
 }
