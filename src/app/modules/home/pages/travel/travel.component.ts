@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {HomeService} from '../../../../services/home.service';
 import * as moment from 'moment';
 import {SubjectService} from '../../../../services/subject.service';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-travel',
@@ -14,7 +15,8 @@ export class TravelComponent implements OnInit {
 
     constructor(
         private home: HomeService,
-        private subject: SubjectService
+        private subject: SubjectService,
+        public router: Router
     ) {
     }
 
@@ -90,6 +92,10 @@ export class TravelComponent implements OnInit {
         }
 
 
+    }
+
+    getSinglePost(id) {
+        this.router.navigate(['/post', id]);
     }
 
 }
