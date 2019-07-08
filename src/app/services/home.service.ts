@@ -76,11 +76,11 @@ export class HomeService {
 
     /*Add comment*/
     public addComments(data) {
-        return this.http.post(Base.url + '/api/comments', data);
+        return this.http.post(Base.url + '/api/news/' + data.newsId + '/comment', data);
     }
 
     getCommentsForPost(id) {
-        return this.http.get(Base.url + '/api/comments/' + id + '?pagesize=100&page=1');
+        return this.http.get(Base.url + '/api/news/' + id + '/comments/' + '?pagesize=100&page=1');
     }
 
     /**/

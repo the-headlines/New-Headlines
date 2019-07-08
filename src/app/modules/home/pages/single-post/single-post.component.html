@@ -204,20 +204,20 @@
                             Questions<span>{{getQuestionsLen('Question')}}</span>
                         </a>
                     </li>
-<!--                    <li>-->
-<!--                        <button type="button" class="share">-->
-<!--                            <i class="fas fa-share"></i>-->
-<!--                            Share<span></span></button>-->
-<!--                        <div class="share_post">-->
-<!--                            <ul>-->
-<!--                                <li>-->
-<!--                                    <button><i class="fas fa-link"></i> Copy Link</button>-->
-<!--                                    <button><img src="images/shuffle.png" alt="">Crosspost</button>-->
-<!--                                    <button><i class="fas fa-code"></i>Embed</button>-->
-<!--                                </li>-->
-<!--                            </ul>-->
-<!--                        </div>-->
-<!--                    </li>-->
+                    <!--                    <li>-->
+                    <!--                        <button type="button" class="share">-->
+                    <!--                            <i class="fas fa-share"></i>-->
+                    <!--                            Share<span></span></button>-->
+                    <!--                        <div class="share_post">-->
+                    <!--                            <ul>-->
+                    <!--                                <li>-->
+                    <!--                                    <button><i class="fas fa-link"></i> Copy Link</button>-->
+                    <!--                                    <button><img src="images/shuffle.png" alt="">Crosspost</button>-->
+                    <!--                                    <button><i class="fas fa-code"></i>Embed</button>-->
+                    <!--                                </li>-->
+                    <!--                            </ul>-->
+                    <!--                        </div>-->
+                    <!--                    </li>-->
                 </ul>
                 <div class="leave_comment" *ngIf="auth.loggedIn()">
                     <div class="commented_by" *ngIf="auth.loggedIn() && userData && userData.fullName">
@@ -306,22 +306,41 @@
                 <!--                    </button>-->
                 <!--                </div>-->
                 <div class="comments" *ngIf="!questions && auth.loggedIn()">
-                    <ng-container *ngFor="let comment of comments">
+                    <ng-container *ngFor="let comment of comments;let ind = index">
                         <div *ngIf="comment.type==='Comment'">
-                            <strong class="author">{{comment.creator.name?comment.creator.name:'n/a'}}</strong>
+                            <strong class="author">{{comment.creator.name ? comment.creator.name : 'n/a'}}</strong>
                             <small class="date">{{comment.createdAt|formattedDate:false}}</small>
-                            <div class="commentContainer">
-                                <p class="comment"
-                                   *ngIf="!commentEditing || selectedComment!== comment">{{comment.text}}</p>
-                                <form *ngIf="commentEditing && selectedComment=== comment"
-                                      [formGroup]="commentEditForm">
-                                    <input formControlName="text" (keyup.enter)="updateComment()">
-                                </form>
-                                <div>
-                                    <mat-icon (click)="editComment(comment)">edit</mat-icon>
-                                    <mat-icon (click)="removeComment(comment._id)">clear</mat-icon>
+
+<!--                            <div class="menuContainer">-->
+                                <button mat-icon-button [matMenuTriggerFor]="menu"
+                                        aria-label="Example icon-button with a menu">
+                                    <mat-icon>more_vert</mat-icon>
+                                </button>
+                                <mat-menu #menu="matMenu" [overlapTrigger]="false" >
+                                    <button mat-menu-item>
+                                        <mat-icon (click)="editComment(comment)">edit</mat-icon>
+                                        <span>Edit</span>
+                                    </button>
+                                    <button mat-menu-item disabled>
+                                        <mat-icon (click)="removeComment(comment._id)">clear</mat-icon>
+                                        <span>Remove</span>
+                                    </button>
+                                </mat-menu>
+                                <div class="commentContainer">
+                                    <p class="comment"
+                                       *ngIf="!commentEditing || selectedComment!== comment">{{comment.text}}</p>
+                                    <form *ngIf="commentEditing && selectedComment=== comment"
+                                          [formGroup]="commentEditForm">
+                                        <input formControlName="text" (keyup.enter)="updateComment()">
+                                    </form>
+
+
+                                    <div>
+
+
+                                    </div>
                                 </div>
-                            </div>
+<!--                            </div>-->
                             <div class="actions">
                                 <small>Like</small>
                                 <small> Reply</small>
@@ -333,7 +352,7 @@
                 <div class="questions" *ngIf="questions && auth.loggedIn()">
                     <ng-container *ngFor="let comment of comments">
                         <div *ngIf="comment.type==='Question'">
-                            <strong class="author">{{comment.creator.name?comment.creator.name:'n/a'}}</strong>
+                            <strong class="author">{{comment.creator.name ? comment.creator.name : 'n/a'}}</strong>
                             <small class="date">{{comment.createdAt|formattedDate:false}}</small>
                             <p class="question">{{comment.text}}</p>
                             <div class="commentContainer">

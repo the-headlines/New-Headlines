@@ -8,6 +8,7 @@ import * as JWT from 'jwt-decode';
 import {SubjectService} from '../../../../services/subject.service';
 import {Subscription} from 'rxjs';
 import {filter} from 'rxjs/operators';
+import * as moment from 'moment';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
     isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -236,6 +237,9 @@ export class SinglePostComponent implements OnInit, OnDestroy {
 
     getComments() {
         this.home.getCommentsForPost(this.postId).subscribe((dt: any) => {
+            dt.comments.sort((a, b) => {
+                return moment(b['createdAt']).unix() - moment(a['createdAt']).unix();
+            });
             this.comments = dt.comments;
         });
     }
