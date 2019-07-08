@@ -23,6 +23,7 @@ export class HeaderComponent implements OnInit {
     userData: any = {};
     searchForm;
     searchAllowed = false;
+    isShown = false;
 
     constructor(
         private dialog: MatDialog,
@@ -103,6 +104,11 @@ export class HeaderComponent implements OnInit {
         });
 
         this.fakeArr = searchArr;
+    }
+
+    toggleShow() {
+        this.isShown = !this.isShown;
+        console.log('button click');
     }
 
     ngOnInit() {

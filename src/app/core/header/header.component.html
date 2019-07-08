@@ -25,16 +25,17 @@
                     </div>
                 </div>
                 <ul>
-                    <li class="post" ng-class="{ active: isActive('/posts') }">
+                    <li class="post" ng-class="{ active: isActive('/posts') }" fxShow.gt-lg [fxHide.sm]="true"
+                        fxHide.xs="true">
                         <a *ngIf="!checkUser()" mat-button (click)="showLogin()">post</a>
                         <a *ngIf="checkUser()" routerLink="/add-post" mat-button>post</a>
                     </li>
-                    <li class="login">
+                    <li class="login" fxShow.gt-lg [fxHide.sm]="true" fxHide.xs="true">
                         <a *ngIf="!auth.loggedIn()" mat-button (click)="showLogin()">login / sign up</a>
                         <a *ngIf="checkUser()" style="color: white">{{userLoggined.name}}</a>
                     </li>
                     <li class="logout">
-                        <ul *ngIf="checkUser()">
+                        <ul *ngIf="checkUser()" [fxHide.sm]="true" fxHide.xs="true">
                             <li class="header-notification">
                                 <button mat-button [matMenuTriggerFor]="belowMenu" class="not_btn"
                                         *ngIf="auth.loggedIn()">
@@ -94,42 +95,94 @@
             </div>
             <mat-toolbar>
                 <mat-toolbar-row>
-                    <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
-                        <i class="fas fa-bars"></i>
-                    </button>
-                    <div fxShow="true" fxHide.gt-sm>
-                        <div class="user">
-                            <div>
-
-                                <img src="../../../assets/avatar/avatar.jpg" alt="">
-                                <div class="user_info" *ngIf="!checkUser()">
-                                    <ul class="">
-                                        <li class="login"><a *ngIf="!auth.loggedIn()" mat-button (click)="showLogin()">login
-                                            / sign up</a></li>
-                                    </ul>
-                                    <ul>
-                                        <li><a href="">About</a></li>
-                                        <li><a href="">Privacy Police</a></li>
-                                        <li><a href="">Ads</a></li>
-                                    </ul>
+                    <div class="flex_container mobile_flex_cont">
+                        <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+                            <i class="fas fa-bars"></i>
+                        </button>
+                        <div fxShow="true" fxHide.gt-sm>
+                            <div class="user">
+                                <div>
+                                    <div class="user_info" *ngIf="!checkUser()">
+                                        <div (click)="toggleShow()">
+                                            <img src="../../../assets/avatar/user%20(2).png" alt="">
+                                        </div>
+                                        <div class="mobile_user_info" *ngIf="isShown">
+                                            <ul class="">
+                                                <li class="login">
+                                                    <a *ngIf="!auth.loggedIn()"
+                                                       (click)="showLogin()">Login / Sign Up</a></li>
+                                            </ul>
+                                            <ul>
+                                                <li><a mat-button routerLink="/about">About</a></li>
+                                                <li><a mat-button>Privacy Police</a></li>
+                                                <li><a mat-button>Ads</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-
-                            <div>
-                                <img src="../../../assets/avatar/avatar.jpg" alt="">
-                                <div class="user_info" *ngIf="checkUser()">
-                                    <ul>
-                                        <li>
-                                            <a *ngIf="checkUser()" style="color: white">{{userLoggined.name}}</a>
-                                        </li>
-                                    </ul>
-                                    <ul>
-                                        <li><a href="">My Profile</a></li>
-                                        <li><a href="">Manage Posts</a></li>
-                                        <li><a href="">About</a></li>
-                                        <li><a href="">Privacy Police</a></li>
-                                        <li><a href="">Ads</a></li>
-                                    </ul>
+                                <div>
+                                    <div class="user_info" *ngIf="checkUser()">
+                                        <div class="logout">
+                                            <ul *ngIf="checkUser()">
+                                                <li class="header-notification">
+                                                    <button mat-button class="not_btn" *ngIf="auth.loggedIn()">
+                                                        <span class="bell">
+                                                            <i class="fas fa-bell"></i>
+                                                            <span class="badge bg-c-red">5</span>
+                                                        </span>
+                                                    </button>
+<!--                                                    <div class="notification-box_wrapper" *ngIf="isShown">-->
+<!--                                                        <h6>Notifications:</h6>-->
+<!--                                                        <div class="margin_top">-->
+<!--                                                            <div class="media">-->
+<!--                                                                <div class="media-body">-->
+<!--                                                                    <a class="notification-user"-->
+<!--                                                                       routerLink="/notifications">Prince John-->
+<!--                                                                        voted-->
+<!--                                                                        <span>Important May 28</span>-->
+<!--                                                                    </a>-->
+<!--                                                                    <div class="notification-msg">-->
+<!--                                                                        <p>Lorem ipsum dolor sit amet, consectetuer-->
+<!--                                                                            elit.</p>-->
+<!--                                                                    </div>-->
+<!--                                                                    <div class="notification-quality">-->
+<!--                                                                        <p><span>Score</span>400</p>-->
+<!--                                                                        <p><span>Total votes </span> 300</p>-->
+<!--                                                                    </div>-->
+<!--                                                                </div>-->
+<!--                                                            </div>-->
+<!--                                                        </div>-->
+<!--                                                    </div>-->
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div (click)="toggleShow()">
+                                            <img src="../../../assets/avatar/user%20(2).png" alt="">
+                                        </div>
+                                        <div class="mobile_user_info" *ngIf="isShown">
+                                            <ul>
+                                                <li>
+                                                    <a>{{userLoggined.name}}</a>
+                                                </li>
+                                            </ul>
+                                            <ul>
+                                                <li>
+                                                    <a mat-button routerLink="/profile">My Profile</a>
+                                                </li>
+                                                <li>
+                                                    <a mat-button routerLink="/managePost">Manage Posts</a>
+                                                </li>
+                                                <li>
+                                                    <a mat-button routerLink="/about">About</a>
+                                                </li>
+                                                <li><a mat-button>Privacy Police</a></li>
+                                                <li><a mat-button>Ads</a></li>
+                                                <li>
+                                                    <a mat-button (click)="logOut()">LogOut</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

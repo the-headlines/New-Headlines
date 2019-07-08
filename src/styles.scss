@@ -3033,6 +3033,10 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
 
 @media screen and (min-width: 320px) and (max-width: 768px) {
 
+  .modal-body {
+    padding: 0 20px 51px !important;
+  }
+
   .save_caret_menu_item {
     right: 0;
   }
@@ -3180,3 +3184,5 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
     margin-right: 0;
   }
 }
+
+
