@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
     @ViewChild('closest') closest: ElementRef;
     @Output() openRegister = new EventEmitter();
     options: FormGroup;
+    loginForm: FormGroup;
 
     emailFormControl = new FormControl('', [
         // Validators.required,
@@ -51,6 +52,12 @@ export class LoginComponent implements OnInit {
         private loginDialogRef: MatDialogRef<LoginComponent>,
         private fb: FormBuilder
     ) {
+        this.loginForm = this.fb.group({
+            email: [''],
+            password: ['']
+        });
+
+
         this.options = fb.group({
             hideRequired: false,
             floatLabel: 'always',
@@ -76,7 +83,7 @@ export class LoginComponent implements OnInit {
 
 
     checkLogin(data) {
-        this.auth.checkLogin(data).subscribe((r: any) => {
+        this.auth.checkLogin(this.loginForm.value).subscribe((r: any) => {
 
 
             localStorage.setItem('full_name', r.fullname);

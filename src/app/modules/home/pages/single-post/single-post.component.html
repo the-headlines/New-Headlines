@@ -200,7 +200,6 @@
                         <a (click)="questions = true">
                             Questions<span>{{getQuestionsLen('Question')}}</span>
                         </a>
-                        per
                     </li>
                     <!--                    <li>-->
                     <!--                        <button type="button" class="share">-->
@@ -315,13 +314,13 @@
                                     <mat-icon #button>more_vert</mat-icon>
                                 </button>
                             </div>
-                            <div *ngIf="show && selectedComment === comment" class="comment_action" #share>
-                                <button mat-menu-item>
-                                    <mat-icon (click)="editComment(comment)">edit</mat-icon>
+                            <div *ngIf="show && selectedToggleBtn === button" class="comment_action" #share>
+                                <button mat-menu-item (click)="editComment(comment)">
+                                    <mat-icon >edit</mat-icon>
                                     <span>Edit</span>
                                 </button>
-                                <button mat-menu-item disabled>
-                                    <mat-icon (click)="removeComment(comment._id)">clear</mat-icon>
+                                <button mat-menu-item (click)="removeComment(comment._id)">
+                                    <mat-icon >clear</mat-icon>
                                     <span>Remove</span>
                                 </button>
                             </div>
