@@ -160,7 +160,9 @@
                                 <div class="Emojis">
                                     <div class="Emoji Emoji--like">
                                         <div class="">
-                                            <button class="blue" (click)="vote('Like', singlePost._id)" [class.gray]="!upwote">Like</button>
+                                            <button class="blue" (click)="vote('Like', singlePost._id)"
+                                                    [class.gray]="!upwote">Like
+                                            </button>
                                             <p class="num">20</p>
                                         </div>
                                     </div>
@@ -198,7 +200,7 @@
                         <a (click)="questions = true">
                             Questions<span>{{getQuestionsLen('Question')}}</span>
                         </a>
-                   per </li>
+                    </li>
                     <!--                    <li>-->
                     <!--                        <button type="button" class="share">-->
                     <!--                            <i class="fas fa-share"></i>-->
@@ -313,12 +315,12 @@
                                 </button>
                             </div>
                             <div *ngIf="show && selectedComment === comment" class="comment_action" #share>
-                                <button mat-menu-item>
-                                    <mat-icon (click)="editComment(comment)">edit</mat-icon>
+                                <button mat-menu-item (click)="editComment(comment)">
+                                    <mat-icon >edit</mat-icon>
                                     <span>Edit</span>
                                 </button>
-                                <button mat-menu-item disabled>
-                                    <mat-icon (click)="removeComment(comment._id)">clear</mat-icon>
+                                <button mat-menu-item (click)="removeComment(comment._id)">
+                                    <mat-icon >clear</mat-icon>
                                     <span>Remove</span>
                                 </button>
                             </div>
