@@ -26,7 +26,7 @@
                 </div>
                 <ul>
                     <li class="post" ng-class="{ active: isActive('/posts') }">
-                        <a *ngIf="!checkUser()" mat-button (click)="showLogin()">post</a>
+                        <a *ngIf="!checkUser()" mat-button (click)="showLogin()" fxShow="true" fxHide.gt-sm>post</a>
                         <a *ngIf="checkUser()" routerLink="/add-post" mat-button>post</a>
                     </li>
                     <li class="login">
@@ -97,6 +97,20 @@
                     <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
                         <i class="fas fa-bars"></i>
                     </button>
+                    <div fxShow="true" fxHide.gt-sm>fwgf
+                        <div class="user">
+                            <img src="" alt="">
+                            <div class="user_info">
+                                <ul>
+                                    <li><a href="">My Profile</a></li>
+                                    <li><a href="">Manage Posts</a></li>
+                                    <li><a href="">About</a></li>
+                                    <li><a href="">Privacy Police</a></li>
+                                    <li><a href="">Ads</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                     <div fxShow="true" fxHide.lt-md style="width: 100%">
                         <div class="menu">
                             <div class="burger">
