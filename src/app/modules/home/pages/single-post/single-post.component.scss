@@ -11,6 +11,27 @@
   color: #000000;
 }
 
+.comments {
+  position: relative;
+
+  .comment_action {
+    position: absolute;
+    right: 0;
+    background: #fff;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    border: none;
+    visibility: visible;
+    overflow: visible;
+    width: 15rem;
+    z-index: 999;
+  }
+  .flex_cont{
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
 .single_blog_post {
   border: solid 1px #959595;
   background-color: #ffffff;

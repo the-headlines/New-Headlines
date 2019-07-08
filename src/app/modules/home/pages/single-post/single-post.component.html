@@ -138,7 +138,6 @@
                 <div class="post_title_and_desc">
                     <h3>{{singlePost.extractedTitle}}</h3>
                     <p>{{singlePost.description|stripTags}}</p>
-
                     <div class="post_image">
                         <img src="{{singlePost.extractedImage}}" alt="" class="postImage">
                         <div class="play">
@@ -155,16 +154,13 @@
                         <div class="box">
                             <div class="Like like_btn">
                                 <img src="../../../../../assets/images/vote.png" alt="">
-
                                 <span class="Like__link js-hover">Votes
-                                            <div class="votesCount">{{votes.length}}</div> <!-- hovered_number-->
-                                        </span>
+                                    <div class="votesCount">{{votes.length}}</div> <!-- hovered_number-->
+                                </span>
                                 <div class="Emojis">
                                     <div class="Emoji Emoji--like">
                                         <div class="">
-                                            <button class="blue" (click)="vote('Like', singlePost._id)"
-                                                    [class.gray]="!upwote">Like
-                                            </button>
+                                            <button class="blue" (click)="vote('Like', singlePost._id)" [class.gray]="!upwote">Like</button>
                                             <p class="num">20</p>
                                         </div>
                                     </div>
@@ -187,7 +183,6 @@
                             </div>
                         </div>
                     </li>
-
                     <li>
                         <a href="">
                             View<span>20</span>
@@ -203,7 +198,7 @@
                         <a (click)="questions = true">
                             Questions<span>{{getQuestionsLen('Question')}}</span>
                         </a>
-                    </li>
+                   per </li>
                     <!--                    <li>-->
                     <!--                        <button type="button" class="share">-->
                     <!--                            <i class="fas fa-share"></i>-->
@@ -226,7 +221,6 @@
                     <div class="border" *ngIf="auth.loggedIn()">
                         <form [formGroup]="postForm" class="postCommentsForm">
                             <textarea formControlName="text" (keypress)="onEditorChange($event)"></textarea>
-
                             <!--                            <ckeditor formControlName="text" *ngIf="showCk" (keyup)="onEditorChange($event)"-->
                             <!--                                      name="message" class="add_comm_or_question_area"-->
                             <!--                            >-->
@@ -238,7 +232,6 @@
                             <!--                            </ckeditor>-->
                             <div class="comments_or_question">
                                 <div class="checkboxContainer">
-
                                     <mat-checkbox [checked]="postOnEnter" color="primary"
                                                   (change)="postOnEnter = !postOnEnter">
                                         <small class="enterHint">Send on "Enter"</small>
@@ -285,7 +278,7 @@
                             </div>
                         </div>
                     </div>
-                    <!--                    </form>-->
+                    <!--</form>-->
                 </div>
 
                 <!--                <div class="user_name_of_comments" *ngIf="addCommentData && addCommentData.length != 0">-->
@@ -308,39 +301,37 @@
                 <div class="comments" *ngIf="!questions && auth.loggedIn()">
                     <ng-container *ngFor="let comment of comments;let ind = index">
                         <div *ngIf="comment.type==='Comment'">
-                            <strong class="author">{{comment.creator.name ? comment.creator.name : 'n/a'}}</strong>
-                            <small class="date">{{comment.createdAt|formattedDate:false}}</small>
-
-<!--                            <div class="menuContainer">-->
-                                <button mat-icon-button [matMenuTriggerFor]="menu"
-                                        aria-label="Example icon-button with a menu">
+                            <div class="flex_cont">
+                                <div>
+                                    <strong class="author">{{comment.creator.name ? comment.creator.name : 'n/a'}}</strong>
+                                    <small class="date">{{comment.createdAt|formattedDate:false}}</small>
+                                    <!--                            <div class="menuContainer">-->
+                                </div>
+                                <button mat-icon-button (click)="toggleDiv(comment)"
+                                        aria-label="Example icon-button with a menu" #button>
                                     <mat-icon>more_vert</mat-icon>
                                 </button>
-                                <mat-menu #menu="matMenu" [overlapTrigger]="false" >
-                                    <button mat-menu-item>
-                                        <mat-icon (click)="editComment(comment)">edit</mat-icon>
-                                        <span>Edit</span>
-                                    </button>
-                                    <button mat-menu-item disabled>
-                                        <mat-icon (click)="removeComment(comment._id)">clear</mat-icon>
-                                        <span>Remove</span>
-                                    </button>
-                                </mat-menu>
-                                <div class="commentContainer">
-                                    <p class="comment"
-                                       *ngIf="!commentEditing || selectedComment!== comment">{{comment.text}}</p>
-                                    <form *ngIf="commentEditing && selectedComment=== comment"
-                                          [formGroup]="commentEditForm">
-                                        <input formControlName="text" (keyup.enter)="updateComment()">
-                                    </form>
-
-
-                                    <div>
-
-
-                                    </div>
+                            </div>
+                            <div *ngIf="show && selectedComment === comment" class="comment_action" #share>
+                                <button mat-menu-item>
+                                    <mat-icon (click)="editComment(comment)">edit</mat-icon>
+                                    <span>Edit</span>
+                                </button>
+                                <button mat-menu-item disabled>
+                                    <mat-icon (click)="removeComment(comment._id)">clear</mat-icon>
+                                    <span>Remove</span>
+                                </button>
+                            </div>
+                            <div class="commentContainer">
+                                <p class="comment"
+                                   *ngIf="!commentEditing || selectedComment!== comment">{{comment.text}}</p>
+                                <form *ngIf="commentEditing && selectedComment=== comment"
+                                      [formGroup]="commentEditForm">
+                                    <input formControlName="text" (keyup.enter)="updateComment()">
+                                </form>
+                                <div>
                                 </div>
-<!--                            </div>-->
+                            </div>
                             <div class="actions">
                                 <small>Like</small>
                                 <small> Reply</small>
@@ -365,14 +356,10 @@
                                 <small> Report</small>
                             </div>
                         </div>
-
                     </ng-container>
                 </div>
             </div>
         </section>
-        <!--        <div class="col-md-4">-->
-        <!--            <app-aside></app-aside>-->
-        <!--        </div>-->
     </div>
 </div>
 
