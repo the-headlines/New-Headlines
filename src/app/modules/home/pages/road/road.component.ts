@@ -187,8 +187,8 @@ export class RoadComponent implements OnInit {
 
     }
 
-    getSingle(id) {
-        this.router.navigate(['/posts', id]);
+    getSinglePost(id) {
+        this.router.navigate(['/post', id]);
     }
 
     checkUser() {

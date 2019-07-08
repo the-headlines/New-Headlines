@@ -105,7 +105,6 @@ export class SinglePostComponent implements OnInit, OnDestroy {
         );
 
         this.subscriptions.push(this.subject.getUserData().subscribe((dt: any) => {
-            console.log(dt);
             this.userData = dt;
         }));
 

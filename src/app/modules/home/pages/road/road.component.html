@@ -56,7 +56,7 @@
                             <h6>{{post.description|stripTags}}</h6>
                         </div>
                         <div class="img-block">
-                            <img src="{{post.extractedImage}}" class="img-fluid" alt="">
+                            <img src="{{post.extractedImage}}" class="img-fluid" alt="" (click)="getSinglePost(post._id)">
                         </div>
                         <div class="text-block">
                             <a href="{{post.link}}" class="text_block_link" target="_blank">
