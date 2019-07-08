@@ -32,11 +32,7 @@ export class SinglePostComponent implements OnInit, OnDestroy {
     subscriptions: Subscription[] = [];
     questions = false;
     show: boolean = false;
-
-    toggleDiv(event) {
-        this.show = !this.show;
-        this.selectedComment = event;
-    }
+    selectedToggleBtn;
 
     constructor(
         private auth: AuthService,
@@ -57,8 +53,11 @@ export class SinglePostComponent implements OnInit, OnDestroy {
         // this.postForm.controls.comment.disable();
         //
         this.renderer.listen('window', 'click', (e: Event) => {
+            console.log(e.target)
+            console.log(this.selectedToggleBtn)
             if (e.target !== this.toggleButton.nativeElement && e.target !== this.share.nativeElement) {
-                this.show = true;
+                this.show = false;
+                console.log('window click');
             }
         });
     }
@@ -121,6 +120,15 @@ export class SinglePostComponent implements OnInit, OnDestroy {
 
 
         // console.log(this.userData);
+    }
+
+
+    toggleDiv(event, button) {
+        this.show = !this.show;
+        this.selectedComment = event;
+        this.selectedToggleBtn = button;
+        console.log(button)
+        console.log('button click')
     }
 
     ckeditorContent: any;

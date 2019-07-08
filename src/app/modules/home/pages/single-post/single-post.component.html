@@ -154,13 +154,15 @@
                         <div class="box">
                             <div class="Like like_btn">
                                 <img src="../../../../../assets/images/vote.png" alt="">
-                                <span class="Like__link js-hover">Votes
+                                <div class="Like__link js-hover">Votes
                                     <div class="votesCount">{{votes.length}}</div> <!-- hovered_number-->
-                                </span>
+                                </div>
                                 <div class="Emojis">
                                     <div class="Emoji Emoji--like">
                                         <div class="">
-                                            <button class="blue" (click)="vote('Like', singlePost._id)" [class.gray]="!upwote">Like</button>
+                                            <button class="blue" (click)="vote('Like', singlePost._id)"
+                                                    [class.gray]="!upwote">Like
+                                            </button>
                                             <p class="num">20</p>
                                         </div>
                                     </div>
@@ -198,7 +200,8 @@
                         <a (click)="questions = true">
                             Questions<span>{{getQuestionsLen('Question')}}</span>
                         </a>
-                   per </li>
+                        per
+                    </li>
                     <!--                    <li>-->
                     <!--                        <button type="button" class="share">-->
                     <!--                            <i class="fas fa-share"></i>-->
@@ -307,9 +310,9 @@
                                     <small class="date">{{comment.createdAt|formattedDate:false}}</small>
                                     <!--                            <div class="menuContainer">-->
                                 </div>
-                                <button mat-icon-button (click)="toggleDiv(comment)"
-                                        aria-label="Example icon-button with a menu" #button>
-                                    <mat-icon>more_vert</mat-icon>
+                                <button mat-icon-button (click)="toggleDiv(comment,button)"
+                                        aria-label="Example icon-button with a menu" >
+                                    <mat-icon #button>more_vert</mat-icon>
                                 </button>
                             </div>
                             <div *ngIf="show && selectedComment === comment" class="comment_action" #share>
