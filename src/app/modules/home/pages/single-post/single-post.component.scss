@@ -23,7 +23,7 @@
     border: none;
     visibility: visible;
     overflow: visible;
-    width: 15rem;
+    width: 9rem;
     z-index: 999;
   }
 
@@ -320,7 +320,7 @@
 
     span {
       color: #3479bd;
-      font-size: 14px;
+      font-size: 12px;
     }
   }
 
@@ -373,6 +373,7 @@
     p {
       margin-right: 20px;
       font-size: 14px;
+      cursor: pointer;
 
       span {
         margin-right: 8px;
@@ -526,19 +527,34 @@
 
 .comment_action {
   button {
-    span{
+    span {
       font-size: 14px;
     }
   }
 }
 
 
-.date{
+.date {
   margin-left: 10px;
 }
 
-.actions{
-  small{
+.author {
+  font-size: 14px;
+}
+
+.actions {
+  margin-bottom: 10px;
+
+  small {
     margin-left: 10px;
   }
+}
+
+.selected, .selected p {
+  color: #7496f9;
+  font-weight: bold !important;
+}
+
+#dropdownMenuButton {
+  font-size: 12px;
 }
