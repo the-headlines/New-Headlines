@@ -268,11 +268,11 @@
                         </form>
                     </div>
                     <div class="how_many_com_and_quest">
-                        <p (click)="changeCommentType(false)"><span>{{getQuestionsLen('Comment')}}</span>Comments</p>
-                        <p (click)="changeCommentType(true)"><span>{{getQuestionsLen('Question')}}</span>Questions</p>
+                        <p (click)="changeCommentType(false)" [class.selected]="!questions"><span>{{getQuestionsLen('Comment')}}</span>Comments</p>
+                        <p (click)="changeCommentType(true)" [class.selected]="questions"><span>{{getQuestionsLen('Question')}}</span>Questions</p>
                     </div>
                     <div class="sort">
-                        <h2>Sort by </h2>
+                        <small>Sort by </small>
                         <div class="dropdown">
                             <p class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown"
                                aria-haspopup="true" aria-expanded="false">
