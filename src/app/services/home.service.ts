@@ -97,4 +97,8 @@ export class HomeService {
     public updateComment(data) {
         return this.http.put(Base.url + '/api/comments/' + data.id, data);
     }
+
+    likeComment(id) {
+        return this.http.post(Base.url + '/api/comments/' + id + '/likeunlike', {});
+    }
 }
