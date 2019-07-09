@@ -218,7 +218,7 @@
                 </ul>
                 <div class="leave_comment" *ngIf="auth.loggedIn()">
                     <div class="commented_by" *ngIf="auth.loggedIn() && userData && userData.fullName">
-                        <p>Comment as <span>{{userData.fullName}}</span>
+                        <p>Add as <span>{{userData.fullName}}</span>
                     </div>
                     <div class="border" *ngIf="auth.loggedIn()">
                         <form [formGroup]="postForm" class="postCommentsForm">
@@ -233,9 +233,11 @@
                             <!--                                &lt;!&ndash;                                              [icon]="'save.png'"&ndash;&gt;-->
                             <!--                            </ckeditor>-->
                             <div class="comments_or_question">
-                                <small>Please put a question mark(?) if it is a question or else it will treated as
-                                    comment
-                                </small>
+                                <div>
+                                    <small>If it is a question please put a question mark (?) or else it will be treated
+                                        as a comment
+                                    </small>
+                                </div>
                                 <div class="checkboxContainer">
                                     <mat-checkbox [checked]="postOnEnter" color="primary"
                                                   (change)="postOnEnter = !postOnEnter">

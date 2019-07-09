@@ -316,9 +316,11 @@
 
   .commented_by p {
     margin-bottom: 20px;
+    font-size: 12px;
 
     span {
       color: #3479bd;
+      font-size: 14px;
     }
   }
 
@@ -337,7 +339,7 @@
     }
 
     .checkboxContainer {
-      padding: 7px 14px 0;
+      padding: 3px 14px 0;
     }
 
     button {
@@ -370,9 +372,11 @@
 
     p {
       margin-right: 20px;
+      font-size: 14px;
 
       span {
         margin-right: 8px;
+        font-size: 14px;
       }
     }
   }
@@ -518,4 +522,23 @@
 .postImage {
   max-width: 800px;
   width: 100%;
+}
+
+.comment_action {
+  button {
+    span{
+      font-size: 14px;
+    }
+  }
+}
+
+
+.date{
+  margin-left: 10px;
+}
+
+.actions{
+  small{
+    margin-left: 10px;
+  }
 }
