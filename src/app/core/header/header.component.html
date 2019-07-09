@@ -66,23 +66,22 @@
                             <li class="user-profile header-notification" *ngIf="auth.loggedIn()">
                                 <button mat-button [matMenuTriggerFor]="beforeMenu" #trigger="matMenuTrigger"
                                         class="user_name">
-
                                     <span class="userFullName">{{userData ? userData.fullName : '/n/a'}}</span>
                                     <i class="feather icon-chevron-down"></i>
                                 </button>
                                 <mat-menu #beforeMenu="matMenu" yPosition="below">
                                     <ul class="profile_links">
                                         <li>
-                                            <a mat-button routerLink="/profile">My Profile</a>
+                                            <a routerLink="/profile">My Profile</a>
                                         </li>
                                         <li>
-                                            <a mat-button routerLink="/managePost">Manage Posts</a>
+                                            <a routerLink="/managePost">Manage Posts</a>
                                         </li>
                                         <li>
-                                            <a mat-button routerLink="/subscribe">Subscribe</a>
+                                            <a routerLink="/subscribe">Subscribe</a>
                                         </li>
                                         <li>
-                                            <a mat-button (click)="logOut()">LogOut</a>
+                                            <a (click)="logOut()">LogOut</a>
                                         </li>
                                     </ul>
                                 </mat-menu>
@@ -151,16 +150,17 @@
                                                     <a *ngIf="!auth.loggedIn()" (click)="showLogin()">Login / Sign
                                                         Up</a>
                                                 </li>
-                                                <li class="user-profile header-notification login" *ngIf="auth.loggedIn()">
+                                                <li class="user-profile header-notification login"
+                                                    *ngIf="auth.loggedIn()">
                                                     <a class="user_name">
                                                         <span class="userFullName">{{userData ? userData.fullName : '/n/a'}}</span>
                                                     </a>
                                                 </li>
                                             </ul>
                                             <ul *ngIf="!checkUser()">
-                                                <li><a mat-button routerLink="/about">About</a></li>
-                                                <li><a mat-button>Privacy Police</a></li>
-                                                <li><a mat-button>Ads</a></li>
+                                                <li><a routerLink="/about">About</a></li>
+                                                <li><a>Privacy Police</a></li>
+                                                <li><a>Ads</a></li>
                                             </ul>
                                             <ul *ngIf="checkUser()">
                                                 <li>
@@ -172,10 +172,11 @@
                                                 <li>
                                                     <a mat-button routerLink="/about">About</a>
                                                 </li>
-                                                <li><a mat-button>Privacy Police</a></li>
-                                                <li><a mat-button>Ads</a></li>
                                                 <li>
-                                                    <a mat-button (click)="logOut()">LogOut</a>
+                                                    <a mat-button>Privacy Policy</a>
+                                                </li>
+                                                <li>
+                                                    <a mat-button (click)="logOut()">Logout</a>
                                                 </li>
                                             </ul>
                                         </div>
