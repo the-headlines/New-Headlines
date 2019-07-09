@@ -8,7 +8,6 @@
                     </a>
                     <div class="search_box">
                         <form [formGroup]="searchForm" *ngIf="searchAllowed">
-
                             <p>Readers decide "The Headlines" <a routerLink="/about">more... </a></p>
                             <div class="input-group mb-3">
                                 <input type="text" class="form-control searchInput" placeholder="Search"
@@ -37,14 +36,13 @@
                     <li class="logout">
                         <ul *ngIf="checkUser()" [fxHide.sm]="true" fxHide.xs="true">
                             <li class="header-notification">
-                                <button mat-button [matMenuTriggerFor]="belowMenu" class="not_btn"
-                                        *ngIf="auth.loggedIn()">
+                                <button mat-button class="not_btn" *ngIf="auth.loggedIn()" (click)="openNot()">
                                     <span class="bell">
                                         <i class="fas fa-bell"></i>
                                         <span class="badge bg-c-red">5</span>
                                     </span>
                                 </button>
-                                <mat-menu #belowMenu="matMenu" yPosition="below">
+                                <div class="not_wrapper" *ngIf="show">
                                     <h6>Notifications:</h6>
                                     <div class="margin_top">
                                         <div class="media">
@@ -63,7 +61,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </mat-menu>
+                                </div>
                             </li>
                             <li class="user-profile header-notification" *ngIf="auth.loggedIn()">
                                 <button mat-button [matMenuTriggerFor]="beforeMenu" #trigger="matMenuTrigger"
@@ -102,70 +100,69 @@
                         <div fxShow="true" fxHide.gt-sm>
                             <div class="user">
                                 <div>
-                                    <div class="user_info" *ngIf="!checkUser()">
+                                    <div class="user_info">
+                                        <div class="logout">
+                                            <ul class="mobile_list">
+                                                <li class="post" ng-class="{ active: isActive('/posts') }">
+                                                    <a *ngIf="!checkUser()" mat-button (click)="showLogin()"><i
+                                                            class="fas fa-link"></i></a>
+                                                    <a *ngIf="checkUser()" routerLink="/add-post" mat-button><i
+                                                            class="fas fa-link"></i></a>
+                                                </li>
+                                                <li class="header-notification" *ngIf="checkUser()">
+                                                    <button mat-button class="not_btn" *ngIf="auth.loggedIn()"
+                                                            (click)="openNot()">
+                                    <span class="bell">
+                                        <i class="fas fa-bell"></i>
+                                        <span class="badge bg-c-red">5</span>
+                                    </span>
+                                                    </button>
+                                                    <div class="not_wrapper" *ngIf="show">
+                                                        <h6>Notifications:</h6>
+                                                        <div class="margin_top">
+                                                            <div class="media">
+                                                                <div class="media-body">
+                                                                    <a class="notification-user"
+                                                                       routerLink="/notifications">Prince John
+                                                                        voted
+                                                                        <span>Important May 28</span>
+                                                                    </a>
+                                                                    <div class="notification-msg">
+                                                                        <p>Lorem ipsum dolor sit amet, consectetuer
+                                                                            elit.</p>
+                                                                    </div>
+                                                                    <div class="notification-quality">
+                                                                        <p><span>Score</span>400</p>
+                                                                        <p><span>Total votes </span> 300</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
                                         <div (click)="toggleShow()">
                                             <img src="../../../assets/avatar/user%20(2).png" alt="">
                                         </div>
                                         <div class="mobile_user_info" *ngIf="isShown">
                                             <ul class="">
-                                                <li class="login">
-                                                    <a *ngIf="!auth.loggedIn()"
-                                                       (click)="showLogin()">Login / Sign Up</a></li>
+                                                <li class="login" *ngIf="!checkUser()">
+                                                    <a *ngIf="!auth.loggedIn()" (click)="showLogin()">Login / Sign
+                                                        Up</a>
+                                                </li>
+                                                <li class="user-profile header-notification login" *ngIf="auth.loggedIn()">
+                                                    <a class="user_name">
+                                                        <span class="userFullName">{{userData ? userData.fullName : '/n/a'}}</span>
+                                                    </a>
+                                                </li>
                                             </ul>
-                                            <ul>
+                                            <ul *ngIf="!checkUser()">
                                                 <li><a mat-button routerLink="/about">About</a></li>
                                                 <li><a mat-button>Privacy Police</a></li>
                                                 <li><a mat-button>Ads</a></li>
                                             </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="user_info" *ngIf="checkUser()">
-                                        <div class="logout">
                                             <ul *ngIf="checkUser()">
-                                                <li class="header-notification">
-                                                    <button mat-button class="not_btn" *ngIf="auth.loggedIn()">
-                                                        <span class="bell">
-                                                            <i class="fas fa-bell"></i>
-                                                            <span class="badge bg-c-red">5</span>
-                                                        </span>
-                                                    </button>
-<!--                                                    <div class="notification-box_wrapper" *ngIf="isShown">-->
-<!--                                                        <h6>Notifications:</h6>-->
-<!--                                                        <div class="margin_top">-->
-<!--                                                            <div class="media">-->
-<!--                                                                <div class="media-body">-->
-<!--                                                                    <a class="notification-user"-->
-<!--                                                                       routerLink="/notifications">Prince John-->
-<!--                                                                        voted-->
-<!--                                                                        <span>Important May 28</span>-->
-<!--                                                                    </a>-->
-<!--                                                                    <div class="notification-msg">-->
-<!--                                                                        <p>Lorem ipsum dolor sit amet, consectetuer-->
-<!--                                                                            elit.</p>-->
-<!--                                                                    </div>-->
-<!--                                                                    <div class="notification-quality">-->
-<!--                                                                        <p><span>Score</span>400</p>-->
-<!--                                                                        <p><span>Total votes </span> 300</p>-->
-<!--                                                                    </div>-->
-<!--                                                                </div>-->
-<!--                                                            </div>-->
-<!--                                                        </div>-->
-<!--                                                    </div>-->
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div (click)="toggleShow()">
-                                            <img src="../../../assets/avatar/user%20(2).png" alt="">
-                                        </div>
-                                        <div class="mobile_user_info" *ngIf="isShown">
-                                            <ul>
-                                                <li>
-                                                    <a>{{userLoggined.name}}</a>
-                                                </li>
-                                            </ul>
-                                            <ul>
                                                 <li>
                                                     <a mat-button routerLink="/profile">My Profile</a>
                                                 </li>

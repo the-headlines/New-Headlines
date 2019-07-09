@@ -24,6 +24,7 @@ export class HeaderComponent implements OnInit {
     searchForm;
     searchAllowed = false;
     isShown = false;
+    show = false;
 
     constructor(
         private dialog: MatDialog,
@@ -108,6 +109,11 @@ export class HeaderComponent implements OnInit {
 
     toggleShow() {
         this.isShown = !this.isShown;
+        console.log('button click');
+    }
+
+    openNot() {
+        this.show = !this.show;
         console.log('button click');
     }
 
