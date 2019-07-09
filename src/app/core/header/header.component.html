@@ -144,7 +144,7 @@
                                         <div (click)="toggleShow()">
                                             <img src="../../../assets/avatar/user%20(2).png" alt="">
                                         </div>
-                                        <div class="mobile_user_info" *ngIf="isShown">
+                                        <div class="mobile_user_info" *ngIf="isShown" #toggleButton>
                                             <ul class="">
                                                 <li class="login" *ngIf="!checkUser()">
                                                     <a *ngIf="!auth.loggedIn()" (click)="showLogin()">Login / Sign
@@ -160,23 +160,22 @@
                                             <ul *ngIf="!checkUser()">
                                                 <li><a routerLink="/about">About</a></li>
                                                 <li><a>Privacy Police</a></li>
-                                                <li><a>Ads</a></li>
                                             </ul>
                                             <ul *ngIf="checkUser()">
                                                 <li>
-                                                    <a mat-button routerLink="/profile">My Profile</a>
+                                                    <a routerLink="/profile">My Profile</a>
                                                 </li>
                                                 <li>
-                                                    <a mat-button routerLink="/managePost">Manage Posts</a>
+                                                    <a routerLink="/managePost">Manage Posts</a>
                                                 </li>
                                                 <li>
-                                                    <a mat-button routerLink="/about">About</a>
+                                                    <a routerLink="/about">About</a>
                                                 </li>
                                                 <li>
-                                                    <a mat-button>Privacy Policy</a>
+                                                    <a>Privacy Policy</a>
                                                 </li>
                                                 <li>
-                                                    <a mat-button (click)="logOut()">Logout</a>
+                                                    <a (click)="logOut()">Logout</a>
                                                 </li>
                                             </ul>
                                         </div>
