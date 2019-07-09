@@ -73,6 +73,10 @@ img {
 
 .search_box {
   width: 60%;
+
+  .input-group {
+    margin-bottom: 0 !important;
+  }
 }
 
 
@@ -327,8 +331,8 @@ header {
 
   img {
     border-radius: 50%;
-    width: 50px;
-    height: 50px !important;
+    width: 35px;
+    height: 35px !important;
     object-fit: cover;
   }
 
@@ -871,7 +875,7 @@ li.margin_top {
 
 .mobile_user_info {
   position: absolute;
-  top: 45px;
+  top: 35px;
 
   &:before {
     content: "";
@@ -886,6 +890,16 @@ li.margin_top {
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
     z-index: 1002;
+  }
+
+  ul {
+    margin: 0;
+
+    li {
+      a {
+        font-size: 15px;
+      }
+    }
   }
 }
 
@@ -946,7 +960,7 @@ li.margin_top {
   li {
     &.post {
       i {
-        font-size: 26px;
+        font-size: 20px;
       }
     }
   }
