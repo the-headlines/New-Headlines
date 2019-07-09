@@ -262,7 +262,6 @@ export class SinglePostComponent implements OnInit, OnDestroy {
 
     onEditorChange(e) {
         if (this.postForm.valid && e.key === 'Enter' && this.postOnEnter) {
-            console.log(this.postForm.value.text.replace(/<(.|\n)*?>/g, '').includes('?'));
             if (this.postForm.value.text.replace(/<(.|\n)*?>/g, '').includes('?')) {
                 this.addQuestions();
             } else {
