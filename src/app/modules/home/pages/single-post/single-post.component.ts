@@ -195,6 +195,7 @@ export class SinglePostComponent implements OnInit, OnDestroy {
     addComments() {
 
         const data = this.postForm.value;
+        this.postForm.patchValue({type: 'Comment'});
         this.home.addComments(data).subscribe((d) => {
             if (!d) {
                 return false;
@@ -260,9 +261,9 @@ export class SinglePostComponent implements OnInit, OnDestroy {
     }
 
     onEditorChange(e) {
-        const textVal = this.postForm.value.text.replace(/<(.|\n)*?>/g, '');
         if (this.postForm.valid && e.key === 'Enter' && this.postOnEnter) {
-            if (textVal.includes('?')) {
+            console.log(this.postForm.value.text.replace(/<(.|\n)*?>/g, '').includes('?'));
+            if (this.postForm.value.text.replace(/<(.|\n)*?>/g, '').includes('?')) {
                 this.addQuestions();
             } else {
 
@@ -294,6 +295,7 @@ export class SinglePostComponent implements OnInit, OnDestroy {
     updateComment() {
         this.commentEditing = false;
         this.selectedComment = null;
+        this.commentEditForm.value.type = this.commentEditForm.value.text.replace(/<(.|\n)*?>/g, '').includes('?') ? 'Question' : 'Comment';
         this.home.updateComment(this.commentEditForm.value).subscribe(dt => {
             this.getComments();
         });
@@ -307,6 +309,12 @@ export class SinglePostComponent implements OnInit, OnDestroy {
 
     getQuestionsLen(type) {
         return this.comments.filter(c => c.type === type).length;
+    }
+
+    likeComment(id) {
+        this.home.likeComment(id).subscribe(dt => {
+
+        });
     }
 
     ngOnDestroy() {

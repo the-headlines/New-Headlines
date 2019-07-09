@@ -233,6 +233,9 @@
                             <!--                                &lt;!&ndash;                                              [icon]="'save.png'"&ndash;&gt;-->
                             <!--                            </ckeditor>-->
                             <div class="comments_or_question">
+                                <small>Please put a question mark(?) if it is a question or else it will treated as
+                                    comment
+                                </small>
                                 <div class="checkboxContainer">
                                     <mat-checkbox [checked]="postOnEnter" color="primary"
                                                   (change)="postOnEnter = !postOnEnter">
@@ -310,17 +313,17 @@
                                     <!--                            <div class="menuContainer">-->
                                 </div>
                                 <button mat-icon-button (click)="toggleDiv(comment,button)"
-                                        aria-label="Example icon-button with a menu" >
+                                        aria-label="Example icon-button with a menu">
                                     <mat-icon #button>more_vert</mat-icon>
                                 </button>
                             </div>
                             <div *ngIf="show && selectedToggleBtn === button" class="comment_action" #share>
                                 <button mat-menu-item (click)="editComment(comment)">
-                                    <mat-icon >edit</mat-icon>
+                                    <mat-icon>edit</mat-icon>
                                     <span>Edit</span>
                                 </button>
                                 <button mat-menu-item (click)="removeComment(comment._id)">
-                                    <mat-icon >clear</mat-icon>
+                                    <mat-icon>clear</mat-icon>
                                     <span>Remove</span>
                                 </button>
                             </div>
@@ -335,7 +338,7 @@
                                 </div>
                             </div>
                             <div class="actions">
-                                <small>Like</small>
+                                <small (click)="likeComment(comment._id)">Like</small>
                                 <small> Reply</small>
                                 <small> Report</small>
                             </div>
@@ -345,15 +348,40 @@
                 <div class="questions" *ngIf="questions && auth.loggedIn()">
                     <ng-container *ngFor="let comment of comments">
                         <div *ngIf="comment.type==='Question'">
-                            <strong class="author">{{comment.creator.name ? comment.creator.name : 'n/a'}}</strong>
-                            <small class="date">{{comment.createdAt|formattedDate:false}}</small>
-                            <p class="question">{{comment.text}}</p>
+
+                            <div class="flex_cont">
+                                <div>
+                                    <strong class="author">{{comment.creator.name ? comment.creator.name : 'n/a'}}</strong>
+                                    <small class="date">{{comment.createdAt|formattedDate:false}}</small>
+                                    <!--                            <div class="menuContainer">-->
+                                </div>
+                                <button mat-icon-button (click)="toggleDiv(comment,button)"
+                                        aria-label="Example icon-button with a menu">
+                                    <mat-icon #button>more_vert</mat-icon>
+                                </button>
+                            </div>
+                            <div *ngIf="show && selectedToggleBtn === button" class="comment_action" #share>
+                                <button mat-menu-item (click)="editComment(comment)">
+                                    <mat-icon>edit</mat-icon>
+                                    <span>Edit</span>
+                                </button>
+                                <button mat-menu-item (click)="removeComment(comment._id)">
+                                    <mat-icon>clear</mat-icon>
+                                    <span>Remove</span>
+                                </button>
+                            </div>
                             <div class="commentContainer">
-                                <mat-icon>edit</mat-icon>
-                                <mat-icon>clear</mat-icon>
+                                <p class="comment"
+                                   *ngIf="!commentEditing || selectedComment!== comment">{{comment.text}}</p>
+                                <form *ngIf="commentEditing && selectedComment=== comment"
+                                      [formGroup]="commentEditForm">
+                                    <input formControlName="text" (keyup.enter)="updateComment()">
+                                </form>
+                                <div>
+                                </div>
                             </div>
                             <div class="actions">
-                                <small>Like</small>
+                                <small (click)="likeComment(comment._id)">Like</small>
                                 <small> Reply</small>
                                 <small> Report</small>
                             </div>

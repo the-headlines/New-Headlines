@@ -11,7 +11,7 @@
   color: #000000;
 }
 
-.comments {
+.comments, .questions {
   position: relative;
 
   .comment_action {
@@ -26,7 +26,8 @@
     width: 15rem;
     z-index: 999;
   }
-  .flex_cont{
+
+  .flex_cont {
     display: flex;
     justify-content: space-between;
   }
@@ -330,6 +331,10 @@
     display: flex;
     justify-content: flex-end;
     margin-top: 10px;
+
+    small {
+      color: #c2c2c2;
+    }
 
     .checkboxContainer {
       padding: 7px 14px 0;
