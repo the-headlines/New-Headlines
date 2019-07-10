@@ -205,7 +205,9 @@ export class SinglePostComponent implements OnInit, OnDestroy {
     addComments() {
 
         const data = this.postForm.value;
-        this.postForm.patchValue({type: 'Comment'});
+
+        // this.selectedCommentType = 'Comment';
+        // this.postForm.patchValue({type: 'Comment'});
         this.home.addComments(data).subscribe((d) => {
             if (!d) {
                 return false;
@@ -227,6 +229,7 @@ export class SinglePostComponent implements OnInit, OnDestroy {
     }
 
     addQuestions() {
+        this.selectedCommentType = 'Question';
         this.postForm.patchValue({type: 'Question'});
         this.addComments();
     }
@@ -272,12 +275,15 @@ export class SinglePostComponent implements OnInit, OnDestroy {
 
     onEditorChange(e) {
         if (this.postForm.valid && e.key === 'Enter' && this.postOnEnter) {
-            if (this.postForm.value.text.replace(/<(.|\n)*?>/g, '').includes('?')) {
-                this.addQuestions();
-            } else {
+            console.log(this.selectedCommentType);
+            // if (this.postForm.value.text.replace(/<(.|\n)*?>/g, '').includes('?')) {
+            //
+            //     this.addQuestions();
+            // } else {
+            //     // console.log('here');
 
-                this.addComments();
-            }
+            this.addComments();
+            // }
         }
     }
 
