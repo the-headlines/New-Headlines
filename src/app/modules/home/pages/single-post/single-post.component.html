@@ -270,16 +270,25 @@
                     <div class="how_many_com_and_quest">
                         <p (click)="changeCommentType('Comment')" [class.selected]="selectedCommentType === 'Comment'"
                            *ngIf="singlePost.category!=='JumpStartups'">
-                            <span>{{getCommentsLen('Comment')}}</span>Comments</p>
+                            Comments
+                            <small *ngIf="selectedCommentType === 'Comment'">({{getCommentsLen('Comment')}})</small>
+                        </p>
                         <p (click)="changeCommentType('Question')" [class.selected]="selectedCommentType === 'Question'"
                            *ngIf="singlePost.category==='JumpStartups'||singlePost.category==='Videos'||singlePost.category==='Influence'">
-                            <span>{{getCommentsLen('Question')}}</span>Questions</p>
+                            Questions
+                            <small *ngIf="selectedCommentType === 'Question'">({{getCommentsLen('Question')}})</small>
+                        </p>
                         <p (click)="changeCommentType('Critics')" [class.selected]="selectedCommentType === 'Critics'"
                            *ngIf="singlePost.category==='StyleAndSweat'">
-                            <span>{{getCommentsLen('Critics')}}</span>Critics</p>
+                            Critics
+                            <small *ngIf="selectedCommentType==='StyleAndSweat'">({{getCommentsLen('Critics')}})</small>
+                        </p>
                         <p (click)="changeCommentType('Feedback')" [class.selected]="selectedCommentType === 'Feedback'"
                            *ngIf="singlePost.category==='JumpStartups'">
-                            <span>{{getCommentsLen('Feedback')}}</span>Feedback</p>
+                            Feedback
+                            <small *ngIf="selectedCommentType === 'Feedback'">({{getCommentsLen('Feedback')}})</small>
+
+                        </p>
                     </div>
                     <div class="sort">
                         <small>Sort by</small>
