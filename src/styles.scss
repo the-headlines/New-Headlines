@@ -2726,9 +2726,16 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
 
 @media screen and (max-width: 992px) {
 
-  div#cdk-overlay-0 {
-    max-width: 96vw !important;
+  .mat-dialog-container {
+    padding: 0;
   }
+  .cdk-overlay-pane {
+    max-width: 93vw !important;
+  }
+
+  //.mat-dialog-container {
+  //  padding: 0 !important;
+  //}
 
   .post_title_and_desc .blog_post_text img {
     width: 100%;
@@ -3043,6 +3050,13 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
 
   .slider_bottom_icons {
     padding: 10px;
+  }
+
+  mat-dialog-container#mat-dialog-1, mat-dialog-container#mat-dialog-3 {
+    padding: 0 !important;
+  }
+  .Like__link:hover ~ .Emojis {
+    left: -81px;
   }
 
   .modal-body {
