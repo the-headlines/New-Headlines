@@ -171,15 +171,15 @@
             View<span>20</span>
         </a>
     </li>
+    <li [hidden]="routerUrl !== '/home' && routerUrl !== '/' && routerUrl !== '/commerce' && routerUrl !== '/travel' && routerUrl !== '/deals' && routerUrl !== '/video'">
+        <a routerLink="" (click)="getSingle(single._id)">
+            Questions <span>35</span>
+        </a>
+    </li>
     <li [hidden]="routerUrl !== '/home' && routerUrl !== '/' && routerUrl !== '/road' && routerUrl !== '/deals' && routerUrl !== '/video'">
         <a routerLink="" (click)="getSingle(single._id)">
             <i class="far fa-comment"></i>
             Comments<span>35</span>
-        </a>
-    </li>
-    <li [hidden]="routerUrl !== '/home' && routerUrl !== '/' && routerUrl !== '/commerce' && routerUrl !== '/travel' && routerUrl !== '/deals' && routerUrl !== '/video'">
-        <a routerLink="" (click)="getSingle(single._id)">
-            Questions <span>35</span>
         </a>
     </li>
     <li [hidden]="routerUrl !== '/road'">
