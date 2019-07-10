@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
 import {ModalDialog} from '../../modules/home/components/libs/modal.dialog';
 import {MatDialog} from '@angular/material';
 import {SocialUser} from 'angularx-social-login';
@@ -34,7 +34,8 @@ export class HeaderComponent implements OnInit {
         private subject: SubjectService,
         public router: Router,
         private route: ActivatedRoute,
-        private _fb: FormBuilder
+        private _fb: FormBuilder,
+        private renderer: Renderer2
     ) {
 
         this.searchForm = this._fb.group({

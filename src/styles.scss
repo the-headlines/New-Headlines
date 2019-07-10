@@ -2785,7 +2785,7 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
   .view-icons-block {
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
   }
 
   .profile_container {
@@ -2861,7 +2861,7 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
 
 @media screen and (max-width: 600px) {
   .view-icons-block li {
-    margin: 4px;
+    margin: 4px 10px;
   }
 }
 
