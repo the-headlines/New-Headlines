@@ -56,7 +56,7 @@
                     <button mat-raised-button (click)="checkRegister(userRegisInf)" class="login">Sign up</button>
                     <div class="have_account">
                         <a href="#"></a>
-                        <button class="dont_have_account" mat-dialog-close #loginButt mat-button (click)="showLogin()">
+                        <button class="dont_have_account" mat-dialog-close #loginButt (click)="showLogin()">
                             Already have an account?
                         </button>
                         <button class="login_btn" mat-dialog-close mat-button (click)="showLogin()">Login</button>
