@@ -101,4 +101,8 @@ export class HomeService {
     likeComment(id) {
         return this.http.post(Base.url + '/api/comments/' + id + '/likeunlike', {});
     }
+
+    reportComment(data) {
+        return this.http.put(Base.url + '/api/comments/' + data._id + '/report', data);
+    }
 }

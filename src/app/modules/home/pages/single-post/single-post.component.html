@@ -386,8 +386,12 @@
                             <!-- Comment actions -->
                             <div class="actions">
                                 <small (click)="likeComment(comment._id)">Like</small>
-                                <small> Reply</small>
-                                <small> Report</small>
+                                <small (click)="toggleReplyInput(comment)"> Reply</small>
+                                <small (click)="reportComment(comment)"> Report</small>
+                            </div>
+
+                            <div class="replyContainer" *ngIf="showReplyInput && selectedComment===comment">
+                                <input (keyup.enter)="replyComment()">
                             </div>
                         </div>
 
