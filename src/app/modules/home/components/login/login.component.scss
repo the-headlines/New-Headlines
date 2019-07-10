@@ -251,7 +251,7 @@
   }
 
   mat-dialog-content.mat-typography.mat-dialog-content {
-    padding: 0;
+    padding: 20px 0;
   }
 
   .modal-dialog-centered {
@@ -313,5 +313,13 @@
       }
 
     }
+  }
+}
+
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 40/71) {
+  .modal-content {
+    overflow: auto !important;
+    height: 80vh !important;
   }
 }

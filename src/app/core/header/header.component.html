@@ -141,7 +141,7 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <div (click)="toggleShow()">
+                                        <div (click)="toggleShow()" (mouseout)="changeText=false">
                                             <img src="../../../assets/avatar/user%20(2).png" alt="">
                                         </div>
                                         <div class="mobile_user_info" *ngIf="isShown" #toggleButton>
