@@ -152,9 +152,9 @@
       height: 39px;
 
 
-       .mat-button-wrapper{
-         font-size: 16px !important;
-       }
+      .mat-button-wrapper {
+        font-size: 16px !important;
+      }
     }
   }
 }
@@ -210,7 +210,7 @@
     margin: 0 auto;
     width: 152px;
 
-    span{
+    span {
       font-size: 16px;
     }
   }
@@ -236,9 +236,62 @@
   text-align: center;
   margin-bottom: 25px;
 }
+
 .form-group {
   margin-bottom: 0;
 }
 
+@media screen and (min-width: 320px) and (max-width: 960px) {
 
+  .modal-body {
+    padding: 0 20px 15px !important;
+  }
 
+  .have_account {
+    .dont_have_account {
+      font-size: 15px;
+    }
+  }
+
+  mat-dialog-container#mat-dialog-0 {
+    padding: 0;
+  }
+
+  .modal-body form button.login {
+    width: 100%;
+    margin-bottom: 6px;
+    border-radius: 5px;
+    margin-top: 0;
+    height: 40px;
+  }
+
+  .login_with_face {
+    .face {
+      margin-bottom: 10px;
+    }
+
+    p.text-center {
+      margin-bottom: 5px;
+    }
+  }
+
+  .modal-content {
+    width: auto;
+    margin-top: 0;
+    overflow: auto;
+
+    .logo_and_close {
+
+      button {
+        span {
+          font-size: 40px;
+        }
+      }
+
+      h5 {
+        margin: 48px 0 15px;
+      }
+
+    }
+  }
+}
