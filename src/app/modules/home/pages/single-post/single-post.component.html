@@ -271,22 +271,22 @@
                         <p (click)="changeCommentType('Comment')" [class.selected]="selectedCommentType === 'Comment'"
                            *ngIf="singlePost.category!=='JumpStartups'">
                             Comments
-                            <small *ngIf="selectedCommentType === 'Comment'">({{getCommentsLen('Comment')}})</small>
+                            <small>({{getCommentsLen('Comment')}})</small>
                         </p>
                         <p (click)="changeCommentType('Question')" [class.selected]="selectedCommentType === 'Question'"
                            *ngIf="singlePost.category==='JumpStartups'||singlePost.category==='Videos'||singlePost.category==='Influence'">
                             Questions
-                            <small *ngIf="selectedCommentType === 'Question'">({{getCommentsLen('Question')}})</small>
+                            <small>({{getCommentsLen('Question')}})</small>
                         </p>
                         <p (click)="changeCommentType('Critics')" [class.selected]="selectedCommentType === 'Critics'"
                            *ngIf="singlePost.category==='StyleAndSweat'">
                             Critics
-                            <small *ngIf="selectedCommentType==='StyleAndSweat'">({{getCommentsLen('Critics')}})</small>
+                            <small>({{getCommentsLen('Critics')}})</small>
                         </p>
                         <p (click)="changeCommentType('Feedback')" [class.selected]="selectedCommentType === 'Feedback'"
                            *ngIf="singlePost.category==='JumpStartups'">
                             Feedback
-                            <small *ngIf="selectedCommentType === 'Feedback'">({{getCommentsLen('Feedback')}})</small>
+                            <small>({{getCommentsLen('Feedback')}})</small>
 
                         </p>
                     </div>
