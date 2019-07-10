@@ -13,7 +13,7 @@
 <!--                        <li *ngIf="checkUser()">-->
 <!--                            <a *ngIf="singlePost.like == 0"><i class="far fa-thumbs-up"></i><span>like</span></a>-->
 <!--                            <a *ngIf="singlePost.like != 0"><i-->
-<!--                                    class="far fa-thumbs-up"></i><span>like</span>{{singlePost.like}}</a>-->
+<!--                                    class="farhe fa-thumbs-up"></i><span>like</span>{{singlePost.like}}</a>-->
 <!--                        </li>-->
 <!--                        <li>-->
 <!--                            <a id='views'><span>views</span> {{singlePost.view}}</a>-->
@@ -193,12 +193,12 @@
                     <li>
                         <a (click)="questions = false">
                             <i class="far fa-comment"></i>
-                            Comments<span>{{getQuestionsLen('Comment')}}</span>
+                            Comments<span>{{getCommentsLen('Comment')}}</span>
                         </a>
                     </li>
                     <li>
                         <a (click)="questions = true">
-                            Questions<span>{{getQuestionsLen('Question')}}</span>
+                            Questions<span>{{getCommentsLen('Question')}}</span>
                         </a>
                     </li>
                     <!--                    <li>-->
@@ -268,11 +268,21 @@
                         </form>
                     </div>
                     <div class="how_many_com_and_quest">
-                        <p (click)="changeCommentType(false)" [class.selected]="!questions"><span>{{getQuestionsLen('Comment')}}</span>Comments</p>
-                        <p (click)="changeCommentType(true)" [class.selected]="questions"><span>{{getQuestionsLen('Question')}}</span>Questions</p>
+                        <p (click)="changeCommentType('Comment')" [class.selected]="selectedCommentType === 'Comment'"
+                           *ngIf="singlePost.category!=='JumpStartups'">
+                            <span>{{getCommentsLen('Comment')}}</span>Comments</p>
+                        <p (click)="changeCommentType('Question')" [class.selected]="selectedCommentType === 'Question'"
+                           *ngIf="singlePost.category==='JumpStartups'||singlePost.category==='Videos'||singlePost.category==='Influence'">
+                            <span>{{getCommentsLen('Question')}}</span>Questions</p>
+                        <p (click)="changeCommentType('Critics')" [class.selected]="selectedCommentType === 'Critics'"
+                           *ngIf="singlePost.category==='StyleAndSweat'">
+                            <span>{{getCommentsLen('Critics')}}</span>Critics</p>
+                        <p (click)="changeCommentType('Feedback')" [class.selected]="selectedCommentType === 'Feedback'"
+                           *ngIf="singlePost.category==='JumpStartups'">
+                            <span>{{getCommentsLen('Feedback')}}</span>Feedback</p>
                     </div>
                     <div class="sort">
-                        <small>Sort by </small>
+                        <small>Sort by</small>
                         <div class="dropdown">
                             <p class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown"
                                aria-haspopup="true" aria-expanded="false">
@@ -305,90 +315,75 @@
                 <!--                    <button *ngIf="start<commentCount" class="show_more" (click)="loadMyChildComponent();">Show more-->
                 <!--                    </button>-->
                 <!--                </div>-->
-                <div class="comments" *ngIf="!questions && auth.loggedIn()">
-                    <ng-container *ngFor="let comment of comments;let ind = index">
-                        <div *ngIf="comment.type==='Comment'">
-                            <div class="flex_cont">
-                                <div>
-                                    <strong class="author">{{comment.creator.name ? comment.creator.name : 'n/a'}}</strong>
-                                    <small class="date">{{comment.createdAt|formattedDate:false}}</small>
-                                    <!--                            <div class="menuContainer">-->
-                                </div>
-                                <button mat-icon-button (click)="toggleDiv(comment,button)"
-                                        aria-label="Example icon-button with a menu">
-                                    <mat-icon #button>more_vert</mat-icon>
-                                </button>
-                            </div>
-                            <div *ngIf="show && selectedToggleBtn === button" class="comment_action" #share>
-                                <button mat-menu-item (click)="editComment(comment)">
-                                    <mat-icon>edit</mat-icon>
-                                    <span>Edit</span>
-                                </button>
-                                <button mat-menu-item (click)="removeComment(comment._id)">
-                                    <mat-icon>clear</mat-icon>
-                                    <span>Remove</span>
-                                </button>
-                            </div>
-                            <div class="commentContainer">
-                                <p class="comment"
-                                   *ngIf="!commentEditing || selectedComment!== comment">{{comment.text}}</p>
-                                <form *ngIf="commentEditing && selectedComment=== comment"
-                                      [formGroup]="commentEditForm">
-                                    <input formControlName="text" (keyup.enter)="updateComment()">
-                                </form>
-                                <div>
-                                </div>
-                            </div>
-                            <div class="actions">
-                                <small (click)="likeComment(comment._id)">Like</small>
-                                <small> Reply</small>
-                                <small> Report</small>
-                            </div>
-                        </div>
+                <div class="comments">
+                    <ng-container *ngIf="auth.loggedIn()">
+                        <ng-container *ngFor="let comment of filteredComments;let ind = index">
+                            <ng-template [ngTemplateOutlet]="commentTmpl"
+                                         [ngTemplateOutletContext]="{c: comment, t: selectedCommentType}"></ng-template>
+                        </ng-container>
                     </ng-container>
-                </div>
-                <div class="questions" *ngIf="questions && auth.loggedIn()">
-                    <ng-container *ngFor="let comment of comments">
-                        <div *ngIf="comment.type==='Question'">
 
+                    <!-- Comment template -->
+                    <ng-template #commentTmpl let-comment="c" let-commentType="t">
+                        <div>
                             <div class="flex_cont">
+
+                                <!-- Comment author and date -->
                                 <div>
                                     <strong class="author">{{comment.creator.name ? comment.creator.name : 'n/a'}}</strong>
                                     <small class="date">{{comment.createdAt|formattedDate:false}}</small>
-                                    <!--                            <div class="menuContainer">-->
                                 </div>
+
+                                <!-- Menu toggle button -->
                                 <button mat-icon-button (click)="toggleDiv(comment,button)"
+                                        [hidden]="comment.creator.name !== userData.fullName"
                                         aria-label="Example icon-button with a menu">
                                     <mat-icon #button>more_vert</mat-icon>
                                 </button>
                             </div>
-                            <div *ngIf="show && selectedToggleBtn === button" class="comment_action" #share>
+
+                            <!-- Edit & remove buttons menu -->
+                            <div *ngIf="show && selectedToggleBtn === button"
+                                 class="comment_action" #share>
                                 <button mat-menu-item (click)="editComment(comment)">
                                     <mat-icon>edit</mat-icon>
                                     <span>Edit</span>
                                 </button>
                                 <button mat-menu-item (click)="removeComment(comment._id)">
-                                    <mat-icon>clear</mat-icon>
+                                    <mat-icon>delete</mat-icon>
                                     <span>Remove</span>
                                 </button>
                             </div>
+
+                            <!-- Comment text with edit input for it -->
                             <div class="commentContainer">
                                 <p class="comment"
                                    *ngIf="!commentEditing || selectedComment!== comment">{{comment.text}}</p>
                                 <form *ngIf="commentEditing && selectedComment=== comment"
                                       [formGroup]="commentEditForm">
                                     <input formControlName="text" (keyup.enter)="updateComment()">
+                                    <button mat-icon-button (click)="updateComment()" [matTooltip]="'update comment'">
+                                        <mat-icon>done</mat-icon>
+                                    </button>
+                                    <button mat-icon-button (click)="commentEditing = false"
+                                            [matTooltip]="'cancel comment updating'">
+                                        <mat-icon>clear</mat-icon>
+                                    </button>
                                 </form>
                                 <div>
                                 </div>
                             </div>
+
+                            <!-- Comment actions -->
                             <div class="actions">
                                 <small (click)="likeComment(comment._id)">Like</small>
                                 <small> Reply</small>
                                 <small> Report</small>
                             </div>
                         </div>
-                    </ng-container>
+
+
+                    </ng-template>
                 </div>
             </div>
         </section>

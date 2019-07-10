@@ -49,8 +49,13 @@ export class SinglePostComponent implements OnInit, OnDestroy {
     postOnEnter = true;
     commentEditing = false;
     selectedComment = null;
+    selectedCommentType = 'Comment';
+    filteredComments;
 
     commentEditForm: FormGroup;
+    commentTypes = [{
+        type: 'comments', name: 'Comment'
+    }, {type: 'questions', name: 'Question'}];
 
     constructor(
         private auth: AuthService,
@@ -107,6 +112,8 @@ export class SinglePostComponent implements OnInit, OnDestroy {
         //     console.log(token);
         //     this.userData = JWT(token);
         // }
+
+        this.getCurrentCommentType();
         this.subscriptions.push(
             this.route.params.subscribe(dt => {
                 this.postId = dt.id;
@@ -119,9 +126,9 @@ export class SinglePostComponent implements OnInit, OnDestroy {
                 this.getSinglePost(this.postId);
             })
         );
-
         this.subscriptions.push(this.subject.getUserData().subscribe((dt: any) => {
             this.userData = dt;
+            console.log(dt);
         }));
 
         this.userData.fullName = localStorage.getItem('full_name');
@@ -137,6 +144,9 @@ export class SinglePostComponent implements OnInit, OnDestroy {
         // console.log(this.userData);
     }
 
+    getCurrentCommentType() {
+
+    }
 
     toggleDiv(event, button) {
         this.show = !this.show;
@@ -277,12 +287,17 @@ export class SinglePostComponent implements OnInit, OnDestroy {
                 return moment(b['createdAt']).unix() - moment(a['createdAt']).unix();
             });
             this.comments = dt.comments;
+            this.filteredComments = dt.comments.filter(c => c.type === this.selectedCommentType);
         });
     }
 
     changeCommentType(v) {
         this.questions = v;
-        this.commentEditForm.patchValue({type: v ? 'Question' : 'Comment'});
+        this.selectedCommentType = v;
+        this.commentEditForm.patchValue({type: v});
+        this.postForm.patchValue({type: v});
+        this.filteredComments = this.comments.filter(c => c.type === v);
+        this.getCurrentCommentType();
     }
 
     editComment(c) {
@@ -306,7 +321,7 @@ export class SinglePostComponent implements OnInit, OnDestroy {
         });
     }
 
-    getQuestionsLen(type) {
+    getCommentsLen(type) {
         return this.comments.filter(c => c.type === type).length;
     }
 
@@ -315,6 +330,11 @@ export class SinglePostComponent implements OnInit, OnDestroy {
 
         });
     }
+
+    isCommentAuthor(author) {
+        console.log(author);
+    }
+
 
     ngOnDestroy() {
         this.subscriptions.forEach(s => s.unsubscribe());
