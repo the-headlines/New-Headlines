@@ -51,6 +51,7 @@ export class SinglePostComponent implements OnInit, OnDestroy {
     selectedComment = null;
     selectedCommentType = 'Comment';
     filteredComments;
+    showReplyInput = false;
 
     commentEditForm: FormGroup;
     commentTypes = [{
@@ -309,6 +310,7 @@ export class SinglePostComponent implements OnInit, OnDestroy {
     editComment(c) {
         this.commentEditing = true;
         this.selectedComment = c;
+        this.showReplyInput = false;
         this.commentEditForm.patchValue({'text': c.text, id: c._id});
     }
 
@@ -341,6 +343,21 @@ export class SinglePostComponent implements OnInit, OnDestroy {
         console.log(author);
     }
 
+    toggleReplyInput(c) {
+        this.showReplyInput = true;
+        this.selectedComment = c;
+        this.commentEditing = false;
+    }
+
+    replyComment() {
+
+    }
+
+    reportComment(c) {
+        this.home.reportComment(c).subscribe(dt => {
+
+        });
+    }
 
     ngOnDestroy() {
         this.subscriptions.forEach(s => s.unsubscribe());
