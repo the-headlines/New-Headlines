@@ -115,6 +115,7 @@ export class HeaderComponent implements OnInit {
     hideDiv(trigger) {
         trigger.closeMenu();
         this.isShown = false;
+        console.log('mouseleave')
     }
 
     openNot() {
