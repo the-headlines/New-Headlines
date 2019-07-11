@@ -70,7 +70,7 @@
                                     <i class="feather icon-chevron-down"></i>
                                 </button>
                                 <mat-menu #beforeMenu="matMenu" yPosition="below">
-                                    <ul class="profile_links">
+                                    <ul class="profile_links" (mouseleave)="hideDiv(trigger)">
                                         <li>
                                             <a routerLink="/profile">My Profile</a>
                                         </li>

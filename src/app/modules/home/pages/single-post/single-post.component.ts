@@ -114,10 +114,10 @@ export class SinglePostComponent implements OnInit, OnDestroy {
         //     this.userData = JWT(token);
         // }
 
-        this.getCurrentCommentType();
         this.subscriptions.push(
             this.route.params.subscribe(dt => {
                 this.postId = dt.id;
+                this.getLikesCount();
 
                 if (this.auth.loggedIn()) {
                     this.getComments();
@@ -129,7 +129,7 @@ export class SinglePostComponent implements OnInit, OnDestroy {
         );
         this.subscriptions.push(this.subject.getUserData().subscribe((dt: any) => {
             this.userData = dt;
-            console.log(dt);
+            // console.log(dt);
         }));
 
         this.userData.fullName = localStorage.getItem('full_name');
@@ -145,8 +145,10 @@ export class SinglePostComponent implements OnInit, OnDestroy {
         // console.log(this.userData);
     }
 
-    getCurrentCommentType() {
+    getLikesCount() {
+        this.home.getLikesCount(this.postId).subscribe(dt => {
 
+        });
     }
 
     toggleDiv(event, button) {
@@ -276,7 +278,7 @@ export class SinglePostComponent implements OnInit, OnDestroy {
 
     onEditorChange(e) {
         if (this.postForm.valid && e.key === 'Enter' && this.postOnEnter) {
-            console.log(this.selectedCommentType);
+            // console.log(this.selectedCommentType);
             // if (this.postForm.value.text.replace(/<(.|\n)*?>/g, '').includes('?')) {
             //
             //     this.addQuestions();
@@ -304,7 +306,6 @@ export class SinglePostComponent implements OnInit, OnDestroy {
         this.commentEditForm.patchValue({type: v});
         this.postForm.patchValue({type: v});
         this.filteredComments = this.comments.filter(c => c.type === v);
-        this.getCurrentCommentType();
     }
 
     editComment(c) {

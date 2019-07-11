@@ -24,7 +24,7 @@
                                 </div>
                                 <div class="choose_pic_or_link">
                                     <mat-tab-group mat-align-tabs="start" [selectedIndex]="1">
-                                        <mat-tab label="Choose a picture" [disabled]="true">
+                                        <mat-tab label="Choose a picture">
                                             <dropzone class="dropzone" (error)="onUploadError($event)"
                                                       (addedFile)="onUploadSuccess($event)"
                                                       *ngIf="type === 'component'" [disabled]="disabled"
