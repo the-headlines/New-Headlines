@@ -1,3 +1,27 @@
 .sidebar_content {
   margin: 185px auto;
 }
+
+.profile_container {
+  background-color: white;
+}
+
+
+.profileForm {
+  display: flex;
+  justify-content: space-between;
+
+  .userInfo {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .dropzoneContainer {
+    width: 300px;
+    height: 364px;
+
+    dropzone {
+      height: 350px;
+    }
+  }
+}

@@ -49,7 +49,7 @@
     "ng2-ckeditor": "1.2.2",
     "ng2-scroll-to": "1.0.7",
     "ngx-cookie-service": "^2.1.0",
-    "ngx-dropzone-wrapper": "7.2.1",
+    "ngx-dropzone-wrapper": "^7.2.1",
     "ngx-filter-pipe": "^2.1.2",
     "ngx-owl-carousel-o": "^1.1.2",
     "ngx-toastr": "^10.0.4",
