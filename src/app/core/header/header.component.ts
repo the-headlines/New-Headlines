@@ -114,6 +114,7 @@ export class HeaderComponent implements OnInit {
 
     hideDiv() {
         this.isShown = false;
+        console.log('mouseleave')
     }
 
     openNot() {
