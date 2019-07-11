@@ -85,6 +85,14 @@ import {ConfirmationDialogComponent} from './shared/components/confirmation-dial
 import {ReportComponentComponent} from './modules/home/components/report-component/report-component.component';
 import {MatRadioModule} from '@angular/material/radio';
 
+
+const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
+    // Change this to your upload POST address:
+    url: 'https://httpbin.org/post',
+    maxFilesize: 50,
+    acceptedFiles: 'image/*'
+};
+
 const config = new AuthServiceConfig([
     {
         id: FacebookLoginProvider.PROVIDER_ID,

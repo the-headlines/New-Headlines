@@ -1,9 +1,40 @@
 <app-header></app-header>
 
 <div class="content sidebar_content">
-  <div class="profile_container">
-    <app-sidebar></app-sidebar>
-  </div>
+    <div class="profile_container">
+        <!--        <app-sidebar></app-sidebar>-->
+        <form [formGroup]="profileForm" class="profileForm">
+            <div class="userInfo">
+
+                <mat-form-field>
+                    <mat-placeholder class="placeholder">Full name</mat-placeholder>
+                    <input matInput>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-placeholder class="placeholder">Display name</mat-placeholder>
+                    <input matInput>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-placeholder class="placeholder">E-mail</mat-placeholder>
+                    <input matInput>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-placeholder class="placeholder">Password</mat-placeholder>
+                    <input matInput type="password">
+                </mat-form-field>
+                <button mat-raised-button>
+                    Save
+                </button>
+            </div>
+
+            <div class="dropzoneContainer">
+                <dropzone [config]="profileImgConfig" [message]="'Click or drag images here to upload'"></dropzone>
+            </div>
+
+
+        </form>
+
+    </div>
 </div>
 
 <app-footer></app-footer>

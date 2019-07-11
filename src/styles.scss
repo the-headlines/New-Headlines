@@ -2877,6 +2877,63 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
   }
 }
 
+.profileForm {
+  width: 50%;
+  margin: auto;
+  padding: 30px;
+
+  .mat-form-field-underline {
+    display: block !important;
+  }
+
+  .mat-form-field {
+    display: block;
+    line-height: 2 !important;
+  }
+
+  .mat-focused .placeholder {
+    color: transparent !important;
+  }
+
+  .placeholder {
+    margin-left: -15px !important;
+  }
+
+  &::-webkit-input-placeholder {
+    padding: 0 !important;
+  }
+
+  button {
+    display: block;
+    margin: auto;
+    background-color: #3788c6 !important;
+    color: #fff;
+    text-transform: uppercase;
+
+    span {
+      font-weight: bold;
+      font-size: 12px;
+    }
+  }
+
+
+  .dz-wrapper.dropzone {
+    height: 100% !important;
+    overflow: hidden !important;
+  }
+
+  .dz-message {
+    height: 360px !important;
+    border: none !important;
+  }
+
+}
+
+::ng-deep .mat-form-field-placeholder {
+  color: red !important;
+  margin-top: -20px !important;
+}
+
 @media screen and (max-width: 1550px) {
   .posts_table {
     overflow: auto;
