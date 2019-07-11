@@ -112,7 +112,8 @@ export class HeaderComponent implements OnInit {
         this.isShown = !this.isShown;
     }
 
-    hideDiv() {
+    hideDiv(trigger) {
+        trigger.closeMenu();
         this.isShown = false;
     }
 
