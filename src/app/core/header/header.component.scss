@@ -905,6 +905,11 @@ li.margin_top {
     li {
       a {
         font-size: 15px;
+
+        &:hover {
+          color: #3788c6;
+          transition: 800ms;
+        }
       }
     }
   }
@@ -1013,6 +1018,12 @@ li.margin_top {
 }
 
 @media screen and (min-width: 320px) and (max-width: 960px) {
+
+  .mobile_user_info {
+    position: absolute;
+    top: 35px;
+    right: -17px;
+  }
 
   .search_box {
 

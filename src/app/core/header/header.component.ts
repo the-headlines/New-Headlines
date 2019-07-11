@@ -110,7 +110,10 @@ export class HeaderComponent implements OnInit {
 
     toggleShow() {
         this.isShown = !this.isShown;
-        // console.log('button click');
+    }
+
+    hideDiv() {
+        this.isShown = false;
     }
 
     openNot() {
