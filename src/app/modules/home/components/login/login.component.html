@@ -1,60 +1,51 @@
-<h2 mat-dialog-title></h2>
-<mat-dialog-content class="mat-typography">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="logo_and_close">
-                <button type="button" class="close" #closest data-dismiss="modal" mat-dialog-close aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <h5 class="modal-title" id="exampleModalLongTitle">
-                    <img src="../../../assets/images/logo_white_background.jpg" alt="">
-                </h5>
-            </div>
-            <div class="modal-body">
-                <app-face-login></app-face-login>
-                <form action="" method="post" [formGroup]="loginForm">
-                    <div class="form-group">
-                        <div class="example-full-width">
-                            <mat-form-field class="login-inp">
-                                <input matInput placeholder="Email" name="email" formControlName="email">
-                                <!--<mat-error-->
-                                <!--   *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">-->
-                                <!--   Please enter a valid email address-->
-                                <!--</mat-error>-->
-                                <!--<mat-error *ngIf="emailFormControl.hasError('required')">-->
-                                <!--   Email is <strong>required</strong>-->
-                                <!-- </mat-error>-->
-                            </mat-form-field>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="example-full-width">
-                            <mat-form-field class="login-inp">
-                                <input matInput type="password" placeholder="Password" name="password"
-                                       formControlName="password">
-                                <!--<mat-error *ngIf="passFormControl.hasError('required')">-->
-                                <!--  Password is <strong>required</strong>-->
-                                <!--</mat-error>-->
-                            </mat-form-field>
-                        </div>
-                    </div>
-                    <button class="login"
-                            [disabled]="passFormControl.hasError('required') || (emailFormControl.hasError('name') || emailFormControl.hasError('required'))"
-                            mat-raised-button (click)="checkLogin(userLoginInf)" color="primary">Login
+<div>
+    <mat-dialog-content class="mat-typography">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="logo_and_close">
+                    <button type="button" class="close" #closest data-dismiss="modal" mat-dialog-close aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
                     </button>
-                    <a href="#" class="forgot_pass">Forgot Password?</a>
-                </form>
-                <div class="have_account">
-                    <button class="dont_have_account" mat-dialog-close (click)="showLogin()">Don’t have an
-                        account yet?
-                    </button>
-                    <button class="yourButton" mat-dialog-close (click)="showLogin()">Sign Up</button>
+                    <h5 class="modal-title" id="exampleModalLongTitle">
+                        <img src="../../../assets/images/logo_white_background.jpg" alt="">
+                    </h5>
+                </div>
+                <div class="modal-body">
+                    <app-face-login></app-face-login>
+                    <form action="" method="post" [formGroup]="loginForm">
+                        <div class="form-group">
+                            <div class="example-full-width">
+                                <mat-form-field class="login-inp">
+                                    <input matInput placeholder="Email" name="email" formControlName="email">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="example-full-width">
+                                <mat-form-field class="login-inp">
+                                    <input matInput type="password" placeholder="Password" name="password"
+                                           formControlName="password">
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <button class="login"
+                                [disabled]="passFormControl.hasError('required') || (emailFormControl.hasError('name') || emailFormControl.hasError('required'))"
+                                mat-raised-button (click)="checkLogin(userLoginInf)" color="primary">Login
+                        </button>
+                        <a href="#" class="forgot_pass">Forgot Password?</a>
+                    </form>
+                    <div class="have_account">
+                        <button class="dont_have_account" mat-dialog-close (click)="showLogin()">Don’t have an
+                            account yet?
+                        </button>
+                        <button class="yourButton" mat-dialog-close (click)="showLogin()">Sign Up</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</mat-dialog-content>
-<mat-dialog-actions align="end">
-    <button mat-button mat-dialog-close>Cancel</button>
-    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button>
-</mat-dialog-actions>
+    </mat-dialog-content>
+</div>
+<!--<mat-dialog-actions align="end">-->
+<!--    <button mat-button mat-dialog-close>Cancel</button>-->
+<!--    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button>-->
+<!--</mat-dialog-actions>-->

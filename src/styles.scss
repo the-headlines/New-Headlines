@@ -2348,6 +2348,13 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
   width: 100%;
 }
 
+
+//login reg
+
+.mat-form-field-appearance-legacy .mat-form-field-label {
+  padding-left: 20px;
+}
+
 //media queries
 @media only screen and (max-width: 1600px) {
   body {
@@ -3048,19 +3055,20 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
 
 @media screen and (min-width: 320px) and (max-width: 768px) {
 
+  .mat-dialog-content {
+    padding: 0 !important;
+  }
+
   .slider_bottom_icons {
     padding: 10px;
   }
 
-  mat-dialog-container#mat-dialog-1, mat-dialog-container#mat-dialog-3 {
-    padding: 0 !important;
-  }
   .Like__link:hover ~ .Emojis {
     left: -81px;
   }
 
   .modal-body {
-    padding: 0 20px 51px !important;
+    padding: 15px !important;
   }
 
   .save_caret_menu_item {
@@ -3212,3 +3220,70 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
 }
 
 
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 40/71) {
+  .modal-content {
+    overflow: auto !important;
+    height: 80vh !important;
+  }
+  .modal-dialog-centered {
+    margin: 0;
+  }
+  .mat-dialog-container {
+    padding: 0;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+  .logo_and_close h5 {
+    margin: 55px 0 0;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 960px) {
+
+  .have_account {
+    .dont_have_account {
+      font-size: 15px;
+    }
+  }
+
+  .modal-body form button.login {
+    width: 100%;
+    margin-bottom: 6px;
+    border-radius: 5px;
+    margin-top: 0;
+  }
+
+  .login_with_face {
+    .face {
+      margin-bottom: 10px;
+    }
+
+    p.text-center {
+      margin-bottom: 5px;
+    }
+  }
+
+  .modal-content {
+    height: 80vh !important;
+    padding: 0;
+    overflow: auto !important;
+
+    .logo_and_close {
+
+      button {
+        span {
+          font-size: 40px;
+        }
+      }
+
+      h5 {
+        margin: 48px 0 15px;
+      }
+    }
+  }
+}
+
+@media (device-height: 568px) and (device-width: 320px) and (-webkit-min-device-pixel-ratio: 2) {
+
+}
