@@ -1845,9 +1845,14 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
 
   li a {
     text-transform: uppercase !important;
+    cursor: pointer;
+
+    &:hover {
+      color: #3788c6 !important;
+      transition: 500ms;
+    }
 
     span {
-
       font-size: 14px !important;
     }
   }

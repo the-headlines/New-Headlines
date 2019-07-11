@@ -905,6 +905,11 @@ li.margin_top {
     li {
       a {
         font-size: 15px;
+
+        &:hover {
+          color: #3788c6;
+          transition: 800ms;
+        }
       }
     }
   }
