@@ -2841,10 +2841,16 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
     }
   }
 
+
   .Emojis {
-    left: -72px;
+    left: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    padding: 8px;
   }
+
 
   .posts_table table tbody th, td {
     padding: 0 20px !important;
@@ -3068,7 +3074,7 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
   }
 
   .modal-body {
-    padding: 15px !important;
+    padding: 20px 15px 30px !important;
   }
 
   .save_caret_menu_item {
@@ -3265,7 +3271,7 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
   }
 
   .modal-content {
-    height: 80vh !important;
+    //height: 89vh !important;
     padding: 0;
     overflow: auto !important;
 
@@ -3278,7 +3284,7 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
       }
 
       h5 {
-        margin: 48px 0 15px;
+        margin: 52px 0 0 !important;
       }
     }
   }
