@@ -384,11 +384,13 @@
                             </div>
 
                             <!-- Comment actions -->
-                            <div class="actions">
-                                <small (click)="likeComment(comment._id)">Like</small>
-                                <small (click)="toggleReplyInput(comment)"> Reply</small>
-                                <small (click)="reportComment(comment)"> Report</small>
-                            </div>
+<!--                            <div class="actions">-->
+<!--                                <small (click)="likeComment(comment._id)">-->
+<!--                                    <i class="fa fa-thumbs-up"></i>-->
+<!--                                </small>-->
+<!--                                <small (click)="toggleReplyInput(comment)" [hidden]="true"> Reply</small>-->
+<!--                                <small (click)="reportComment(comment)"> Report</small>-->
+<!--                            </div>-->
 
                             <div class="replyContainer" *ngIf="showReplyInput && selectedComment===comment">
                                 <input (keyup.enter)="replyComment()">
