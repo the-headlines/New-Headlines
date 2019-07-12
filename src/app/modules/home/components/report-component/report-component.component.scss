@@ -75,7 +75,6 @@
     box-shadow: 0 2px 17px 3px rgba(0, 0, 0, 0.13);
     background-color: #ffffff;
     border-radius: unset;
-    //margin-top: -132px;
   }
 
   &-title {
@@ -139,19 +138,15 @@
       font-weight: normal;
       font-style: normal;
       font-stretch: normal;
-      /* line-height: 0.76; */
-      /* letter-spacing: 0.4px; */
       color: #ffffff;
       border: unset;
       display: inline-block;
-      /* padding: 3px; */
       text-align: center;
       background: #4e98e9;
       width: 100%;
       margin-bottom: 25px;
       border-radius: 5px;
       height: 39px;
-
 
       .mat-button-wrapper {
         font-size: 16px !important;
@@ -297,6 +292,7 @@
   font-stretch: normal;
   line-height: 0.92;
   letter-spacing: 1.4px;
+  text-transform: uppercase;
 }
 
 .modal-content {
