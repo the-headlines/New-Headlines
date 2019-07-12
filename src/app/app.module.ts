@@ -82,6 +82,8 @@ import {StoryOptionsComponent} from './core/story-options/story-options.componen
 import {GetPostDateFormattedPipe} from './shared/pipes/get-post-date-formatted.pipe';
 import {GetUrlBasePipe} from './shared/pipes/get-url-base.pipe';
 import {ConfirmationDialogComponent} from './shared/components/confirmation-dialog/confirmation-dialog.component';
+import {ReportComponentComponent} from './modules/home/components/report-component/report-component.component';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
@@ -143,7 +145,8 @@ export function tokenGetter() {
         StoryOptionsComponent,
         GetPostDateFormattedPipe,
         GetUrlBasePipe,
-        ConfirmationDialogComponent
+        ConfirmationDialogComponent,
+        ReportComponentComponent
     ],
     imports: [
         BrowserModule,
@@ -151,6 +154,7 @@ export function tokenGetter() {
         BrowserAnimationsModule,
         MatButtonModule,
         MatListModule,
+        MatRadioModule,
         MatToolbarModule,
         FormsModule, ReactiveFormsModule,
         HttpClientModule,
@@ -211,7 +215,7 @@ export function tokenGetter() {
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
     bootstrap: [AppComponent],
-    entryComponents: [LoginComponent, RegisterComponent, EditInfoModalComponent, ConfirmationDialogComponent],
+    entryComponents: [LoginComponent, RegisterComponent, EditInfoModalComponent, ConfirmationDialogComponent, ReportComponentComponent],
 })
 
 export class AppModule {
