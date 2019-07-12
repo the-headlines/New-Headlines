@@ -75,7 +75,6 @@
     box-shadow: 0 2px 17px 3px rgba(0, 0, 0, 0.13);
     background-color: #ffffff;
     border-radius: unset;
-    //margin-top: -132px;
   }
 
   &-title {
@@ -87,7 +86,7 @@
 
 .logo_and_close {
   h5 {
-    font-family: 'Lato-Black';
+    font-family: 'Lato-Regular';
     font-size: 29.5px;
     font-weight: 900;
     font-style: normal;
@@ -139,19 +138,15 @@
       font-weight: normal;
       font-style: normal;
       font-stretch: normal;
-      /* line-height: 0.76; */
-      /* letter-spacing: 0.4px; */
       color: #ffffff;
       border: unset;
       display: inline-block;
-      /* padding: 3px; */
       text-align: center;
       background: #4e98e9;
       width: 100%;
       margin-bottom: 25px;
       border-radius: 5px;
       height: 39px;
-
 
       .mat-button-wrapper {
         font-size: 16px !important;
@@ -291,20 +286,17 @@
   background: none;
   border: none;
   font-family: 'Lato-Regular', sans-serif;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 300;
   font-style: normal;
   font-stretch: normal;
   line-height: 0.92;
   letter-spacing: 1.4px;
+  text-transform: uppercase;
 }
 
 .modal-content {
   width: 350px;
-}
-
-.cancel {
-  color: black;
 }
 
 .border_btm {
@@ -398,5 +390,9 @@
   margin: 0 !important;
   text-align: left;
   padding-left: 20px;
-  font-size: 20px;
+  font-size: 17px;
+}
+
+.mat-radio-label-content {
+  font-size: 14px;
 }
