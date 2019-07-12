@@ -20,10 +20,10 @@ export class GetPostDateFormattedPipe implements PipeTransform {
             const years = a.diff(b, 'years');
 
             if (hours === 0) {
-                return `${minutes} minutes ago`;
+                return `${minutes} mins ago`;
             } else {
                 if (days === 0) {
-                    return `${hours} ${hours > 1 ? 'hours' : 'hour'} ago`;
+                    return `${hours} ${hours > 1 ? 'hrs' : 'hr'} ago`;
                 } else {
                     if (weeks === 0) {
                         return `${days} ${days > 1 ? 'days' : 'day'} ago`;
