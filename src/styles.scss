@@ -267,7 +267,7 @@ img {
 .modal-body .mat-input-element {
   height: 47px;
   background-color: #fafafa;
-  padding: 0 20px;
+  padding: 0 14px;
   -webkit-box-align: center;
   -webkit-align-items: center;
   -ms-flex-align: center;
@@ -1545,7 +1545,7 @@ label#mat-form-field-label-11 {
 }
 
 .modal-body form button.login .mat-button-wrapper {
-  font-family: "Lato-Regular";
+  font-family: 'BrandonText-Regular', sans-serif;
   font-size: 17px;
   font-weight: normal;
 }
@@ -2367,6 +2367,9 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
   width: auto !important;
 }
 
+.mat-form-field-appearance-legacy.mat-form-field-can-float .mat-input-server:focus + .mat-form-field-label-wrapper .mat-form-field-label, .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+  color: #727377;
+}
 
 
 //media queries
