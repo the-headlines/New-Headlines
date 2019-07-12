@@ -115,7 +115,7 @@ export class HeaderComponent implements OnInit {
     hideDiv(trigger) {
         trigger.closeMenu();
         this.isShown = false;
-        console.log('mouseleave')
+        console.log('mouseleave');
     }
 
     openNot() {
@@ -130,8 +130,19 @@ export class HeaderComponent implements OnInit {
     }
 
     goToLink(link) {
-        this.router.navigate([link]);
-        window.scrollTo(0, 0);
+        if (this.router.url === '/add-post') {
+
+            const c = confirm('Are you sure you want to discard the post?');
+            if (c) {
+                this.router.navigate([link]);
+            } else {
+                this.router.navigate(['/add-post']);
+            }
+        } else {
+
+            this.router.navigate([link]);
+            window.scrollTo(0, 0);
+        }
     }
 
     checkUser() {

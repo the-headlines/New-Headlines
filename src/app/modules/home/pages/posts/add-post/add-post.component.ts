@@ -1,4 +1,4 @@
-import {Component, HostListener, OnInit} from '@angular/core';
+import {Component, HostListener, OnDestroy, OnInit} from '@angular/core';
 import {DropzoneConfigInterface} from 'ngx-dropzone-wrapper';
 import {HttpClient} from '@angular/common/http';
 import {Post} from '../../../../../post';
@@ -21,7 +21,7 @@ export interface Category {
     styleUrls: ['./add-post.component.scss']
 })
 
-export class AddPostComponent implements OnInit {
+export class AddPostComponent implements OnInit, OnDestroy {
 
 
     @HostListener('window:beforeunload', ['$event'])
@@ -59,6 +59,7 @@ export class AddPostComponent implements OnInit {
     videoLink = false;
     selectedCategory;
     editCase = false;
+    postSubmitted = false;
 
     constructor(
         private http: HttpClient,
@@ -163,6 +164,7 @@ export class AddPostComponent implements OnInit {
     }
 
     cancelPosting() {
+        this.postSubmitted = true;
         this.router.navigate([this.editCase ? '/managePost' : '/']);
     }
 
@@ -207,5 +209,8 @@ export class AddPostComponent implements OnInit {
         if (desc.length > 2) {
             return false;
         }
+    }
+
+    ngOnDestroy(): void {
     }
 }
