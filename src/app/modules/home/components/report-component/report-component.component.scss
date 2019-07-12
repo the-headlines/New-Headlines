@@ -246,10 +246,26 @@
   width: auto !important;
 }
 
+
+.modal-content {
+  position: relative;
+
+  &:after {
+    position: absolute;
+    bottom: 61px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 2px;
+    display: block;
+    content: '';
+    background: #ded4d4;
+  }
+}
+
 .report_box mat-radio-group {
   display: flex;
   flex-direction: column;
-  border-bottom: 1px solid lightgray;
   margin-bottom: 15px;
 }
 
@@ -267,7 +283,7 @@
 }
 
 .modal-body {
-  padding: 0 40px 25px;
+  padding: 0px 20px 25px;
 }
 
 .report_btn, .cancel {
@@ -283,8 +299,16 @@
   letter-spacing: 1.4px;
 }
 
+.modal-content {
+  width: 350px;
+}
+
 .cancel {
   color: black;
+}
+
+.border_btm {
+
 }
 
 //@media screen and (min-width: 320px) and (max-width: 960px) {
@@ -370,10 +394,9 @@
 //  }
 //}
 
-
 .logo_and_close h5.rep_com {
   margin: 0 !important;
   text-align: left;
-  padding-left: 40px;
+  padding-left: 20px;
   font-size: 20px;
 }

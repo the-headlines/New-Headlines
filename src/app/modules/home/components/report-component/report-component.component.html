@@ -3,24 +3,26 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="logo_and_close">
-                <!--<button type="button" class="close" #closest data-dismiss="modal" mat-dialog-close-->
+                    <!--<button type="button" class="close" #closest data-dismiss="modal" mat-dialog-close-->
                     <!--aria-label="Close">-->
                     <!--<span aria-hidden="true">&times;</span>-->
-                <!--</button>-->
-                    <h5 class="modal-title rep_com">Report comment</h5>
+                    <!--</button>-->
+                    <h5 class="modal-title rep_com">Report</h5>
                 </div>
                 <div class="modal-body">
                     <form action="" method="post">
-                        <mat-radio-group aria-label="Select an option">
-                            <mat-radio-button value="1">Spam</mat-radio-button>
-                            <mat-radio-button value="2">Pornography or Sexual Material</mat-radio-button>
-                            <mat-radio-button value="3">Hate Speech or violence</mat-radio-button>
-                            <mat-radio-button value="4">Harassment or bullying</mat-radio-button>
-                            <mat-radio-button value="5">Abusive or harmful</mat-radio-button>
-                        </mat-radio-group>
-                        <div class="flex_cont_btn">
-                            <button class="cancel" mat-dialog-close>Cancel</button>
-                            <button class="report_btn" [mat-dialog-close]="true">Report</button>
+                        <div class="border_btm">
+                            <mat-radio-group aria-label="Select an option">
+                                <mat-radio-button value="1">Spam</mat-radio-button>
+                                <mat-radio-button value="2">Pornography or Sexual Material</mat-radio-button>
+                                <mat-radio-button value="3">Hate Speech or violence</mat-radio-button>
+                                <mat-radio-button value="4">Harassment or bullying</mat-radio-button>
+                                <mat-radio-button value="5">Abusive or harmful</mat-radio-button>
+                            </mat-radio-group>
+                            <div class="flex_cont_btn">
+                                <button class="cancel" mat-dialog-close>Cancel</button>
+                                <button class="report_btn" [mat-dialog-close]="true">Report</button>
+                            </div>
                         </div>
                     </form>
                 </div>
