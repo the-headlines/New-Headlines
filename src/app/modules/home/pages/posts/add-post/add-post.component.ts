@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {DropzoneConfigInterface} from 'ngx-dropzone-wrapper';
 import {HttpClient} from '@angular/common/http';
 import {Post} from '../../../../../post';
@@ -8,8 +8,9 @@ import {AuthService} from '../../../../../services/auth.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {PostsService} from '../../../../../services/posts.service';
 import {ToastrService} from 'ngx-toastr';
+import {StripHtmlTagsPipe} from '../../../../../shared/pipes/strip-html-tags.pipe';
 
-export interface Categorie {
+export interface Category {
     value: string;
     viewValue: string;
 }
@@ -22,7 +23,17 @@ export interface Categorie {
 
 export class AddPostComponent implements OnInit {
 
-    categories: Categorie[] = [
+
+    @HostListener('window:beforeunload', ['$event'])
+    onWindowClose(event: any): void {
+        // Do something
+
+        event.preventDefault();
+        event.returnValue = false;
+
+    }
+
+    categories: Category[] = [
         {value: 'Influence', viewValue: 'Influence'},
         {value: 'StyleAndSweat', viewValue: 'Style And Sweat'},
         {value: 'CameraPictures', viewValue: 'Camera Pictures'},
@@ -56,7 +67,8 @@ export class AddPostComponent implements OnInit {
         private router: Router,
         private route: ActivatedRoute,
         private posts: PostsService,
-        private toastr: ToastrService
+        private toastr: ToastrService,
+        private stripTags: StripHtmlTagsPipe
     ) {
 
 
@@ -84,6 +96,7 @@ export class AddPostComponent implements OnInit {
 
 
     }
+
 
     upload_files() {
 
@@ -163,6 +176,14 @@ export class AddPostComponent implements OnInit {
 
     getToolbarConfig() {
         return {
+            height: 100,
+            maxLength: 1,
+            wordcount: {
+                maxCharCount: 4,
+                charLimit: 2,
+                showCharCount: true,
+            },
+            allowOutsideOutDir: true,
             toolbarGroups: [
                 // { name: 'document',    groups: [ 'doctools', 'mode', 'document' ] },
                 // { name: 'editing',     groups: [  'selection', 'spellchecker' ] },
@@ -176,9 +197,15 @@ export class AddPostComponent implements OnInit {
     }
 
     getCurrentSection(category) {
-        console.log(category);
         this.selectedCategory = category;
         this.videoLink = category === 'Videos';
         this.postForm.patchValue({video: this.videoLink});
+    }
+
+    checkLength() {
+        const desc = this.stripTags.transform(this.postForm.value.description).trim();
+        if (desc.length > 2) {
+            return false;
+        }
     }
 }

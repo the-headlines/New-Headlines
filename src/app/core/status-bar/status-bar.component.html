@@ -172,33 +172,33 @@
         </a>
     </li>
     <li [hidden]="routerUrl !== '/home' && routerUrl !== '/' && routerUrl !== '/commerce' && routerUrl !== '/travel' && routerUrl !== '/deals' && routerUrl !== '/video'">
-        <a routerLink="" (click)="getSingle(single._id)">
+        <a (click)="getSingle(single._id)">
             Questions <span>35</span>
         </a>
     </li>
     <li [hidden]="routerUrl !== '/home' && routerUrl !== '/' && routerUrl !== '/road' && routerUrl !== '/deals' && routerUrl !== '/video'">
-        <a routerLink="" (click)="getSingle(single._id)">
+        <a (click)="getSingle(single._id)">
             <i class="far fa-comment"></i>
             Comments<span>35</span>
         </a>
     </li>
     <li [hidden]="routerUrl !== '/road'">
-        <a routerLink="">
+        <a (click)="getSingle(single._id)">
             Critics <span>35</span>
         </a>
     </li>
     <li [hidden]="routerUrl !== '/pictures'">
-        <a routerLink="">
+        <a (click)="getSingle(single._id)">
             <i class="far fa-comment"></i> Fans <span>35</span>
         </a>
     </li>
     <li [hidden]="routerUrl !== '/pictures' && routerUrl !== '/travel'">
-        <a routerLink="">
+        <a (click)="getSingle(single._id)">
             Suggestions <span>35</span>
         </a>
     </li>
     <li [hidden]="routerUrl !== '/commerce'">
-        <a routerLink="">
+        <a (click)="getSingle(single._id)">
             <i class="far fa-comment"></i> Feedback <span>35</span>
         </a>
     </li>
