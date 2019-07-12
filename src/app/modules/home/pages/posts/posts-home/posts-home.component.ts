@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
-import {Categorie} from '../add-post/add-post.component';
+import {Category} from '../add-post/add-post.component';
 import {HomeService} from '../../../../../services/home.service';
 import * as moment from 'moment';
 import {PostsService} from '../../../../../services/posts.service';
@@ -27,7 +27,7 @@ export class PostsHomeComponent implements OnInit {
     categorySelected = false;
     postForm: FormGroup;
 
-    categories: Categorie[] = [
+    categories: Category[] = [
         {value: 'Influence', viewValue: 'Influence'},
         {value: 'StyleAndSweat', viewValue: 'Style And Sweat'},
         {value: 'CameraPictures', viewValue: 'Camera Pictures'},

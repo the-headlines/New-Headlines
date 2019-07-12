@@ -211,7 +211,8 @@ export function tokenGetter() {
             multi: true
         },
         {provide: MatDialogRef, useValue: {}},
-        SearchNewsPipe
+        SearchNewsPipe,
+        StripHtmlTagsPipe
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
     bootstrap: [AppComponent],

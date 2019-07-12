@@ -50,7 +50,8 @@
 
                                             <div class="description">
                                                 <h3>Description</h3>
-                                                <ckeditor formControlName="description" [config]="getToolbarConfig()">
+                                                <ckeditor formControlName="description"
+                                                          [config]="getToolbarConfig()" (change)="checkLength()">
                                                     <ckbutton [name]="'saveButton'" [command]="'saveCmd'"
                                                               [icon]="'save.png'"
                                                               [label]="'Save Document'"
@@ -63,7 +64,9 @@
                                     </mat-tab-group>
 
                                     <div class="post_or_cancel">
-                                        <button class="blue">NSFW</button>
+                                        <div>
+
+                                        </div>
                                         <div>
                                             <button mat-raised-button class="red cancelPost" (click)="cancelPosting()">
                                                 Cancel

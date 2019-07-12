@@ -72,6 +72,10 @@
         margin: 30px 30px 30px 0;
       }
     }
+
+    .desc {
+      letter-spacing: 1px;
+    }
   }
 
   .sub_title {
@@ -492,6 +496,10 @@
 
 .postCommentsForm {
   text-align: center;
+
+  textarea {
+    height: 200px;
+  }
 }
 
 
