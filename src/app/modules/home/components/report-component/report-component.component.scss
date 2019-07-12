@@ -249,12 +249,42 @@
 .report_box mat-radio-group {
   display: flex;
   flex-direction: column;
+  border-bottom: 1px solid lightgray;
+  margin-bottom: 15px;
 }
 
 .flex_cont_btn {
   display: flex;
   justify-content: flex-end;
-  padding-top: 31px;
+}
+
+.logo_and_close {
+  padding: 20px 0;
+}
+
+.mat-radio-button {
+  margin-bottom: 15px;
+}
+
+.modal-body {
+  padding: 0 40px 25px;
+}
+
+.report_btn, .cancel {
+  color: #1e62cd;
+  background: none;
+  border: none;
+  font-family: 'Lato-Regular', sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 0.92;
+  letter-spacing: 1.4px;
+}
+
+.cancel {
+  color: black;
 }
 
 //@media screen and (min-width: 320px) and (max-width: 960px) {
@@ -339,3 +369,11 @@
 //    margin-top: 0;
 //  }
 //}
+
+
+.logo_and_close h5.rep_com {
+  margin: 0 !important;
+  text-align: left;
+  padding-left: 40px;
+  font-size: 20px;
+}

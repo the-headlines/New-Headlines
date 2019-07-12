@@ -3,10 +3,11 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="logo_and_close">
-                    <button type="button" class="close" #closest data-dismiss="modal" mat-dialog-close
-                            aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                <!--<button type="button" class="close" #closest data-dismiss="modal" mat-dialog-close-->
+                    <!--aria-label="Close">-->
+                    <!--<span aria-hidden="true">&times;</span>-->
+                <!--</button>-->
+                    <h5 class="modal-title rep_com">Report comment</h5>
                 </div>
                 <div class="modal-body">
                     <form action="" method="post">
@@ -17,15 +18,13 @@
                             <mat-radio-button value="4">Harassment or bullying</mat-radio-button>
                             <mat-radio-button value="5">Abusive or harmful</mat-radio-button>
                         </mat-radio-group>
-
                         <div class="flex_cont_btn">
-                            <button mat-button mat-dialog-close>Cancel</button>
-                            <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Submit</button>
+                            <button class="cancel" mat-dialog-close>Cancel</button>
+                            <button class="report_btn" [mat-dialog-close]="true">Report</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-
     </mat-dialog-content>
 </div>

@@ -1719,23 +1719,16 @@ textarea {
   padding: 0 !important;
 }
 
-label {
-  &#mat-form-field-label-3,
-  &#mat-form-field-label-1,
-  &#mat-form-field-label-5,
-  &#mat-form-field-label-7 {
-    padding: 12px 0 0 20px;
-    font-size: 14px;
-    color: #8e8e8e;
-    overflow: visible;
-  }
-}
-
-label#mat-form-field-label-7,
-label#mat-form-field-label-9 {
-  padding: 12px 0 0 20px;
-  font-size: 14px;
-  color: #8e8e8e;
+.mat-form-field-appearance-legacy .mat-form-field-label {
+  padding: 8px 0 0 20px;
+  overflow: visible;
+  font-size: 15px;
+  color: #727377;
+  font-family: 'BrandonText-Regular', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: normal;
+  line-height: 1.5;
+  cursor: pointer;
 }
 
 .sub_headline {
@@ -2234,7 +2227,7 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
   border-radius: 3px;
   box-shadow: 0 3px 8px rgba(0, 0, 0, .3);
   width: 210px;
-
+  z-index: 99;
 
   ul {
     li {
@@ -2245,6 +2238,15 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
 
 .posts_table table {
   width: 100%;
+}
+
+.mat-radio-inner-circle, .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+  border-color: #1e62cd !important;
+}
+
+.mat-radio-button.mat-accent .mat-radio-inner-circle, .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple),
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple, .mat-radio-button.mat-accent:active .mat-radio-persistent-ripple {
+  background: #1e62cd !important;
 }
 
 .save_caret_menu_item ul li div {
@@ -2360,12 +2362,12 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
   padding-left: 20px;
 }
 
-
 //
-
-.cdk-overlay-pane{
+.cdk-overlay-pane {
   width: auto !important;
 }
+
+
 
 //media queries
 @media only screen and (max-width: 1600px) {

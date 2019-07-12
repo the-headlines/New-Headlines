@@ -176,21 +176,24 @@
 
 .have_account {
   .dont_have_account {
-    font-family: 'Lato-Regular';
-    font-size: 18.5px;
     font-weight: normal;
     font-style: normal;
     font-stretch: normal;
-    color: #414242;
     text-decoration: underline;
     display: block;
     text-align: center;
     margin-bottom: 20px;
     height: unset;
-    line-height: unset;
-    letter-spacing: unset;
     border: unset;
     width: 100%;
+
+    font-size: 15px;
+    color: #727377;
+    font-family: 'BrandonText-Regular', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: normal;
+    line-height: 1.5;
+    cursor: pointer;
   }
 
   button {
