@@ -108,6 +108,7 @@ export class HeaderComponent implements OnInit {
         this.fakeArr = searchArr;
     }
 
+
     toggleShow() {
         this.isShown = !this.isShown;
     }
@@ -130,19 +131,7 @@ export class HeaderComponent implements OnInit {
     }
 
     goToLink(link) {
-        if (this.router.url === '/add-post') {
-
-            const c = confirm('Are you sure you want to discard the post?');
-            if (c) {
-                this.router.navigate([link]);
-            } else {
-                this.router.navigate(['/add-post']);
-            }
-        } else {
-
-            this.router.navigate([link]);
-            window.scrollTo(0, 0);
-        }
+        this.checkConfirmation(link);
     }
 
     checkUser() {
@@ -171,11 +160,33 @@ export class HeaderComponent implements OnInit {
         this.subject.setSearch(this.searchForm.value['searchTerm']);
     }
 
+    checkConfirmation(link) {
+        if (this.router.url === '/add-post') {
+
+            const c = confirm('Are you sure you want to discard the post?');
+            if (c) {
+                this.router.navigate([link]);
+            } else {
+                this.router.navigate(['/add-post']);
+            }
+
+            return false;
+        } else {
+
+            this.router.navigate([link]);
+            window.scrollTo(0, 0);
+            return true;
+        }
+    }
+
     logOut(): void {
-        this.authService.signOut();
-        localStorage.setItem('userInf', null);
-        localStorage.setItem('token', '');
-        localStorage.setItem('full_name', null);
-        this.router.navigate(['/']);
+        if (this.checkConfirmation('/')) {
+
+            this.authService.signOut();
+            localStorage.setItem('userInf', null);
+            localStorage.setItem('token', '');
+            localStorage.setItem('full_name', null);
+        }
+        // this.router.navigate(['/']);
     }
 }

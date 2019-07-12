@@ -3,7 +3,7 @@
         <div class="content">
             <div class="logo">
                 <div>
-                    <a routerLink="/home">
+                    <a (click)="goToLink('/home')">
                         <img src="../../../assets/images/logo_white_background.jpg" alt="">
                     </a>
                     <div class="search_box">
@@ -27,7 +27,7 @@
                     <li class="post" ng-class="{ active: isActive('/posts') }" fxShow.gt-lg [fxHide.sm]="true"
                         fxHide.xs="true">
                         <a *ngIf="!checkUser()" mat-button (click)="showLogin()">post</a>
-                        <a *ngIf="checkUser()" routerLink="/add-post" mat-button>post</a>
+                        <a *ngIf="checkUser() && router.url!=='/add-post'" routerLink="/add-post" mat-button>post</a>
                     </li>
                     <li class="login" fxShow.gt-lg [fxHide.sm]="true" fxHide.xs="true">
                         <a *ngIf="!auth.loggedIn()" mat-button (click)="showLogin()">login / sign up</a>
@@ -72,13 +72,13 @@
                                 <mat-menu #beforeMenu="matMenu" yPosition="below">
                                     <ul class="profile_links" (mouseleave)="hideDiv(trigger)">
                                         <li>
-                                            <a routerLink="/profile">My Profile</a>
+                                            <a (click)="goToLink('/profile')">My Profile</a>
                                         </li>
                                         <li>
-                                            <a routerLink="/managePost">Manage Posts</a>
+                                            <a (click)="goToLink('/managePost')">Manage Posts</a>
                                         </li>
                                         <li>
-                                            <a routerLink="/subscribe">Subscribe</a>
+                                            <a (click)="goToLink('/subscribe')">Subscribe</a>
                                         </li>
                                         <li>
                                             <a (click)="logOut()">LogOut</a>
@@ -164,13 +164,13 @@
                                             </ul>
                                             <ul *ngIf="checkUser()">
                                                 <li>
-                                                    <a routerLink="/profile">My Profile</a>
+                                                    <a (click)="goToLink('/profile')">My Profile</a>
                                                 </li>
                                                 <li>
-                                                    <a routerLink="/managePost">Manage Posts</a>
+                                                    <a (click)="goToLink('/managePost')">Manage Posts</a>
                                                 </li>
                                                 <li>
-                                                    <a routerLink="/about">About</a>
+                                                    <a (click)="goToLink('/about')">About</a>
                                                 </li>
                                                 <li>
                                                     <a>Privacy Policy</a>
