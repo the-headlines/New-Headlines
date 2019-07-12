@@ -68,8 +68,9 @@
                             </div>
 
                             <div class="img-block">
-                                <img src="{{single.extractedImage}}" class="img-fluid" alt=""
-                                     (click)="getSingle(single._id)">
+                                <a href="{{single.link}}">
+                                    <img src="{{single.extractedImage}}" class="img-fluid" alt="">
+                                </a>
                             </div>
                             <div class="text-block">
                                 <a href="{{single.link}}" class="text_block_link" target="_blank">
