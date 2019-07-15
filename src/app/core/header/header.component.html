@@ -26,8 +26,9 @@
                 <ul>
                     <li class="post" ng-class="{ active: isActive('/posts') }" fxShow.gt-lg [fxHide.sm]="true"
                         fxHide.xs="true">
-                        <a *ngIf="!checkUser()" mat-button (click)="showLogin()">post</a>
-                        <a *ngIf="checkUser() && router.url!=='/add-post'" routerLink="/add-post" mat-button>post</a>
+                        <!--                        <a *ngIf="auth.loggedIn()" mat-button (click)="showLogin()">post</a>-->
+                        <a *ngIf="auth.loggedIn() && router.url!=='/add-post'" routerLink="/add-post"
+                           mat-button>post</a>
                     </li>
                     <li class="login" fxShow.gt-lg [fxHide.sm]="true" fxHide.xs="true">
                         <a *ngIf="!auth.loggedIn()" mat-button (click)="showLogin()">login / sign up</a>

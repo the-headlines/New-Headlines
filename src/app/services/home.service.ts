@@ -11,7 +11,7 @@ export class HomeService {
     }
 
     getData() {
-        return this.http.get(Base.url + '/api/news/category/Influence?pagesize=30&page=1');
+        return this.http.get(Base.url + '/api/news/user/voted/category/Influence?pagesize=30&page=1');
     }
 
     getVotesData() {
@@ -19,23 +19,23 @@ export class HomeService {
     }
 
     getPictures() {
-        return this.http.get(Base.url + '/api/news/category/CameraPictures?pagesize=30&page=1');
+        return this.http.get(Base.url + '/api/news/user/voted/category/CameraPictures?pagesize=30&page=1');
     }
 
     getRoadToFame() {
-        return this.http.get(Base.url + '/api/news/category/StyleAndSweat?pagesize=30&page=1');
+        return this.http.get(Base.url + '/api/news/user/voted/category/StyleAndSweat?pagesize=30&page=1');
     }
 
     getDeals() {
-        return this.http.get(Base.url + '/api/news/category/LoveDesigns?pagesize=30&page=1');
+        return this.http.get(Base.url + '/api/news/user/voted/category/LoveDesigns?pagesize=30&page=1');
     }
 
     getCommerce() {
-        return this.http.get(Base.url + '/api/news/category/JumpStartups?pagesize=30&page=1');
+        return this.http.get(Base.url + '/api/news/user/voted/category/JumpStartups?pagesize=30&page=1');
     }
 
     getTravel() {
-        return this.http.get(Base.url + '/api/news/category/HumanStories?pagesize=30&page=1');
+        return this.http.get(Base.url + '/api/news/user/voted/category/HumanStories?pagesize=30&page=1');
     }
 
     getPostsByCategory(category) {
@@ -55,7 +55,7 @@ export class HomeService {
     }
 
     public getVideo() {
-        return this.http.get(Base.url + '/api/news/category/Videos?pagesize=100&page=1');
+        return this.http.get(Base.url + '/api/news/user/voted/category/Videos?pagesize=100&page=1');
     }
 
     public getSinglePost(id) {
