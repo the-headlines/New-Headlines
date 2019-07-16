@@ -59,7 +59,7 @@ export class SinglePostComponent implements OnInit, OnDestroy {
     }, {type: 'questions', name: 'Question'}];
 
     constructor(
-        private auth: AuthService,
+        public auth: AuthService,
         private router: Router,
         private route: ActivatedRoute,
         private home: HomeService,

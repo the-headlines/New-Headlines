@@ -85,7 +85,6 @@ import {ConfirmationDialogComponent} from './shared/components/confirmation-dial
 import {ReportComponentComponent} from './modules/home/components/report-component/report-component.component';
 import {MatRadioModule} from '@angular/material/radio';
 import {InfiniteScrollModule} from 'ngx-infinite-scroll';
-import {InViewportModule} from 'ng-in-viewport';
 
 
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
@@ -183,7 +182,6 @@ export function tokenGetter() {
         MatDialogModule,
         MatSlideToggleModule,
         InfiniteScrollModule,
-        InViewportModule,
         DropzoneModule,
         ShareButtonModule,
         DataTableModule,
