@@ -248,6 +248,12 @@ export class HomeComponent implements OnInit {
                             return JSON.stringify(obj) === JSON.stringify(thing);
                         });
                     });
+
+                    uniqueArray.sort((a, b) => {
+                        return moment(b['createdAt']).unix() - moment(a['createdAt']).unix();
+                    });
+
+
                     this.filteredPosts.news = uniqueArray;
                 }
             });
