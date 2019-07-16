@@ -145,6 +145,7 @@ export class HomeComponent implements OnInit {
             }
 
             this.posts = data['result'];
+
         });
     }
 
@@ -228,7 +229,7 @@ export class HomeComponent implements OnInit {
     onScrollUp(e) {
     }
 
-    onIntersection(e, index, title) {
+    onIntersection(e, index) {
         if (index === this.filteredPosts.news.length - 1) {
             ++this.page;
             this.home.getData(this.page).subscribe((data: any) => {

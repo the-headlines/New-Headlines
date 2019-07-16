@@ -5,7 +5,6 @@ import {Router} from '@angular/router';
 import {CookieService} from 'ngx-cookie-service';
 import {HttpClient} from '@angular/common/http';
 import * as moment from 'moment';
-import {Subject} from 'rxjs';
 import {SubjectService} from '../../../../services/subject.service';
 
 @Component({
@@ -26,6 +25,8 @@ export class RoadComponent implements OnInit {
     messages: any = [];
     ipAddress: any;
     searchTerm = '';
+    filteredPosts: any = {news: []};
+    page = 1;
 
     constructor(
         private home: HomeService,
@@ -83,7 +84,7 @@ export class RoadComponent implements OnInit {
     getDateFormatted(createdDate, onlyDate = true) {
 
 
-        if(!onlyDate) {
+        if (!onlyDate) {
 
             const a = moment(); // date now
             const b = moment(createdDate); // post created date
@@ -110,20 +111,15 @@ export class RoadComponent implements OnInit {
                     }
                 }
             }
+        } else {
+            return moment(createdDate).format('MMMM Do YYYY, h:mm:ss a');
         }
-
-        else {
-            return moment(createdDate).format('MMMM Do YYYY, h:mm:ss a')
-        }
-
-
-
 
 
     }
 
     get() {
-        this.home.getRoadToFame().subscribe((data) => {
+        this.home.getRoadToFame(this.page).subscribe((data) => {
 
             if (!data) {
                 return false;
@@ -142,6 +138,7 @@ export class RoadComponent implements OnInit {
             this.count = data['count'];
             this.paginate(data);
             this.posts = data;
+            this.filteredPosts.news = data['news'];
         });
     }
 
@@ -250,5 +247,31 @@ export class RoadComponent implements OnInit {
             this.messages = data;
             return this.messages;
         });
+    }
+
+    onIntersection(e, index) {
+        if (index === this.filteredPosts.news.length - 1) {
+            ++this.page;
+            this.home.getRoadToFame(this.page).subscribe((data: any) => {
+
+                if (data.news.length !== 0) {
+
+
+                    data['news'].sort((a, b) => {
+                        return moment(b['createdAt']).unix() - moment(a['createdAt']).unix();
+                    });
+
+                    Array.prototype.push.apply(this.posts.news, data.news);
+                    Array.prototype.push.apply(this.filteredPosts.news, data.news);
+                    const uniqueArray = this.filteredPosts.news.filter((thing, index) => {
+                        return index === this.filteredPosts.news.findIndex(obj => {
+                            return JSON.stringify(obj) === JSON.stringify(thing);
+                        });
+                    });
+                    this.filteredPosts.news = uniqueArray;
+                }
+            });
+        }
+
     }
 }

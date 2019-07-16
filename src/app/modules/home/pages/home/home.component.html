@@ -49,11 +49,11 @@
                     <!--                                   [pageSizeOptions]="[2,5,10,25,100]">-->
                     <!--                </mat-paginator>-->
 
-                    <div class="loop_items item posts_items" infiniteScroll [title]="'post'+ind"
+                    <div class="loop_items item posts_items"
+                         infiniteScroll
                          [infiniteScrollDistance]="2"
                          [infiniteScrollThrottle]="50"
-                         (scrolledUp)="onScrollUp($event)"
-                         (scrolled)="onIntersection($event, ind, single.extractedTitle)"
+                         (scrolled)="onIntersection($event, ind)"
                          *ngFor="let single of filteredPosts.news| searchNews: searchTerm;let ind = index">
                         <div class="post_wrapper">
                             <div class="user_posts">

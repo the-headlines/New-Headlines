@@ -37,7 +37,13 @@
                     </div>
                 </div>
 
-                <div class="loop_items item posts_items" *ngFor="let post of posts.news|searchNews:searchTerm">
+                <div
+                        infiniteScroll
+                        [infiniteScrollDistance]="2"
+                        [infiniteScrollThrottle]="50"
+                        (scrolled)="onIntersection($event, ind, post.extractedTitle)"
+                        class="loop_items item posts_items"
+                        *ngFor="let post of posts.news|searchNews:searchTerm;let ind = index">
                     <div class="post_wrapper">
                         <div class="user_posts">
                             <div class="userName">

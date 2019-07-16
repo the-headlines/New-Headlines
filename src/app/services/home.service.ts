@@ -23,8 +23,8 @@ export class HomeService {
         return this.http.get(Base.url + '/api/news/' + this.checkAuth() + 'category/CameraPictures?pagesize=30&page=1');
     }
 
-    getRoadToFame() {
-        return this.http.get(Base.url + '/api/news/' + this.checkAuth() + 'category/StyleAndSweat?pagesize=30&page=1');
+    getRoadToFame(page) {
+        return this.http.get(Base.url + '/api/news/' + this.checkAuth() + 'category/StyleAndSweat?pagesize=30&page=' + page);
     }
 
     getDeals() {
