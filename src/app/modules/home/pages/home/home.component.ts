@@ -35,7 +35,7 @@ export class HomeComponent implements OnInit {
     searchTerm = '';
     currentPost = {};
     defaultRecords = 5;
-
+    scrolledPostsCount = 0;
 
     @ViewChild('paginator') paginator;
     @ViewChild('post') element: ElementRef;
@@ -219,5 +219,14 @@ export class HomeComponent implements OnInit {
 
     getLength(d) {
         return d ? d.length : 0;
+    }
+
+    onScroll(e) {
+        ++this.scrolledPostsCount;
+        console.log(e);
+    }
+
+    onScrollUp(e) {
+        console.log(e);
     }
 }

@@ -84,6 +84,7 @@ import {GetUrlBasePipe} from './shared/pipes/get-url-base.pipe';
 import {ConfirmationDialogComponent} from './shared/components/confirmation-dialog/confirmation-dialog.component';
 import {ReportComponentComponent} from './modules/home/components/report-component/report-component.component';
 import {MatRadioModule} from '@angular/material/radio';
+import {InfiniteScrollModule} from 'ngx-infinite-scroll';
 
 
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
@@ -180,6 +181,7 @@ export function tokenGetter() {
         MatMenuModule,
         MatDialogModule,
         MatSlideToggleModule,
+        InfiniteScrollModule,
         DropzoneModule,
         ShareButtonModule,
         DataTableModule,

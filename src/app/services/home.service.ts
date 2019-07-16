@@ -1,17 +1,18 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import * as Base from '../configs/config';
+import {AuthService} from './auth.service';
 
 @Injectable({
     providedIn: 'root'
 })
 export class HomeService {
 
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient, private auth: AuthService) {
     }
 
     getData() {
-        return this.http.get(Base.url + '/api/news/user/voted/category/Influence?pagesize=30&page=1');
+        return this.http.get(Base.url + '/api/news/' + this.checkAuth() + 'category/Influence?pagesize=30&page=1');
     }
 
     getVotesData() {
@@ -19,23 +20,23 @@ export class HomeService {
     }
 
     getPictures() {
-        return this.http.get(Base.url + '/api/news/user/voted/category/CameraPictures?pagesize=30&page=1');
+        return this.http.get(Base.url + '/api/news/' + this.checkAuth() + 'category/CameraPictures?pagesize=30&page=1');
     }
 
     getRoadToFame() {
-        return this.http.get(Base.url + '/api/news/user/voted/category/StyleAndSweat?pagesize=30&page=1');
+        return this.http.get(Base.url + '/api/news/' + this.checkAuth() + 'category/StyleAndSweat?pagesize=30&page=1');
     }
 
     getDeals() {
-        return this.http.get(Base.url + '/api/news/user/voted/category/LoveDesigns?pagesize=30&page=1');
+        return this.http.get(Base.url + '/api/news/' + this.checkAuth() + 'category/LoveDesigns?pagesize=30&page=1');
     }
 
     getCommerce() {
-        return this.http.get(Base.url + '/api/news/user/voted/category/JumpStartups?pagesize=30&page=1');
+        return this.http.get(Base.url + '/api/news/' + this.checkAuth() + 'category/JumpStartups?pagesize=30&page=1');
     }
 
     getTravel() {
-        return this.http.get(Base.url + '/api/news/user/voted/category/HumanStories?pagesize=30&page=1');
+        return this.http.get(Base.url + '/api/news/' + this.checkAuth() + 'category/HumanStories?pagesize=30&page=1');
     }
 
     getPostsByCategory(category) {
@@ -55,7 +56,7 @@ export class HomeService {
     }
 
     public getVideo() {
-        return this.http.get(Base.url + '/api/news/user/voted/category/Videos?pagesize=100&page=1');
+        return this.http.get(Base.url + '/api/news/' + this.checkAuth() + 'category/Videos?pagesize=100&page=1');
     }
 
     public getSinglePost(id) {
@@ -108,5 +109,9 @@ export class HomeService {
 
     getLikesCount(id) {
         return this.http.get(Base.url + '/api/comments/' + id + '/likeunlike');
+    }
+
+    checkAuth() {
+        return this.auth.loggedIn() ? 'user/voted/' : '';
     }
 }

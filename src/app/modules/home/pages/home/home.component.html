@@ -49,12 +49,17 @@
                     <!--                                   [pageSizeOptions]="[2,5,10,25,100]">-->
                     <!--                </mat-paginator>-->
 
-                    <div class="loop_items item posts_items"
-                         *ngFor="let single of filteredPosts.news| searchNews: searchTerm">
+                    <div class="loop_items item posts_items" infiniteScroll
+                         [infiniteScrollDistance]="2"
+                         [infiniteScrollThrottle]="50"
+                         (scrolledUp)="onScrollUp($event)"
+                         (scrolled)="onScroll($event)"
+                         *ngFor="let single of filteredPosts.news| searchNews: searchTerm;let ind = index">
                         <div class="post_wrapper">
                             <div class="user_posts">
                                 <div class="userName">
                                     <div>
+                                        {{ind + 1}}
                                         <h3><span>Posted by</span>{{single.creator.name}}</h3>
                                         <p class="updateDate"
                                            [matTooltip]="single.createdAt|formattedDate">{{single.createdAt|formattedDate:false}}</p>
