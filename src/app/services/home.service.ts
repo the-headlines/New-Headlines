@@ -19,24 +19,24 @@ export class HomeService {
         return this.http.get(Base.url + '');
     }
 
-    getPictures() {
-        return this.http.get(Base.url + '/api/news/' + this.checkAuth() + 'category/CameraPictures?pagesize=30&page=1');
+    getPictures(page) {
+        return this.http.get(Base.url + '/api/news/' + this.checkAuth() + 'category/CameraPictures?pagesize=30&page=' + page);
     }
 
     getRoadToFame(page) {
         return this.http.get(Base.url + '/api/news/' + this.checkAuth() + 'category/StyleAndSweat?pagesize=30&page=' + page);
     }
 
-    getDeals() {
-        return this.http.get(Base.url + '/api/news/' + this.checkAuth() + 'category/LoveDesigns?pagesize=30&page=1');
+    getDeals(page) {
+        return this.http.get(Base.url + '/api/news/' + this.checkAuth() + 'category/LoveDesigns?pagesize=30&page=' + page);
     }
 
-    getCommerce() {
-        return this.http.get(Base.url + '/api/news/' + this.checkAuth() + 'category/JumpStartups?pagesize=30&page=1');
+    getCommerce(page) {
+        return this.http.get(Base.url + '/api/news/' + this.checkAuth() + 'category/JumpStartups?pagesize=30&page=' + page);
     }
 
-    getTravel() {
-        return this.http.get(Base.url + '/api/news/' + this.checkAuth() + 'category/HumanStories?pagesize=30&page=1');
+    getTravel(page) {
+        return this.http.get(Base.url + '/api/news/' + this.checkAuth() + 'category/HumanStories?pagesize=30&page=' + page);
     }
 
     getPostsByCategory(category) {
@@ -55,8 +55,8 @@ export class HomeService {
         return this.http.post(Base.url + '/api/news?pagesize=100&page=1', data);
     }
 
-    public getVideo() {
-        return this.http.get(Base.url + '/api/news/' + this.checkAuth() + 'category/Videos?pagesize=100&page=1');
+    public getVideo(page) {
+        return this.http.get(Base.url + '/api/news/' + this.checkAuth() + 'category/Videos?pagesize=100&page=' + page);
     }
 
     public getSinglePost(id) {

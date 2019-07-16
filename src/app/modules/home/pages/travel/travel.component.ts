@@ -12,6 +12,8 @@ import {Router} from '@angular/router';
 export class TravelComponent implements OnInit {
     posts: any = [];
     searchTerm = '';
+    page = 1;
+    filteredPosts: any = {news: []};
 
     constructor(
         private home: HomeService,
@@ -28,13 +30,14 @@ export class TravelComponent implements OnInit {
     }
 
     getPosts() {
-        this.home.getTravel().subscribe(dt => {
+        this.home.getTravel(this.page).subscribe((dt: any) => {
 
             dt['news'].sort((a, b) => {
                 return moment(b['createdAt']).unix() - moment(a['createdAt']).unix();
             });
 
             this.posts = dt;
+            this.filteredPosts.news = dt.news;
 
         });
     }
@@ -96,6 +99,42 @@ export class TravelComponent implements OnInit {
 
     getSinglePost(id) {
         this.router.navigate(['/post', id]);
+    }
+
+    /**
+     * Infinite scroll handler
+     * @param e
+     * @param index
+     */
+    onIntersection(e, index) {
+        if (index === this.filteredPosts.news.length - 1) {
+            ++this.page;
+            this.home.getTravel(this.page).subscribe((data: any) => {
+
+                if (data.news.length !== 0) {
+
+
+                    data['news'].sort((a, b) => {
+                        return moment(b['createdAt']).unix() - moment(a['createdAt']).unix();
+                    });
+
+                    Array.prototype.push.apply(this.posts.news, data.news);
+                    Array.prototype.push.apply(this.filteredPosts.news, data.news);
+                    const uniqueArray = this.filteredPosts.news.filter((thing, index) => {
+                        return index === this.filteredPosts.news.findIndex(obj => {
+                            return JSON.stringify(obj) === JSON.stringify(thing);
+                        });
+                    });
+
+                    uniqueArray.sort((a, b) => {
+                        return moment(b['createdAt']).unix() - moment(a['createdAt']).unix();
+                    });
+
+                    this.filteredPosts.news = uniqueArray;
+                }
+            });
+        }
+
     }
 
 }

@@ -24,6 +24,8 @@ export class PicturesComponent implements OnInit {
     /*  postData: any = [];*/
     count = 0;
     pages = [];
+    filteredPosts: any = {news: []};
+    page = 1;
 
     ngOnInit() {
 
@@ -39,7 +41,7 @@ export class PicturesComponent implements OnInit {
     }
 
     get() {
-        this.home.getPictures().subscribe((data) => {
+        this.home.getPictures(this.page).subscribe((data) => {
 
             data['news'].sort((a, b) => {
                 return moment(b['createdAt']).unix() - moment(a['createdAt']).unix();
@@ -48,6 +50,7 @@ export class PicturesComponent implements OnInit {
             /*  this.postData = data;*/
             this.count = data['count'];
             this.posts = data;
+            this.filteredPosts.news = data['news'];
             // this.paginate(data);
         });
     }
@@ -151,6 +154,43 @@ export class PicturesComponent implements OnInit {
 
     getSinglePost(id) {
         this.router.navigate(['/post', id]);
+    }
+
+
+    /**
+     * Infinite scroll handler
+     * @param e
+     * @param index
+     */
+    onIntersection(e, index) {
+        if (index === this.filteredPosts.news.length - 1) {
+            ++this.page;
+            this.home.getPictures(this.page).subscribe((data: any) => {
+
+                if (data.news.length !== 0) {
+
+
+                    data['news'].sort((a, b) => {
+                        return moment(b['createdAt']).unix() - moment(a['createdAt']).unix();
+                    });
+
+                    Array.prototype.push.apply(this.posts.news, data.news);
+                    Array.prototype.push.apply(this.filteredPosts.news, data.news);
+                    const uniqueArray = this.filteredPosts.news.filter((thing, index) => {
+                        return index === this.filteredPosts.news.findIndex(obj => {
+                            return JSON.stringify(obj) === JSON.stringify(thing);
+                        });
+                    });
+
+                    uniqueArray.sort((a, b) => {
+                        return moment(b['createdAt']).unix() - moment(a['createdAt']).unix();
+                    });
+
+                    this.filteredPosts.news = uniqueArray;
+                }
+            });
+        }
+
     }
 
     checkUser() {

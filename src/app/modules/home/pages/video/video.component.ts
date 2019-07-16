@@ -24,6 +24,8 @@ export class VideoComponent implements OnInit {
     count = 0;
     pages = [];
     searchTerm;
+    page = 1;
+    filteredPosts: any = {news: []};
 
     ngOnInit() {
 
@@ -39,7 +41,7 @@ export class VideoComponent implements OnInit {
     }
 
     get() {
-        this.home.getVideo().subscribe((data) => {
+        this.home.getVideo(this.page).subscribe((data: any) => {
 
             data['news'].sort((a, b) => {
                 return moment(b['createdAt']).unix() - moment(a['createdAt']).unix();
@@ -49,6 +51,7 @@ export class VideoComponent implements OnInit {
             /*  this.postData = data;*/
             this.count = data['count'];
             this.posts = data;
+            this.filteredPosts.news = data.news;
             // this.paginate(data);
         });
     }
@@ -139,7 +142,7 @@ export class VideoComponent implements OnInit {
     getDateFormatted(createdDate, onlyDate = true) {
 
 
-        if(!onlyDate) {
+        if (!onlyDate) {
 
             const a = moment(); // date now
             const b = moment(createdDate); // post created date
@@ -166,15 +169,46 @@ export class VideoComponent implements OnInit {
                     }
                 }
             }
+        } else {
+            return moment(createdDate).format('MMMM Do YYYY, h:mm:ss a');
         }
 
-        else {
-            return moment(createdDate).format('MMMM Do YYYY, h:mm:ss a')
+
+    }
+
+    /**
+     * Infinite scroll handler
+     * @param e
+     * @param index
+     */
+    onIntersection(e, index) {
+        if (index === this.filteredPosts.news.length - 1) {
+            ++this.page;
+            this.home.getVideo(this.page).subscribe((data: any) => {
+
+                if (data.news.length !== 0) {
+
+
+                    data['news'].sort((a, b) => {
+                        return moment(b['createdAt']).unix() - moment(a['createdAt']).unix();
+                    });
+
+                    Array.prototype.push.apply(this.posts.news, data.news);
+                    Array.prototype.push.apply(this.filteredPosts.news, data.news);
+                    const uniqueArray = this.filteredPosts.news.filter((thing, index) => {
+                        return index === this.filteredPosts.news.findIndex(obj => {
+                            return JSON.stringify(obj) === JSON.stringify(thing);
+                        });
+                    });
+
+                    uniqueArray.sort((a, b) => {
+                        return moment(b['createdAt']).unix() - moment(a['createdAt']).unix();
+                    });
+
+                    this.filteredPosts.news = uniqueArray;
+                }
+            });
         }
-
-
-
-
 
     }
 

@@ -19,7 +19,9 @@ export class CommerceComponent implements OnInit {
     /*  postData: any = [];*/
     count = 0;
     pages = [];
-    searchTerm;
+    searchTerm = '';
+    page = 1;
+    filteredPosts: any = {news: []};
 
     constructor(
         private home: HomeService,
@@ -43,14 +45,15 @@ export class CommerceComponent implements OnInit {
     }
 
     get() {
-        this.home.getCommerce().subscribe((data: any) => {
+        this.home.getCommerce(this.page).subscribe((data: any) => {
 
             data['news'].sort((a, b) => {
                 return moment(b['createdAt']).unix() - moment(a['createdAt']).unix();
             });
 
             this.posts = data;
-            // console.log(this.posts);
+            this.filteredPosts.news = data.news;
+            console.log(this.filteredPosts);
             /*  this.postData = data;*/
             this.count = data['count'];
             // this.paginate(data);
@@ -173,6 +176,43 @@ export class CommerceComponent implements OnInit {
             return false;
         }
         return true;
+    }
+
+    /**
+     * Infinite scroll handler
+     * @param e
+     * @param index
+     */
+    onIntersection(e, index) {
+        if (index === this.filteredPosts.news.length - 1) {
+            ++this.page;
+            this.home.getData(this.page).subscribe((data: any) => {
+
+                if (data.news.length !== 0) {
+
+
+                    data['news'].sort((a, b) => {
+                        return moment(b['createdAt']).unix() - moment(a['createdAt']).unix();
+                    });
+
+                    Array.prototype.push.apply(this.posts.news, data.news);
+                    Array.prototype.push.apply(this.filteredPosts.news, data.news);
+                    const uniqueArray = this.filteredPosts.news.filter((thing, index) => {
+                        return index === this.filteredPosts.news.findIndex(obj => {
+                            return JSON.stringify(obj) === JSON.stringify(thing);
+                        });
+                    });
+
+                    uniqueArray.sort((a, b) => {
+                        return moment(b['createdAt']).unix() - moment(a['createdAt']).unix();
+                    });
+
+
+                    this.filteredPosts.news = uniqueArray;
+                }
+            });
+        }
+
     }
 
 }

@@ -40,8 +40,12 @@
                         </div>
                     </div>
                 </div>
-
-                <div *ngFor="let post of posts.news|searchNews:searchTerm" class="loop_items item posts_items">
+                <div class="loop_items item posts_items"
+                     infiniteScroll
+                     [infiniteScrollDistance]="2"
+                     [infiniteScrollThrottle]="50"
+                     (scrolled)="onIntersection($event, ind)"
+                     *ngFor="let post of filteredPosts.news| searchNews: searchTerm;let ind = index">
                     <div class="post_wrapper">
                         <div class="user_posts">
                             <div class="userName">

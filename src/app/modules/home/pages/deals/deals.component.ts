@@ -23,6 +23,8 @@ export class DealsComponent implements OnInit {
     count = 0;
     pages = [];
     searchTerm;
+    page = 1;
+    filteredPosts: any = {news: []};
 
     ngOnInit() {
 
@@ -38,13 +40,14 @@ export class DealsComponent implements OnInit {
     }
 
     get() {
-        this.home.getDeals().subscribe((data) => {
+        this.home.getDeals(this.page).subscribe((data: any) => {
             data['news'].sort((a, b) => {
                 return moment(b['createdAt']).unix() - moment(a['createdAt']).unix();
             });
             /*  this.postData = data;*/
             this.count = data['count'];
             this.posts = data;
+            this.filteredPosts.news = data.news;
             // this.paginate(data);
         });
     }
@@ -165,6 +168,42 @@ export class DealsComponent implements OnInit {
             return moment(createdDate).format('MMMM Do YYYY, h:mm:ss a');
         }
 
+
+    }
+
+    /**
+     * Infinite scroll handler
+     * @param e
+     * @param index
+     */
+    onIntersection(e, index) {
+        if (index === this.filteredPosts.news.length - 1) {
+            ++this.page;
+            this.home.getTravel(this.page).subscribe((data: any) => {
+
+                if (data.news.length !== 0) {
+
+
+                    data['news'].sort((a, b) => {
+                        return moment(b['createdAt']).unix() - moment(a['createdAt']).unix();
+                    });
+
+                    Array.prototype.push.apply(this.posts.news, data.news);
+                    Array.prototype.push.apply(this.filteredPosts.news, data.news);
+                    const uniqueArray = this.filteredPosts.news.filter((thing, index) => {
+                        return index === this.filteredPosts.news.findIndex(obj => {
+                            return JSON.stringify(obj) === JSON.stringify(thing);
+                        });
+                    });
+
+                    uniqueArray.sort((a, b) => {
+                        return moment(b['createdAt']).unix() - moment(a['createdAt']).unix();
+                    });
+
+                    this.filteredPosts.news = uniqueArray;
+                }
+            });
+        }
 
     }
 

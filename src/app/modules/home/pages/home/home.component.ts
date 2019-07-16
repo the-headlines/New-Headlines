@@ -229,6 +229,12 @@ export class HomeComponent implements OnInit {
     onScrollUp(e) {
     }
 
+
+    /**
+     * Infinite scroll handler
+     * @param e
+     * @param index
+     */
     onIntersection(e, index) {
         if (index === this.filteredPosts.news.length - 1) {
             ++this.page;

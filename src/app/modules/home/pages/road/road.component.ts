@@ -249,6 +249,11 @@ export class RoadComponent implements OnInit {
         });
     }
 
+    /**
+     * Infinite scroll handler
+     * @param e
+     * @param index
+     */
     onIntersection(e, index) {
         if (index === this.filteredPosts.news.length - 1) {
             ++this.page;
