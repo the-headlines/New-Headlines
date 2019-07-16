@@ -98,7 +98,7 @@ export class HomeComponent implements OnInit {
             });
 
             this.posts = data;
-            this.filteredPosts.news = data.news; //.slice(0, this.defaultRecords)
+            this.filteredPosts.news = data.news; // .slice(0, this.defaultRecords)
 
             /*  this.postData = data;*/
             // this.count = data['count'];
