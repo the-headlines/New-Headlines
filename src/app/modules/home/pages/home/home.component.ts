@@ -35,7 +35,7 @@ export class HomeComponent implements OnInit {
     searchTerm = '';
     currentPost = {};
     defaultRecords = 5;
-    scrolledPostsCount = 0;
+    page = 1;
 
     @ViewChild('paginator') paginator;
     @ViewChild('post') element: ElementRef;
@@ -91,7 +91,7 @@ export class HomeComponent implements OnInit {
     // }
 
     get() {
-        this.home.getData().subscribe((data: any) => {
+        this.home.getData(this.page).subscribe((data: any) => {
 
             data['news'].sort((a, b) => {
                 return moment(b['createdAt']).unix() - moment(a['createdAt']).unix();
@@ -222,11 +222,35 @@ export class HomeComponent implements OnInit {
     }
 
     onScroll(e) {
-        ++this.scrolledPostsCount;
-        console.log(e);
+
     }
 
     onScrollUp(e) {
-        console.log(e);
+    }
+
+    onIntersection(e, index, title) {
+        if (index === this.filteredPosts.news.length - 1) {
+            ++this.page;
+            this.home.getData(this.page).subscribe((data: any) => {
+
+                if (data.news.length !== 0) {
+
+
+                    data['news'].sort((a, b) => {
+                        return moment(b['createdAt']).unix() - moment(a['createdAt']).unix();
+                    });
+
+                    Array.prototype.push.apply(this.posts.news, data.news);
+                    Array.prototype.push.apply(this.filteredPosts.news, data.news);
+                    const uniqueArray = this.filteredPosts.news.filter((thing, index) => {
+                        return index === this.filteredPosts.news.findIndex(obj => {
+                            return JSON.stringify(obj) === JSON.stringify(thing);
+                        });
+                    });
+                    this.filteredPosts.news = uniqueArray;
+                }
+            });
+        }
+
     }
 }

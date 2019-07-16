@@ -11,8 +11,8 @@ export class HomeService {
     constructor(private http: HttpClient, private auth: AuthService) {
     }
 
-    getData() {
-        return this.http.get(Base.url + '/api/news/' + this.checkAuth() + 'category/Influence?pagesize=30&page=1');
+    getData(page) {
+        return this.http.get(Base.url + '/api/news/' + this.checkAuth() + 'category/Influence?pagesize=30&page=' + page);
     }
 
     getVotesData() {

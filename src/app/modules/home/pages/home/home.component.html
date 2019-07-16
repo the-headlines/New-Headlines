@@ -49,18 +49,18 @@
                     <!--                                   [pageSizeOptions]="[2,5,10,25,100]">-->
                     <!--                </mat-paginator>-->
 
-                    <div class="loop_items item posts_items" infiniteScroll
+                    <div class="loop_items item posts_items" infiniteScroll [title]="'post'+ind"
                          [infiniteScrollDistance]="2"
                          [infiniteScrollThrottle]="50"
                          (scrolledUp)="onScrollUp($event)"
-                         (scrolled)="onScroll($event)"
+                         (scrolled)="onIntersection($event, ind, single.extractedTitle)"
                          *ngFor="let single of filteredPosts.news| searchNews: searchTerm;let ind = index">
                         <div class="post_wrapper">
                             <div class="user_posts">
                                 <div class="userName">
                                     <div>
-<!--                                        {{ind + 1}}-->
-                                        <h3><span>Posted by</span>{{single.creator.name}}</h3>
+                                        <!--                                        {{ind + 1}}-->
+                                        <h3 *ngIf="single.creator"><span>Posted by</span>{{single.creator.name}}</h3>
                                         <p class="updateDate"
                                            [matTooltip]="single.createdAt|formattedDate">{{single.createdAt|formattedDate:false}}</p>
                                     </div>
