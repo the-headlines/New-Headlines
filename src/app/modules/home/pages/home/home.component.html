@@ -64,7 +64,7 @@
                                         <p class="updateDate"
                                            [matTooltip]="single.createdAt|formattedDate">{{single.createdAt|formattedDate:false}}</p>
                                     </div>
-                                    <app-story-options></app-story-options>
+                                    <app-story-options [single]="single"></app-story-options>
                                 </div>
                             </div>
                             <div class="short_desc">

@@ -8,8 +8,8 @@
                 <img src="../../../../../assets/images/vote.png" alt="">
 
                 <div class="Like__link js-hover">Votes
-                    <span class="hovered_number"
-                          (mouseout)="openNum=false">100</span> <!-- (mouseover)="openNum=true"-->
+                    <span class="hovered_number" *ngIf="single"
+                          (mouseout)="openNum=false">{{single.totalVotes}}</span> <!-- (mouseover)="openNum=true"-->
                 </div>
                 <div class="Emojis">
                     <div class="Emoji Emoji--like">
@@ -166,39 +166,39 @@
             </div>
         </div>
     </li>
-    <li>
+    <li *ngIf="single" class="viewsCount">
         <a href="">
-            View<span>20</span>
+            Views<span>{{single.views}}</span>
         </a>
     </li>
     <li [hidden]="routerUrl !== '/home' && routerUrl !== '/' && routerUrl !== '/commerce' && routerUrl !== '/travel' && routerUrl !== '/deals' && routerUrl !== '/video'">
-        <a (click)="getSingle(single._id)">
+        <a (click)="getSingle(single)">
             Questions <span>35</span>
         </a>
     </li>
     <li [hidden]="routerUrl !== '/home' && routerUrl !== '/' && routerUrl !== '/road' && routerUrl !== '/deals' && routerUrl !== '/video'">
-        <a (click)="getSingle(single._id)">
+        <a (click)="getSingle(single)">
             <i class="far fa-comment"></i>
             Comments<span>35</span>
         </a>
     </li>
     <li [hidden]="routerUrl !== '/road'">
-        <a (click)="getSingle(single._id)">
+        <a (click)="getSingle(single)">
             Critics <span>35</span>
         </a>
     </li>
     <li [hidden]="routerUrl !== '/pictures'">
-        <a (click)="getSingle(single._id)">
+        <a (click)="getSingle(single)">
             <i class="far fa-comment"></i> Fans <span>35</span>
         </a>
     </li>
     <li [hidden]="routerUrl !== '/pictures' && routerUrl !== '/travel'">
-        <a (click)="getSingle(single._id)">
+        <a (click)="getSingle(single)">
             Suggestions <span>35</span>
         </a>
     </li>
     <li [hidden]="routerUrl !== '/commerce'">
-        <a (click)="getSingle(single._id)">
+        <a (click)="getSingle(single)">
             <i class="far fa-comment"></i> Feedback <span>35</span>
         </a>
     </li>

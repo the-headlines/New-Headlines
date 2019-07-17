@@ -67,12 +67,13 @@ export class HomeService {
         return this.http.get(Base.url + '/api/news/' + id + '/vote');
     }
 
-    doVoting(id, data) {
-        let urlPart;
-        if (data === 'Like') {
-            urlPart = 'likeunlike';
+    doVoting(id, voteType) {
+        if (voteType === 'Like') {
+            return this.http.post(Base.url + '/api/comments/' + id + '/likeunlike', {});
+        } else {
+            return this.http.post(Base.url + '/api/news/' + id + '/vote', {voteCategory: voteType});
         }
-        return this.http.post(Base.url + '/api/comments/' + id + '/' + urlPart, {});
+
     }
 
     /*Add comment*/
@@ -117,5 +118,9 @@ export class HomeService {
 
     checkAuth() {
         return this.auth.loggedIn() ? 'user/voted/' : '';
+    }
+
+    updateViewCount(post) {
+        return this.http.post(Base.url + '/api/news/' + post._id + '/views', {uniqueId: post._id});
     }
 }

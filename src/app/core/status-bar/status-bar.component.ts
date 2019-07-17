@@ -70,7 +70,10 @@ export class StatusBarComponent implements OnInit {
         });
     }
 
-    getSingle(id) {
-        this.router.navigate(['/post', id]);
+    getSingle(single) {
+        this.home.updateViewCount(single).subscribe(dt => {
+
+            this.router.navigate(['/post', single._id]);
+        });
     }
 }
