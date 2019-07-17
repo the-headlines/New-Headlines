@@ -53,7 +53,6 @@ export class CommerceComponent implements OnInit {
 
             this.posts = data;
             this.filteredPosts.news = data.news;
-            console.log(this.filteredPosts);
             /*  this.postData = data;*/
             this.count = data['count'];
             // this.paginate(data);

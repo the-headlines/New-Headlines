@@ -99,8 +99,12 @@ export class HomeService {
         return this.http.put(Base.url + '/api/comments/' + data.id, data);
     }
 
-    likeComment(id) {
-        return this.http.post(Base.url + '/api/comments/' + id + '/likeunlike', {});
+    likeComment(id, liked) {
+        if (liked) {
+            return this.http.delete(Base.url + '/api/comments/' + id + '/likeunlike', {});
+        } else {
+            return this.http.post(Base.url + '/api/comments/' + id + '/likeunlike', {});
+        }
     }
 
     reportComment(data) {

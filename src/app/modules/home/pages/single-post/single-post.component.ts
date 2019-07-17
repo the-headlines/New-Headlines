@@ -334,9 +334,9 @@ export class SinglePostComponent implements OnInit, OnDestroy {
         return this.comments.filter(c => c.type === type).length;
     }
 
-    likeComment(id) {
-        this.home.likeComment(id).subscribe(dt => {
-
+    likeComment(id, liked) {
+        this.home.likeComment(id, liked).subscribe(dt => {
+            this.getComments();
         });
     }
 
