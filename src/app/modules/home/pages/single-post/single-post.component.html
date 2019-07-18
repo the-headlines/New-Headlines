@@ -158,36 +158,57 @@
                                     <div class="votesCount">{{votes.length}}</div> <!-- hovered_number-->
                                 </div>
                                 <div class="Emojis">
-                                    <div class="Emoji Emoji--like">
-                                        <div class="">
-                                            <button class="blue" (click)="vote('Like', singlePost._id)"
-                                                    [class.gray]="!upwote">Like
-                                            </button>
-                                            <p class="num">20</p>
+                                    <!--                                    <div class="Emoji Emoji&#45;&#45;like">-->
+                                    <!--                                        <div class="">-->
+                                    <!--                                            <button class="blue" (click)="vote('Like', singlePost._id)">Like-->
+                                    <!--                                            </button>-->
+                                    <!--                                            <p class="num">20</p>-->
+                                    <!--                                        </div>-->
+                                    <!--                                    </div>-->
+                                    <!--                                    <div class="Emoji Emoji&#45;&#45;love">-->
+                                    <!--                                        <div class="">-->
+                                    <!--                                            <button class="gray" (click)="vote('Promising', singlePost._id)">-->
+                                    <!--                                                Promising-->
+                                    <!--                                            </button>-->
+                                    <!--                                            <p class="num">30</p>-->
+                                    <!--                                        </div>-->
+                                    <!--                                    </div>-->
+                                    <!--                                    <div class="Emoji Emoji&#45;&#45;haha">-->
+                                    <!--                                        <div class="">-->
+                                    <!--                                            <button class="blue" (click)="vote('Useful', singlePost._id)">Useful-->
+                                    <!--                                            </button>-->
+                                    <!--                                            <p class="num">50</p>-->
+                                    <!--                                        </div>-->
+                                    <!--                                    </div>-->
+
+                                    <!--                                    <div class="Emoji Emoji&#45;&#45;love" *ngIf="postCategory==='Influence'">-->
+                                    <!--                                        <div class="">-->
+                                    <!--                                            <button class="gray" (click)="vote('Important', singlePost._id)">-->
+                                    <!--                                                Important-->
+                                    <!--                                            </button>-->
+                                    <!--                                            <p class="num">30</p>-->
+                                    <!--                                        </div>-->
+                                    <!--                                    </div>-->
+
+                                    <ng-container *ngFor="let vType of voteTypes">
+                                        <div class="Emoji Emoji--love">
+                                            <div class="">
+                                                <button class="gray" (click)="vote(vType['name'], singlePost._id)">
+                                                    {{vType['name']}}
+                                                </button>
+                                                <p class="num">30</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="Emoji Emoji--love">
-                                        <div class="">
-                                            <button class="gray" (click)="vote('Promising', singlePost._id)">
-                                                Promising
-                                            </button>
-                                            <p class="num">30</p>
-                                        </div>
-                                    </div>
-                                    <div class="Emoji Emoji--haha">
-                                        <div class="">
-                                            <button class="blue" (click)="vote('Useful', singlePost._id)">Useful
-                                            </button>
-                                            <p class="num">50</p>
-                                        </div>
-                                    </div>
+                                    </ng-container>
+
+
                                 </div>
                             </div>
                         </div>
                     </li>
                     <li>
                         <a href="">
-                            View<span>20</span>
+                            Views<span>{{singlePost.views}}</span>
                         </a>
                     </li>
                     <li>

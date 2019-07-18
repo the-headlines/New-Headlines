@@ -9,6 +9,7 @@ import {SubjectService} from '../../../../services/subject.service';
 import {Subscription} from 'rxjs';
 import {filter} from 'rxjs/operators';
 import * as moment from 'moment';
+import {Category} from '../posts/add-post/add-post.component';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
     isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -52,11 +53,31 @@ export class SinglePostComponent implements OnInit, OnDestroy {
     selectedCommentType = 'Comment';
     filteredComments;
     showReplyInput = false;
+    postCategory: string;
 
     commentEditForm: FormGroup;
-    commentTypes = [{
-        type: 'comments', name: 'Comment'
-    }, {type: 'questions', name: 'Question'}];
+
+    voteTypes = [
+        {name: 'Important', pages: ['Influence']},
+        {name: 'Interesting', pages: ['Influence']},
+        {name: 'Investigate', pages: ['Influence']},
+        {name: 'Resign', pages: ['Influence']},
+        {name: 'Like', pages: ['StyleAndSweat', 'HumanStories', 'Videos']},
+        {name: 'Good', pages: ['StyleAndSweat']},
+        {name: 'Top Class', pages: ['StyleAndSweat']},
+        {name: 'Magic', pages: ['StyleAndSweat']},
+        {name: 'Awesome', pages: ['CameraPictures']},
+        {name: 'Haft', pages: ['CameraPictures']},
+        {name: 'Cool', pages: ['CameraPictures']},
+        {name: 'Funny', pages: ['CameraPictures']},
+        {name: 'Inspiring', pages: ['HumanStories']},
+        {name: 'Promising', pages: ['JumpStartups']},
+        {name: 'LoveTheColor', pages: ['LoveDesigns']},
+        {name: 'Grand', pages: ['LoveDesigns']},
+        {name: 'Creative', pages: ['LoveDesigns']},
+        {name: 'Refreshing', pages: ['Videos']},
+        {name: 'Useful', pages: ['Videos']}
+    ];
 
     constructor(
         public auth: AuthService,
@@ -101,6 +122,9 @@ export class SinglePostComponent implements OnInit, OnDestroy {
         });
     }
 
+    checkForPage() {
+
+    }
 
     isDisabled(): boolean {
         return this.isEdit;
@@ -183,9 +207,12 @@ export class SinglePostComponent implements OnInit, OnDestroy {
     }
 
     getSinglePost(id) {
-        this.home.getSinglePost(id).subscribe((data) => {
+        this.home.getSinglePost(id).subscribe((data: any) => {
 
             this.singlePost = data;
+            this.postCategory = data.category;
+            this.voteTypes = this.voteTypes.filter(t => t['pages'].includes(this.postCategory));
+
             // this.comments = data['result']['comment'];
             // this.related = data['result']['related'];
             // this.commentCount = data['comment_count'];
@@ -272,7 +299,7 @@ export class SinglePostComponent implements OnInit, OnDestroy {
 
     vote(type, id) {
         this.home.doVoting(id, type).subscribe(dt => {
-            // console.log(dt);
+            this.getPostVotes(id);
         });
     }
 

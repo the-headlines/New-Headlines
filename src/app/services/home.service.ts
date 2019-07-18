@@ -2,13 +2,15 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import * as Base from '../configs/config';
 import {AuthService} from './auth.service';
+import {SubjectService} from './subject.service';
+import * as jwtDecode from 'jwt-decode';
 
 @Injectable({
     providedIn: 'root'
 })
 export class HomeService {
 
-    constructor(private http: HttpClient, private auth: AuthService) {
+    constructor(private http: HttpClient, private auth: AuthService, private subject: SubjectService) {
     }
 
     getData(page) {
@@ -121,6 +123,7 @@ export class HomeService {
     }
 
     updateViewCount(post) {
-        return this.http.post(Base.url + '/api/news/' + post._id + '/views', {uniqueId: post._id});
+        const user: any = jwtDecode(localStorage.getItem('token'));
+        return this.http.post(Base.url + '/api/news/' + post._id + '/views', {uniqueId: user.userId});
     }
 }

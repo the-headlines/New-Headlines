@@ -2,6 +2,8 @@ import {Component, ElementRef, Input, OnInit, Renderer2, ViewChild} from '@angul
 import {Router} from '@angular/router';
 import {HomeService} from '../../services/home.service';
 import * as moment from '../../modules/home/pages/home/home.component';
+import {AuthService} from '../../services/auth.service';
+import {SubjectService} from '../../services/subject.service';
 
 @Component({
     selector: 'app-status-bar',
@@ -20,11 +22,37 @@ export class StatusBarComponent implements OnInit {
     upwote = false;
     selectedVote;
     votes = [];
+    userData;
+    postCategory;
+    voteTypes = [
+        {name: 'Important', pages: ['Influence']},
+        {name: 'Interesting', pages: ['Influence']},
+        {name: 'Investigate', pages: ['Influence']},
+        {name: 'Resign', pages: ['Influence']},
+        {name: 'Like', pages: ['StyleAndSweat', 'HumanStories', 'Videos']},
+        {name: 'Good', pages: ['StyleAndSweat']},
+        {name: 'Top Class', pages: ['StyleAndSweat']},
+        {name: 'Magic', pages: ['StyleAndSweat']},
+        {name: 'Awesome', pages: ['CameraPictures']},
+        {name: 'Haft', pages: ['CameraPictures']},
+        {name: 'Cool', pages: ['CameraPictures']},
+        {name: 'Funny', pages: ['CameraPictures']},
+        {name: 'Inspiring', pages: ['HumanStories']},
+        {name: 'Promising', pages: ['JumpStartups']},
+        {name: 'LoveTheColor', pages: ['LoveDesigns']},
+        {name: 'Grand', pages: ['LoveDesigns']},
+        {name: 'Creative', pages: ['LoveDesigns']},
+        {name: 'Refreshing', pages: ['Videos']},
+        {name: 'Useful', pages: ['Videos']}
+    ];
+
 
     constructor(
         private renderer: Renderer2,
         public router: Router,
-        private home: HomeService
+        private home: HomeService,
+        public auth: AuthService,
+        private subject: SubjectService
     ) {
         this.openNum = false;
     }
@@ -33,7 +61,7 @@ export class StatusBarComponent implements OnInit {
         var target = event.target || event.srcElement || event.currentTarget;
         console.log(target);
         this.isShown = !this.isShown;
-        console.log(this);
+        // console.log(this);
     }
 
     get() {
@@ -59,13 +87,20 @@ export class StatusBarComponent implements OnInit {
 
     ngOnInit() {
         this.routerUrl = this.router.url;
+
+        if (this.single) {
+            this.postCategory = this.single.category;
+            this.voteTypes = this.voteTypes.filter(t => t['pages'].includes(this.postCategory));
+        }
+
+
     }
 
     vote(type, id) {
         if (type === 'Like') {
             this.upwote = !this.upwote;
         }
-        this.home.doVoting(id, {voteCategory: type}).subscribe(dt => {
+        this.home.doVoting(id, type).subscribe(dt => {
             // console.log(dt);
         });
     }
