@@ -551,8 +551,11 @@
   text-align: left;
   color: #000000;
   margin-bottom: 24px;
+  border-radius: 4px;
 }
-
+.cke_reset {
+  border-radius: 4px;
+}
 .sub_headline h2 {
   font-family: 'Lato-Regular';
   font-size: 30px;
@@ -570,6 +573,10 @@
   height: 31px !important;
   padding: 0;
   text-align: center;
+}
+
+.mat-tab-labels {
+  display: none !important;
 }
 
 @media screen and (min-width: 320px) and (max-width: 768px) {
