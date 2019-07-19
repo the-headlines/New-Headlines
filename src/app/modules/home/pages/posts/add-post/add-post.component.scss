@@ -474,15 +474,22 @@
   display: inline-block;
   padding: 11px;
 }
+.posts_box .mat-tab-label.mat-ripple.ng-star-inserted.mat-tab-label-active {
+  border-bottom: 2px solid #3788c6 !important;
+}
 
+.post_or_cancel button {
+  border-radius: 6px;
+  height: 40px !important;
+}
 .post_or_cancel .blue {
   background-color: #3788c6;
-  height: 100% !important;
+  height: 40px !important;
 }
 
 .post_or_cancel a.blue {
   background-color: #3788c6;
-  width: 48px;
+  width: 100px;
   height: 100% !important;
   padding: 0 15px;
 }
@@ -529,7 +536,7 @@
 }
 
 .link input {
-  height: 48px;
+  height: 70px;
   border: solid 1px #acacac;
   background-color: #fff;
   width: 100%;
@@ -559,7 +566,7 @@
 }
 
 .postBtn {
-  width: 48px;
+  width: 100px;
   height: 31px !important;
   padding: 0;
   text-align: center;

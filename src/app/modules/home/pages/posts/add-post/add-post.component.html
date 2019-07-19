@@ -24,21 +24,21 @@
                                 </div>
                                 <div class="choose_pic_or_link">
                                     <mat-tab-group mat-align-tabs="start" [selectedIndex]="1">
-                                        <mat-tab label="Choose a picture">
-                                            <dropzone class="dropzone" (error)="onUploadError($event)"
-                                                      (addedFile)="onUploadSuccess($event)"
-                                                      *ngIf="type === 'component'" [disabled]="disabled"
-                                                      [message]="'Click or drag images here to upload'"
-                                                      (init)="onUploadInit($event)"></dropzone>
-                                            <div *ngIf="type === 'directive'" class="dropzone dropzone-container"
-                                                 (init)="onUploadInit($event)" (error)="onUploadError($event)"
-                                                 (success)="onUploadSuccess($event)"></div>
-                                            <!--<mat-error-->
-                                            <!--*ngIf="postForm.get('description').dirty && postForm.get('description').hasError('required')">-->
-                                            <!--Post-->
-                                            <!--description is required-->
-                                            <!--</mat-error>-->
-                                        </mat-tab>
+                                        <!--<mat-tab label="Choose a picture">-->
+                                            <!--<dropzone class="dropzone" (error)="onUploadError($event)"-->
+                                                      <!--(addedFile)="onUploadSuccess($event)"-->
+                                                      <!--*ngIf="type === 'component'" [disabled]="disabled"-->
+                                                      <!--[message]="'Click or drag images here to upload'"-->
+                                                      <!--(init)="onUploadInit($event)"></dropzone>-->
+                                            <!--<div *ngIf="type === 'directive'" class="dropzone dropzone-container"-->
+                                                 <!--(init)="onUploadInit($event)" (error)="onUploadError($event)"-->
+                                                 <!--(success)="onUploadSuccess($event)"></div>-->
+                                            <!--&lt;!&ndash;<mat-error&ndash;&gt;-->
+                                            <!--&lt;!&ndash;*ngIf="postForm.get('description').dirty && postForm.get('description').hasError('required')">&ndash;&gt;-->
+                                            <!--&lt;!&ndash;Post&ndash;&gt;-->
+                                            <!--&lt;!&ndash;description is required&ndash;&gt;-->
+                                            <!--&lt;!&ndash;</mat-error>&ndash;&gt;-->
+                                        <!--</mat-tab>-->
                                         <mat-tab label="Link">
                                             <div class="link">
                                                 <h3>Link</h3>
@@ -59,7 +59,7 @@
                                                 </ckeditor>
                                             </div>
 
-                                            <mat-slide-toggle (change)="setVideo($event)">Video</mat-slide-toggle>
+                                            <!--<mat-slide-toggle (change)="setVideo($event)">Video</mat-slide-toggle>-->
                                         </mat-tab>
                                     </mat-tab-group>
 
