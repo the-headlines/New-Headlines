@@ -19,3 +19,15 @@
 .owl-nav.ng-star-inserted {
   display: none !important;
 }
+
+.carousel_top_text {
+  background: #ffffff;
+  border: 1px solid lightgray;
+  position: relative;
+  z-index: 99;
+  padding: 20px 10px;
+}
+
+.carousel_top_text p {
+  margin-bottom: 0;
+}
