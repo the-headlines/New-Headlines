@@ -3,7 +3,7 @@
 <div class="content">
     <div class="main row no-gutters">
         <section class="col-md-8 col-sm-12 order-md-1 order-sm-2 order-xs-2" style="padding-right: 37px">
-            <div class="carusel-block">
+            <div class="carusel-block" id="home_carousel">
                 <app-owl-carousel></app-owl-carousel>
                 <div class="img-block">
                     <div class="slider_bottom_icons">
@@ -43,11 +43,7 @@
                             </ul>
                         </div>
                     </div>
-                    <!--                <mat-paginator *ngIf="posts.news" (page)="handle($event)" #paginator-->
-                    <!--                                   [length]="getLength(posts.news| searchNews: searchTerm)"-->
-                    <!--                                   [pageSize]="defaultRecords"-->
-                    <!--                                   [pageSizeOptions]="[2,5,10,25,100]">-->
-                    <!--                </mat-paginator>-->
+
 
                     <div class="loop_items item posts_items"
                          infiniteScroll
@@ -59,7 +55,6 @@
                             <div class="user_posts">
                                 <div class="userName">
                                     <div>
-                                        <!--                                        {{ind + 1}}-->
                                         <h3 *ngIf="single.creator"><span>Posted by</span>{{single.creator.name}}</h3>
                                         <p class="updateDate"
                                            [matTooltip]="single.createdAt|formattedDate">{{single.createdAt|formattedDate:false}}</p>
