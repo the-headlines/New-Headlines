@@ -1,4 +1,4 @@
-import {Component, ElementRef, Input, OnInit, Renderer2, ViewChild} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Input, OnInit, Output, Renderer2, ViewChild} from '@angular/core';
 import {Router} from '@angular/router';
 import {HomeService} from '../../services/home.service';
 import * as moment from '../../modules/home/pages/home/home.component';
@@ -14,6 +14,7 @@ export class StatusBarComponent implements OnInit {
     // @ViewChild('toggleButton') toggleButton: ElementRef;
     // @ViewChild('check') check: ElementRef;
     @Input() single;
+    @Output() voted = new EventEmitter();
 
     isShown: boolean = false;
     // currentPost = {};
@@ -29,7 +30,7 @@ export class StatusBarComponent implements OnInit {
         {name: 'Interesting', pages: ['Influence']},
         {name: 'Investigate', pages: ['Influence']},
         {name: 'Resign', pages: ['Influence']},
-        {name: 'Like', pages: ['StyleAndSweat', 'HumanStories', 'Videos']},
+        {name: 'Like', pages: ['StyleAndSweat', 'HumanStories', 'Videos', 'JumpStartups']},
         {name: 'Good', pages: ['StyleAndSweat']},
         {name: 'Top Class', pages: ['StyleAndSweat']},
         {name: 'Magic', pages: ['StyleAndSweat']},
@@ -65,7 +66,7 @@ export class StatusBarComponent implements OnInit {
     }
 
     get() {
-        this.home.getVotesData().subscribe((data: any) => {
+        this.home.getVotesData(this.postCategory).subscribe((data: any) => {
 
             this.votes = data;
 
@@ -96,12 +97,29 @@ export class StatusBarComponent implements OnInit {
 
     }
 
-    vote(type, id) {
+    vote(type, single) {
         if (type === 'Like') {
             this.upwote = !this.upwote;
         }
-        this.home.doVoting(id, type).subscribe(dt => {
-            // console.log(dt);
+        console.log(single.userVoted);
+        if (!single.userVoted) {
+            ++single.totalVotes;
+        }
+        this.home.doVoting(single._id, type).subscribe(dt => {
+            // this.voted.emit();
+            // this.home.getSinglePost(single._id).subscribe(d => {
+            //     this.single = d;
+            //     console.log(this.single, d);
+            // });
+
+            this.home.getPostVotes(single._id).subscribe(d => {
+                console.log(d)
+            });
+
+            // this.home.getVotesData(this.postCategory).subscribe((data: any) => {
+            //     this.isShown = !this.isShown;
+            //     this.votes = data;
+            // });
         });
     }
 

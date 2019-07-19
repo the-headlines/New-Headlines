@@ -17,8 +17,8 @@ export class HomeService {
         return this.http.get(Base.url + '/api/news/' + this.checkAuth() + 'category/Influence?pagesize=30&page=' + page);
     }
 
-    getVotesData() {
-        return this.http.get(Base.url + '');
+    getVotesData(category) {
+        return this.http.get(Base.url + '/api/news/' + this.checkAuth() + 'category/' + category + '?pagesize=30&page=1');
     }
 
     getPictures(page) {

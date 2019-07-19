@@ -166,9 +166,10 @@
                     <ng-container *ngFor="let vType of voteTypes">
                         <div class="Emoji Emoji--love">
                             <div class="">
-                                <button class="gray" (click)="vote(vType['name'], single._id)">
+                                <button class="gray" (click)="vote(vType['name'], single)">
                                     {{vType['name']}}
                                 </button>
+                                <!--                                <i class="fas fa-check" *ngIf="isShown"></i>-->
                                 <p class="num">30</p>
                             </div>
                         </div>
@@ -177,9 +178,9 @@
             </div>
         </div>
     </li>
-    <li *ngIf="single" class="viewsCount">
+    <li class="viewsCount">
         <a href="">
-            Views<span>{{single.views}}</span>
+            Views<span *ngIf="single">{{single.views}}</span>
         </a>
     </li>
     <li [hidden]="routerUrl !== '/home' && routerUrl !== '/' && routerUrl !== '/commerce' && routerUrl !== '/travel' && routerUrl !== '/deals' && routerUrl !== '/video'">
@@ -187,7 +188,8 @@
             Questions <span>35</span>
         </a>
     </li>
-    <li [hidden]="routerUrl !== '/home' && routerUrl !== '/' && routerUrl !== '/road' && routerUrl !== '/deals' && routerUrl !== '/video'" hidden>
+    <li [hidden]="routerUrl !== '/home' && routerUrl !== '/' && routerUrl !== '/road' && routerUrl !== '/deals' && routerUrl !== '/video'"
+        hidden>
         <a (click)="getSingle(single)">
             <i class="far fa-comment"></i>
             Comments<span>35</span>
