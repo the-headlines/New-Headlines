@@ -166,10 +166,9 @@
                     <ng-container *ngFor="let vType of voteTypes">
                         <div class="Emoji Emoji--love">
                             <div class="">
-                                <button class="gray" (click)="vote(vType['name'], single)">
+                                <button class="gray" (click)="vote(vType['name'], single._id)">
                                     {{vType['name']}}
                                 </button>
-                                <!--                                <i class="fas fa-check" *ngIf="isShown"></i>-->
                                 <p class="num">30</p>
                             </div>
                         </div>
@@ -178,9 +177,9 @@
             </div>
         </div>
     </li>
-    <li class="viewsCount">
+    <li *ngIf="single" class="viewsCount">
         <a href="">
-            Views<span *ngIf="single">{{single.views}}</span>
+            Views<span>{{single.views}}</span>
         </a>
     </li>
     <li [hidden]="routerUrl !== '/home' && routerUrl !== '/' && routerUrl !== '/commerce' && routerUrl !== '/travel' && routerUrl !== '/deals' && routerUrl !== '/video'">
