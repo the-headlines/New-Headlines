@@ -194,7 +194,7 @@ export class AddPostComponent implements OnInit, OnDestroy {
                 // { name: 'clipboard',   groups: [ 'clipboard', 'undo' ] },
                 // { name: 'forms' }
             ],
-            removeButtons: 'CreateDiv,Subscript,Superscript,Strike'
+            removeButtons: 'CreateDiv,Subscript,Superscript,Strike,Underline'
         };
     }
 
