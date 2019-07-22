@@ -211,4 +211,14 @@ export class PicturesComponent implements OnInit {
         return true;
     }
 
+    incrementViews(single) {
+        console.log(single.views);
+        this.home.updateViewCount(single).subscribe(dt => {
+            this.home.getSinglePost(single._id).subscribe((d: any) => {
+                single.views = d.views;
+                console.log(single.views);
+            });
+        });
+    }
+
 }

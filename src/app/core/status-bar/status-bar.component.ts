@@ -115,26 +115,32 @@ export class StatusBarComponent implements OnInit {
         if (!single.userVoted) {
             ++single.totalVotes;
         }
-        this.home.doVoting(single._id, type).subscribe(dt => {
-            // this.voted.emit();
-            // this.home.getSinglePost(single._id).subscribe(d => {
-            //     this.single = d;
-            //     console.log(this.single, d);
-            // });
 
-            this.home.getPostVotes(single._id).subscribe((d: any) => {
-                console.log(this.userData);
-                console.log(d.votes);
-                const data = d.votes.filter(v => v.creator && v.creator._id === this.userData.userId);
-                console.log(data);
-                this.votes = data;
+
+        if (type !== single['votedCategory']) {
+
+
+            this.home.doVoting(single._id, type).subscribe(dt => {
+                // this.voted.emit();
+                this.home.getSinglePost(single._id).subscribe(d => {
+                    this.single = d;
+                    console.log(this.single, d);
+                });
+
+                // this.home.getPostVotes(single._id).subscribe((d: any) => {
+                //     console.log(this.userData);
+                //     console.log(d.votes);
+                //     const data = d.votes.filter(v => v.creator && v.creator._id === this.userData.userId);
+                //     console.log(data);
+                //     this.votes = data;
+                // });
+
+                // this.home.getVotesData(this.postCategory).subscribe((data: any) => {
+                //     this.isShown = !this.isShown;
+                //     this.votes = data;
+                // });
             });
-
-            // this.home.getVotesData(this.postCategory).subscribe((data: any) => {
-            //     this.isShown = !this.isShown;
-            //     this.votes = data;
-            // });
-        });
+        }
     }
 
     getSingle(single) {

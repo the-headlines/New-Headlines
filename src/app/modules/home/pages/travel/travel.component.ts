@@ -137,4 +137,14 @@ export class TravelComponent implements OnInit {
 
     }
 
+    incrementViews(single) {
+        console.log(single.views);
+        this.home.updateViewCount(single).subscribe(dt => {
+            this.home.getSinglePost(single._id).subscribe((d: any) => {
+                single.views = d.views;
+                console.log(single.views);
+            });
+        });
+    }
+
 }
