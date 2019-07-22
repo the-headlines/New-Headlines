@@ -68,7 +68,7 @@
                             </a>
                         </div>
                         <div class="text-block">
-                            <a href="{{post.link}}" class="text_block_link" target="_blank">
+                            <a href="{{post.link}}" class="text_block_link" target="_blank" (click)="incrementViews(single)">
                                 <h5 class="news_link">{{getLinkSource(post.link)}}</h5>
                                 <h3 class="news_title">{{post.extractedTitle}}</h3>
                                 <p class="news_desc">{{post.extractedDescription}}</p>
