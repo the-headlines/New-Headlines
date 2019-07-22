@@ -47,7 +47,7 @@
                         <div class="user_posts">
                             <div class="userName">
                                 <div>
-                                    <h3>
+                                    <h3 *ngIf="post.creator">
                                         <span>Posted by</span>
                                         {{post.creator.name}}</h3>
                                     <p class="updateDate"
@@ -58,7 +58,7 @@
                         </div>
                         <div class="short_desc">
                             <!--                                <a href="{{post.link}}">{{post.link}}</a>-->
-<!--                            <h6>{{post.description|stripTags}}</h6>-->
+                            <!--                            <h6>{{post.description|stripTags}}</h6>-->
                         </div>
                         <div class="img-block">
                             <a href="{{post.link}}" target="_blank">

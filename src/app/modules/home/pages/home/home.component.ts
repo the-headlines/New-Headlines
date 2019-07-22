@@ -266,4 +266,11 @@ export class HomeComponent implements OnInit {
         }
 
     }
+
+    incrementViews(single) {
+        console.log(single);
+        this.home.updateViewCount(single).subscribe(dt => {
+            this.get();
+        });
+    }
 }

@@ -4,6 +4,7 @@ import {HomeService} from '../../services/home.service';
 import * as moment from '../../modules/home/pages/home/home.component';
 import {AuthService} from '../../services/auth.service';
 import {SubjectService} from '../../services/subject.service';
+import * as JwtDecode from 'jwt-decode';
 
 @Component({
     selector: 'app-status-bar',
@@ -32,7 +33,7 @@ export class StatusBarComponent implements OnInit {
         {name: 'Resign', pages: ['Influence']},
         {name: 'Like', pages: ['StyleAndSweat', 'HumanStories', 'Videos', 'JumpStartups']},
         {name: 'Good', pages: ['StyleAndSweat']},
-        {name: 'Top Class', pages: ['StyleAndSweat']},
+        {name: 'TopClass', pages: ['StyleAndSweat']},
         {name: 'Magic', pages: ['StyleAndSweat']},
         {name: 'Awesome', pages: ['CameraPictures']},
         {name: 'Haft', pages: ['CameraPictures']},
@@ -89,10 +90,20 @@ export class StatusBarComponent implements OnInit {
     ngOnInit() {
         this.routerUrl = this.router.url;
 
+        this.userData = JwtDecode(localStorage.getItem('token'));
+
         if (this.single) {
             this.postCategory = this.single.category;
             this.voteTypes = this.voteTypes.filter(t => t['pages'].includes(this.postCategory));
         }
+
+        // this.home.getPostVotes(single._id).subscribe((d: any) => {
+        //     console.log(this.userData);
+        //     console.log(d.votes);
+        //     const data = d.votes.filter(v => v.creator && v.creator._id === this.userData.userId);
+        //     console.log(data);
+        //     this.votes = data;
+        // });
 
 
     }
@@ -101,7 +112,6 @@ export class StatusBarComponent implements OnInit {
         if (type === 'Like') {
             this.upwote = !this.upwote;
         }
-        console.log(single.userVoted);
         if (!single.userVoted) {
             ++single.totalVotes;
         }
@@ -112,8 +122,12 @@ export class StatusBarComponent implements OnInit {
             //     console.log(this.single, d);
             // });
 
-            this.home.getPostVotes(single._id).subscribe(d => {
-                console.log(d)
+            this.home.getPostVotes(single._id).subscribe((d: any) => {
+                console.log(this.userData);
+                console.log(d.votes);
+                const data = d.votes.filter(v => v.creator && v.creator._id === this.userData.userId);
+                console.log(data);
+                this.votes = data;
             });
 
             // this.home.getVotesData(this.postCategory).subscribe((data: any) => {
