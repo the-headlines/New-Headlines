@@ -65,11 +65,11 @@
                             </div>
                             <div class="short_desc">
                                 <!--<a href="{{single.link}}">{{single.link}}</a>-->
-                                <small>{{single.description|stripTags}}</small>
+<!--                                <small>{{single.description|stripTags}}</small>-->
                             </div>
 
                             <div class="img-block">
-                                <a href="{{single.link}}">
+                                <a href="{{single.link}}" (click)="incrementViews(single)" target="_blank">
                                     <img src="{{single.extractedImage}}" class="img-fluid" alt="">
                                 </a>
                             </div>

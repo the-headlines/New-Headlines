@@ -166,7 +166,9 @@
                     <ng-container *ngFor="let vType of voteTypes">
                         <div class="Emoji Emoji--love">
                             <div class="">
-                                <button class="gray" (click)="vote(vType['name'], single)">
+                                <button class="gray"
+                                        [class.selected]="single && vType['name']=== single['votedCategory']"
+                                        (click)="vote(vType['name'], single)">
                                     {{vType['name']}}
                                 </button>
                                 <p class="num">30</p>
@@ -183,15 +185,15 @@
         </a>
     </li>
     <li [hidden]="routerUrl !== '/home' && routerUrl !== '/' && routerUrl !== '/commerce' && routerUrl !== '/travel' && routerUrl !== '/deals' && routerUrl !== '/video'">
-        <a (click)="getSingle(single)">
-            Questions <span>35</span>
+        <a (click)="getSingle(single)" *ngIf="single">
+            Questions <span>{{single.questions}}</span>
         </a>
     </li>
     <li [hidden]="routerUrl !== '/home' && routerUrl !== '/' && routerUrl !== '/road' && routerUrl !== '/deals' && routerUrl !== '/video'"
         hidden>
-        <a (click)="getSingle(single)">
+        <a (click)="getSingle(single)" *ngIf="single">
             <i class="far fa-comment"></i>
-            Comments<span>35</span>
+            Comments<span>{{single.comments}}</span>
         </a>
     </li>
     <li [hidden]="routerUrl !== '/road'">
