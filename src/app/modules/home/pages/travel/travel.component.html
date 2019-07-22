@@ -61,9 +61,8 @@
                             <!--                            <h6>{{post.description|stripTags}}</h6>-->
                         </div>
                         <div class="img-block">
-                            <a href="{{post.link}}" target="_blank">
-                                <img src="{{post.extractedImage}}" class="img-fluid" alt=""
-                                     (click)="getSinglePost(post._id)">
+                            <a href="{{post.link}}" (click)="incrementViews(post)" target="_blank">
+                                <img src="{{post.extractedImage}}" class="img-fluid" alt="">
                             </a>
                         </div>
 
