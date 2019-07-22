@@ -3375,10 +3375,27 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
   display: none;
 }
 
-
+.post_or_cancel button>span {
+  font-size: 14px !important;
+}
 .mat-tab-labels {
   display: none !important;
 }
 .cke_reset {
   border-radius: 4px;
+}
+.mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+  color: rgba(0,0,0,.54);
+}
+.post_content .mat-select-arrow-wrapper {
+  padding-top: 5px;
+}
+.post_content .mat-select-value span{
+  font-size: 17px;
+}
+.post_content .mat-select-value {
+  padding-top: 4px;
+}
+.post_content .post_a_link h2 {
+  font-size: 20.5px !important;
 }

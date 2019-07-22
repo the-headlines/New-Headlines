@@ -483,6 +483,10 @@
   height: 40px !important;
   text-transform: uppercase;
 }
+
+.post_or_cancel button>span {
+  font-size: 16px !important;
+}
 .post_or_cancel .blue {
   background-color: #3788c6;
   height: 40px !important;
@@ -572,7 +576,7 @@
 }
 
 .postBtn {
-  width: 100px;
+  width: 110px;
   height: 31px !important;
   padding: 0;
   text-align: center;
@@ -581,7 +585,18 @@
 .mat-tab-labels {
   display: none !important;
 }
-
+.post_content .main {
+  padding-top: 240px;
+}
+.post_content .mat-select-arrow-wrapper {
+  padding-top: 5px;
+}
+.post_content .mat-select-value {
+  padding-top: 3px;
+}
+  .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+  color: rgba(0,0,0,.54);
+}
 @media screen and (min-width: 320px) and (max-width: 768px) {
   .posts_box {
     width: 100%;
