@@ -3375,10 +3375,15 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
   display: none;
 }
 
-
+.post_or_cancel button>span {
+  font-size: 16px !important;
+}
 .mat-tab-labels {
   display: none !important;
 }
 .cke_reset {
   border-radius: 4px;
+}
+.mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+  color: rgba(0,0,0,.54);
 }
