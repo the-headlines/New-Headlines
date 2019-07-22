@@ -216,6 +216,7 @@ img {
 .filter {
   display: flex;
   align-items: center;
+  margin-bottom: 20px;
 
   span {
     font-family: 'Lato-Regular';
@@ -248,7 +249,7 @@ img {
 
       button {
         font-family: 'Lato-Regular', sans-serif;
-        font-size: 13px;
+        font-size: 11.5px;
         font-weight: bold;
         letter-spacing: 0.5px;
         color: black;
@@ -375,7 +376,7 @@ img {
 
     .title {
       font-family: 'Lato-Black', sans-serif;
-      font-size: 1.4em;
+      font-size: 1.2em;
       font-weight: bold;
       letter-spacing: 0.8px;
       text-align: left;
@@ -524,13 +525,13 @@ a {
   }
 
   li {
-    margin-right: 20px;
+    margin-right: 18px;
 
     a {
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 12px;
+      font-size: 15px;
       color: #807f81 !important;
       font-family: "Lato-Black";
 
@@ -551,8 +552,8 @@ a {
     }
 
     span {
-      margin-left: 10px;
-      font-size: 12px;
+      margin-left: 5px;
+      font-size: 15px;
       font-family: 'Lato-Black';
       color: #807f81;
     }
@@ -1958,7 +1959,7 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
 .Like__link {
   cursor: pointer;
   display: flex;
-  font-size: 12px;
+  font-size: 15px;
   color: #807f81;
   align-items: center;
   justify-content: center;
@@ -2217,6 +2218,7 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
 .user_posts .userName h3 span {
   color: #3788c6 !important;
   font-size: 12px;
+  margin-right: 4px;
 }
 
 .save_caret_menu_item {
@@ -3391,11 +3393,15 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
   padding-top: 5px;
 }
 .post_content .mat-select-value span{
-  font-size: 17px;
+  font-size: 15.5px;
 }
 .post_content .mat-select-value {
-  padding-top: 4px;
+  padding-top: 5.5px;
 }
 .post_content .post_a_link h2 {
   font-size: 20.5px !important;
+}
+
+#header_top #button {
+  right: 350px;
 }
