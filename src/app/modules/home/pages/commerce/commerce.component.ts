@@ -4,6 +4,9 @@ import * as Base from '../../../../configs/config.js';
 import {Router} from '@angular/router';
 import * as moment from 'moment';
 import {SubjectService} from '../../../../services/subject.service';
+import {CookieService} from 'ngx-cookie-service';
+import {AuthService} from '../../../../services/auth.service';
+import {GenerateSaveNonAuthUserIdPipe} from '../../../../shared/pipes/generate-save-non-auth-user-id.pipe';
 
 @Component({
     selector: 'app-commerce',
@@ -22,11 +25,15 @@ export class CommerceComponent implements OnInit {
     searchTerm = '';
     page = 1;
     filteredPosts: any = {news: []};
+    notAuthUserId = this.cookie.get('uniqueUserId');
 
     constructor(
         private home: HomeService,
         private router: Router,
-        private subject: SubjectService
+        private subject: SubjectService,
+        private cookie: CookieService,
+        public auth: AuthService,
+        private nonAuthId: GenerateSaveNonAuthUserIdPipe
     ) {
     }
 
@@ -40,6 +47,9 @@ export class CommerceComponent implements OnInit {
         this.subject.getSearch().subscribe(s => {
             this.searchTerm = s;
         });
+
+        // Generating & saving non-auth user id in a cookie if not set
+        this.nonAuthId.transform();
 
         this.get();
     }
@@ -215,11 +225,9 @@ export class CommerceComponent implements OnInit {
     }
 
     incrementViews(single) {
-        console.log(single.views);
         this.home.updateViewCount(single).subscribe(dt => {
             this.home.getSinglePost(single._id).subscribe((d: any) => {
                 single.views = d.views;
-                console.log(single.views);
             });
         });
     }

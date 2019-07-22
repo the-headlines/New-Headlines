@@ -90,7 +90,10 @@ export class StatusBarComponent implements OnInit {
     ngOnInit() {
         this.routerUrl = this.router.url;
 
-        this.userData = JwtDecode(localStorage.getItem('token'));
+        let token = localStorage.getItem('token');
+        if (token) {
+            this.userData = JwtDecode(token);
+        }
 
         if (this.single) {
             this.postCategory = this.single.category;
