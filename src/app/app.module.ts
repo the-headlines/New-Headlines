@@ -85,6 +85,7 @@ import {ConfirmationDialogComponent} from './shared/components/confirmation-dial
 import {ReportComponentComponent} from './modules/home/components/report-component/report-component.component';
 import {MatRadioModule} from '@angular/material/radio';
 import {InfiniteScrollModule} from 'ngx-infinite-scroll';
+import {GenerateSaveNonAuthUserIdPipe} from './shared/pipes/generate-save-non-auth-user-id.pipe';
 
 
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
@@ -108,7 +109,7 @@ export function provideConfig() {
 
 // Token getter for JWT module
 export function tokenGetter() {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('token') || '';
     return token ? token : '';
 }
 
@@ -147,7 +148,8 @@ export function tokenGetter() {
         GetPostDateFormattedPipe,
         GetUrlBasePipe,
         ConfirmationDialogComponent,
-        ReportComponentComponent
+        ReportComponentComponent,
+        GenerateSaveNonAuthUserIdPipe
     ],
     imports: [
         BrowserModule,
@@ -214,7 +216,8 @@ export function tokenGetter() {
         },
         {provide: MatDialogRef, useValue: {}},
         SearchNewsPipe,
-        StripHtmlTagsPipe
+        StripHtmlTagsPipe,
+        GenerateSaveNonAuthUserIdPipe
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
     bootstrap: [AppComponent],

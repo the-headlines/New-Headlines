@@ -11,6 +11,8 @@ import {SearchNewsPipe} from '../../../../shared/pipes/search-news.pipe';
 import {FilterPipe} from 'ngx-filter-pipe';
 import * as psl from 'psl';
 import {ToastrService} from 'ngx-toastr';
+import {AuthService} from '../../../../services/auth.service';
+import {GenerateSaveNonAuthUserIdPipe} from '../../../../shared/pipes/generate-save-non-auth-user-id.pipe';
 
 @Component({
     selector: 'app-home',
@@ -63,7 +65,10 @@ export class HomeComponent implements OnInit {
         private cs: CookieService,
         private http: HttpClient,
         private subject: SubjectService,
-        private toastr: ToastrService
+        private toastr: ToastrService,
+        private cookie: CookieService,
+        private nonAuthId: GenerateSaveNonAuthUserIdPipe,
+        public auth: AuthService
     ) {
         this._sessionId = cs.get('sessionId');
         // this.http.get<{ ip: string }>('https://jsonip.com').subscribe(data => {
@@ -81,6 +86,12 @@ export class HomeComponent implements OnInit {
         this.subject.getSearch().subscribe(s => {
             this.searchTerm = s;
         });
+
+        // Generating & saving non-auth user id in a cookie if not set
+        this.nonAuthId.transform();
+
+
+
 
         // this.toastr.success('Hello from here', '', {disableTimeOut: true});
     }
@@ -268,11 +279,9 @@ export class HomeComponent implements OnInit {
     }
 
     incrementViews(single) {
-        console.log(single.views);
         this.home.updateViewCount(single).subscribe(dt => {
             this.home.getSinglePost(single._id).subscribe((d: any) => {
                 single.views = d.views;
-                console.log(single.views);
             });
         });
     }

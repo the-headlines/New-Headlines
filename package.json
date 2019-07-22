@@ -48,7 +48,7 @@
     "moment": "^2.24.0",
     "ng2-ckeditor": "1.2.2",
     "ng2-scroll-to": "1.0.7",
-    "ngx-cookie-service": "^2.1.0",
+    "ngx-cookie-service": "^2.2.0",
     "ngx-dropzone-wrapper": "^7.2.1",
     "ngx-filter-pipe": "^2.1.2",
     "ngx-infinite-scroll": "^7.2.0",

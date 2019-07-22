@@ -4,6 +4,7 @@ import {HomeService} from '../../../../services/home.service';
 import {Router} from '@angular/router';
 import * as moment from 'moment';
 import {SubjectService} from '../../../../services/subject.service';
+import {GenerateSaveNonAuthUserIdPipe} from '../../../../shared/pipes/generate-save-non-auth-user-id.pipe';
 
 @Component({
     selector: 'app-video',
@@ -12,7 +13,12 @@ import {SubjectService} from '../../../../services/subject.service';
 })
 export class VideoComponent implements OnInit {
 
-    constructor(private home: HomeService, private router: Router, private subject: SubjectService) {
+    constructor(
+        private home: HomeService,
+        private router: Router,
+        private subject: SubjectService,
+        private nonAuthId: GenerateSaveNonAuthUserIdPipe
+    ) {
     }
 
     posts: any = [];
@@ -38,6 +44,9 @@ export class VideoComponent implements OnInit {
         });
 
         this.get();
+
+        // Generating & saving non-auth user id in a cookie if not set
+        this.nonAuthId.transform();
     }
 
     get() {
@@ -213,11 +222,9 @@ export class VideoComponent implements OnInit {
     }
 
     incrementViews(single) {
-        console.log(single.views);
         this.home.updateViewCount(single).subscribe(dt => {
             this.home.getSinglePost(single._id).subscribe((d: any) => {
                 single.views = d.views;
-                console.log(single.views);
             });
         });
     }

@@ -3,6 +3,7 @@ import {HomeService} from '../../../../services/home.service';
 import * as moment from 'moment';
 import {SubjectService} from '../../../../services/subject.service';
 import {Router} from '@angular/router';
+import {GenerateSaveNonAuthUserIdPipe} from '../../../../shared/pipes/generate-save-non-auth-user-id.pipe';
 
 @Component({
     selector: 'app-travel',
@@ -18,7 +19,8 @@ export class TravelComponent implements OnInit {
     constructor(
         private home: HomeService,
         private subject: SubjectService,
-        public router: Router
+        public router: Router,
+        private nonAuthId: GenerateSaveNonAuthUserIdPipe
     ) {
     }
 
@@ -27,6 +29,9 @@ export class TravelComponent implements OnInit {
         this.subject.getSearch().subscribe(s => {
             this.searchTerm = s;
         });
+
+        // Generating & saving non-auth user id in a cookie if not set
+        this.nonAuthId.transform();
     }
 
     getPosts() {
@@ -138,11 +143,9 @@ export class TravelComponent implements OnInit {
     }
 
     incrementViews(single) {
-        console.log(single.views);
         this.home.updateViewCount(single).subscribe(dt => {
             this.home.getSinglePost(single._id).subscribe((d: any) => {
                 single.views = d.views;
-                console.log(single.views);
             });
         });
     }

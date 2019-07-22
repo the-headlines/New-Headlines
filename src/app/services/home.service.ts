@@ -4,13 +4,14 @@ import * as Base from '../configs/config';
 import {AuthService} from './auth.service';
 import {SubjectService} from './subject.service';
 import * as jwtDecode from 'jwt-decode';
+import {CookieService} from 'ngx-cookie-service';
 
 @Injectable({
     providedIn: 'root'
 })
 export class HomeService {
 
-    constructor(private http: HttpClient, private auth: AuthService, private subject: SubjectService) {
+    constructor(private http: HttpClient, private auth: AuthService, private subject: SubjectService, private cookie: CookieService) {
     }
 
     getData(page) {
@@ -123,7 +124,16 @@ export class HomeService {
     }
 
     updateViewCount(post) {
-        const user: any = jwtDecode(localStorage.getItem('token'));
+        const token = localStorage.getItem('token');
+        let user: any;
+        if (token) {
+
+            user = jwtDecode(localStorage.getItem('token'));
+
+        } else {
+            user = {userId: this.cookie.get('uniqueUserId')};
+        }
+        console.log(user);
         return this.http.post(Base.url + '/api/news/' + post._id + '/views', {uniqueId: user.userId});
     }
 }

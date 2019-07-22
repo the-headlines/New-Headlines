@@ -9,6 +9,7 @@ import * as JWT from 'jwt-decode';
 import {CommonService} from '../../../../services/common.service';
 import {SubjectService} from '../../../../services/subject.service';
 import {FormGroup, FormBuilder} from '@angular/forms';
+import {CookieService} from 'ngx-cookie-service';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
     isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -50,7 +51,8 @@ export class LoginComponent implements OnInit {
         private common: CommonService,
         private subject: SubjectService,
         private loginDialogRef: MatDialogRef<LoginComponent>,
-        private fb: FormBuilder
+        private fb: FormBuilder,
+        private cookie: CookieService
     ) {
         this.loginForm = this.fb.group({
             email: [''],
@@ -85,7 +87,7 @@ export class LoginComponent implements OnInit {
     checkLogin(data) {
         this.auth.checkLogin(this.loginForm.value).subscribe((r: any) => {
 
-
+            this.cookie.delete('uniqueUserId', '/');
             localStorage.setItem('full_name', r.fullname);
             localStorage.setItem('userInf', JSON.stringify(r['token']));
             localStorage.setItem('token', r['token']);

@@ -6,6 +6,7 @@ import {CookieService} from 'ngx-cookie-service';
 import {HttpClient} from '@angular/common/http';
 import * as moment from 'moment';
 import {SubjectService} from '../../../../services/subject.service';
+import {GenerateSaveNonAuthUserIdPipe} from '../../../../shared/pipes/generate-save-non-auth-user-id.pipe';
 
 @Component({
     selector: 'app-road',
@@ -33,7 +34,8 @@ export class RoadComponent implements OnInit {
         private router: Router,
         private cs: CookieService,
         private http: HttpClient,
-        private subject: SubjectService
+        private subject: SubjectService,
+        private nonAuthId: GenerateSaveNonAuthUserIdPipe
     ) {
         this._sessionId = cs.get('sessionId');
         // this.http.get<{ ip: string }>('https://jsonip.com').subscribe(data => {
@@ -58,6 +60,9 @@ export class RoadComponent implements OnInit {
         });
 
         this.get();
+
+        // Generating & saving non-auth user id in a cookie if not set
+        this.nonAuthId.transform();
 
         this.cs.set('Test', 'Hello World');
         // console.log(this.cs.get('Test'));
@@ -286,11 +291,9 @@ export class RoadComponent implements OnInit {
     }
 
     incrementViews(single) {
-        console.log(single.views);
         this.home.updateViewCount(single).subscribe(dt => {
             this.home.getSinglePost(single._id).subscribe((d: any) => {
                 single.views = d.views;
-                console.log(single.views);
             });
         });
     }
