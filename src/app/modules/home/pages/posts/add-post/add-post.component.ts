@@ -77,7 +77,7 @@ export class AddPostComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
         this.postForm = this.fb.group({
-            description: [null],
+            // description: [null],
             link: [null],
             category: [null, Validators.required],
             video: [false]
@@ -103,7 +103,7 @@ export class AddPostComponent implements OnInit, OnDestroy {
 
         if (this.postForm.valid) {
             const formData = new FormData();
-            formData.append('description', this.postForm.value['description']);
+            // formData.append('description', this.postForm.value['description']);
             formData.append('link', this.postForm.value['link']);
             formData.append('category', this.postForm.value['category']);
             // formData.append('video', false);
