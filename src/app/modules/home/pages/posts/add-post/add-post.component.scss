@@ -481,6 +481,7 @@
 .post_or_cancel button {
   border-radius: 6px;
   height: 40px !important;
+  text-transform: uppercase;
 }
 .post_or_cancel .blue {
   background-color: #3788c6;
@@ -514,7 +515,7 @@
   display: inline-block;
   height: 100%;
   line-height: unset;
-  margin-right: 15px;
+  margin-right: 55px;
   padding: 0 15px;
 }
 
@@ -536,7 +537,7 @@
 }
 
 .link input {
-  height: 70px;
+  height: 50px;
   border: solid 1px #acacac;
   background-color: #fff;
   width: 100%;
@@ -553,9 +554,11 @@
   margin-bottom: 24px;
   border-radius: 4px;
 }
+
 .cke_reset {
   border-radius: 4px;
 }
+
 .sub_headline h2 {
   font-family: 'Lato-Regular';
   font-size: 30px;
