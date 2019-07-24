@@ -15,8 +15,8 @@
                                         <mat-select name="food" formControlName="category"
                                                     (selectionChange)="selectCategory($event)">
                                             <mat-option disabled [value]="0">Choose a Section</mat-option>
-                                            <mat-option *ngFor="let food of categories" [value]="food.value">
-                                                {{food.viewValue}}
+                                            <mat-option *ngFor="let food of categories" [value]="food.dbName">
+                                                {{food.name}}
                                             </mat-option>
                                         </mat-select>
                                     </mat-form-field>
@@ -24,13 +24,15 @@
 
                                 <ng-container class="news-block">
                                     <div class="table_container">
-                                        <table mat-table [dataSource]="filteredPosts" class="mat-elevation-z8 postsTable"
+                                        <table mat-table [dataSource]="filteredPosts"
+                                               class="mat-elevation-z8 postsTable"
                                                *ngIf="categorySelected && posts && posts.news && posts.news.length!==0">
                                             <!-- Name Column -->
                                             <ng-container matColumnDef="extractedTitle">
                                                 <th mat-header-cell *matHeaderCellDef> Name of the post</th>
                                                 <td mat-cell *matCellDef="let element">
-                                                    <a [href]="element.link" target="_blank">{{element.extractedTitle}}</a>
+                                                    <a [href]="element.link"
+                                                       target="_blank">{{element.extractedTitle}}</a>
                                                     <p>{{element.description|stripTags}}</p>
                                                 </td>
                                             </ng-container>

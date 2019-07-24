@@ -86,6 +86,9 @@ import {ReportComponentComponent} from './modules/home/components/report-compone
 import {MatRadioModule} from '@angular/material/radio';
 import {InfiniteScrollModule} from 'ngx-infinite-scroll';
 import {GenerateSaveNonAuthUserIdPipe} from './shared/pipes/generate-save-non-auth-user-id.pipe';
+import {HobbyistComponent} from './modules/home/pages/hobbyist/hobbyist.component';
+import { ScienceComponent } from './modules/home/pages/science/science.component';
+import { PublicComponent } from './modules/home/pages/public/public.component';
 
 
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
@@ -149,7 +152,10 @@ export function tokenGetter() {
         GetUrlBasePipe,
         ConfirmationDialogComponent,
         ReportComponentComponent,
-        GenerateSaveNonAuthUserIdPipe
+        GenerateSaveNonAuthUserIdPipe,
+        HobbyistComponent,
+        ScienceComponent,
+        PublicComponent
     ],
     imports: [
         BrowserModule,

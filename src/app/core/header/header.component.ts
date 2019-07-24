@@ -9,6 +9,7 @@ import {SubjectService} from '../../services/subject.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder} from '@angular/forms';
 import {hasOwnProperty} from 'tslint/lib/utils';
+import {MAIN_SECTIONS} from '../../shared/constants/main';
 
 
 @Component({
@@ -25,6 +26,7 @@ export class HeaderComponent implements OnInit {
     searchAllowed = false;
     isShown = false;
     show = false;
+    sections = MAIN_SECTIONS;
 
     constructor(
         private dialog: MatDialog,
@@ -179,13 +181,13 @@ export class HeaderComponent implements OnInit {
     }
 
     logOut(): void {
-        if (this.checkConfirmation('/')) {
+        // if (this.checkConfirmation('/')) {
 
-            this.authService.signOut();
-            localStorage.setItem('userInf', null);
-            localStorage.setItem('token', '');
-            localStorage.setItem('full_name', null);
-        }
+        this.authService.signOut();
+        localStorage.setItem('userInf', null);
+        localStorage.setItem('token', '');
+        localStorage.setItem('full_name', null);
+        // }
         // this.router.navigate(['/']);
     }
 }

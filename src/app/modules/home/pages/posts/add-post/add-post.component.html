@@ -13,8 +13,8 @@
                                         <mat-select formControlName="category"
                                                     (selectionChange)="getCurrentSection($event.value)">
                                             <mat-option disabled [value]="0">Choose a Section</mat-option>
-                                            <mat-option *ngFor="let food of categories" [value]="getValue(food)">
-                                                {{food.viewValue}}
+                                            <mat-option *ngFor="let c of categories" [value]="c.dbName">
+                                                {{c.name}}
                                             </mat-option>
                                         </mat-select>
                                         <mat-error *ngIf="postForm.get('category').hasError('required')">Section name is
@@ -25,39 +25,41 @@
                                 <div class="choose_pic_or_link">
                                     <mat-tab-group mat-align-tabs="start" [selectedIndex]="1">
                                         <!--<mat-tab label="Choose a picture">-->
-                                            <!--<dropzone class="dropzone" (error)="onUploadError($event)"-->
-                                                      <!--(addedFile)="onUploadSuccess($event)"-->
-                                                      <!--*ngIf="type === 'component'" [disabled]="disabled"-->
-                                                      <!--[message]="'Click or drag images here to upload'"-->
-                                                      <!--(init)="onUploadInit($event)"></dropzone>-->
-                                            <!--<div *ngIf="type === 'directive'" class="dropzone dropzone-container"-->
-                                                 <!--(init)="onUploadInit($event)" (error)="onUploadError($event)"-->
-                                                 <!--(success)="onUploadSuccess($event)"></div>-->
-                                            <!--&lt;!&ndash;<mat-error&ndash;&gt;-->
-                                            <!--&lt;!&ndash;*ngIf="postForm.get('description').dirty && postForm.get('description').hasError('required')">&ndash;&gt;-->
-                                            <!--&lt;!&ndash;Post&ndash;&gt;-->
-                                            <!--&lt;!&ndash;description is required&ndash;&gt;-->
-                                            <!--&lt;!&ndash;</mat-error>&ndash;&gt;-->
+                                        <!--<dropzone class="dropzone" (error)="onUploadError($event)"-->
+                                        <!--(addedFile)="onUploadSuccess($event)"-->
+                                        <!--*ngIf="type === 'component'" [disabled]="disabled"-->
+                                        <!--[message]="'Click or drag images here to upload'"-->
+                                        <!--(init)="onUploadInit($event)"></dropzone>-->
+                                        <!--<div *ngIf="type === 'directive'" class="dropzone dropzone-container"-->
+                                        <!--(init)="onUploadInit($event)" (error)="onUploadError($event)"-->
+                                        <!--(success)="onUploadSuccess($event)"></div>-->
+                                        <!--&lt;!&ndash;<mat-error&ndash;&gt;-->
+                                        <!--&lt;!&ndash;*ngIf="postForm.get('description').dirty && postForm.get('description').hasError('required')">&ndash;&gt;-->
+                                        <!--&lt;!&ndash;Post&ndash;&gt;-->
+                                        <!--&lt;!&ndash;description is required&ndash;&gt;-->
+                                        <!--&lt;!&ndash;</mat-error>&ndash;&gt;-->
                                         <!--</mat-tab>-->
                                         <mat-tab label="Link">
                                             <div class="link">
                                                 <h3>Link</h3>
-                                                <input type="text" placeholder="http://www.nottheheadlines.com/news.html" formControlName="link">
+                                                <input type="text"
+                                                       placeholder="http://www.nottheheadlines.com/news.html"
+                                                       formControlName="link">
                                                 <mat-error *ngIf="postForm.get('link').hasError('required')">Link
                                                     is required
                                                 </mat-error>
                                             </div>
 
-<!--                                            <div class="description">-->
-<!--                                                <h3>Description</h3>-->
-<!--                                                <ckeditor formControlName="description"-->
-<!--                                                          [config]="getToolbarConfig()" (change)="checkLength()">-->
-<!--                                                    <ckbutton [name]="'saveButton'" [command]="'saveCmd'"-->
-<!--                                                              [icon]="'save.png'"-->
-<!--                                                              [label]="'Save Document'"-->
-<!--                                                              [toolbar]="'clipboard,1'"></ckbutton>-->
-<!--                                                </ckeditor>-->
-<!--                                            </div>-->
+                                            <!--                                            <div class="description">-->
+                                            <!--                                                <h3>Description</h3>-->
+                                            <!--                                                <ckeditor formControlName="description"-->
+                                            <!--                                                          [config]="getToolbarConfig()" (change)="checkLength()">-->
+                                            <!--                                                    <ckbutton [name]="'saveButton'" [command]="'saveCmd'"-->
+                                            <!--                                                              [icon]="'save.png'"-->
+                                            <!--                                                              [label]="'Save Document'"-->
+                                            <!--                                                              [toolbar]="'clipboard,1'"></ckbutton>-->
+                                            <!--                                                </ckeditor>-->
+                                            <!--                                            </div>-->
 
                                             <!--<mat-slide-toggle (change)="setVideo($event)">Video</mat-slide-toggle>-->
                                         </mat-tab>

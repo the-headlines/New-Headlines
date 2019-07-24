@@ -10,6 +10,7 @@ import {Subscription} from 'rxjs';
 import {filter} from 'rxjs/operators';
 import * as moment from 'moment';
 import {Category} from '../posts/add-post/add-post.component';
+import {VOTE_TYPES} from '../../../../shared/constants/main';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
     isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -57,27 +58,7 @@ export class SinglePostComponent implements OnInit, OnDestroy {
 
     commentEditForm: FormGroup;
 
-    voteTypes = [
-        {name: 'Important', pages: ['Influence']},
-        {name: 'Interesting', pages: ['Influence']},
-        {name: 'Investigate', pages: ['Influence']},
-        {name: 'Resign', pages: ['Influence']},
-        {name: 'Like', pages: ['StyleAndSweat', 'HumanStories', 'Videos']},
-        {name: 'Good', pages: ['StyleAndSweat']},
-        {name: 'Top Class', pages: ['StyleAndSweat']},
-        {name: 'Magic', pages: ['StyleAndSweat']},
-        {name: 'Awesome', pages: ['CameraPictures']},
-        {name: 'Haft', pages: ['CameraPictures']},
-        {name: 'Cool', pages: ['CameraPictures']},
-        {name: 'Funny', pages: ['CameraPictures']},
-        {name: 'Inspiring', pages: ['HumanStories']},
-        {name: 'Promising', pages: ['JumpStartups']},
-        {name: 'LoveTheColor', pages: ['LoveDesigns']},
-        {name: 'Grand', pages: ['LoveDesigns']},
-        {name: 'Creative', pages: ['LoveDesigns']},
-        {name: 'Refreshing', pages: ['Videos']},
-        {name: 'Useful', pages: ['Videos']}
-    ];
+    voteTypes = VOTE_TYPES;
 
     constructor(
         public auth: AuthService,

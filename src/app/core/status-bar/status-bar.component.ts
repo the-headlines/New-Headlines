@@ -5,6 +5,7 @@ import * as moment from '../../modules/home/pages/home/home.component';
 import {AuthService} from '../../services/auth.service';
 import {SubjectService} from '../../services/subject.service';
 import * as JwtDecode from 'jwt-decode';
+import {VOTE_TYPES} from '../../shared/constants/main';
 
 @Component({
     selector: 'app-status-bar',
@@ -26,27 +27,7 @@ export class StatusBarComponent implements OnInit {
     votes = [];
     userData;
     postCategory;
-    voteTypes = [
-        {name: 'Important', pages: ['Influence']},
-        {name: 'Interesting', pages: ['Influence']},
-        {name: 'Investigate', pages: ['Influence']},
-        {name: 'Resign', pages: ['Influence']},
-        {name: 'Like', pages: ['StyleAndSweat', 'HumanStories', 'Videos', 'JumpStartups']},
-        {name: 'Good', pages: ['StyleAndSweat']},
-        {name: 'TopClass', pages: ['StyleAndSweat']},
-        {name: 'Magic', pages: ['StyleAndSweat']},
-        {name: 'Awesome', pages: ['CameraPictures']},
-        {name: 'Haft', pages: ['CameraPictures']},
-        {name: 'Cool', pages: ['CameraPictures']},
-        {name: 'Funny', pages: ['CameraPictures']},
-        {name: 'Inspiring', pages: ['HumanStories']},
-        {name: 'Promising', pages: ['JumpStartups']},
-        {name: 'LoveTheColor', pages: ['LoveDesigns']},
-        {name: 'Grand', pages: ['LoveDesigns']},
-        {name: 'Creative', pages: ['LoveDesigns']},
-        {name: 'Refreshing', pages: ['Videos']},
-        {name: 'Useful', pages: ['Videos']}
-    ];
+    voteTypes = VOTE_TYPES;
 
 
     constructor(
@@ -125,9 +106,12 @@ export class StatusBarComponent implements OnInit {
 
             this.home.doVoting(single._id, type).subscribe(dt => {
                 // this.voted.emit();
-                this.home.getSinglePost(single._id).subscribe(d => {
-                    this.single = d;
-                    console.log(this.single, d);
+                this.home.getVoteDetails(single._id).subscribe((d: any) => {
+                    if (d.news && d.news.length > 0) {
+
+                        this.single = d.news[0];
+                        // console.log(this.single, d);
+                    }
                 });
 
                 // this.home.getPostVotes(single._id).subscribe((d: any) => {

@@ -9,6 +9,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {PostsService} from '../../../../../services/posts.service';
 import {ToastrService} from 'ngx-toastr';
 import {StripHtmlTagsPipe} from '../../../../../shared/pipes/strip-html-tags.pipe';
+import {MAIN_SECTIONS} from '../../../../../shared/constants/main';
 
 export interface Category {
     value: string;
@@ -33,15 +34,7 @@ export class AddPostComponent implements OnInit, OnDestroy {
 
     }
 
-    categories: Category[] = [
-        {value: 'Influence', viewValue: 'Influence'},
-        {value: 'StyleAndSweat', viewValue: 'Style And Sweat'},
-        {value: 'CameraPictures', viewValue: 'Camera Pictures'},
-        {value: 'HumanStories', viewValue: 'Human Stories'},
-        {value: 'JumpStartups', viewValue: 'Jump Startups'},
-        {value: 'LoveDesigns', viewValue: 'Love Designs'},
-        {value: 'Videos', viewValue: 'Videos'}
-    ];
+    categories = MAIN_SECTIONS;
 
     newPost: Observable<any>;
 

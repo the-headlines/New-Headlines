@@ -192,31 +192,9 @@
                                 <i class="fas fa-bars"></i>
                             </div>
                             <ul class="toggle none-768">
-                                <li routerLinkActive="active" [class.active]="router.url==='/home'">
-                                    <a (click)="goToLink('/home')" matTooltip="Politics, Business and General new">Influence</a>
-                                </li>
-                                <li [class.active]="router.url==='/road'" routerLinkActive="active">
-                                    <a (click)="goToLink('/road')" matTooltip="Cinema, Music and Sports news">Style and
-                                        sweat</a>
-                                </li>
-                                <li [class.active]="router.url==='/pictures'" routerLinkActive="active">
-                                    <a (click)="goToLink('/pictures')" matTooltip="Post your Pictures">Camera
-                                        Pictures</a>
-                                </li>
-                                <li [class.active]="router.url==='/commerce'" routerLinkActive="active">
-                                    <a (click)="goToLink('/commerce')" matTooltip="START UP NEWS">Jump startups</a>
-                                </li>
-                                <li [class.active]="router.url==='/travel'" routerLinkActive="active">
-                                    <a (click)="goToLink('/travel')" matTooltip="TRAVEL NEWS">Human stories</a>
-                                </li>
-                                <li [class.active]="router.url==='/deals'" routerLinkActive="active">
-                                    <a (click)="goToLink('/deals')" matTooltip="DEALS">Love Designs</a>
-                                </li>
-                                <li [class.active]="router.url==='/video'" routerLinkActive="active">
-                                    <a (click)="goToLink('/video')" matTooltip="VIDEOS">videos</a>
-                                </li>
-                                <li [class.active]="router.url==='/feedback'" routerLinkActive="active">
-                                    <a (click)="goToLink('/feedback')">feedback</a>
+                                <li *ngFor="let section of sections" [class.active]="router.url===section.link"
+                                    routerLinkActive="active" [matTooltip]="section.tooltip">
+                                    <a (click)="goToLink(section.link)">{{section['name']}}</a>
                                 </li>
                             </ul>
                         </div>

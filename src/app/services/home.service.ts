@@ -42,6 +42,10 @@ export class HomeService {
         return this.http.get(Base.url + '/api/news/' + this.checkAuth() + 'category/HumanStories?pagesize=30&page=' + page);
     }
 
+    getHobbyist(page) {
+        return this.http.get(Base.url + '/api/news/' + this.checkAuth() + 'category/Hobbyist?pagesize=30&page=' + page);
+    }
+
     getPostsByCategory(category) {
         return this.http.get(`${Base.url}/api/user/news/${category}?pagesize=30&page=1`);
     }
@@ -59,7 +63,7 @@ export class HomeService {
     }
 
     public getVideo(page) {
-        return this.http.get(Base.url + '/api/news/' + this.checkAuth() + 'category/Videos?pagesize=100&page=' + page);
+        return this.http.get(Base.url + '/api/news/' + this.checkAuth() + 'category/Science?pagesize=100&page=' + page);
     }
 
     public getSinglePost(id) {
@@ -133,7 +137,10 @@ export class HomeService {
         } else {
             user = {userId: this.cookie.get('uniqueUserId')};
         }
-        console.log(user);
         return this.http.post(Base.url + '/api/news/' + post._id + '/views', {uniqueId: user.userId});
+    }
+
+    getVoteDetails(post_id) {
+        return this.http.get(Base.url + '/api/news/' + post_id + '/votedetails');
     }
 }

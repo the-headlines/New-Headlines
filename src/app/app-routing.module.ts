@@ -16,6 +16,9 @@ import {SubscribeComponent} from './modules/home/pages/posts/subscribe/subscribe
 import {PostsHomeComponent} from './modules/home/pages/posts/posts-home/posts-home.component';
 import {NotificationsBoxComponent} from './core/notifications-box/notifications-box.component';
 import {AuthGuard} from './shared/guards/auth.guard';
+import {HobbyistComponent} from './modules/home/pages/hobbyist/hobbyist.component';
+import {ScienceComponent} from './modules/home/pages/science/science.component';
+import {PublicComponent} from './modules/home/pages/public/public.component';
 
 const routes: Routes = [
     {
@@ -57,12 +60,32 @@ const routes: Routes = [
         }
     },
     {
-        path: 'video', component: VideoComponent, data: {
+        path: 'science', component: VideoComponent, data: {
             search: true
         }
     },
     {
         path: 'travel', component: TravelComponent, data: {
+            search: true
+        }
+    },
+    {
+        path: 'hobbyist', component: HobbyistComponent, data: {
+            search: true
+        }
+    },
+    {
+        path: 'science', component: ScienceComponent, data: {
+            search: true
+        }
+    },
+    {
+        path: 'environment', component: TravelComponent, data: {
+            search: true
+        }
+    },
+    {
+        path: 'public', component: PublicComponent, data: {
             search: true
         }
     },

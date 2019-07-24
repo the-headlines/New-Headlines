@@ -10,6 +10,7 @@ import {MatDialog, MatDialogRef} from '@angular/material';
 import {ConfirmationDialogComponent} from '../../../../../shared/components/confirmation-dialog/confirmation-dialog.component';
 import {ToastrService} from 'ngx-toastr';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {MAIN_SECTIONS} from '../../../../../shared/constants/main';
 
 @Component({
     selector: 'app-posts-home',
@@ -27,15 +28,7 @@ export class PostsHomeComponent implements OnInit {
     categorySelected = false;
     postForm: FormGroup;
 
-    categories: Category[] = [
-        {value: 'Influence', viewValue: 'Influence'},
-        {value: 'StyleAndSweat', viewValue: 'Style And Sweat'},
-        {value: 'CameraPictures', viewValue: 'Camera Pictures'},
-        {value: 'HumanStories', viewValue: 'Human Stories'},
-        {value: 'JumpStartups', viewValue: 'Jump Startups'},
-        {value: 'LoveDesigns', viewValue: 'Love Designs'},
-        {value: 'Videos', viewValue: 'Videos'}
-    ];
+    categories = MAIN_SECTIONS;
 
     constructor(
         private home: HomeService,
