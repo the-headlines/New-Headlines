@@ -184,12 +184,13 @@
             Views<span>{{single.views}}</span>
         </a>
     </li>
-    <li [hidden]="routerUrl !== '/home' && routerUrl !== '/' && routerUrl !== '/commerce' && routerUrl !== '/travel' && routerUrl !== '/deals' && routerUrl !== '/video'">
+    <li [hidden]="routerUrl !== '/home' && routerUrl !== '/' && routerUrl !== '/commerce' && routerUrl !== '/travel' &&  routerUrl !== '/deals' && routerUrl !== '/hobbyist' && routerUrl !== '/science' && routerUrl !== '/environment'
+&& routerUrl !== '/public'">
         <a (click)="getSingle(single)" *ngIf="single">
             Questions <span>{{single.questions}}</span>
         </a>
     </li>
-    <li [hidden]="routerUrl !== '/home' && routerUrl !== '/' && routerUrl !== '/road' && routerUrl !== '/deals' && routerUrl !== '/video'"
+    <li [hidden]="routerUrl !== '/home' && routerUrl !== '/' && routerUrl !== '/road' && routerUrl !== '/hobbyist' && routerUrl !== '/science' && routerUrl !== '/deals' && routerUrl !== '/environment' && routerUrl !== '/public'"
         hidden>
         <a (click)="getSingle(single)" *ngIf="single">
             <i class="far fa-comment"></i>
