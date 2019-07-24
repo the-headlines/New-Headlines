@@ -20,6 +20,7 @@ import {HobbyistComponent} from './modules/home/pages/hobbyist/hobbyist.componen
 import {ScienceComponent} from './modules/home/pages/science/science.component';
 import {PublicComponent} from './modules/home/pages/public/public.component';
 import {EnvironmentComponent} from './modules/home/pages/environment/environment.component';
+import {PolicyComponent} from "./modules/home/pages/policy/policy.component";
 
 const routes: Routes = [
     {
@@ -86,6 +87,7 @@ const routes: Routes = [
         }
     },
     {path: 'about', component: AboutComponent},
+    {path: 'policy', component: PolicyComponent},
     {path: 'profile', component: AdminProfileComponent},
     {path: 'add-post', component: AddPostComponent, canActivate: [AuthGuard]},
     {path: 'post/:id', component: SinglePostComponent},

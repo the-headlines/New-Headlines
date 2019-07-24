@@ -90,6 +90,7 @@ import {HobbyistComponent} from './modules/home/pages/hobbyist/hobbyist.componen
 import { ScienceComponent } from './modules/home/pages/science/science.component';
 import { PublicComponent } from './modules/home/pages/public/public.component';
 import { EnvironmentComponent } from './modules/home/pages/environment/environment.component';
+import { PolicyComponent } from './modules/home/pages/policy/policy.component';
 
 
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
@@ -157,7 +158,8 @@ export function tokenGetter() {
         HobbyistComponent,
         ScienceComponent,
         PublicComponent,
-        EnvironmentComponent
+        EnvironmentComponent,
+        PolicyComponent
     ],
     imports: [
         BrowserModule,
