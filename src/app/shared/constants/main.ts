@@ -1,13 +1,13 @@
 export const MAIN_SECTIONS = [
-    {name: 'Influence', link: '/home', tooltip: 'Politics, Business and General new', dbName: 'Influence'},
-    {name: 'Style And Sweat', link: '/road', tooltip: 'Cinema, Music and Sports news', dbName: 'StyleAndSweat'},
-    {name: 'Human Stories', link: '/travel', tooltip: 'Travel News', dbName: 'HumanStories'},
-    {name: 'Jump Startups', link: '/commerce', tooltip: 'Startup news', dbName: 'JumpStartups'},
-    {name: 'Hobbyist', link: '/hobbyist', tooltip: '', dbName: 'Hobbyist'},
-    {name: 'Love Designs', link: '/deals', tooltip: '', dbName: 'LoveDesigns'},
-    {name: 'Science', link: '/science', tooltip: '', dbName: 'Science'},
-    {name: 'Environment', link: '/environment', tooltip: '', dbName: 'Environment'},
-    {name: 'Public', link: '/public', tooltip: '', dbName: 'Public'}
+    {name: 'Influence', link: '/home', tooltip: 'Politics and Business', dbName: 'Influence'},
+    {name: 'Style And Sweat', link: '/road', tooltip: 'Cinema, Music, Sports & Arts', dbName: 'StyleAndSweat'},
+    {name: 'Human Stories', link: '/travel', tooltip: 'Human Stories', dbName: 'HumanStories'},
+    {name: 'Jump Startups', link: '/commerce', tooltip: 'Startup News', dbName: 'JumpStartups'},
+    {name: 'Hobbyist', link: '/hobbyist', tooltip: 'Bloggers', dbName: 'Hobbyist'},
+    {name: 'Love Designs', link: '/deals', tooltip: 'Designs', dbName: 'LoveDesigns'},
+    {name: 'Science', link: '/science', tooltip: 'Science & Tech', dbName: 'Science'},
+    {name: 'Environment', link: '/environment', tooltip: 'Environment & Health', dbName: 'Environment'},
+    {name: 'Public', link: '/public', tooltip: 'General News', dbName: 'Public'}
 ];
 
 
