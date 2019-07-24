@@ -54,6 +54,10 @@ export class HomeService {
         return this.http.get(Base.url + '/api/news/' + this.checkAuth() + 'category/Public?pagesize=30&page=' + page);
     }
 
+    getEnvironment(page) {
+        return this.http.get(Base.url + '/api/news/' + this.checkAuth() + 'category/Environment?pagesize=30&page=' + page);
+    }
+
     getPostsByCategory(category) {
         return this.http.get(`${Base.url}/api/user/news/${category}?pagesize=30&page=1`);
     }
