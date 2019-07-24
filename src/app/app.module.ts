@@ -89,6 +89,7 @@ import {GenerateSaveNonAuthUserIdPipe} from './shared/pipes/generate-save-non-au
 import {HobbyistComponent} from './modules/home/pages/hobbyist/hobbyist.component';
 import { ScienceComponent } from './modules/home/pages/science/science.component';
 import { PublicComponent } from './modules/home/pages/public/public.component';
+import { EnvironmentComponent } from './modules/home/pages/environment/environment.component';
 
 
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
@@ -155,7 +156,8 @@ export function tokenGetter() {
         GenerateSaveNonAuthUserIdPipe,
         HobbyistComponent,
         ScienceComponent,
-        PublicComponent
+        PublicComponent,
+        EnvironmentComponent
     ],
     imports: [
         BrowserModule,
