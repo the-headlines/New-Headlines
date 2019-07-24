@@ -10,11 +10,12 @@ import {AuthService} from '../../../../services/auth.service';
 import * as moment from 'moment';
 
 @Component({
-    selector: 'app-public',
-    templateUrl: './public.component.html',
-    styleUrls: ['./public.component.sass']
+    selector: 'app-environment',
+    templateUrl: './environment.component.html',
+    styleUrls: ['./environment.component.sass']
 })
-export class PublicComponent implements OnInit {
+export class EnvironmentComponent implements OnInit {
+
     posts: any = [];
     searchTerm = '';
     page = 1;
@@ -41,7 +42,7 @@ export class PublicComponent implements OnInit {
         // Generating & saving non-auth user id in a cookie if not set
         this.nonAuthId.transform();
 
-        this.home.getPublic(this.page).subscribe((dt: any) => {
+        this.home.getEnvironment(this.page).subscribe((dt: any) => {
             dt['news'].sort((a, b) => {
                 return moment(b['createdAt']).unix() - moment(a['createdAt']).unix();
             });

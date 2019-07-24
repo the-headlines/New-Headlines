@@ -19,6 +19,7 @@ import {AuthGuard} from './shared/guards/auth.guard';
 import {HobbyistComponent} from './modules/home/pages/hobbyist/hobbyist.component';
 import {ScienceComponent} from './modules/home/pages/science/science.component';
 import {PublicComponent} from './modules/home/pages/public/public.component';
+import {EnvironmentComponent} from './modules/home/pages/environment/environment.component';
 
 const routes: Routes = [
     {
@@ -75,7 +76,7 @@ const routes: Routes = [
         }
     },
     {
-        path: 'environment', component: TravelComponent, data: {
+        path: 'environment', component: EnvironmentComponent, data: {
             search: true
         }
     },
