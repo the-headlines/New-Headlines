@@ -1,11 +1,13 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
     selector: 'app-owl-carousel',
     templateUrl: './owl-carousel.component.html',
     styleUrls: ['./owl-carousel.component.scss']
 })
+
 export class OwlCarouselComponent implements OnInit {
+    @Input() posts;
 
     customOptions: any = {
         loop: true,
@@ -14,7 +16,7 @@ export class OwlCarouselComponent implements OnInit {
         pullDrag: false,
         dots: false,
         navSpeed: 700,
-        navText: ["<img src='../../../assets/images/back.svg'>","<img src='../../../assets/images/back.svg'>"],
+        navText: ['<img src=\'../../../assets/images/back.svg\'>', '<img src=\'../../../assets/images/back.svg\'>'],
         responsive: {
             0: {
                 items: 1
@@ -30,7 +32,7 @@ export class OwlCarouselComponent implements OnInit {
             }
         },
         nav: true
-    }
+    };
 
     constructor() {
     }

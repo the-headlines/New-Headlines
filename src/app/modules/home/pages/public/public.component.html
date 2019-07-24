@@ -1,4 +1,11 @@
 <app-header></app-header>
-<p>
-    public works!
-</p>
+<section class="col-md-8" style="padding-right: 37px">
+    <div class="carusel-block" id="home_carousel">
+        <app-owl-carousel [posts]="posts"></app-owl-carousel>
+        <div class="img-block">
+            <div class="slider_bottom_icons">
+                <app-status-bar></app-status-bar>
+            </div>
+        </div>
+    </div>
+</section>

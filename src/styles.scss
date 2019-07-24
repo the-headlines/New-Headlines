@@ -344,10 +344,10 @@ img {
 
 .title.slider {
   font-family: 'Lato-Black', sans-serif;
-  font-size: 1.85em;
+  //font-size: 1.85em;
   font-weight: 900;
   line-height: 1.85;
-  letter-spacing: 2.1px;
+  //letter-spacing: 2.1px;
   text-align: justify;
   margin-bottom: 25px;
   text-transform: uppercase;
@@ -2214,9 +2214,11 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
   text-transform: capitalize;
   margin: 0px 0px 7px 0px;
 }
-.user_posts .userName h3 span{
+
+.user_posts .userName h3 span {
   text-transform: initial;
 }
+
 .user_posts .userName h3 span {
   color: #3788c6 !important;
   font-size: 12px;
@@ -3379,27 +3381,34 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
   display: none;
 }
 
-.post_or_cancel button>span {
+.post_or_cancel button > span {
   font-size: 14px !important;
 }
+
 .mat-tab-labels {
   display: none !important;
 }
+
 .cke_reset {
   border-radius: 4px;
 }
+
 .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
-  color: rgba(0,0,0,.54);
+  color: rgba(0, 0, 0, .54);
 }
+
 .post_content .mat-select-arrow-wrapper {
   padding-top: 5px;
 }
-.post_content .mat-select-value span{
+
+.post_content .mat-select-value span {
   font-size: 15.5px;
 }
+
 .post_content .mat-select-value {
   padding-top: 5.5px;
 }
+
 .post_content .post_a_link h2 {
   font-size: 20.5px !important;
 }
@@ -3407,6 +3416,7 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
 #header_top #button {
   right: 10px;
 }
+
 #header_top #button i {
   font-size: 1.4rem;
 }
@@ -3415,6 +3425,7 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
   font-size: 13.5px;
   line-height: 2;
 }
+
 .mat-input-element {
   caret-color: #262626;
 }

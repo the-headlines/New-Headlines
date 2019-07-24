@@ -5,7 +5,7 @@
         <section class="col-md-8 col-sm-12 order-md-1 order-sm-2 order-xs-2" style="padding-right: 37px">
             <div class="carusel-block" id="home_carousel">
 
-                <app-owl-carousel></app-owl-carousel>
+                <app-owl-carousel [posts]="posts"></app-owl-carousel>
                 <div class="img-block">
                     <div class="slider_bottom_icons">
                         <app-status-bar></app-status-bar>
@@ -39,7 +39,7 @@
                                     <button type="button">Interesting</button>
                                 </li>
                                 <!--<li class="gray_lg">-->
-                                    <!--<button type="button">Questions</button>-->
+                                <!--<button type="button">Questions</button>-->
                                 <!--</li>-->
                             </ul>
                         </div>
@@ -65,7 +65,7 @@
                             </div>
                             <div class="short_desc">
                                 <!--<a href="{{single.link}}">{{single.link}}</a>-->
-<!--                                <small>{{single.description|stripTags}}</small>-->
+                                <!--                                <small>{{single.description|stripTags}}</small>-->
                             </div>
 
                             <div class="img-block">
@@ -74,7 +74,8 @@
                                 </a>
                             </div>
                             <div class="text-block">
-                                <a href="{{single.link}}" class="text_block_link" target="_blank" (click)="incrementViews(single)">
+                                <a href="{{single.link}}" class="text_block_link" target="_blank"
+                                   (click)="incrementViews(single)">
                                     <h5 class="news_link">{{single.link|getUrlBase}}</h5>
                                     <h3 class="news_title">{{single.extractedTitle}}</h3>
                                     <p class="news_desc">{{single.extractedDescription}}</p>

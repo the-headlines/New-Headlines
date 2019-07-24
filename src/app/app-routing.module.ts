@@ -60,11 +60,6 @@ const routes: Routes = [
         }
     },
     {
-        path: 'science', component: VideoComponent, data: {
-            search: true
-        }
-    },
-    {
         path: 'travel', component: TravelComponent, data: {
             search: true
         }

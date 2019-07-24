@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-public',
-  templateUrl: './public.component.html',
-  styleUrls: ['./public.component.sass']
+    selector: 'app-public',
+    templateUrl: './public.component.html',
+    styleUrls: ['./public.component.sass']
 })
 export class PublicComponent implements OnInit {
+    posts = [];
 
-  constructor() { }
+    constructor() {
+    }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
 
 }

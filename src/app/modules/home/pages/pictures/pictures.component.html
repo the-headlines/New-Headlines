@@ -3,7 +3,7 @@
     <div class="main row no-gutters">
         <section class="col-md-8" style="padding-right: 37px">
             <div class="carusel-block" id="home_carousel">
-                <app-owl-carousel></app-owl-carousel>
+                <app-owl-carousel [posts]="posts"></app-owl-carousel>
                 <div class="img-block">
                     <div class="slider_bottom_icons">
                         <app-status-bar></app-status-bar>
@@ -68,7 +68,8 @@
                             </div>
 
                             <div class="text-block">
-                                <a href="{{post.link}}" class="text_block_link" target="_blank" (click)="incrementViews(post)">
+                                <a href="{{post.link}}" class="text_block_link" target="_blank"
+                                   (click)="incrementViews(post)">
                                     <h5 class="news_link">{{getLinkSource(post.link)}}</h5>
                                     <h3 class="news_title">{{post.extractedTitle}}</h3>
                                     <p class="news_desc">{{post.extractedDescription}}</p>
