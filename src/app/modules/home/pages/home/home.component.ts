@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
 import {HomeService} from '../../../../services/home.service';
 import * as Base from '../../../../configs/config.js';
 import {Router} from '@angular/router';
@@ -41,6 +41,8 @@ export class HomeComponent implements OnInit {
 
     @ViewChild('paginator') paginator;
     @ViewChild('post') element: ElementRef;
+
+
 
     filterByVotes(vote) {
         function compare(a, b) {
@@ -89,8 +91,6 @@ export class HomeComponent implements OnInit {
 
         // Generating & saving non-auth user id in a cookie if not set
         this.nonAuthId.transform();
-
-
 
 
         // this.toastr.success('Hello from here', '', {disableTimeOut: true});
@@ -233,9 +233,6 @@ export class HomeComponent implements OnInit {
         return d ? d.length : 0;
     }
 
-    onScroll(e) {
-
-    }
 
     onScrollUp(e) {
     }

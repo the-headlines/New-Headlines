@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
+import {Component, ElementRef, HostListener, OnInit, Renderer2, ViewChild} from '@angular/core';
 import {ModalDialog} from '../../modules/home/components/libs/modal.dialog';
 import {MatDialog} from '@angular/material';
 import {SocialUser} from 'angularx-social-login';
@@ -27,6 +27,15 @@ export class HeaderComponent implements OnInit {
     isShown = false;
     show = false;
     sections = MAIN_SECTIONS;
+    scrollPosition = 0;
+    showScrollToTopBtn = false;
+
+    @HostListener('window:scroll', ['$event'])
+    private onScroll(e: Event): void {
+        this.scrollPosition = window.pageYOffset;
+
+        this.showScrollToTopBtn = window.pageYOffset > 1800;
+    }
 
     constructor(
         private dialog: MatDialog,

@@ -43,7 +43,7 @@ export class HomeService {
     }
 
     getHobbyist(page) {
-        return this.http.get(Base.url + '/api/news/' + this.checkAuth() + 'category/Hobbyist?pagesize=30&page=' + page);
+        return this.http.get(Base.url + '/api/news/' + this.checkAuth() + 'category/Public?pagesize=30&page=' + page);
     }
 
     getPostsByCategory(category) {
