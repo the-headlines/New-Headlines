@@ -295,7 +295,7 @@
                             <small>({{getCommentsLen('Comment')}})</small>
                         </p>
                         <p (click)="changeCommentType('Question')" [class.selected]="selectedCommentType === 'Question'"
-                           *ngIf="singlePost.category!=='HumanStories'||singlePost.category!=='LoveDesigns'">
+                           *ngIf="singlePost.category!=='HumanStories'&&singlePost.category!=='LoveDesigns'&&singlePost.category!=='StyleAndSweat'">
                             Questions
                             <small>({{getCommentsLen('Question')}})</small>
                         </p>
