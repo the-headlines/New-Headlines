@@ -91,6 +91,7 @@ import { ScienceComponent } from './modules/home/pages/science/science.component
 import { PublicComponent } from './modules/home/pages/public/public.component';
 import { EnvironmentComponent } from './modules/home/pages/environment/environment.component';
 import { PolicyComponent } from './modules/home/pages/policy/policy.component';
+import {EmailTokenConfirmationComponent} from './modules/home/components/email-token-confirmation/email-token-confirmation.component';
 
 
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
@@ -159,7 +160,8 @@ export function tokenGetter() {
         ScienceComponent,
         PublicComponent,
         EnvironmentComponent,
-        PolicyComponent
+        PolicyComponent,
+        EmailTokenConfirmationComponent
     ],
     imports: [
         BrowserModule,
