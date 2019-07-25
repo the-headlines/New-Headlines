@@ -25,16 +25,26 @@
                         <div class="filter">
                             <span>filters:</span>
                             <ul class="menu">
-                                <li class="blue_lg" (click)="filterByVotes('like')">
-                                    <button type="button">New</button>
-                                </li>
-                                <li class="orange_lg">
-                                    <button>Score</button>
-                                </li>
+                                <!--<li class="blue_lg" (click)="filterByVotes('like')">-->
+                                    <!--<button type="button">New</button>-->
+                                <!--</li>-->
+                                <!--<li class="orange_lg">-->
+                                    <!--<button>Score</button>-->
+                                <!--</li>-->
+                            <li class="gray">
+                                <button>All</button>
+                            </li>
                                 <li class="yellow_lg" (click)="filterByVotes('informative')">
                                     <button type="button">Informative</button>
                                 </li>
                             </ul>
+                        </div>
+                        <div class="drop__down">
+                            <select>
+                                <option></option>
+                                <option>New</option>
+                                <option>Score</option>
+                            </select>
                         </div>
                     </div>
 
