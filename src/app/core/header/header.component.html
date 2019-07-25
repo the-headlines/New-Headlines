@@ -191,7 +191,7 @@
                             <div class="burger">
                                 <i class="fas fa-bars"></i>
                             </div>
-                            <ul class="toggle none-768" *ngIf="!router.url.includes('policy') && !router.url.includes('about')">
+                            <ul class="toggle none-768">
                                 <li *ngFor="let section of sections" [class.active]="router.url===section.link"
                                     routerLinkActive="active" [matTooltip]="section.tooltip">
                                     <a (click)="goToLink(section.link)">{{section['name']}}</a>
