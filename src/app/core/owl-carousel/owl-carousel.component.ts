@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {OwlOptions} from 'ngx-owl-carousel-o';
 
 @Component({
     selector: 'app-owl-carousel',
@@ -9,7 +10,7 @@ import {Component, Input, OnInit} from '@angular/core';
 export class OwlCarouselComponent implements OnInit {
     @Input() posts;
 
-    customOptions: any = {
+    customOptions: OwlOptions = {
         loop: true,
         mouseDrag: false,
         touchDrag: false,
