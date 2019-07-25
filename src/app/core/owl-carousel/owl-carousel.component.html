@@ -3,9 +3,16 @@
 
     <ng-container *ngFor="let post of posts.news">
         <ng-template carouselSlide>
-            <div class="carousel_top_text">
-                <h5>{{post.extractedTitle}}</h5>
-                <p class="postLink">{{post.link|getUrlBase}}</p>
+            <div class="carousel_top_text" style="display: flex">
+                <div class="titleContainer">
+
+                    <h5>{{post.extractedTitle}}</h5>
+                    <p class="postLink">{{post.link|getUrlBase}}</p>
+                </div>
+                <div class="commentsContainer">
+                    <span>{{post.comments}} Comments</span>
+                    <span>{{post.questions}} Questions</span>
+                </div>
             </div>
             <div>
                 <img class="d-block w-100" [src]="post.extractedImage" alt="first slide">
@@ -16,6 +23,7 @@
                     </div>
                 </div>
             </div>
+
         </ng-template>
     </ng-container>
     <!--  <ng-template carouselSlide>-->
