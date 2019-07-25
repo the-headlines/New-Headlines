@@ -3429,3 +3429,9 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
 .mat-input-element {
   caret-color: #262626;
 }
+
+
+#home_carousel .owl-carousel .owl-item, #home_carousel .owl-carousel .owl-item img {
+  height: 950px !important;
+  object-fit: cover;
+}
