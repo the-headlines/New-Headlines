@@ -3439,6 +3439,7 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
 }
 .sidebar_links {
   margin-top: 200px;
+  margin-right: 60px;
 
 }
 .sidebar_links li,.sidebar_links li p {
@@ -3457,7 +3458,7 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
   padding-bottom: 5px;
 }
 .sidebar_links a,.sidebar_links p{
-    color: #727377;
+    color: #000000;
 }
 .drop__down {
   width: 600px;
@@ -3482,10 +3483,22 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
   font-weight: 300;
   line-height: 20px;
   letter-spacing: 0.3px;
-  padding-bottom: 40px;
-  padding-top: 20px;
+  padding-bottom: 0;
+  padding-top: 10px;
 }
 
 .about__text>p{
   border-bottom: 1px solid red;
+}
+
+.about___body {
+  display: flex;
+}
+
+.about__content {
+  margin-top: 200px;
+}
+.about__content .about__text>p {
+  display: inline-block;
+  color: #727377;
 }
