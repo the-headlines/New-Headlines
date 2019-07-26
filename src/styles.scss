@@ -3449,6 +3449,20 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
     letter-spacing: 0.3px;
     padding-bottom: 25px;
 }
-    .sidebar_links a{
-      color: #727377;
-    }
+.sidebar_links a{
+    color: #727377;
+}
+.drop__down {
+  width: 600px;
+  text-align: right;
+}
+.drop__down select:focus {
+  outline:none;
+}
+.drop__down select {
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+}
