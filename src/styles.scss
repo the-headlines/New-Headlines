@@ -215,7 +215,8 @@ img {
 
 .filter {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   margin-bottom: 20px;
 
   span {
@@ -233,7 +234,8 @@ img {
 
   .menu {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
     flex-wrap: nowrap;
     margin: unset;
     width: 100%;
@@ -2380,8 +2382,36 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
 .mat-form-field-appearance-legacy.mat-form-field-can-float .mat-input-server:focus + .mat-form-field-label-wrapper .mat-form-field-label, .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
   color: #727377;
 }
+.content_block{
+  display: flex;
+  justify-content: space-between;
+}
+.menu{
+  flex-direction: column;
+  align-items: flex-start;
 
+}
+.menu li{
+  margin-bottom: 20px;
+}
+.mb-3{
+  margin-bottom: 0 !important;
 
+}
+.filter>span{
+  margin-bottom: 50px;
+}
+.ng-star-inserted .input-group{
+  margin-bottom: 1rem !important;
+}
+
+header[_ngcontent-pqf-c2] .navbar[_ngcontent-pqf-c2] .logo[_ngcontent-pqf-c2] ul[_ngcontent-pqf-c2]{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin: 0 0 1rem 0;
+  width: 25%;
+}
 //media queries
 @media only screen and (max-width: 1600px) {
   body {
@@ -3460,9 +3490,15 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
 .sidebar_links a,.sidebar_links p{
     color: #000000;
 }
+.filters{
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
 .drop__down {
   width: 600px;
-  text-align: right;
+  text-align: left;
 }
 .drop__down select:focus {
   outline:none;

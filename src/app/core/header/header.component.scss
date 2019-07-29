@@ -159,9 +159,10 @@ header {
       ul {
         display: flex;
         justify-content: space-between;
-        align-items: center;
-        margin: 0;
+        align-items: flex-end;
+        margin: 0 0 1rem 0;
         width: 25%;
+
 
         @media screen and (max-width: 1024px) and (min-width: 768px) {
           display: flex;
