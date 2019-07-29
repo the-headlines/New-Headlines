@@ -1951,6 +1951,7 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
 }
 .gray .filterHighlight{
   color:#000 !important;
+  font-family: 'Lato-Black' !important;
 }
 .gray_lg {
   background-color: #a6a7a7;
@@ -2415,6 +2416,11 @@ header[_ngcontent-pqf-c2] .navbar[_ngcontent-pqf-c2] .logo[_ngcontent-pqf-c2] ul
   align-items: flex-end;
   margin: 0 0 1rem 0;
   width: 25%;
+}
+.carousel_top_text{
+  display:flex;
+  align-items: flex-end;
+  padding-top: 5px!important;
 }
 //media queries
 @media only screen and (max-width: 1600px) {
@@ -3513,7 +3519,7 @@ header[_ngcontent-pqf-c2] .navbar[_ngcontent-pqf-c2] .logo[_ngcontent-pqf-c2] ul
 }
 .drop__down {
   position: sticky;
-  top: 75%;
+  top: 70%;
   width: 600px;
   text-align: left;
 }
