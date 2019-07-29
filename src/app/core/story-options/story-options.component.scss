@@ -1,0 +1,26 @@
+.storyOptions{
+  .save_caret_menu_item{
+    ul{
+      li{
+        div{
+          h3{
+           .fa-facebook-f{
+             margin-left: 0;
+            }
+          }
+          p{
+            display:flex;
+            justify-content: flex-start;
+            .fab{
+              margin: 0 12px;
+              font-size: 13px;
+            }
+          }
+        }
+      }
+    }
+
+  }
+
+
+}
