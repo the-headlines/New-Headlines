@@ -13,80 +13,86 @@
 
             <div class="news-block carusel-block">
                 <div class="item">
-                    <div class="text-block">
-                        <div class="description">
-                            <h5></h5>
-                            <p></p>
-                        </div>
-                        <div class="filter">
-                            <span>filters:</span>
-                            <ul class="menu">
-                                <li class="gray">
-                                    <button (click)="filterByVotes('All')"
-                                            [class.filterHighlight]="selectedFilter.vote === 'All'">All
-                                    </button>
-                                </li>
-                                <li class="op-blue">
-                                    <button (click)="filterByVotes('ProblemSolver')"
-                                            [class.filterHighlight]="selectedFilter.vote === 'ProblemSolver'">Problem
-                                        Solver
-                                    </button>
-                                </li>
-                                <!--<li class="gray">-->
-                                <!--<button>Useful</button>-->
-                                <!--</li>-->
-                                <!--<li class="op-blue">-->
-                                <!--<button>Feedback</button>-->
-                                <!--</li>-->
-                            </ul>
-                        </div>
-                        <div class="drop__down">
-                            <select (change)="filterByType($event)">
-                                <option></option>
-                                <option [selected]="selectedFilter.type==='New'">New</option>
-                                <option [selected]="selectedFilter.type==='Score'">Score</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="loop_items item posts_items"
-                     infiniteScroll
-                     [infiniteScrollDistance]="2"
-                     [infiniteScrollThrottle]="50"
-                     (scrolled)="onIntersection($event, ind)"
-                     *ngFor="let post of filteredPosts.news| searchNews: searchTerm;let ind = index">
-                    <div class="post_wrapper">
-                        <div class="user_posts">
-                            <div class="userName">
-                                <div>
-                                    <h3>
-                                        <span>Posted by</span>
-                                        {{post.creator.name}}</h3>
-                                    <p class="updateDate"
-                                       [matTooltip]="getDateFormatted(post.createdAt)">{{getDateFormatted(post.createdAt, false)}}</p>
-                                </div>
-                                <app-story-options></app-story-options>
+                        <div class="text-block">
+                            <div class="description">
+                                <h5></h5>
+                                <p></p>
                             </div>
                         </div>
-                        <div class="short_desc">
-                            <!--                                    <a href="{{post.link}}">{{post.link}}</a>-->
-                            <!--                            <h6>{{post.description|stripTags}}</h6>-->
-                        </div>
-                        <div class="img-block">
-                            <a href="{{post.link}}" (click)="incrementViews(post)" target="_blank">
-                                <img src="{{post.extractedImage}}" class="img-fluid" alt="">
-                            </a>
-                        </div>
+                        <div class="content_block">
+                            <div class="filters">
+                            <div class="filter">
+                                <span>filters:</span>
+                                <ul class="menu">
+                                    <li class="gray">
+                                        <button (click)="filterByVotes('All')"
+                                                [class.filterHighlight]="selectedFilter.vote === 'All'">All
+                                        </button>
+                                    </li>
+                                    <li class="op-blue">
+                                        <button (click)="filterByVotes('ProblemSolver')"
+                                                [class.filterHighlight]="selectedFilter.vote === 'ProblemSolver'">Problem
+                                            Solver
+                                        </button>
+                                    </li>
+                                    <!--<li class="gray">-->
+                                    <!--<button>Useful</button>-->
+                                    <!--</li>-->
+                                    <!--<li class="op-blue">-->
+                                    <!--<button>Feedback</button>-->
+                                    <!--</li>-->
+                                </ul>
+                            </div>
+                            <div class="drop__down">
+                                <select (change)="filterByType($event)">
+                                    <option></option>
+                                    <option [selected]="selectedFilter.type==='New'">New</option>
+                                    <option [selected]="selectedFilter.type==='Score'">Score</option>
+                                </select>
+                            </div>
+                         </div>
+                          <div class="all">
+                            <div class="loop_items item posts_items"
+                                 infiniteScroll
+                                 [infiniteScrollDistance]="2"
+                                 [infiniteScrollThrottle]="50"
+                                 (scrolled)="onIntersection($event, ind)"
+                                 *ngFor="let post of filteredPosts.news| searchNews: searchTerm;let ind = index">
+                                <div class="post_wrapper">
+                                    <div class="user_posts">
+                                        <div class="userName">
+                                            <div>
+                                                <h3>
+                                                    <span>Posted by</span>
+                                                    {{post.creator.name}}</h3>
+                                                <p class="updateDate"
+                                                   [matTooltip]="getDateFormatted(post.createdAt)">{{getDateFormatted(post.createdAt, false)}}</p>
+                                            </div>
+                                            <app-story-options></app-story-options>
+                                        </div>
+                                    </div>
+                                    <div class="short_desc">
+                                        <!--                                    <a href="{{post.link}}">{{post.link}}</a>-->
+                                        <!--                            <h6>{{post.description|stripTags}}</h6>-->
+                                    </div>
+                                    <div class="img-block">
+                                        <a href="{{post.link}}" (click)="incrementViews(post)" target="_blank">
+                                            <img src="{{post.extractedImage}}" class="img-fluid" alt="">
+                                        </a>
+                                    </div>
 
-                        <div class="text-block">
-                            <a href="{{post.link}}" class="text_block_link" target="_blank"
-                               (click)="incrementViews(post)">
-                                <h5 class="news_link">{{getLinkSource(post.link)}}</h5>
-                                <h3 class="news_title">{{post.extractedTitle}}</h3>
-                                <p class="news_desc">{{post.extractedDescription}}</p>
-                            </a>
+                                    <div class="text-block">
+                                        <a href="{{post.link}}" class="text_block_link" target="_blank"
+                                           (click)="incrementViews(post)">
+                                            <h5 class="news_link">{{getLinkSource(post.link)}}</h5>
+                                            <h3 class="news_title">{{post.extractedTitle}}</h3>
+                                            <p class="news_desc">{{post.extractedDescription}}</p>
+                                        </a>
+                                    </div>
+                                    <app-status-bar [single]="post"></app-status-bar>
+                                </div>
+                            </div>
                         </div>
-                        <app-status-bar [single]="post"></app-status-bar>
                     </div>
                 </div>
             </div>

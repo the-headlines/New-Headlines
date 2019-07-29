@@ -140,7 +140,7 @@ img {
 }
 
 .content {
-  width: 87%;
+  width: 95%;
   margin: 0 auto;
 }
 
@@ -251,7 +251,7 @@ img {
 
       button {
         font-family: 'Lato-Regular', sans-serif;
-        font-size: 11.5px;
+        font-size: 9.5px;
         font-weight: bold;
         letter-spacing: 0.5px;
         color: black;
@@ -2383,6 +2383,7 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
   color: #727377;
 }
 .content_block{
+  position: relative;
   display: flex;
   justify-content: space-between;
 }
@@ -3496,12 +3497,20 @@ header[_ngcontent-pqf-c2] .navbar[_ngcontent-pqf-c2] .logo[_ngcontent-pqf-c2] ul
   color: #000000;
 }
 .filters{
+  position: relative;
+  z-index: 11111111;
   width: 30%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
+.filter{
+  position: sticky;
+  top: 40%;
+}
 .drop__down {
+  position: sticky;
+  top: 75%;
   width: 600px;
   text-align: left;
 }

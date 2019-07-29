@@ -108,7 +108,7 @@ header {
       display: flex;
       width: 100%;
       justify-content: space-between;
-      border-bottom: 1px solid #e14040;
+      border-bottom: 1.3px solid #e14040;
       font-size: 1.2em;
       font-family: 'Lato-Regular', sans-serif;
 
@@ -419,6 +419,7 @@ mat-sidenav-container.mat-drawer-container.mat-sidenav-container.mat-drawer-tran
 }
 
 mat-toolbar {
+  margin: 8px;
   width: 100%;
 }
 

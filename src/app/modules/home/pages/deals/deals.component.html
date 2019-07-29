@@ -17,72 +17,77 @@
                             <h5></h5>
                             <p></p>
                         </div>
-                        <div class="filter">
-                            <span>filters:</span>
-                            <ul class="menu">
-                                <li class="gray" (click)="filterByVotes('All')">
-                                    <button [class.filterHighlight]="selectedFilter.vote === 'All'">All</button>
-                                </li>
-                                <li class="op-orange" (click)="filterByVotes('Grand')">
-                                    <button [class.filterHighlight]="selectedFilter.vote === 'Grand'">Grand</button>
-                                </li>
-                                <li class="op-blue" (click)="filterByVotes('Creative')">
-                                    <button [class.filterHighlight]="selectedFilter.vote === 'Creative'">Creative
-                                    </button>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="drop__down">
-                            <select (change)="filterByType($event)">
-                                <option></option>
-                                <option [selected]="selectedFilter.type==='New'">New</option>
-                                <option [selected]="selectedFilter.type==='Score'">Score</option>
-                            </select>
-                        </div>
                     </div>
-                </div>
-
-                <div class="loop_items item posts_items"
-                     infiniteScroll
-                     [infiniteScrollDistance]="2"
-                     [infiniteScrollThrottle]="50"
-                     (scrolled)="onIntersection($event, ind)"
-                     *ngFor="let post of filteredPosts.news| searchNews: searchTerm;let ind = index">
-                    <div class="post_wrapper">
-                        <div class="user_posts">
-                            <div class="userName">
-                                <div>
-                                    <h3>
-                                        <span>Posted by</span>
-                                        {{post.creator.name}}</h3>
-                                    <p class="updateDate"
-                                       [matTooltip]="getDateFormatted(post.createdAt)">{{getDateFormatted(post.createdAt, false)}}</p>
-                                </div>
-                                <app-story-options></app-story-options>
+                    <div class="content_block">
+                        <div class="filters">
+                            <div class="filter">
+                                <span>filters:</span>
+                                <ul class="menu">
+                                    <li class="gray" (click)="filterByVotes('All')">
+                                        <button [class.filterHighlight]="selectedFilter.vote === 'All'">All</button>
+                                    </li>
+                                    <li class="op-orange" (click)="filterByVotes('Grand')">
+                                        <button [class.filterHighlight]="selectedFilter.vote === 'Grand'">Grand</button>
+                                    </li>
+                                    <li class="op-blue" (click)="filterByVotes('Creative')">
+                                        <button [class.filterHighlight]="selectedFilter.vote === 'Creative'">Creative
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="drop__down">
+                                <select (change)="filterByType($event)">
+                                    <option></option>
+                                    <option [selected]="selectedFilter.type==='New'">New</option>
+                                    <option [selected]="selectedFilter.type==='Score'">Score</option>
+                                </select>
                             </div>
                         </div>
-                        <div class="short_desc">
-                            <!--                                    <a href="{{post.link}}">{{post.link}}</a>-->
-                            <!--                            <h6>{{post.description|stripTags}}</h6>-->
-                        </div>
-                        <div class="img-block">
-                            <a href="{{post.link}}" (click)="incrementViews(post)" target="_blank">
-                                <img src="{{post.extractedImage}}" class="img-fluid" alt=""
-                                     (click)="getSinglePost(post._id)">
-                            </a>
-                        </div>
+                        <div class="all">
+                          <div class="loop_items item posts_items"
+                             infiniteScroll
+                             [infiniteScrollDistance]="2"
+                             [infiniteScrollThrottle]="50"
+                             (scrolled)="onIntersection($event, ind)"
+                             *ngFor="let post of filteredPosts.news| searchNews: searchTerm;let ind = index">
+                            <div class="post_wrapper">
+                                <div class="user_posts">
+                                    <div class="userName">
+                                        <div>
+                                            <h3>
+                                                <span>Posted by</span>
+                                                {{post.creator.name}}</h3>
+                                            <p class="updateDate"
+                                               [matTooltip]="getDateFormatted(post.createdAt)">{{getDateFormatted(post.createdAt, false)}}</p>
+                                        </div>
+                                        <app-story-options></app-story-options>
+                                    </div>
+                                </div>
+                                <div class="short_desc">
+                                    <!--                                    <a href="{{post.link}}">{{post.link}}</a>-->
+                                    <!--                            <h6>{{post.description|stripTags}}</h6>-->
+                                </div>
+                                <div class="img-block">
+                                    <a href="{{post.link}}" (click)="incrementViews(post)" target="_blank">
+                                        <img src="{{post.extractedImage}}" class="img-fluid" alt=""
+                                             (click)="getSinglePost(post._id)">
+                                    </a>
+                                </div>
 
-                        <div class="text-block">
-                            <a href="{{post.link}}" class="text_block_link" target="_blank"
-                               (click)="incrementViews(post)">
-                                <h5 class="news_link">{{getLinkSource(post.link)}}</h5>
-                                <h3 class="news_title">{{post.extractedTitle}}</h3>
-                                <p class="news_desc">{{post.extractedDescription}}</p>
-                            </a>
+                                <div class="text-block">
+                                    <a href="{{post.link}}" class="text_block_link" target="_blank"
+                                       (click)="incrementViews(post)">
+                                        <h5 class="news_link">{{getLinkSource(post.link)}}</h5>
+                                        <h3 class="news_title">{{post.extractedTitle}}</h3>
+                                        <p class="news_desc">{{post.extractedDescription}}</p>
+                                    </a>
+                                </div>
+                            </div>
+                            <app-status-bar [single]="post">></app-status-bar>
+                        </div>
                         </div>
                     </div>
-                    <app-status-bar [single]="post">></app-status-bar>
-                </div>
+                 </div>
             </div>
         </section>
         <aside class="col-md-4" style="padding-left: 37px">
