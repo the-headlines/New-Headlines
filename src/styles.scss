@@ -2266,7 +2266,7 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
   font-size: 12px;
   -webkit-font-smoothing: antialiased;
   font-weight: normal;
-  line-height: 22px;
+  line-height: 9px;
   padding: 0 12px;
   cursor: pointer;
 
@@ -3516,4 +3516,8 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
 
 .filterHighlight {
   color: white !important;
+}
+
+button[type=submit].inlineBlock {
+  //display: none !important;
 }

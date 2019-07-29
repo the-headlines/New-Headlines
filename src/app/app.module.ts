@@ -87,11 +87,14 @@ import {MatRadioModule} from '@angular/material/radio';
 import {InfiniteScrollModule} from 'ngx-infinite-scroll';
 import {GenerateSaveNonAuthUserIdPipe} from './shared/pipes/generate-save-non-auth-user-id.pipe';
 import {HobbyistComponent} from './modules/home/pages/hobbyist/hobbyist.component';
-import { ScienceComponent } from './modules/home/pages/science/science.component';
-import { PublicComponent } from './modules/home/pages/public/public.component';
-import { EnvironmentComponent } from './modules/home/pages/environment/environment.component';
-import { PolicyComponent } from './modules/home/pages/policy/policy.component';
+import {ScienceComponent} from './modules/home/pages/science/science.component';
+import {PublicComponent} from './modules/home/pages/public/public.component';
+import {EnvironmentComponent} from './modules/home/pages/environment/environment.component';
+import {PolicyComponent} from './modules/home/pages/policy/policy.component';
 import {EmailTokenConfirmationComponent} from './modules/home/components/email-token-confirmation/email-token-confirmation.component';
+import {JwSocialButtonsModule} from 'jw-angular-social-buttons';
+import {FbShareComponent} from './modules/home/components/fb-share/fb-share.component';
+
 
 
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
@@ -161,7 +164,8 @@ export function tokenGetter() {
         PublicComponent,
         EnvironmentComponent,
         PolicyComponent,
-        EmailTokenConfirmationComponent
+        EmailTokenConfirmationComponent,
+        FbShareComponent
     ],
     imports: [
         BrowserModule,
@@ -210,7 +214,8 @@ export function tokenGetter() {
                 blacklistedRoutes: ['localhost:3000/auth/']
             }
         }),
-        FilterPipeModule
+        FilterPipeModule,
+        JwSocialButtonsModule
     ],
     providers: [{
         provide: AuthServiceConfig,
