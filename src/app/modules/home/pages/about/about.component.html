@@ -2,9 +2,11 @@
 
 
 <div class="content">
+    <div class="about___body">
     <ul class="sidebar_links">
-        <li>
-            <a href="">About</a>
+        <li class="about__text">
+            <p (click)="toggleInfo()">About</p>
+
         </li>
         <li>
             <a href="">Terms</a>
@@ -25,6 +27,23 @@
             <a href="">Advertise</a>
         </li>
     </ul>
+
+    <div class="about__content">
+        <div class="about__text" [hidden]="!showInfo">
+            <p>About</p>
+            <div class="about_info">
+                <p>Every day we consume a great deal of news, much of which may not be
+                    particularly relevant or important to us.</p>
+                <p>We have developed a platform which creates awareness and can have a positive impact on our way of thinking. After all the betterment of human life is the sole purpose of any idea.</p>
+                <p>NOT THE HEADLINES is an social news website where users post news links
+                    and readers decide upon the headlines by voting for their favourites.</p>
+                <p> A score, based on votes, views, questions and comments, is given  to each post. The post with highest score will make it into website's headline</p>
+                <p>News which has not featured prominently in the mainstream media can
+                    become the headline on the NOT THE HEADLINES website.</p>
+            </div>
+        </div>
+    </div>
+    </div>
 </div>
 
 
