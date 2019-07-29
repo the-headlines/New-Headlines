@@ -5,11 +5,20 @@
             <li>
                 <div>
                     <h3><i class="far fa-bookmark"></i> Share</h3>
-                    <p>
-                        <a href=""><i class="fab fa-facebook-f"></i></a>
-                        <a href=""><i class="fab fa-instagram"></i></a>
-                        <a href=""><i class="fab fa-twitter"></i></a>
-                    </p>
+                    <!--                    <p>-->
+                    <!--                        <a href="">-->
+                    <app-fb-share [url]="single.link"></app-fb-share>
+
+                    <!--                            <i class="fab fa-facebook-f"></i>-->
+                    <!--                        </a>-->
+                    <!--                        <a href="">-->
+                    <!--                        <i class="fab fa-instagram"></i>-->
+                    <!--                        </a>-->
+                    <!--                        <a href="">-->
+                    <tweet [url]="single.link"></tweet>
+                    <!--                            <i class="fab fa-twitter"></i>-->
+                    <!--                        </a>-->
+                    <!--                    </p>-->
                 </div>
             </li>
             <li>
