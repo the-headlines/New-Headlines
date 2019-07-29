@@ -22,19 +22,23 @@
                             <span>filters:</span>
                             <ul class="menu">
                                 <li class="gray">
-                                    <button>All</button>
+                                    <button (click)="filterByVotes('All')"
+                                            [class.filterHighlight]="selectedFilter.vote === 'All'">All
+                                    </button>
                                 </li>
                                 <li class="op-orange">
-                                    <button>Inspiring</button>
+                                    <button [class.filterHighlight]="selectedFilter.vote === 'Inspiring'"
+                                            (click)="filterByVotes('Inspiring')">Inspiring
+                                    </button>
                                 </li>
-                              
+
                             </ul>
                         </div>
                         <div class="drop__down">
-                            <select>
+                            <select (change)="filterByType($event)">
                                 <option></option>
-                                <option>New</option>
-                                <option>Score</option>
+                                <option [selected]="selectedFilter.type==='New'">New</option>
+                                <option [selected]="selectedFilter.type==='Score'">Score</option>
                             </select>
                         </div>
                     </div>

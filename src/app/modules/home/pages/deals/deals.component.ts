@@ -35,6 +35,7 @@ export class DealsComponent implements OnInit {
     searchTerm;
     page = 1;
     filteredPosts: any = {news: []};
+    selectedFilter = {vote: 'All', type: 'New'};
 
     ngOnInit() {
 
@@ -228,4 +229,19 @@ export class DealsComponent implements OnInit {
         });
     }
 
+    filterByVotes(vote) {
+        this.selectedFilter.vote = vote;
+        this.home.getPostsByVoteType('LoveDesigns', vote, this.selectedFilter.type).subscribe((dt: any) => {
+            this.posts = dt;
+            this.filteredPosts.news = dt.news;
+        });
+    }
+
+    filterByType(e) {
+        this.selectedFilter.type = e.target.value;
+        this.home.getPostsByVoteType('LoveDesigns', this.selectedFilter.vote, this.selectedFilter.type).subscribe((dt: any) => {
+            this.posts = dt;
+            this.filteredPosts.news = dt.news;
+        });
+    }
 }

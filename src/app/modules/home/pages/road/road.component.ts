@@ -28,6 +28,7 @@ export class RoadComponent implements OnInit {
     searchTerm = '';
     filteredPosts: any = {news: []};
     page = 1;
+    selectedFilter = {vote: 'All', type: 'New'};
 
     constructor(
         private home: HomeService,
@@ -295,6 +296,22 @@ export class RoadComponent implements OnInit {
             this.home.getSinglePost(single._id).subscribe((d: any) => {
                 single.views = d.views;
             });
+        });
+    }
+
+    filterByVotes(vote) {
+        this.selectedFilter.vote = vote;
+        this.home.getPostsByVoteType('StyleAndSweat', vote, this.selectedFilter.type).subscribe((dt: any) => {
+            this.posts = dt;
+            this.filteredPosts.news = dt.news;
+        });
+    }
+
+    filterByType(e) {
+        this.selectedFilter.type = e.target.value;
+        this.home.getPostsByVoteType('StyleAndSweat', this.selectedFilter.vote, this.selectedFilter.type).subscribe((dt: any) => {
+            this.posts = dt;
+            this.filteredPosts.news = dt.news;
         });
     }
 }

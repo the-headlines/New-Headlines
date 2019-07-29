@@ -26,24 +26,26 @@
                             <span>filters:</span>
                             <ul class="menu">
                                 <!--<li class="blue_lg" (click)="filterByVotes('like')">-->
-                                    <!--<button type="button">New</button>-->
+                                <!--<button type="button">New</button>-->
                                 <!--</li>-->
                                 <!--<li class="orange_lg">-->
-                                    <!--<button>Score</button>-->
+                                <!--<button>Score</button>-->
                                 <!--</li>-->
-                                <li class="gray">
-                                    <button>All</button>
+                                <li class="gray" (click)="filterByVotes('All')">
+                                    <button [class.filterHighlight]="selectedFilter.vote === 'All'">All</button>
                                 </li>
-                                <li class="yellow_lg" (click)="filterByVotes('interesting')">
-                                    <button type="button">Interesting</button>
+                                <li class="yellow_lg" (click)="filterByVotes('Interesting')">
+                                    <button type="button"
+                                            [class.filterHighlight]="selectedFilter.vote === 'Interesting'">Interesting
+                                    </button>
                                 </li>
                             </ul>
                         </div>
                         <div class="drop__down">
-                            <select>
+                            <select (change)="filterByType($event)">
                                 <option></option>
-                                <option>New</option>
-                                <option>Score</option>
+                                <option [selected]="selectedFilter.type==='New'">New</option>
+                                <option [selected]="selectedFilter.type==='Score'">Score</option>
                             </select>
                         </div>
                     </div>

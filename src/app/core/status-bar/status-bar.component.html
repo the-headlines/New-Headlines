@@ -165,14 +165,20 @@
 
                     <ng-container *ngFor="let vType of voteTypes">
                         <div class="Emoji Emoji--love">
-                            <div class="">
+                            <div class="voteTick">
+
+                                <i class="fas fa-check emojiTick"
+                                   *ngIf="isShown && single && vType['name']=== single['votedCategory']"></i>
+                            </div>
+                            <div class="voteType">
+
                                 <button class="gray"
                                         [class.selected]="single && vType['name']=== single['votedCategory']"
                                         (click)="vote(vType['name'], single)">
                                     {{vType['name']}}
                                 </button>
-                                <p class="num">30</p>
                             </div>
+                            <!--                                <p class="num">30</p>-->
                         </div>
                     </ng-container>
                 </div>

@@ -217,6 +217,7 @@ img {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
+  //float: left;
 
   span {
     font-family: 'Lato-Regular';
@@ -264,6 +265,10 @@ img {
       }
     }
   }
+}
+
+.filterHighlight {
+  color: #fff !important;
 }
 
 .modal-body .mat-input-element {
@@ -2408,6 +2413,7 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
     padding: 10px;
   }
   .filter {
+
     .menu {
       li {
         width: 80px;
@@ -3434,31 +3440,37 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
 }
 
 .carusel-block .owl-carousel .owl-item, .carusel-block .owl-carousel .owl-item img {
-  height:750px !important;
+  height: 750px !important;
   object-fit: cover;
 }
+
 .sidebar_links {
   margin-top: 200px;
 
 }
+
 .sidebar_links li {
-    font-family: 'BrandonText-Regular', sans-serif;
-    min-height: 30px;
-    font-size: 14px;
-    font-weight: 600;
-    letter-spacing: 0.3px;
-    padding-bottom: 25px;
+  font-family: 'BrandonText-Regular', sans-serif;
+  min-height: 30px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  padding-bottom: 25px;
 }
-.sidebar_links a{
-    color: #727377;
+
+.sidebar_links a {
+  color: #727377;
 }
+
 .drop__down {
   width: 600px;
   text-align: right;
 }
+
 .drop__down select:focus {
-  outline:none;
+  outline: none;
 }
+
 .drop__down select {
   color: #495057;
   background-color: #fff;

@@ -38,28 +38,11 @@ export class HomeComponent implements OnInit {
     currentPost = {};
     defaultRecords = 5;
     page = 1;
+    selectedFilter = {vote: 'All', type: 'New'};
 
     @ViewChild('paginator') paginator;
     @ViewChild('post') element: ElementRef;
 
-
-
-    filterByVotes(vote) {
-        function compare(a, b) {
-            if (a[vote] < b[vote]) {
-                return 1;
-            }
-            if (a[vote] > b[vote]) {
-                return -1;
-            }
-            return 0;
-        }
-
-        this.fakeArr = this.fakeArr.sort(compare);
-        console.log(this.fakeArr);
-
-        localStorage.setItem('isLoggedIn', 'true');
-    }
 
     constructor(
         private home: HomeService,
@@ -280,6 +263,36 @@ export class HomeComponent implements OnInit {
             this.home.getSinglePost(single._id).subscribe((d: any) => {
                 single.views = d.views;
             });
+        });
+    }
+
+    filterByVotes(vote) {
+        // function compare(a, b) {
+        //     if (a[vote] < b[vote]) {
+        //         return 1;
+        //     }
+        //     if (a[vote] > b[vote]) {
+        //         return -1;
+        //     }
+        //     return 0;
+        // }
+        //
+        // this.fakeArr = this.fakeArr.sort(compare);
+        // console.log(this.fakeArr);
+        //
+        // localStorage.setItem('isLoggedIn', 'true');
+        this.selectedFilter.vote = vote;
+        this.home.getPostsByVoteType('Influence', vote, this.selectedFilter.type).subscribe((dt: any) => {
+            this.posts = dt;
+            this.filteredPosts.news = dt.news; // .slice(0, this.defaultRecords)
+        });
+    }
+
+    filterByType(e) {
+        this.selectedFilter.type = e.target.value;
+        this.home.getPostsByVoteType('Influence', this.selectedFilter.vote, this.selectedFilter.type).subscribe((dt: any) => {
+            this.posts = dt;
+            this.filteredPosts.news = dt.news;
         });
     }
 }
