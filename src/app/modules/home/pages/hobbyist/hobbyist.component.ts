@@ -19,6 +19,7 @@ export class HobbyistComponent implements OnInit {
     searchTerm = '';
     page = 1;
     filteredPosts: any = {news: []};
+    selectedFilter = {vote: 'All', type: 'New'};
 
     constructor(
         private home: HomeService,
@@ -96,4 +97,21 @@ export class HobbyistComponent implements OnInit {
             });
         });
     }
+
+    filterByVotes(vote) {
+        this.selectedFilter.vote = vote;
+        this.home.getPostsByVoteType('Hobbyist', vote, this.selectedFilter.type).subscribe((dt: any) => {
+            this.posts = dt;
+            this.filteredPosts.news = dt.news;
+        });
+    }
+
+    filterByType(e) {
+        this.selectedFilter.type = e.target.value;
+        this.home.getPostsByVoteType('Hobbyist', this.selectedFilter.vote, this.selectedFilter.type).subscribe((dt: any) => {
+            this.posts = dt;
+            this.filteredPosts.news = dt.news;
+        });
+    }
+
 }

@@ -20,6 +20,7 @@ export class EnvironmentComponent implements OnInit {
     searchTerm = '';
     page = 1;
     filteredPosts: any = {news: []};
+    selectedFilter = {vote: 'All', type: 'New'};
 
     constructor(
         private home: HomeService,
@@ -95,6 +96,22 @@ export class EnvironmentComponent implements OnInit {
             this.home.getSinglePost(single._id).subscribe((d: any) => {
                 single.views = d.views;
             });
+        });
+    }
+
+    filterByVotes(vote) {
+        this.selectedFilter.vote = vote;
+        this.home.getPostsByVoteType('Environment', vote, this.selectedFilter.type).subscribe((dt: any) => {
+            this.posts = dt;
+            this.filteredPosts.news = dt.news;
+        });
+    }
+
+    filterByType(e) {
+        this.selectedFilter.type = e.target.value;
+        this.home.getPostsByVoteType('Environment', this.selectedFilter.vote, this.selectedFilter.type).subscribe((dt: any) => {
+            this.posts = dt;
+            this.filteredPosts.news = dt.news;
         });
     }
 

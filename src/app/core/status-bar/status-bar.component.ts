@@ -103,7 +103,7 @@ export class StatusBarComponent implements OnInit {
 
         if (type !== single['votedCategory']) {
 
-
+            this.isShown = true;
             this.home.doVoting(single._id, type).subscribe(dt => {
                 // this.voted.emit();
                 this.home.getVoteDetails(single._id).subscribe((d: any) => {

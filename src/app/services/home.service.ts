@@ -155,4 +155,12 @@ export class HomeService {
     getVoteDetails(post_id) {
         return this.http.get(Base.url + '/api/news/' + post_id + '/votedetails');
     }
+
+    getPostsByVoteType(category, vote, type = 'New') {
+        if (vote !== 'All') {
+            return this.http.get(`${Base.url}/api/news/${this.checkAuth()}category/${category}/vote/${vote}?filter=${type}&pagesize=30&page=1`);
+        } else {
+            return this.http.get(`${Base.url}/api/news/${this.checkAuth()}category/${category}?filter=${type}&pagesize=30&page=1`);
+        }
+    }
 }

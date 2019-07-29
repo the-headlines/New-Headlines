@@ -19,6 +19,7 @@ export class ScienceComponent implements OnInit {
     searchTerm = '';
     page = 1;
     filteredPosts: any = {news: []};
+    selectedFilter = {vote: 'All', type: 'New'};
 
     constructor(
         private home: HomeService,
@@ -97,4 +98,20 @@ export class ScienceComponent implements OnInit {
         });
     }
 
+
+    filterByVotes(vote) {
+        this.selectedFilter.vote = vote;
+        this.home.getPostsByVoteType('Science', vote, this.selectedFilter.type).subscribe((dt: any) => {
+            this.posts = dt;
+            this.filteredPosts.news = dt.news;
+        });
+    }
+
+    filterByType(e) {
+        this.selectedFilter.type = e.target.value;
+        this.home.getPostsByVoteType('Science', this.selectedFilter.vote, this.selectedFilter.type).subscribe((dt: any) => {
+            this.posts = dt;
+            this.filteredPosts.news = dt.news;
+        });
+    }
 }
