@@ -224,7 +224,7 @@ img {
 
   span {
     font-family: 'Lato-Regular';
-    font-size: 20px;
+    font-size: 17px;
     font-weight: normal;
     font-style: normal;
     font-stretch: normal;
@@ -2421,7 +2421,7 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
 .filter>span{
   //border-left:1px solid red;
   margin-bottom: 10px;
-  padding-left: 15px;
+
 }
 .ng-star-inserted .input-group{
   margin-bottom: 1rem !important;
@@ -3203,11 +3203,21 @@ header[_ngcontent-pqf-c2] .navbar[_ngcontent-pqf-c2] .logo[_ngcontent-pqf-c2] ul
 
 .about___body {
   display: flex;
+  justify-content:space-between;
 }
 
 .about__content {
   margin-top: 200px;
 }
+.about_image{
+  width: 40%;
+}
+.about_image img{
+  object-fit: scale-down;
+  width: 90%;
+  margin-top: 30%;
+}
+
 
 .about__content .about__text > p {
   display: inline-block;
