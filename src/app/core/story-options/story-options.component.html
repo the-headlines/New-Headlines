@@ -21,13 +21,14 @@
                     <!--                    </p>-->
                 </div>
             </li>
-            <li>
-                <div>
+            <li (click)="copyLink(single.link,copyInput)">
+                <input [value]="single.link" #copyInput class="copyInput">
+                <div class="copyLinkDiv">
                     <h3><i class="fas fa-link"></i> Copy link</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                 </div>
             </li>
-            <li>
+            <li (click)="router.navigate(['post/'+single._id])" *ngIf="auth.loggedIn()">
                 <div>
                     <h3><i class="far fa-clipboard"></i> Post</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>

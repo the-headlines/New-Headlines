@@ -2,6 +2,7 @@ import {Component, ElementRef, Input, OnInit, Renderer2, ViewChild, Inject} from
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {ReportComponentComponent} from '../../modules/home/components/report-component/report-component.component';
 import {AuthService} from '../../services/auth.service';
+import {Router} from '@angular/router';
 
 export interface DialogData {
     animal: string;
@@ -28,7 +29,8 @@ export class StoryOptionsComponent implements OnInit {
     constructor(
         private renderer: Renderer2,
         public dialog: MatDialog,
-        public auth: AuthService
+        public auth: AuthService,
+        public router: Router
     ) {
         this.renderer.listen('window', 'click', (e: Event) => {
             if (this.toggleButton && e.target !== this.toggleButton.nativeElement) {
@@ -59,5 +61,10 @@ export class StoryOptionsComponent implements OnInit {
         this.isShown = !this.isShown;
         this.currentPost = single;
         // console.log('button click')
+    }
+
+    copyLink(link, input) {
+        input.select();
+        document.execCommand('copy');
     }
 }
