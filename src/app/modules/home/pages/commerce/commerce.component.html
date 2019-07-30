@@ -71,7 +71,7 @@
                                                 <p class="updateDate"
                                                    [matTooltip]="getDateFormatted(post.createdAt)">{{getDateFormatted(post.createdAt, false)}}</p>
                                             </div>
-                                            <app-story-options></app-story-options>
+                                            <app-story-options [single]="post"></app-story-options>
                                         </div>
                                     </div>
                                     <div class="short_desc">
