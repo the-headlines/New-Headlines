@@ -221,7 +221,6 @@ img {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-bottom: 20px;
 
   span {
     font-family: 'Lato-Regular';
@@ -245,7 +244,7 @@ img {
     width: 100%;
 
     li {
-      width: auto;
+      width: 100%;
       padding: 0 20px;
       height: 31px;
       display: flex;
@@ -376,7 +375,7 @@ img {
   .text-block {
 
     .description {
-      margin: 40px 0 25px;
+      margin: 0 0 30px 0;
       border-left: 1px solid #e14040;
     }
 
@@ -387,7 +386,6 @@ img {
       letter-spacing: 0.8px;
       text-align: left;
       color: #000;
-      margin-bottom: 10px;
       text-transform: uppercase;
     }
 
@@ -1942,6 +1940,7 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
 }
 
 .green_lg {
+  margin-bottom: 0 !important;
   background-color: #fce5a2;
 }
 
@@ -2406,17 +2405,17 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
 
 }
 .menu li{
-  margin-bottom: 20px;
+  margin-bottom: 11px;
 }
 .menu .gray_lg, .gray{
-  margin-bottom: 35px;
+  margin-bottom: 18px;
 }
 .mb-3{
   margin-bottom: 0 !important;
 
 }
 .filter>span{
-  margin-bottom: 50px;
+  margin-bottom: 25px;
 }
 .ng-star-inserted .input-group{
   margin-bottom: 1rem !important;
@@ -2435,6 +2434,7 @@ header[_ngcontent-pqf-c2] .navbar[_ngcontent-pqf-c2] .logo[_ngcontent-pqf-c2] ul
   padding-top: 5px!important;
 }
 .blocks_filter{
+  width: 48%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -2503,7 +2503,7 @@ header[_ngcontent-pqf-c2] .navbar[_ngcontent-pqf-c2] .logo[_ngcontent-pqf-c2] ul
   }
   .view-icons-block {
     width: 96%;
-  }me
+  }
   .main .col-md-4, .col-md-8 {
     padding: 15px !important;
   }
@@ -3121,16 +3121,21 @@ header[_ngcontent-pqf-c2] .navbar[_ngcontent-pqf-c2] .logo[_ngcontent-pqf-c2] ul
 .filters{
   position: sticky;
   top: 40%;
-  z-index: 1111;
   width: 30%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
+.filter{
+  width: 100%;
+}
 
 .drop__down {
-  width: 600px;
-  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 30px;
 }
 
 .drop__down select:focus {
@@ -3138,6 +3143,12 @@ header[_ngcontent-pqf-c2] .navbar[_ngcontent-pqf-c2] .logo[_ngcontent-pqf-c2] ul
 }
 
 .drop__down select {
+  height: 36px;
+  text-align: center;
+  text-align-last: center;
+  //-webkit-appearance: none;
+  //-moz-appearance: none;
+  width: 100%;
   color: #495057;
   background-color: #fff;
   background-clip: padding-box;
@@ -3535,7 +3546,7 @@ button[type=submit].inlineBlock {
   }
 
   .filter .menu li {
-    width: auto;
+    width: 100%;
     margin: 3px 5px;
     padding: 0 6px;
   }
