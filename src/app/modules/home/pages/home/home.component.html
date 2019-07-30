@@ -2,7 +2,7 @@
 <app-header></app-header>
 <div class="content">
     <div class="main row no-gutters">
-        <section class="col-md-8 col-sm-12 order-md-1 order-sm-2 order-xs-2" style="padding-right: 37px">
+        <section class="col-md-8 col-sm-12 order-md-1 order-sm-2 order-xs-2 section_carousel" style="padding-right: 37px">
             <div class="carusel-block" id="home_carousel">
 
                 <app-owl-carousel [posts]="posts"></app-owl-carousel>
@@ -14,52 +14,53 @@
             </div>
             <div class="news-block carusel-block">
                 <div class="item">
-                    <div class="text-block">
-                        <div class="description">
-                            <h5 class="title">
-                                POLITICS, BUSINESS
-                            </h5>
-                            <p class="text">
-                            </p>
-                        </div>
-                    </div>
-
                     <div class="content_block">
-                        <div class="filters">
-                            <div class="filter">
-                                <span>filters:</span>
-                                <ul class="menu">
-                                    <!--<li class="blue_lg" (click)="filterByVotes('like')">-->
-                                    <!--<button type="button">New</button>-->
-                                    <!--</li>-->
-                                    <li class="gray_lg" (click)="filterByVotes('All')">
-                                        <button [class.filterHighlight]="selectedFilter.vote === 'All'">All</button>
-                                    </li>
-                                    <li class="op-blue" (click)="filterByVotes('Important')">
-                                        <button type="button" [class.filterHighlight]="selectedFilter.vote === 'Important'">
-                                            important
-                                        </button>
-                                    </li>
-                                    <li class="green_lg" (click)="filterByVotes('Interesting')">
-                                        <button type="button"
-                                                [class.filterHighlight]="selectedFilter.vote === 'Interesting'">
-                                            Interesting
-                                        </button>
-                                    </li>
-                                    <!--<li class="gray_lg">-->
-                                    <!--<button type="button">Questions</button>-->
-                                    <!--</li>-->
-                                </ul>
+                        <div class="blocks_filter">
+                            <div class="text-block">
+                                <div class="description">
+                                    <h5 class="title">
+                                        POLITICS, BUSINESS
+                                    </h5>
+                                    <p class="text">
+                                    </p>
+                                </div>
                             </div>
-                            <div class="drop__down">
-                                <select (change)="filterByType($event)">
-                                    <option></option>
-                                    <option [selected]="selectedFilter.type==='New'">New
-                                    </option>
-                                    <option [selected]="selectedFilter.type==='Score'">
-                                        Score
-                                    </option>
-                                </select>
+                            <div class="filters">
+                                <div class="filter">
+                                    <span>filters:</span>
+                                    <ul class="menu">
+                                        <!--<li class="blue_lg" (click)="filterByVotes('like')">-->
+                                        <!--<button type="button">New</button>-->
+                                        <!--</li>-->
+                                        <li class="gray_lg" (click)="filterByVotes('All')">
+                                            <button [class.filterHighlight]="selectedFilter.vote === 'All'">All</button>
+                                        </li>
+                                        <li class="op-blue" (click)="filterByVotes('Important')">
+                                            <button type="button" [class.filterHighlight]="selectedFilter.vote === 'Important'">
+                                                important
+                                            </button>
+                                        </li>
+                                        <li class="green_lg" (click)="filterByVotes('Interesting')">
+                                            <button type="button"
+                                                    [class.filterHighlight]="selectedFilter.vote === 'Interesting'">
+                                                Interesting
+                                            </button>
+                                        </li>
+                                        <!--<li class="gray_lg">-->
+                                        <!--<button type="button">Questions</button>-->
+                                        <!--</li>-->
+                                    </ul>
+                                </div>
+                                <div class="drop__down">
+                                    <select (change)="filterByType($event)">
+                                        <option></option>
+                                        <option [selected]="selectedFilter.type==='New'">New
+                                        </option>
+                                        <option [selected]="selectedFilter.type==='Score'">
+                                            Score
+                                        </option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
                         <div class="all">
