@@ -3147,8 +3147,6 @@ header[_ngcontent-pqf-c2] .navbar[_ngcontent-pqf-c2] .logo[_ngcontent-pqf-c2] ul
   font-family: 'Lato-Bold' !important;
   font-size: 17px;
   height: 36px;
-  text-align: center;
-  text-align-last: center;
   -webkit-appearance: none;
   -moz-appearance: none;
   width: 100%;
@@ -3157,7 +3155,9 @@ header[_ngcontent-pqf-c2] .navbar[_ngcontent-pqf-c2] .logo[_ngcontent-pqf-c2] ul
   background-clip: padding-box;
   border: 2px solid #d7d7d7;
   border-radius: 9px;
+  padding-left: 15px;
 }
+
 .drop__down:after{
   width: 0;
   height: 0;
@@ -3383,6 +3383,13 @@ button[type=submit].inlineBlock {
   }
 }
 
+@media only screen and (max-width: 1680px) {
+  .filters {
+    width: 39%;
+  }
+
+}
+
 @media screen and (max-width: 1675px) and (min-width: 1660px) {
   .menu ul li {
     margin-left: 5.5%;
@@ -3423,7 +3430,22 @@ button[type=submit].inlineBlock {
   }
 }
 
+@media only screen and (max-width: 1480px) {
+  .filters {
+    width: 50%;
+  }
 
+}
+@media only screen and (max-width: 1400px){
+  .filters {
+    width: 75%;
+  }
+}
+@media only screen and (max-width: 1280px){
+  .drop__down select {
+    font-size: 14px;
+  }
+}
 @media screen and (min-width: 320px) and (max-width: 768px) {
 
   .mat-dialog-content {
