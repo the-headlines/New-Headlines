@@ -64,7 +64,23 @@ export class StoryOptionsComponent implements OnInit {
     }
 
     copyLink(link, input) {
-        input.select();
-        document.execCommand('copy');
+        if (this.isOS()) {
+            const range = document.createRange();
+            range.selectNodeContents(input);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            input.setSelectionRange(0, 999999);
+
+        } else {
+
+            input.select();
+            document.execCommand('copy');
+        }
     }
+
+    isOS() {
+        return navigator.userAgent.match(/ipad|iphone/i);
+    }
+
 }
