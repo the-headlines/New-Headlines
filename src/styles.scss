@@ -3337,7 +3337,9 @@ button[type=submit].inlineBlock {
     margin-left: 2%;
     word-break: break-word;
   }
-
+  .blocks_filter {
+    width: 27%;
+  }
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1300px) {
@@ -3509,12 +3511,6 @@ button[type=submit].inlineBlock {
   }
   .filter .menu li button{
     font-size: 8.5px;
-  }
-  .filter .menu {
-    width: 60%;
-  }
-  .drop__down {
-    width: 60%;
   }
 
 }
