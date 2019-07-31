@@ -3214,16 +3214,17 @@ header[_ngcontent-pqf-c2] .navbar[_ngcontent-pqf-c2] .logo[_ngcontent-pqf-c2] ul
   margin-top: 200px;
 }
 .images_content{
-  display:flex;
-  width: 30%;
+  display: flex;
+  width: 28%;
   margin-top: 200px;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
   justify-content: flex-start;
 }
 .about_image{
-  width: 30%;
-  margin-bottom: 20px;
+  margin-top: 1rem;
+  width: 22%;
+  margin-bottom: 10px;
 }
 .about_image img{
   object-fit: cover;
@@ -3233,6 +3234,9 @@ header[_ngcontent-pqf-c2] .navbar[_ngcontent-pqf-c2] .logo[_ngcontent-pqf-c2] ul
   width:60%;
   display: flex;
   justify-content: space-between;
+}
+.images_content p{
+  margin-bottom: 1rem;
 }
 
 .about__content .about__text > p {

@@ -4,16 +4,75 @@
 <div class="content">
     <div class="about___body">
 <!--        <div class="sidebar_text_content">-->
-<!--            <div class="item_content">-->
-<!--                <div class="left">          -->
+
+<!--            <div class="item_content_header">-->
+<!--                <div class="left">-->
 <!--                    <p (click)="toggleInfo()">About</p>-->
 <!--                </div>-->
-<!--                <div class="left"></div>-->
+
+<!--                <div class="right" [hidden]="!showInfo">-->
+<!--                    <p>About</p>-->
+<!--                </div>-->
 <!--            </div>-->
+<!--            <div class="content_about_us">-->
+<!--                <div class="about_text_content">-->
+
+<!--                    <div class="contents">-->
+<!--                        <div class="left">-->
+<!--                            <a href="">Terms</a>-->
+<!--                        </div>-->
+<!--                        <div class="right">-->
+<!--                            <p>Every day we consume a great deal of news, much of which may not be-->
+<!--                                particularly relevant or important to us.-->
+<!--                            </p>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+
+<!--                    <div class="contents">-->
+<!--                        <div class="left">-->
+<!--                            <a href="">Privacy Policy</a>-->
+<!--                        </div>-->
+<!--                        <div class="right">-->
+<!--                            <p>We have developed a platform which creates awareness and can have a positive impact on our way of thinking. After all the betterment of human life is the sole purpose of any idea.</p>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+
+<!--                    <div class="contents">-->
+<!--                        <div class="left">-->
+<!--                            <a href="">Content policy</a>-->
+<!--                        </div>-->
+<!--                        <div class="right">-->
+<!--                            <p>NOT THE HEADLINES is an social news website where users post news links-->
+<!--                                and readers decide upon the headlines by voting for their favourites.</p>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--                    <div class="contents">-->
+<!--                        <div class="left">-->
+<!--                            <a href="">Score</a>-->
+<!--                        </div>-->
+<!--                        <div class="right">-->
+<!--                            <p> A score, based on votes, views, questions and comments, is given  to each post. The post with highest score will make it into website's headline</p>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--                    <div class="contents">-->
+<!--                        <div class="left">-->
+<!--                            <a href="">Voting</a>-->
+<!--                        </div>-->
+<!--                        <div class="right">-->
+<!--                            <p>News which has not featured prominently in the mainstream media can-->
+<!--                                become the headline on the NOT THE HEADLINES website.</p>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
 <!--        </div>-->
+
     <ul class="sidebar_links">
         <li class="about__text">
-
+            <p (click)="toggleInfo()">About</p>
         </li>
         <li>
             <a href="">Terms</a>
@@ -51,11 +110,15 @@
         </div>
     </div>
         <div class="images_content">
+            <p></p>
             <div class="about_image">
                 <img src="../../../../../assets/images/imgpsh_fullsize_anim.png" alt="">
             </div>
             <div class="about_image">
                 <img src="../../../../../assets/images/imgpsh_fullsize_anim2.jpg" alt="">
+            </div>
+            <div class="about_image">
+                <img src="../../../../../assets/images/imgpsh_fullsize_anim3.jpg" alt="">
             </div>
         </div>
     </div>
