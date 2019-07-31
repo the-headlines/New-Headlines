@@ -241,7 +241,7 @@ img {
     align-items: flex-start;
     flex-wrap: nowrap;
     margin: unset;
-    width: 79%;
+    width: 90%;
 
     li {
       width: 100%;
@@ -2398,7 +2398,6 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
 .content_block{
   position: relative;
   display: flex;
-  justify-content: space-between;
 }
 .content_block .all{
   width: 60%;
@@ -2440,7 +2439,7 @@ header[_ngcontent-pqf-c2] .navbar[_ngcontent-pqf-c2] .logo[_ngcontent-pqf-c2] ul
   padding-top: 5px!important;
 }
 .blocks_filter{
-  width: 38%;
+  width: 13%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -3117,7 +3116,7 @@ header[_ngcontent-pqf-c2] .navbar[_ngcontent-pqf-c2] .logo[_ngcontent-pqf-c2] ul
 .filters{
   position: sticky;
   top: 35%;
-  width: 38%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -3457,12 +3456,6 @@ button[type=submit].inlineBlock {
   }
 }
 
-@media only screen and (max-width: 1680px) {
-  .filters {
-    width: 39%;
-  }
-
-}
 
 @media screen and (max-width: 1675px) and (min-width: 1660px) {
   .menu ul li {
@@ -3505,16 +3498,11 @@ button[type=submit].inlineBlock {
 }
 
 @media only screen and (max-width: 1480px) {
-  .filters {
-    width: 50%;
+  .blocks_filter {
+    width: 17%;
   }
+}
 
-}
-@media only screen and (max-width: 1400px){
-  .filters {
-    width: 75%;
-  }
-}
 @media only screen and (max-width: 1280px){
   .drop__down select {
     font-size: 14px;
