@@ -3099,19 +3099,21 @@ header[_ngcontent-pqf-c2] .navbar[_ngcontent-pqf-c2] .logo[_ngcontent-pqf-c2] ul
 
 .sidebar_links li {
   min-height: 30px;
-  padding-bottom: 46px;
+  padding-bottom: 34px;
 }
 .sidebar_links li:first-child{
   padding-bottom: 0;
 }
 .sidebar_links li > p {
+  font-family: 'Lato-Black';
   margin-bottom: 0;
   display: inline-block;
   padding-bottom: 5px;
+  color: #727377;
 }
 
 .sidebar_links a, .sidebar_links p {
-  color: #000000;
+  color: #727377;
 }
 .filters{
   position: sticky;
@@ -3189,7 +3191,9 @@ header[_ngcontent-pqf-c2] .navbar[_ngcontent-pqf-c2] .logo[_ngcontent-pqf-c2] ul
 .about__text .about_info {
   //max-width: 550px;
 }
-
+.about__text{
+  width: 90%;
+}
 .about_info p {
   font-family: 'Lato-Regular', sans-serif;
   font-size: 15px;
@@ -3197,7 +3201,7 @@ header[_ngcontent-pqf-c2] .navbar[_ngcontent-pqf-c2] .logo[_ngcontent-pqf-c2] ul
   line-height: 20px;
   letter-spacing: 0.3px;
   padding-bottom: 0;
-  padding-top: 38px;
+  padding-top: 21px;
   text-align: justify;
 }
 .about_info p:first-child{
@@ -3227,7 +3231,7 @@ header[_ngcontent-pqf-c2] .navbar[_ngcontent-pqf-c2] .logo[_ngcontent-pqf-c2] ul
 }
 .about_image{
   border: 2px solid #eae7e7;
-  width: 65%;
+  width: 60%;
   margin-bottom: 10px;
 }
 .image_title .item1{
@@ -3256,6 +3260,7 @@ header[_ngcontent-pqf-c2] .navbar[_ngcontent-pqf-c2] .logo[_ngcontent-pqf-c2] ul
   align-items: center;
 }
 .about__content .about__text > p {
+  font-family: 'Lato-Black';
   display: inline-block;
   color: #727377;
 }
@@ -3281,14 +3286,20 @@ button[type=submit].inlineBlock {
 
 
 @media screen and (max-width: 1800px) {
-  .about_image {
-    width: 73%;
-  }
+
 }
 @media screen and (max-width: 1680px) {
   .about_image {
     margin-bottom: 32px;
   }
+  .about__text {
+    width: 100%;
+  }
+  .about__content {
+    width: 60%;
+  }
+
+
 }
 
 @media screen and (max-width: 1550px) {
@@ -3297,16 +3308,19 @@ button[type=submit].inlineBlock {
   }
 }
 @media screen and (max-width: 1480px) {
-  .about_image {
-    width: 85%;
+  .about_info p {
+    font-size: 14px;
   }
+
+.sidebar_links li {
+  min-height: 30px;
+  padding-bottom: 40px;
+}
+
 }
 @media screen and (max-width: 1366px) {
   .about_image {
-    width: 80%;
-  }
-  .image_title .item1{
-    width: 53%;
+    width: 70%;
   }
 }
 
@@ -3350,7 +3364,6 @@ button[type=submit].inlineBlock {
 
 @media screen and (max-width: 1290px) and (min-width: 1261px) {
   .menu ul li {
-    margin-left: 3.7%;
   }
 }
 
