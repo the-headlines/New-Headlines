@@ -19,7 +19,7 @@
                             <div class="text-block">
                                 <div class="description">
                                     <h5 class="title">
-<!--                                        POLITICS, BUSINESS-->
+                                        <!--                                        POLITICS, BUSINESS-->
                                     </h5>
                                     <p class="text">
 
@@ -37,12 +37,14 @@
                                         <!--<li class="orange_lg">-->
                                         <!--<button>Score</button>-->
                                         <!--</li>-->
-                                        <li class="gray" (click)="filterByVotes('All')">
-                                            <button [class.filterHighlight]="selectedFilter.vote === 'All'">All</button>
+                                        <li [class.filterHighlight]="selectedFilter.vote === 'All'"
+                                            (click)="filterByVotes('All')">
+                                            <button>All</button>
                                         </li>
-                                        <li class="yellow_lg" (click)="filterByVotes('Informative')">
+                                        <li [class.filterHighlight]="selectedFilter.vote === 'Informative'"
+                                            (click)="filterByVotes('Informative')">
                                             <button type="button"
-                                                    [class.filterHighlight]="selectedFilter.vote === 'Informative'">Informative
+                                            >Informative
                                             </button>
                                         </li>
                                     </ul>
@@ -58,44 +60,45 @@
                         </div>
 
                         <div class="all">
-                             <div class="loop_items item posts_items"
-                             infiniteScroll
-                             [infiniteScrollDistance]="2"
-                             [infiniteScrollThrottle]="50"
-                             (scrolled)="onIntersection($event, ind)"
-                             *ngFor="let single of filteredPosts.news| searchNews: searchTerm;let ind = index">
-                            <div class="post_wrapper">
-                                <div class="user_posts">
-                                    <div class="userName">
-                                        <div>
-                                            <h3 *ngIf="single.creator"><span>Posted by</span>{{single.creator.name}}</h3>
-                                            <p class="updateDate"
-                                               [matTooltip]="single.createdAt|formattedDate">{{single.createdAt|formattedDate:false}}</p>
+                            <div class="loop_items item posts_items"
+                                 infiniteScroll
+                                 [infiniteScrollDistance]="2"
+                                 [infiniteScrollThrottle]="50"
+                                 (scrolled)="onIntersection($event, ind)"
+                                 *ngFor="let single of filteredPosts.news| searchNews: searchTerm;let ind = index">
+                                <div class="post_wrapper">
+                                    <div class="user_posts">
+                                        <div class="userName">
+                                            <div>
+                                                <h3 *ngIf="single.creator"><span>Posted by</span>{{single.creator.name}}
+                                                </h3>
+                                                <p class="updateDate"
+                                                   [matTooltip]="single.createdAt|formattedDate">{{single.createdAt|formattedDate:false}}</p>
+                                            </div>
+                                            <app-story-options [single]="single"></app-story-options>
                                         </div>
-                                        <app-story-options [single]="single"></app-story-options>
+                                    </div>
+                                    <div class="short_desc">
+                                        <!--<a href="{{single.link}}">{{single.link}}</a>-->
+                                        <!--                                <small>{{single.description|stripTags}}</small>-->
+                                    </div>
+
+                                    <div class="img-block">
+                                        <a href="{{single.link}}" (click)="incrementViews(single)" target="_blank">
+                                            <img src="{{single.extractedImage}}" class="img-fluid" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="text-block">
+                                        <a href="{{single.link}}" class="text_block_link" target="_blank"
+                                           (click)="incrementViews(single)">
+                                            <h5 class="news_link">{{single.link|getUrlBase}}</h5>
+                                            <h3 class="news_title">{{single.extractedTitle}}</h3>
+                                            <p class="news_desc">{{single.extractedDescription}}</p>
+                                        </a>
                                     </div>
                                 </div>
-                                <div class="short_desc">
-                                    <!--<a href="{{single.link}}">{{single.link}}</a>-->
-                                    <!--                                <small>{{single.description|stripTags}}</small>-->
-                                </div>
-
-                                <div class="img-block">
-                                    <a href="{{single.link}}" (click)="incrementViews(single)" target="_blank">
-                                        <img src="{{single.extractedImage}}" class="img-fluid" alt="">
-                                    </a>
-                                </div>
-                                <div class="text-block">
-                                    <a href="{{single.link}}" class="text_block_link" target="_blank"
-                                       (click)="incrementViews(single)">
-                                        <h5 class="news_link">{{single.link|getUrlBase}}</h5>
-                                        <h3 class="news_title">{{single.extractedTitle}}</h3>
-                                        <p class="news_desc">{{single.extractedDescription}}</p>
-                                    </a>
-                                </div>
+                                <app-status-bar [single]="single"></app-status-bar>
                             </div>
-                            <app-status-bar [single]="single"></app-status-bar>
-                        </div>
                         </div>
                     </div>
                 </div>

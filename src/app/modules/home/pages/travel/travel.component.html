@@ -26,13 +26,13 @@
                                 <div class="filter">
                                     <span>filters:</span>
                                     <ul class="menu">
-                                        <li class="gray">
-                                            <button (click)="filterByVotes('All')"
-                                                    [class.filterHighlight]="selectedFilter.vote === 'All'">All
+                                        <li [class.filterHighlight]="selectedFilter.vote === 'All'">
+                                            <button (click)="filterByVotes('All')">
+                                                All
                                             </button>
                                         </li>
-                                        <li class="op-orange">
-                                            <button [class.filterHighlight]="selectedFilter.vote === 'Inspiring'"
+                                        <li [class.filterHighlight]="selectedFilter.vote === 'Inspiring'">
+                                            <button
                                                     (click)="filterByVotes('Inspiring')">Inspiring
                                             </button>
                                         </li>
@@ -49,46 +49,46 @@
                             </div>
                         </div>
                         <div class="all">
-                             <div class="loop_items item posts_items"
-                             infiniteScroll
-                             [infiniteScrollDistance]="2"
-                             [infiniteScrollThrottle]="50"
-                             (scrolled)="onIntersection($event, ind)"
-                             *ngFor="let post of filteredPosts.news| searchNews: searchTerm;let ind = index">
-                            <div class="post_wrapper">
-                                <div class="user_posts">
-                                    <div class="userName">
-                                        <div>
-                                            <h3 *ngIf="post.creator">
-                                                <span>Posted by</span>
-                                                {{post.creator.name}}</h3>
-                                            <p class="updateDate"
-                                               [matTooltip]="getDateFormatted(post.createdAt)">{{getDateFormatted(post.createdAt, false)}}</p>
+                            <div class="loop_items item posts_items"
+                                 infiniteScroll
+                                 [infiniteScrollDistance]="2"
+                                 [infiniteScrollThrottle]="50"
+                                 (scrolled)="onIntersection($event, ind)"
+                                 *ngFor="let post of filteredPosts.news| searchNews: searchTerm;let ind = index">
+                                <div class="post_wrapper">
+                                    <div class="user_posts">
+                                        <div class="userName">
+                                            <div>
+                                                <h3 *ngIf="post.creator">
+                                                    <span>Posted by</span>
+                                                    {{post.creator.name}}</h3>
+                                                <p class="updateDate"
+                                                   [matTooltip]="getDateFormatted(post.createdAt)">{{getDateFormatted(post.createdAt, false)}}</p>
+                                            </div>
+                                            <app-story-options [single]="post"></app-story-options>
                                         </div>
-                                        <app-story-options [single]="post"></app-story-options>
+                                    </div>
+                                    <div class="short_desc">
+                                        <!--                                <a href="{{post.link}}">{{post.link}}</a>-->
+                                        <!--                            <h6>{{post.description|stripTags}}</h6>-->
+                                    </div>
+                                    <div class="img-block">
+                                        <a href="{{post.link}}" (click)="incrementViews(post)" target="_blank">
+                                            <img src="{{post.extractedImage}}" class="img-fluid" alt="">
+                                        </a>
+                                    </div>
+
+                                    <div class="text-block">
+                                        <a href="{{post.link}}" class="text_block_link" target="_blank"
+                                           (click)="incrementViews(post)">
+                                            <h5 class="news_link">{{getLinkSource(post.link)}}</h5>
+                                            <h3 class="news_title">{{post.extractedTitle}}</h3>
+                                            <p class="news_desc">{{post.extractedDescription}}</p>
+                                        </a>
                                     </div>
                                 </div>
-                                <div class="short_desc">
-                                    <!--                                <a href="{{post.link}}">{{post.link}}</a>-->
-                                    <!--                            <h6>{{post.description|stripTags}}</h6>-->
-                                </div>
-                                <div class="img-block">
-                                    <a href="{{post.link}}" (click)="incrementViews(post)" target="_blank">
-                                        <img src="{{post.extractedImage}}" class="img-fluid" alt="">
-                                    </a>
-                                </div>
-
-                                <div class="text-block">
-                                    <a href="{{post.link}}" class="text_block_link" target="_blank"
-                                       (click)="incrementViews(post)">
-                                        <h5 class="news_link">{{getLinkSource(post.link)}}</h5>
-                                        <h3 class="news_title">{{post.extractedTitle}}</h3>
-                                        <p class="news_desc">{{post.extractedDescription}}</p>
-                                    </a>
-                                </div>
+                                <app-status-bar [single]="post"></app-status-bar>
                             </div>
-                            <app-status-bar [single]="post"></app-status-bar>
-                        </div>
                         </div>
                     </div>
                 </div>

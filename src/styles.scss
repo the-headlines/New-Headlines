@@ -241,7 +241,7 @@ img {
     align-items: flex-start;
     flex-wrap: nowrap;
     margin: unset;
-    width: 78%;
+    width: 79%;
 
     li {
       width: 100%;
@@ -2418,8 +2418,8 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
   margin-bottom: 0 !important;
 
 }
-.filter>span{
-  //border-left:1px solid red;
+
+.filter > span {
   margin-bottom: 10px;
 
 }
@@ -3262,7 +3262,18 @@ header[_ngcontent-pqf-c2] .navbar[_ngcontent-pqf-c2] .logo[_ngcontent-pqf-c2] ul
 }
 
 .filterHighlight {
-  color: white !important;
+  background-color: #e14040 !important;
+  border: none !important;
+
+  button {
+    color: #fff !important;
+  }
+}
+
+.filters {
+  li {
+    border: 1px solid;
+  }
 }
 
 button[type=submit].inlineBlock {
