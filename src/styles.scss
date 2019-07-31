@@ -147,7 +147,7 @@ img {
 
 .main {
   padding-bottom: 100px;
-  padding-top: 12%;
+  padding-top: 14%;
   padding-left: 16px;
 }
 
@@ -157,7 +157,7 @@ img {
 
 
 .main .order-xs-2, .main .col-md-8{
-  margin-top: 43px;
+  margin-top: 45px;
 }
 .mat-dialog-container {
   background: unset !important;
@@ -2073,7 +2073,8 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
 }
 
 .Like__link {
-  &.js-hover + .Emojis .Emoji, &:hover + .Emojis .Emoji {
+  &.js-hover + .Emojis .Emoji, &:hover + .Emojis .Emoji
+  {
     -webkit-transform: none;
     transform: none;
     opacity: 1;
@@ -2081,6 +2082,7 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
 }
 
 .Emoji div button {
+  margin-bottom: 0;
   transition: 500ms;
 
   i {
@@ -3233,12 +3235,13 @@ header[_ngcontent-pqf-c2] .navbar[_ngcontent-pqf-c2] .logo[_ngcontent-pqf-c2] ul
   justify-content: flex-start;
 }
 .about_image{
+  height: 86px;
   border: 2px solid #eae7e7;
-  width: 60%;
+  width: 85%;
   margin-bottom: 10px;
 }
 .image_title .item1{
-  width:44%;
+  width:42%;
   display: flex;
   flex-direction: column;
 
@@ -3256,6 +3259,7 @@ header[_ngcontent-pqf-c2] .navbar[_ngcontent-pqf-c2] .logo[_ngcontent-pqf-c2] ul
   font-weight: bold;
   font-size: 11px;
   margin-bottom:5px;
+  width: 85%;
 }
 .image_title{
   display: flex;
@@ -3286,8 +3290,12 @@ header[_ngcontent-pqf-c2] .navbar[_ngcontent-pqf-c2] .logo[_ngcontent-pqf-c2] ul
 button[type=submit].inlineBlock {
   //display: none !important;
 }
-
-
+.Emoji[_ngcontent-svd-c4] .voteType[_ngcontent-svd-c4]{
+  margin-left: 0 !important;
+}
+.Emoji--love{
+  margin-right: 0!important;
+}
 @media screen and (max-width: 1800px) {
 
 }
@@ -3302,6 +3310,9 @@ button[type=submit].inlineBlock {
     width: 60%;
   }
 
+.main {
+  padding-top: 16%;
+}
 
 }
 
@@ -3327,6 +3338,14 @@ button[type=submit].inlineBlock {
   }
 }
 
+@media screen and (max-width: 1280px) {
+  .menu ul li a {
+    font-size: 14px;
+  }
+  .main {
+    padding-top: 20%;
+  }
+}
 @media screen and (max-width: 600px) {
 
   .logo a img {
@@ -3340,11 +3359,6 @@ button[type=submit].inlineBlock {
   }
 }
 
-@media screen and (max-width: 1290px) {
-  .menu ul li a {
-    font-size: 14px;
-  }
-}
 
 @media screen and (min-width: 769px) and (max-width: 1024px) {
   .menu ul li {
