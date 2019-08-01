@@ -74,6 +74,7 @@ body {
   font-size: 14px;
   letter-spacing: 3px;
   margin: unset;
+  position:relative;
   //background: #eee !important;
 }
 
@@ -2488,10 +2489,10 @@ header[_ngcontent-pqf-c2] .navbar[_ngcontent-pqf-c2] .logo[_ngcontent-pqf-c2] ul
 }
 
 .section_carousel{
-  width:60%;
+  width:65%;
 }
 .section_right{
-  width: 40%;
+  width: 32%;
 }
 .all .posts_items{
   margin-bottom: 20px;
@@ -2510,6 +2511,25 @@ header[_ngcontent-pqf-c2] .navbar[_ngcontent-pqf-c2] .logo[_ngcontent-pqf-c2] ul
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+.postCommentsForm textarea{
+  height: auto !important;
+  resize:none;
+}
+.feedback_btn{
+  right: -40px;
+  top: 50%;
+  position: fixed;
+  transform: rotate(-90deg);
+
+}
+.feedback_btn a{
+  background: #bbbec7;
+  color: #fff;
+  padding: 5px 10px;
+}
+.feedback_btn a:hover{
+  color: #fff;
 }
 //media queries
 @media only screen and (max-width: 1600px) {

@@ -1,7 +1,7 @@
 <app-header></app-header>
 <div class="content">
     <div class="main row no-gutters">
-        <section class="col-md-8" style="padding-right: 37px">
+        <section class="section_carousel" style="padding-right: 37px">
             <div class="carusel-block" id="home_carousel">
                 <app-owl-carousel [posts]="posts"></app-owl-carousel>
                 <div class="img-block">
@@ -91,7 +91,9 @@
                                         </a>
                                     </div>
                                 </div>
+
                                 <app-status-bar [single]="post"></app-status-bar>
+
                             </div>
                         </div>
                     </div>
@@ -100,7 +102,7 @@
             </div>
         </section>
 
-        <aside class="col-md-4" style="padding-left: 37px">
+        <aside class="section_right" style="padding-left: 37px">
             <app-aside></app-aside>
         </aside>
     </div>
