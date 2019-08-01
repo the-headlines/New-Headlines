@@ -193,6 +193,7 @@ export class SinglePostComponent implements OnInit, OnDestroy {
             this.singlePost = data;
             this.postCategory = data.category;
             this.voteTypes = this.voteTypes.filter(t => t['pages'].includes(this.postCategory));
+            this.singlePost.score = data.score;
 
             // this.comments = data['result']['comment'];
             // this.related = data['result']['related'];
@@ -281,6 +282,7 @@ export class SinglePostComponent implements OnInit, OnDestroy {
     vote(type, id) {
         this.home.doVoting(id, type).subscribe(dt => {
             this.getPostVotes(id);
+            this.getSinglePost(id);
         });
     }
 
@@ -305,6 +307,7 @@ export class SinglePostComponent implements OnInit, OnDestroy {
             });
             this.comments = dt.comments;
             this.filteredComments = dt.comments.filter(c => c.type === this.selectedCommentType);
+            this.singlePost.score = this.selectedCommentType === 'Question' ? this.singlePost.score + 2 : ++this.singlePost.score;
         });
     }
 

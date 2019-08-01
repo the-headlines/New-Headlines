@@ -6,6 +6,7 @@ import {AuthService} from '../../services/auth.service';
 import {SubjectService} from '../../services/subject.service';
 import * as JwtDecode from 'jwt-decode';
 import {VOTE_TYPES} from '../../shared/constants/main';
+import {CountPostScorePipe} from '../../shared/pipes/count-post-score.pipe';
 
 @Component({
     selector: 'app-status-bar',
@@ -28,16 +29,43 @@ export class StatusBarComponent implements OnInit {
     userData;
     postCategory;
     voteTypes = VOTE_TYPES;
-
+    postScore = 0;
 
     constructor(
         private renderer: Renderer2,
         public router: Router,
         private home: HomeService,
         public auth: AuthService,
-        private subject: SubjectService
+        private subject: SubjectService,
+        private countScore: CountPostScorePipe
     ) {
         this.openNum = false;
+    }
+
+    ngOnInit() {
+        this.routerUrl = this.router.url;
+
+        const token = localStorage.getItem('token');
+        if (token) {
+            this.userData = JwtDecode(token);
+        }
+
+        if (this.single) {
+            this.postCategory = this.single.category;
+            this.postScore = this.countScore.transform(this.single);
+            console.log(this.single.score);
+            this.voteTypes = this.voteTypes.filter(t => t['pages'].includes(this.postCategory));
+        }
+
+        // this.home.getPostVotes(single._id).subscribe((d: any) => {
+        //     console.log(this.userData);
+        //     console.log(d.votes);
+        //     const data = d.votes.filter(v => v.creator && v.creator._id === this.userData.userId);
+        //     console.log(data);
+        //     this.votes = data;
+        // });
+
+
     }
 
     onClick(event) {
@@ -68,29 +96,6 @@ export class StatusBarComponent implements OnInit {
         });
     }
 
-    ngOnInit() {
-        this.routerUrl = this.router.url;
-
-        let token = localStorage.getItem('token');
-        if (token) {
-            this.userData = JwtDecode(token);
-        }
-
-        if (this.single) {
-            this.postCategory = this.single.category;
-            this.voteTypes = this.voteTypes.filter(t => t['pages'].includes(this.postCategory));
-        }
-
-        // this.home.getPostVotes(single._id).subscribe((d: any) => {
-        //     console.log(this.userData);
-        //     console.log(d.votes);
-        //     const data = d.votes.filter(v => v.creator && v.creator._id === this.userData.userId);
-        //     console.log(data);
-        //     this.votes = data;
-        // });
-
-
-    }
 
     vote(type, single) {
         if (type === 'Like') {
@@ -108,9 +113,8 @@ export class StatusBarComponent implements OnInit {
                 // this.voted.emit();
                 this.home.getVoteDetails(single._id).subscribe((d: any) => {
                     if (d.news && d.news.length > 0) {
-
                         this.single = d.news[0];
-                        // console.log(this.single, d);
+                        this.postScore = this.single.score;
                     }
                 });
 
@@ -131,8 +135,9 @@ export class StatusBarComponent implements OnInit {
     }
 
     getSingle(single) {
-        this.home.updateViewCount(single).subscribe(dt => {
-
+        this.home.updateViewCount(single).subscribe((dt: any) => {
+            this.postScore = dt.score;
+            console.log('OK' + this.postScore);
             this.router.navigate(['/post', single._id]);
         });
     }

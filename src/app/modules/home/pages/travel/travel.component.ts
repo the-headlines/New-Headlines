@@ -146,6 +146,7 @@ export class TravelComponent implements OnInit {
     incrementViews(single) {
         this.home.updateViewCount(single).subscribe(dt => {
             this.home.getSinglePost(single._id).subscribe((d: any) => {
+                single.score = d.score;
                 single.views = d.views;
             });
         });
