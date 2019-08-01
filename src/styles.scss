@@ -3112,8 +3112,16 @@ header[_ngcontent-pqf-c2] .navbar[_ngcontent-pqf-c2] .logo[_ngcontent-pqf-c2] ul
   border: none !important;
 }
 .carusel-block{
+  width:860px;
+  //height: 860px;
   border: solid 1px #959595;
 }
+//.carousel_top_text{
+//  height: 100px;
+//}
+//.owl-item .ng-star-inserted{
+//  height: 760px;
+//}
 .sidebar_links li, .sidebar_links li p {
   font-family: 'BrandonText-Regular', sans-serif;
   font-size: 16px;
