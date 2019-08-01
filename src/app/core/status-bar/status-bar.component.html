@@ -174,10 +174,9 @@
 
                                 <button class="gray"
                                         [class.selected]="single && vType['name']=== single['votedCategory']"
-                                        (click)="vote(vType['name'], single)">{{vType['name']}}
-
-<!--                                    <i class="fas fa-heart" *ngIf="showHeart(vType['name'])"></i>-->
-<!--                                    <span *ngIf="!showHeart(vType['name'])">{{vType['name']}}</span>-->
+                                        (click)="vote(vType['name'], single)">
+                                    <i class="fas fa-heart" *ngIf="showHeart(vType['name'])"></i>
+                                    <span *ngIf="!showHeart(vType['name'])">{{vType['name']}}</span>
                                 </button>
                             </div>
                             <!--                                <p class="num">30</p>-->

@@ -29,7 +29,11 @@ a {
     margin-left:0;
     .gray{
       .fa-heart{
+        color: #e14040;
 
+      }
+      .fa-heart:hover{
+        transform: scale(1.05);
       }
 
     }
