@@ -2450,7 +2450,7 @@ header[_ngcontent-pqf-c2] .navbar[_ngcontent-pqf-c2] .logo[_ngcontent-pqf-c2] ul
   padding-top: 5px!important;
 }
 .blocks_filter{
-  width: 18%;
+  width: 19%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -3196,7 +3196,7 @@ header[_ngcontent-pqf-c2] .navbar[_ngcontent-pqf-c2] .logo[_ngcontent-pqf-c2] ul
   background-clip: padding-box;
   border: 2px solid #d7d7d7;
   border-radius: 9px;
-  padding-left: 15px;
+  padding-left: 8px;
 }
 
 .drop__down:after{
@@ -3385,7 +3385,7 @@ button[type=submit].inlineBlock {
 
 @media screen and (max-width: 1280px) {
   .menu ul li a {
-    font-size: 14px;
+    font-size: 12px;
   }
   .main {
     padding-top: 20%;
@@ -3399,6 +3399,22 @@ button[type=submit].inlineBlock {
   }
   .block_content {
     height: 500px;
+  }
+
+  .drop__down:after{
+
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    border-top: 3px solid #4a5056;
+    bottom: 14px;
+  }
+  .drop__down:before {
+
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    border-bottom: 3px solid #4a5056;
+    top: 14px;
+
   }
 }
 @media screen and (max-width: 600px) {

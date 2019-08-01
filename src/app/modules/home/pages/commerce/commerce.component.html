@@ -37,6 +37,10 @@
                                                 Solver
                                             </button>
                                         </li>
+                                        <li [class.filterHighlight]="selectedFilter.vote === 'Promising'">
+                                            <button (click)="filterByVotes('Promising')"  >Promising
+                                            </button>
+                                        </li>
                                         <!--<li class="gray">-->
                                         <!--<button>Useful</button>-->
                                         <!--</li>-->

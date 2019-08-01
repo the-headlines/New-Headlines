@@ -36,6 +36,11 @@
                                                 Class
                                             </button>
                                         </li>
+                                        <li (click)="filterByVotes('Magig')"
+                                            [class.filterHighlight]="selectedFilter.vote === 'Magig'">
+                                            <button>Magig
+                                            </button>
+                                        </li>
                                     </ul>
                                 </div>
                                 <div class="drop__down">

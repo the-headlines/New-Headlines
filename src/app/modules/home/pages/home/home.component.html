@@ -50,6 +50,18 @@
                                                 Interesting
                                             </button>
                                         </li>
+                                        <li (click)="filterByVotes('Investigate')"
+                                            [class.filterHighlight]="selectedFilter.vote === 'Investigate'">
+                                            <button type="button">
+                                                Investigate
+                                            </button>
+                                        </li>
+                                        <li (click)="filterByVotes('Protest')"
+                                            [class.filterHighlight]="selectedFilter.vote === 'Protest'">
+                                            <button type="button">
+                                                Protest
+                                            </button>
+                                        </li>
                                         <!--<li class="gray_lg">-->
                                         <!--<button type="button">Questions</button>-->
                                         <!--</li>-->

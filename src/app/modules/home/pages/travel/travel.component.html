@@ -36,6 +36,12 @@
                                                     (click)="filterByVotes('Inspiring')">Inspiring
                                             </button>
                                         </li>
+                                        <li [class.filterHighlight]="selectedFilter.vote === 'Lovethehuman'">
+                                            <button
+                                                    (click)="filterByVotes('Lovethehuman')">Lovethehuman
+                                            </button>
+                                        </li>
+
 
                                     </ul>
                                 </div>
