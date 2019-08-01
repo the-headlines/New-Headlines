@@ -3096,7 +3096,7 @@ header[_ngcontent-pqf-c2] .navbar[_ngcontent-pqf-c2] .logo[_ngcontent-pqf-c2] ul
 }
 
 .carusel-block .owl-carousel .owl-item, .carusel-block .owl-carousel .owl-item img {
-  height: 772px !important;
+  //height: 772px !important;
   //height: 600px !important;
   object-fit: cover;
 }
@@ -3108,13 +3108,22 @@ header[_ngcontent-pqf-c2] .navbar[_ngcontent-pqf-c2] .logo[_ngcontent-pqf-c2] ul
 
 }
 .carousel_top_text{
+  height: 100px;
   background: #ffffff;
-  border: 1px solid lightgray;
+  border: none !important;
+}
+.block_content{
+  height: 760px;
 }
 .carusel-block{
+  height: 860px;
   width:860px;
+
   //height: 860px;
   //border: solid 1px #959595;
+}
+#home_carousel{
+  border: solid 1px #959595;
 }
 //.carousel_top_text{
 //  height: 100px;
@@ -3347,6 +3356,16 @@ button[type=submit].inlineBlock {
   .posts_table {
     overflow: auto;
   }
+  .carusel-block {
+    width: 700px;
+    height: 700px;
+  }
+  .carusel-block .owl-item{
+    width: 700px;
+  }
+  .block_content {
+    height: 600px;
+  }
 }
 @media screen and (max-width: 1480px) {
   .about_infhomo p {
@@ -3369,6 +3388,16 @@ button[type=submit].inlineBlock {
   }
   .main {
     padding-top: 20%;
+  }
+  .carusel-block {
+    width:600px;
+    height: 600px;
+  }
+  .carusel-block .owl-item{
+    width: 600px;
+  }
+  .block_content {
+    height: 500px;
   }
 }
 @media screen and (max-width: 600px) {
