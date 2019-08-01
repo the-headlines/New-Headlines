@@ -438,7 +438,11 @@ img {
     width: 100%;
     border-bottom: 1px solid lightgray;
     border-top: 1px solid lightgray;
-    margin-bottom: 20px;
+    margin-bottom: 0;
+
+      .user_posts{
+        //height: 55px;
+      }
 
     .img-block {
       //height: 287px;
@@ -2408,10 +2412,11 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
 .content_block{
   position: relative;
   display: flex;
+  justify-content: space-between;
 }
 
 .content_block .all {
-  width: 100%;
+  width: 78%;
 }
 .menu{
   flex-direction: column;
@@ -2487,6 +2492,17 @@ header[_ngcontent-pqf-c2] .navbar[_ngcontent-pqf-c2] .logo[_ngcontent-pqf-c2] ul
 }
 .section_right{
   width: 45%;
+}
+.all .posts_items{
+  margin-bottom: 20px;
+  //max-width: 670px;
+  width: 100%;
+  //height: 670px;
+}
+.news-block .post_wrapper {
+  //width: 100%;
+  //height: 600px;
+  //overflow: hidden;
 }
 //media queries
 @media only screen and (max-width: 1600px) {
@@ -3113,12 +3129,10 @@ header[_ngcontent-pqf-c2] .navbar[_ngcontent-pqf-c2] .logo[_ngcontent-pqf-c2] ul
   background: #ffffff;
   border: none !important;
 }
-.block_content{
-  height: 760px;
-}
+//.block_content{
+//  height: 760px;
+//}
 .carusel-block{
-  height: 860px;
-  width:860px;
 
   //height: 860px;
   //border: solid 1px #959595;
@@ -3357,16 +3371,16 @@ button[type=submit].inlineBlock {
   .posts_table {
     overflow: auto;
   }
-  .carusel-block {
-    width: 700px;
-    height: 700px;
-  }
-  .carusel-block .owl-item{
-    width: 700px;
-  }
-  .block_content {
-    height: 600px;
-  }
+  //.carusel-block {
+  //  width: 700px;
+  //  height: 700px;
+  //}
+  //.carusel-block .owl-item{
+  //  width: 700px;
+  //}
+  //.block_content {
+  //  height: 600px;
+  //}
 }
 @media screen and (max-width: 1480px) {
   .about_infhomo p {
@@ -3390,16 +3404,16 @@ button[type=submit].inlineBlock {
   .main {
     padding-top: 20%;
   }
-  .carusel-block {
-    width:600px;
-    height: 600px;
-  }
-  .carusel-block .owl-item{
-    width: 600px;
-  }
-  .block_content {
-    height: 500px;
-  }
+  //.carusel-block {
+  //  width:600px;
+  //  height: 600px;
+  //}
+  //.carusel-block .owl-item{
+  //  width: 600px;
+  //}
+  //.block_content {
+  //  height: 500px;
+  //}
 
   .drop__down:after{
 
@@ -3756,6 +3770,7 @@ button[type=submit].inlineBlock {
     }
   }
 }
+
 
 @media screen and (max-width: 992px) and (min-width: 768px) {
   .content {
