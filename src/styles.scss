@@ -428,7 +428,7 @@ img {
   .posts_items {
     width: 600px;
     border: 1px solid #dddfe2;
-    border-radius: 3px;
+    border-radius: 0;
     background-color: #fff;
     margin: 10px 0;
   }
@@ -436,7 +436,8 @@ img {
   .post_wrapper {
     background-color: #f2f3f5;
     width: 100%;
-    border: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+    border-top: 1px solid lightgray;
     margin-bottom: 20px;
 
     .img-block {
@@ -3749,7 +3750,7 @@ button[type=submit].inlineBlock {
   .news-block .posts_items {
     width: 100%;
     border: 1px solid #dddfe2;
-    border-radius: 3px;
+    border-radius: 0;
     background-color: #fff;
     margin: 10px 0;
   }
