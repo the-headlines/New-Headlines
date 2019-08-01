@@ -141,4 +141,8 @@ export class StatusBarComponent implements OnInit {
             this.router.navigate(['/post', single._id]);
         });
     }
+
+    showHeart(name) {
+       return name === 'LoveTheHuman' || name === 'LoveTheColor';
+    }
 }
