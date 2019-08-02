@@ -148,102 +148,84 @@
                 </div>
                 <div class="buttons_add">
                     <ul class="view-icons-block" *ngIf="auth.loggedIn()">
-                    <li>
-                        <a href="" class="score">Score <span>{{singlePost.score}}</span></a>
-                    </li>
-                    <li>
-                        <div class="box">
-                            <div class="Like like_btn">
-                                <img src="../../../../../assets/images/vote.png" alt="">
-                                <div class="Like__link js-hover">Votes
-                                    <div class="votesCount">{{votes.length}}</div> <!-- hovered_number-->
-                                </div>
-                                <div class="Emojis">
-                                    <!--                                    <div class="Emoji Emoji&#45;&#45;like">-->
-                                    <!--                                        <div class="">-->
-                                    <!--                                            <button class="blue" (click)="vote('Like', singlePost._id)">Like-->
-                                    <!--                                            </button>-->
-                                    <!--                                            <p class="num">20</p>-->
-                                    <!--                                        </div>-->
-                                    <!--                                    </div>-->
-                                    <!--                                    <div class="Emoji Emoji&#45;&#45;love">-->
-                                    <!--                                        <div class="">-->
-                                    <!--                                            <button class="gray" (click)="vote('Promising', singlePost._id)">-->
-                                    <!--                                                Promising-->
-                                    <!--                                            </button>-->
-                                    <!--                                            <p class="num">30</p>-->
-                                    <!--                                        </div>-->
-                                    <!--                                    </div>-->
-                                    <!--                                    <div class="Emoji Emoji&#45;&#45;haha">-->
-                                    <!--                                        <div class="">-->
-                                    <!--                                            <button class="blue" (click)="vote('Useful', singlePost._id)">Useful-->
-                                    <!--                                            </button>-->
-                                    <!--                                            <p class="num">50</p>-->
-                                    <!--                                        </div>-->
-                                    <!--                                    </div>-->
+                        <li>
+                            <a href="" class="score">Score <span>{{singlePost.score}}</span></a>
+                        </li>
+                        <li>
+                            <div class="box">
+                                <div class="Like like_btn">
+                                    <img src="../../../../../assets/images/vote.png" alt="">
+                                    <div class="Like__link js-hover">Votes
+                                        <div class="votesCount">{{votes.length}}</div> <!-- hovered_number-->
+                                    </div>
+                                    <div class="Emojis">
+                                        <!--                                    <div class="Emoji Emoji&#45;&#45;like">-->
+                                        <!--                                        <div class="">-->
+                                        <!--                                            <button class="blue" (click)="vote('Like', singlePost._id)">Like-->
+                                        <!--                                            </button>-->
+                                        <!--                                            <p class="num">20</p>-->
+                                        <!--                                        </div>-->
+                                        <!--                                    </div>-->
+                                        <!--                                    <div class="Emoji Emoji&#45;&#45;love">-->
+                                        <!--                                        <div class="">-->
+                                        <!--                                            <button class="gray" (click)="vote('Promising', singlePost._id)">-->
+                                        <!--                                                Promising-->
+                                        <!--                                            </button>-->
+                                        <!--                                            <p class="num">30</p>-->
+                                        <!--                                        </div>-->
+                                        <!--                                    </div>-->
+                                        <!--                                    <div class="Emoji Emoji&#45;&#45;haha">-->
+                                        <!--                                        <div class="">-->
+                                        <!--                                            <button class="blue" (click)="vote('Useful', singlePost._id)">Useful-->
+                                        <!--                                            </button>-->
+                                        <!--                                            <p class="num">50</p>-->
+                                        <!--                                        </div>-->
+                                        <!--                                    </div>-->
 
-                                    <!--                                    <div class="Emoji Emoji&#45;&#45;love" *ngIf="postCategory==='Influence'">-->
-                                    <!--                                        <div class="">-->
-                                    <!--                                            <button class="gray" (click)="vote('Important', singlePost._id)">-->
-                                    <!--                                                Important-->
-                                    <!--                                            </button>-->
-                                    <!--                                            <p class="num">30</p>-->
-                                    <!--                                        </div>-->
-                                    <!--                                    </div>-->
+                                        <!--                                    <div class="Emoji Emoji&#45;&#45;love" *ngIf="postCategory==='Influence'">-->
+                                        <!--                                        <div class="">-->
+                                        <!--                                            <button class="gray" (click)="vote('Important', singlePost._id)">-->
+                                        <!--                                                Important-->
+                                        <!--                                            </button>-->
+                                        <!--                                            <p class="num">30</p>-->
+                                        <!--                                        </div>-->
+                                        <!--                                    </div>-->
 
-                                    <ng-container *ngFor="let vType of voteTypes">
-                                        <div class="Emoji Emoji--love">
-                                            <div class="">
-                                                <button class="gray" (click)="vote(vType['name'], singlePost._id)">
-                                                    {{vType['name']}}
-                                                </button>
-                                                <p class="num">30</p>
+                                        <ng-container *ngFor="let vType of voteTypes">
+                                            <div class="Emoji Emoji--love">
+                                                <div class="">
+                                                    <button class="gray" (click)="vote(vType['name'], singlePost._id)">
+                                                        {{vType['name']}}
+                                                    </button>
+                                                    <p class="num">30</p>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </ng-container>
+                                        </ng-container>
 
 
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="">
-                            Views<span>{{singlePost.views}}</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a (click)="questions = false">
-                            <i class="far fa-comment"></i>
-                            Comments<span>{{getCommentsLen('Comment')}}</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a (click)="questions = true">
-                            Questions<span>{{getCommentsLen('Question')}}</span>
-                        </a>
-                    </li>
-                    <!--                    <li>-->
-                    <!--                        <button type="button" class="share">-->
-                    <!--                            <i class="fas fa-share"></i>-->
-                    <!--                            Share<span></span></button>-->
-                    <!--                        <div class="share_post">-->
-                    <!--                            <ul>-->
-                    <!--                                <li>-->
-                    <!--                                    <button><i class="fas fa-link"></i> Copy Link</button>-->
-                    <!--                                    <button><img src="images/shuffle.png" alt="">Crosspost</button>-->
-                    <!--                                    <button><i class="fas fa-code"></i>Embed</button>-->
-                    <!--                                </li>-->
-                    <!--                            </ul>-->
-                    <!--                        </div>-->
-                    <!--                    </li>-->
-                </ul>
-                <app-story-options _ngcontent-xbn-c1="" _nghost-xbn-c5="" ng-reflect-single="[object Object]"><div _ngcontent-xbn-c5="" class="storyOptions"><button _ngcontent-xbn-c5=""><i _ngcontent-xbn-c5="" class="fas fa-ellipsis-h"></i></button><!--bindings={
-  "ng-reflect-ng-if": "true"
-}--><div _ngcontent-xbn-c5="" class="save_caret_menu_item ng-star-inserted"><ul _ngcontent-xbn-c5=""><li _ngcontent-xbn-c5=""><div _ngcontent-xbn-c5=""><h3 _ngcontent-xbn-c5=""><i _ngcontent-xbn-c5="" class="far fa-bookmark"></i> Share</h3><app-fb-share _ngcontent-xbn-c5="" ng-reflect-url="https://www.bbc.co.uk/news/bus"><div class="fb-share-button fb_iframe_widget" data-type="button" data-width="200" data-href="https://www.bbc.co.uk/news/business-49183324" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=2299392023457446&amp;container_width=184&amp;href=https%3A%2F%2Fwww.bbc.co.uk%2Fnews%2Fbusiness-49183324&amp;locale=en_US&amp;sdk=joey&amp;type=button&amp;width=200"><span style="vertical-align: bottom; width: 59px; height: 20px;"><iframe name="f2f6ba4d44d7b78" width="200px" height="1000px" title="fb:share_button Facebook Social Plugin" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" src="https://www.facebook.com/v2.9/plugins/share_button.php?app_id=2299392023457446&amp;channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter.php%3Fversion%3D44%23cb%3Df2ecc79e8cd3a6c%26domain%3Dlocalhost%26origin%3Dhttp%253A%252F%252Flocalhost%253A4201%252Ff240b1e6eebe59%26relation%3Dparent.parent&amp;container_width=184&amp;href=https%3A%2F%2Fwww.bbc.co.uk%2Fnews%2Fbusiness-49183324&amp;locale=en_US&amp;sdk=joey&amp;type=button&amp;width=200" style="border: none; visibility: visible; width: 59px; height: 20px;" class=""></iframe></span></div></app-fb-share><tweet _ngcontent-xbn-c5="" ng-reflect-url="https://www.bbc.co.uk/news/bus"><iframe id="twitter-widget-1" scrolling="no" frameborder="0" allowtransparency="true" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" style="position: static; visibility: visible; width: 1px; height: 1px;" title="Twitter Tweet Button" src="https://platform.twitter.com/widgets/tweet_button.0639d67d95b7680840758b6833f06d87.en.html#dnt=false&amp;id=twitter-widget-1&amp;lang=en&amp;original_referer=http%3A%2F%2Flocalhost%3A4201%2Fhome&amp;size=m&amp;text=News%20Website&amp;time=1564668366184&amp;type=share&amp;url=https%3A%2F%2Fwww.bbc.co.uk%2Fnews%2Fbusiness-49183324" data-url="https://www.bbc.co.uk/news/business-49183324"></iframe></tweet></div></li><li _ngcontent-xbn-c5=""><input _ngcontent-xbn-c5="" class="copyInput"><div _ngcontent-xbn-c5="" class="copyLinkDiv"><h3 _ngcontent-xbn-c5=""><i _ngcontent-xbn-c5="" class="fas fa-link"></i> Copy link</h3><p _ngcontent-xbn-c5="">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p></div></li><!--bindings={
-  "ng-reflect-ng-if": "false"
-}--><li _ngcontent-xbn-c5=""><div _ngcontent-xbn-c5=""><h3 _ngcontent-xbn-c5=""><i _ngcontent-xbn-c5="" class="fas fa-bug"></i> Report</h3><p _ngcontent-xbn-c5="">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p></div></li></ul></div></div></app-story-options>
-            </div>
+                        </li>
+                        <li>
+                            <a href="">
+                                Views<span>{{singlePost.views}}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a (click)="questions = false">
+                                <i class="far fa-comment"></i>
+                                Comments<span>{{getCommentsLen('Comment')}}</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a (click)="questions = true">
+                                Questions<span>{{getCommentsLen('Question')}}</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <app-story-options [single]="singlePost"></app-story-options>
+                </div>
 
                 <div class="leave_comment" *ngIf="auth.loggedIn()">
                     <div class="commented_by" *ngIf="auth.loggedIn() && userData && userData.fullName">
@@ -297,27 +279,32 @@
                         </form>
                     </div>
                     <div class="how_many_com_and_quest">
-                        <p (click)="changeCommentType('Comment')" [class.selected]="selectedCommentType === 'Comment'"
-                           *ngIf="singlePost.category!=='JumpStartups'">
-                            Comments
-                            <small>({{getCommentsLen('Comment')}})</small>
-                        </p>
-                        <p (click)="changeCommentType('Question')" [class.selected]="selectedCommentType === 'Question'"
-                           *ngIf="singlePost.category!=='HumanStories'&&singlePost.category!=='LoveDesigns'&&singlePost.category!=='StyleAndSweat'">
-                            Questions
-                            <small>({{getCommentsLen('Question')}})</small>
-                        </p>
-                        <p (click)="changeCommentType('Critics')" [class.selected]="selectedCommentType === 'Critics'"
-                           *ngIf="singlePost.category==='StyleAndSweat'">
+
+                        <p (click)="changeCommentType('Critics')" *ngIf="singlePost.category === 'StyleAndSweat'"
+                           [class.selected]="selectedCommentType === 'Critics'">
                             Critics
                             <small>({{getCommentsLen('Critics')}})</small>
                         </p>
-                        <p (click)="changeCommentType('Feedback')" [class.selected]="selectedCommentType === 'Feedback'"
-                           *ngIf="singlePost.category==='JumpStartups'">
-                            Feedback
-                            <small>({{getCommentsLen('Feedback')}})</small>
 
+                        <p (click)="changeCommentType('Comment')" [class.selected]="selectedCommentType === 'Comment'">
+                            {{singlePost.category !== 'JumpStartups' ? 'Comments' : 'Feedback'}}
+                            <small>({{getCommentsLen('Comment')}})</small>
                         </p>
+                        <p (click)="changeCommentType('Question')" [class.selected]="selectedCommentType === 'Question'"
+                           *ngIf="singlePost.category!=='HumanStories' && singlePost.category!=='LoveDesigns'&&singlePost.category!=='StyleAndSweat'">
+                            Questions
+                            <small>({{getCommentsLen('Question')}})</small>
+                        </p>
+                        <!--                        <p (click)="changeCommentType('Critics')" [class.selected]="selectedCommentType === 'Critics'"-->
+                        <!--                           *ngIf="singlePost.category==='StyleAndSweat'">-->
+                        <!--                            Critics-->
+                        <!--                            <small>({{getCommentsLen('Critics')}})</small>-->
+                        <!--                        </p>-->
+                        <!--                        <p (click)="changeCommentType('Feedback')" [class.selected]="selectedCommentType === 'Feedback'"-->
+                        <!--                           *ngIf="singlePost.category==='JumpStartups'">-->
+                        <!--                            Feedback-->
+                        <!--                            <small>({{getCommentsLen('Feedback')}})</small>-->
+                        <!--                        </p>-->
                     </div>
                     <div class="sort">
                         <small>Sort by</small>

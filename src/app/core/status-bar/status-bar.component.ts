@@ -53,7 +53,7 @@ export class StatusBarComponent implements OnInit {
         if (this.single) {
             this.postCategory = this.single.category;
             this.postScore = this.countScore.transform(this.single);
-            console.log(this.single.score);
+            // console.log(this.single.score);
             this.voteTypes = this.voteTypes.filter(t => t['pages'].includes(this.postCategory));
         }
 
@@ -137,14 +137,14 @@ export class StatusBarComponent implements OnInit {
     getSingle(single) {
         this.home.updateViewCount(single).subscribe((dt: any) => {
             this.postScore = dt.score;
-            console.log('OK' + this.postScore);
             this.router.navigate(['/post', single._id]);
         });
     }
 
     showHeart(name) {
-       return name === 'TheHuman' || name === 'TheColor';
+        return name === 'TheHuman' || name === 'TheColor';
     }
+
     loveCase(name) {
         return name === 'Love';
     }

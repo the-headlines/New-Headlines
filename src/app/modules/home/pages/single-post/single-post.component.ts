@@ -218,6 +218,11 @@ export class SinglePostComponent implements OnInit, OnDestroy {
 
         const data = this.postForm.value;
 
+        if (data.type === 'Critics') {
+            data.type = 'Comment';
+        }
+
+        console.log(data);
         // this.selectedCommentType = 'Comment';
         // this.postForm.patchValue({type: 'Comment'});
         this.home.addComments(data).subscribe((d) => {
@@ -312,6 +317,9 @@ export class SinglePostComponent implements OnInit, OnDestroy {
     }
 
     changeCommentType(v) {
+        if (v === 'Feedback') {
+            v = 'Comment';
+        }
         this.questions = v;
         this.selectedCommentType = v;
         this.commentEditForm.patchValue({type: v});
