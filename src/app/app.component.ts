@@ -1,4 +1,7 @@
 import {Component, OnInit} from '@angular/core';
+import {EditInfoModalComponent} from "./modules/home/components/libs/edit-info-modal/edit-info-modal.component";
+import {FeedbackComponent} from "./modules/home/pages/feedback/feedback.component";
+import {MatDialog} from "@angular/material";
 
 @Component({
     selector: 'app-root',
@@ -6,7 +9,9 @@ import {Component, OnInit} from '@angular/core';
     styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-    constructor() {
+    constructor(
+        private dialog: MatDialog
+    ) {
     }
 
 
@@ -34,6 +39,19 @@ export class AppComponent implements OnInit {
         //
         //     navigator.geolocation.getCurrentPosition(geoSuccess, geoError, geoOptions);
         // };
+    }
+
+    openDialog(term): void {
+        const dialogRef = this.dialog.open(FeedbackComponent, {
+            width: '500px',
+            data: {
+                name: term
+            }
+        });
+
+        dialogRef.afterClosed().subscribe(result => {
+            console.log('The dialog was closed');
+        });
     }
 }
 

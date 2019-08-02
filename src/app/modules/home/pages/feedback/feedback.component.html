@@ -1,50 +1,61 @@
-<app-header></app-header>
+
 <div class="content">
     <div class="main row no-gutters">
-        <div class="col-md-8">
+        <div class="form_feedback">
             <div class="get_in_touch">
                 <div class="row">
-                    <div class="col-md-6">
-                        <div class="contact_form">
-                            <img src="../../../assets/images/img1.jpg" class="img-fluid" alt="">
-                            <div class="contact_info">
-                                <h3>contact us</h3>
-                                <ul>
-                                    <li><img src="../../../../../assets/images/location.png" alt="">
-                                        <p>Lorem Ipsum /1123464</p></li>
-                                    <li><img src="../../../../../assets/images/message.png" alt="">
-                                        <p>Lorem Ipsum /1123464</p></li>
-                                    <li><img src="../../../../../assets/images/phone.png" alt="">
-                                        <p>+000 123456789</p></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <div class="get_touch_form">
-                            <h3>Get in touch</h3>
+<!--                            <h3>Get in touch</h3>-->
                             <form action="" method="post">
+<!--                                -->
+<!--                                <div class="form-group">-->
+<!--                                    <div class="example-full-width">-->
+<!--                                        <mat-form-field class="login-inp">-->
+<!--                                            <input matInput placeholder="Name" [formControl]="nameFormControl"-->
+<!--                                                   [errorStateMatcher]="matcher" name="name"-->
+<!--                                                   [(ngModel)]="userContactInf.name">-->
+<!--                                            <mat-hint>Errors appear instantly!</mat-hint>-->
+<!--                                            <mat-error-->
+<!--                                                    *ngIf="nameFormControl.hasError('email') && !nameFormControl.hasError('required')">-->
+<!--                                                Please enter a valid email address-->
+<!--                                            </mat-error>-->
+<!--                                            <mat-error *ngIf="nameFormControl.hasError('required')">-->
+<!--                                                Email is <strong>required</strong>-->
+<!--                                            </mat-error>-->
+<!--                                        </mat-form-field>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+                                
+                                <div class="form-group">
+                                    <div class="example-full-width">
+                                        <label for="select_subject">Please select a subject</label>
+                                        <select _ngcontent-jbn-c1="">
+                                            <option _ngcontent-jbn-c1="" name="" id="select_subject">subject1</option>
+                                            <option _ngcontent-jbn-c1="">subject2</option>
+                                        </select>
+                                       
+                                    </div>
+                                </div>
+
                                 <div class="form-group">
                                     <div class="example-full-width">
                                         <mat-form-field class="login-inp">
-                                            <input matInput placeholder="Name" [formControl]="nameFormControl"
-                                                   [errorStateMatcher]="matcher" name="name"
-                                                   [(ngModel)]="userContactInf.name">
+                                            <label>Comment</label>
+                                            <textarea matInput  [formControl]="messFormControl"
+                                                      [errorStateMatcher]="matcher" name="message"
+                                                      [(ngModel)]="userContactInf.mess">
+                                            </textarea>
                                             <mat-hint>Errors appear instantly!</mat-hint>
-                                            <mat-error
-                                                    *ngIf="nameFormControl.hasError('email') && !nameFormControl.hasError('required')">
-                                                Please enter a valid email address
-                                            </mat-error>
-                                            <mat-error *ngIf="nameFormControl.hasError('required')">
-                                                Email is <strong>required</strong>
-                                            </mat-error>
+                                            <mat-error *ngIf="messFormControl.hasError('required')"></mat-error>
                                         </mat-form-field>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="example-full-width">
                                         <mat-form-field class="login-inp">
-                                            <input matInput placeholder="Email" [formControl]="emailFormControl"
+                                            <label>Email</label>
+                                            <input matInput [formControl]="emailFormControl"
                                                    [errorStateMatcher]="matcher" name="email"
                                                    [(ngModel)]="userContactInf.email">
                                             <mat-hint>Errors appear instantly!</mat-hint>
@@ -58,22 +69,9 @@
                                         </mat-form-field>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <div class="example-full-width">
-                                        <mat-form-field class="login-inp">
-                                            <textarea matInput placeholder="Message" [formControl]="messFormControl"
-                                                      [errorStateMatcher]="matcher" name="message"
-                                                      [(ngModel)]="userContactInf.mess">
-                                            </textarea>
-                                            <mat-hint>Errors appear instantly!</mat-hint>
-                                            <mat-error *ngIf="messFormControl.hasError('required')"></mat-error>
-                                        </mat-form-field>
-                                    </div>
-
-                                </div>
                                 <button
                                         [disabled]="(emailFormControl.hasError('email') || emailFormControl.hasError('required'))"
-                                        mat-raised-button color="primary" (click)="getContact(userContactInf)">Send
+                                        mat-raised-button color="primary" (click)="getContact(userContactInf)">Submit
                                 </button>
                             </form>
                         </div>

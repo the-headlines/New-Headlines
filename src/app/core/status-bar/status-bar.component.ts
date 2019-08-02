@@ -143,6 +143,10 @@ export class StatusBarComponent implements OnInit {
     }
 
     showHeart(name) {
-       return name === 'LoveTheHuman' || name === 'LoveTheColor';
+       return name === 'TheHuman' || name === 'TheColor';
     }
+    loveCase(name) {
+        return name === 'Love';
+    }
+
 }
