@@ -1971,9 +1971,9 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
   background-color: #a6a7a7;
 }
 .item .text-block{
-  position: sticky;
-  top: 30%;
-  z-index: 111;
+  //position: sticky;
+  //top: 30%;
+  //z-index: 111;
 }
 .fixed-top{
   //z-index: 1111111 !important;
@@ -2537,12 +2537,16 @@ header[_ngcontent-pqf-c2] .navbar[_ngcontent-pqf-c2] .logo[_ngcontent-pqf-c2] ul
   justify-content: center;
 
 }
+.get_form{
+  padding: 50px 30px 80px 30px !important;
+  height: auto !important;
+}
 
 .love_name{
   display:flex;
   align-items: center;
   margin-left: 5px;
-  font-size: 11px;
+  font-size: 9px;
   font-family: 'Lato-Black';
   color: #807f81;
 }
@@ -2550,6 +2554,9 @@ header[_ngcontent-pqf-c2] .navbar[_ngcontent-pqf-c2] .logo[_ngcontent-pqf-c2] ul
 .form_feedback{
   width: 100%;
   z-index: 111111;
+}
+dropzone > .dropzone.dz-wrapper .dz-message{
+  min-height: 200px !important;
 }
 //media queries
 @media only screen and (max-width: 1600px) {
@@ -3050,7 +3057,7 @@ header[_ngcontent-pqf-c2] .navbar[_ngcontent-pqf-c2] .logo[_ngcontent-pqf-c2] ul
 
 .profileForm {
   width: 50%;
-  margin: auto;
+  margin: 5% auto;
   padding: 30px;
 
   .mat-form-field-underline {
@@ -3369,8 +3376,10 @@ header[_ngcontent-pqf-c2] .navbar[_ngcontent-pqf-c2] .logo[_ngcontent-pqf-c2] ul
 .about__content .about__text > p {
   font-family: 'Lato-Black';
   display: inline-block;
-  color: #727377;
+  //color: #727377;
+  color: #000;
 }
+
 
 .filterHighlight {
   background-color: #e14040 !important;

@@ -9,11 +9,15 @@
 
   .profileForm {
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
 
     .userInfo {
       width: 100%;
       max-width: 400px;
+      p{
+        font-style: italic;
+      }
     }
 
     .dropzoneContainer {
@@ -24,5 +28,49 @@
         height: 300px;
       }
     }
+    .left_part{
+      width: 50%;
+    }
   }
 }
+
+.profile_details{
+  width:60%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .profileForm_content{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .left_part{
+      width: 50%;
+    .change{
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 40px;
+      p{
+        font-style: italic;
+        width: 35%;
+        margin-bottom: 0 !important;
+      }
+      p:nth-child(2){
+        font-style: normal;
+        width: 60%;
+      }
+      p:last-child {
+
+        width: 5%;
+      }
+    }
+    }
+    .right_part{
+      width: 40%;
+    }
+  }
+}
+
