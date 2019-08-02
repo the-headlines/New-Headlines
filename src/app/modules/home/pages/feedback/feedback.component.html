@@ -2,12 +2,19 @@
 <div class="content">
     <div class="main row no-gutters">
         <div class="form_feedback">
-            <div class="get_in_touch">
+            <div class="get_in_touch get_form">
+
                 <div class="row">
+                    <div class="close_btn">
+                    <button _ngcontent-ocj-c23="" aria-label="Close" class="close" data-dismiss="modal" mat-dialog-close="" type="button" ng-reflect-aria-label="Close" ng-reflect-dialog-result=""><span _ngcontent-ocj-c23="" aria-hidden="true">×</span></button>
+                    </div>
+
                     <div class="col-md-12">
-                        <div class="get_touch_form">
+
+                        <div class="get_touch_form ">
 <!--                            <h3>Get in touch</h3>-->
-                            <form action="" method="post">
+                             <form action="" method="post">
+
 <!--                                -->
 <!--                                <div class="form-group">-->
 <!--                                    <div class="example-full-width">-->
@@ -27,16 +34,16 @@
 <!--                                    </div>-->
 <!--                                </div>-->
                                 
-                                <div class="form-group">
-                                    <div class="example-full-width">
-                                        <label for="select_subject">Please select a subject</label>
-                                        <select _ngcontent-jbn-c1="">
-                                            <option _ngcontent-jbn-c1="" name="" id="select_subject">subject1</option>
-                                            <option _ngcontent-jbn-c1="">subject2</option>
-                                        </select>
-                                       
-                                    </div>
-                                </div>
+<!--                                <div class="form-group">-->
+<!--                                    <div class="example-full-width">-->
+<!--                                        <label for="select_subject">Please select a subject</label>-->
+<!--                                        <select _ngcontent-jbn-c1="">-->
+<!--                                            <option _ngcontent-jbn-c1="" name="" id="select_subject">subject1</option>-->
+<!--                                            <option _ngcontent-jbn-c1="">subject2</option>-->
+<!--                                        </select>-->
+<!--                                       -->
+<!--                                    </div>-->
+<!--                                </div>-->
 
                                 <div class="form-group">
                                     <div class="example-full-width">
@@ -46,8 +53,8 @@
                                                       [errorStateMatcher]="matcher" name="message"
                                                       [(ngModel)]="userContactInf.mess">
                                             </textarea>
-                                            <mat-hint>Errors appear instantly!</mat-hint>
-                                            <mat-error *ngIf="messFormControl.hasError('required')"></mat-error>
+<!--                                            <mat-hint>Errors appear instantly!</mat-hint>-->
+<!--                                            <mat-error *ngIf="messFormControl.hasError('required')"></mat-error>-->
                                         </mat-form-field>
                                     </div>
                                 </div>
@@ -63,9 +70,9 @@
                                                     *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
                                                 Please enter a valid email address
                                             </mat-error>
-                                            <mat-error *ngIf="emailFormControl.hasError('required')">
-                                                Email is <strong>required</strong>
-                                            </mat-error>
+<!--                                            <mat-error *ngIf="emailFormControl.hasError('required')">-->
+<!--                                                Email is <strong>required</strong>-->
+<!--                                            </mat-error>-->
                                         </mat-form-field>
                                     </div>
                                 </div>

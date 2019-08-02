@@ -2,37 +2,71 @@
 
 <div class="content sidebar_content">
     <div class="profile_container">
+        <div class="profile_details">
+         <div class="profileForm_content">
+                <div class="left_part">
+                <div class="change">
+                    <p>Name:</p>
+                    <p>YourName</p>
+                    <p><i class="far fa-edit"></i></p>
+                </div>
+                    <div class="change">
+                        <p>Email:</p>
+                        <p>email@email.com</p>
+                        <p><i class="far fa-edit"></i></p>
+                    </div>
+                    <div class="change">
+                        <p>Password:</p>
+                        <p>12456789</p>
+                        <p><i class="far fa-edit"></i></p>
+                    </div>
+                </div>
+                 <div class="right_part">
+
+                <div class="dropzoneContainer">
+                    <dropzone [config]="profileImgConfig" [message]="'Click or drag an image here to upload'"></dropzone>
+                </div>
+            </div>
+            </div>
+
+
         <!--        <app-sidebar></app-sidebar>-->
         <form [formGroup]="profileForm" class="profileForm">
             <div class="userInfo">
+                <p>Change Name and Email</p>
+                <mat-form-field>
+                    <mat-placeholder class="placeholder">Name</mat-placeholder>
+                    <input matInput>
+                </mat-form-field>
 
-                <mat-form-field>
-                    <mat-placeholder class="placeholder">Full name</mat-placeholder>
-                    <input matInput>
-                </mat-form-field>
-                <mat-form-field>
-                    <mat-placeholder class="placeholder">Display name</mat-placeholder>
-                    <input matInput>
-                </mat-form-field>
                 <mat-form-field>
                     <mat-placeholder class="placeholder">E-mail</mat-placeholder>
                     <input matInput>
                 </mat-form-field>
-                <mat-form-field>
-                    <mat-placeholder class="placeholder">Password</mat-placeholder>
-                    <input matInput type="password">
-                </mat-form-field>
+
                 <button mat-raised-button>
                     Save
                 </button>
             </div>
-
-            <div class="dropzoneContainer">
-                <dropzone [config]="profileImgConfig" [message]="'Click or drag an image here to upload'"></dropzone>
-            </div>
-
-
         </form>
+
+         <form [formGroup]="profileForm" class="profileForm">
+                <div class="userInfo">
+                    <p>Change Name and Password</p>
+
+                    <mat-form-field>
+                        <mat-placeholder class="placeholder">Password</mat-placeholder>
+                        <input matInput type="password">
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-placeholder class="placeholder">Confirm Password</mat-placeholder>
+                        <input matInput type="password">
+                    </mat-form-field>
+                    <button mat-raised-button>
+                        Save
+                    </button>
+                </div>
+            </form>
 
     </div>
 </div>
