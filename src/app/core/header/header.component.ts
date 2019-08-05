@@ -195,14 +195,11 @@ export class HeaderComponent implements OnInit {
     }
 
     logOut(): void {
-        // if (this.checkConfirmation('/')) {
-
-        this.authService.signOut();
+        // this.authService.signOut();
         localStorage.setItem('userInf', null);
         localStorage.setItem('token', '');
         localStorage.setItem('full_name', null);
-        // }
-        // this.router.navigate(['/']);
+        this.router.navigate(['/']);
     }
 }
 
