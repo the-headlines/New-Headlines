@@ -94,6 +94,11 @@ export class AddPostComponent implements OnInit, OnDestroy {
 
     upload_files() {
 
+        const selectedCategory = this.categories.filter(c => c['dbName'] === this.postForm.value['category']);
+        let redirectUrl = '/';
+        if (selectedCategory && selectedCategory.length > 0) {
+            redirectUrl = selectedCategory[0]['link'];
+        }
         if (this.postForm.valid) {
             const formData = new FormData();
             // formData.append('description', this.postForm.value['description']);
@@ -111,13 +116,13 @@ export class AddPostComponent implements OnInit, OnDestroy {
             if (!this.editCase) {
                 this.auth.uploadPost(this.postForm.value).subscribe((r: any) => {
                     this.toastr.success('The post has been added successfully');
-                    this.router.navigate(['/']);
+                    this.router.navigate([redirectUrl]);
                     // localStorage.setItem('this.postForm', JSON.stringify(r));
                 });
             } else {
                 this.posts.update(this.route.snapshot.params.id, this.postForm.value).subscribe((r: any) => {
                     this.toastr.success('The post has been updated successfully');
-                    this.router.navigate(['/']);
+                    this.router.navigate([redirectUrl]);
                     // localStorage.setItem('this.postForm', JSON.stringify(r));
                 });
             }
