@@ -22,6 +22,7 @@ import {PublicComponent} from './modules/home/pages/public/public.component';
 import {EnvironmentComponent} from './modules/home/pages/environment/environment.component';
 import {PolicyComponent} from './modules/home/pages/policy/policy.component';
 import {EmailTokenConfirmationComponent} from './modules/home/components/email-token-confirmation/email-token-confirmation.component';
+import {AccountActivationComponent} from './modules/home/components/account-activation/account-activation.component';
 
 const routes: Routes = [
     {
@@ -96,7 +97,9 @@ const routes: Routes = [
     {path: 'managePost', component: PostsHomeComponent, canActivate: [AuthGuard]},
     {path: 'editPost/:id', component: AddPostComponent, canActivate: [AuthGuard]},
     {path: 'notifications', component: NotificationsBoxComponent},
-    {path: 'confirmation/:token', component: EmailTokenConfirmationComponent}
+    {path: 'confirmation/:token', component: EmailTokenConfirmationComponent},
+    {path: 'account-activation', component: AccountActivationComponent}
+
 ];
 
 @NgModule({

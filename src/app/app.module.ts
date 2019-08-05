@@ -95,6 +95,7 @@ import {EmailTokenConfirmationComponent} from './modules/home/components/email-t
 import {JwSocialButtonsModule} from 'jw-angular-social-buttons';
 import {FbShareComponent} from './modules/home/components/fb-share/fb-share.component';
 import { CountPostScorePipe } from './shared/pipes/count-post-score.pipe';
+import { AccountActivationComponent } from './modules/home/components/account-activation/account-activation.component';
 
 
 
@@ -167,7 +168,8 @@ export function tokenGetter() {
         PolicyComponent,
         EmailTokenConfirmationComponent,
         FbShareComponent,
-        CountPostScorePipe
+        CountPostScorePipe,
+        AccountActivationComponent
     ],
     imports: [
         BrowserModule,
