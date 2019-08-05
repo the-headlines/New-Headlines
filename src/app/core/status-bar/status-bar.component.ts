@@ -101,6 +101,11 @@ export class StatusBarComponent implements OnInit {
         if (type === 'Like') {
             this.upwote = !this.upwote;
         }
+
+        if (type === 'TheHuman') {
+            type = 'LoveTheHuman';
+        }
+
         if (!single.userVoted) {
             ++single.totalVotes;
         }

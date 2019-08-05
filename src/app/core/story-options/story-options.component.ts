@@ -19,6 +19,7 @@ export class StoryOptionsComponent implements OnInit {
     @ViewChild('toggleButton') toggleButton: ElementRef;
     @ViewChild('share') share: ElementRef;
     @Input() single;
+    @Input() singlePostPage = false;
 
     isShown = false;
     currentPost = {};

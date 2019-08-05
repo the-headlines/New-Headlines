@@ -13,6 +13,7 @@
                 </div>
                 <div class="Emojis">
                     <ng-container *ngFor="let vType of voteTypes">
+
                         <div class="Emoji Emoji--love">
                             <div class="voteTick">
 
@@ -21,26 +22,31 @@
                             </div>
                             <div class="voteType">
 
-                                <button class="gray"
-                                        [class.selected]="single && vType['name']=== single['votedCategory']"
-                                        (click)="vote(vType['name'], single)">
+                                <button class="gray" (click)="vote(vType['name'], single)">
 
                                     <!--   Love symbol -->
-                                    <span *ngIf="loveCase(vType['name'])"> <i class="fas fa-heart"></i></span>
+                                    <span *ngIf="loveCase(vType['displayName'])"> <i class="fas fa-heart"></i></span>
 
                                     <!-- Love symbol + text-->
-                                    <span *ngIf="showHeart(vType['name'])">
+                                    <span *ngIf="showHeart(vType['displayName'])">
                                               <div class="love_name">
-                                                     <i class="fas fa-heart"></i>{{vType['name']}}
+                                                     <i class="fas fa-heart"></i>
+                                                  <span [class.selected]="single && vType['name']=== single['votedCategory']">{{vType['displayName']}}</span>
                                              </div>
 
                                     </span>
 
                                     <!-- text -->
-                                    <span *ngIf="!showHeart(vType['name']) && !loveCase(vType['name'])">{{vType['name']}}</span>
+                                    <span *ngIf="!showHeart(vType['displayName']) && !loveCase(vType['displayName'])"
+                                          [class.selected]="single && vType['name']=== single['votedCategory']">{{vType['name']}}</span>
                                 </button>
                             </div>
-                            <!--                                <p class="num">30</p>-->
+                            <ng-container *ngIf="single">
+                                <ng-container *ngFor="let v of single.votes">
+<!--                                    <span *ngIf="single">{{vType['name'] + ' ' + v['_id']}}</span>-->
+                                    <p class="num" *ngIf="v['_id']=== vType['name']">{{v['count']}}</p>
+                                </ng-container>
+                            </ng-container>
                         </div>
                     </ng-container>
                 </div>
