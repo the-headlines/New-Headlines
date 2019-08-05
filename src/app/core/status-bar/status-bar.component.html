@@ -60,7 +60,7 @@
             Comments<span>{{single.comments}}</span>
         </a>
     </li>
-    <li [hidden]="routerUrl !== '/road'">
+    <li [hidden]="hiddenCritics()">
         <a (click)="getSingle(single)">
             Critics <span>35</span>
         </a>
@@ -75,7 +75,7 @@
     <!--            Suggestions <span>35</span>-->
     <!--        </a>-->
     <!--    </li>-->
-    <li [hidden]="routerUrl !== '/commerce'">
+    <li [hidden]="hiddenFeedback()">
         <a (click)="getSingle(single)">
             <i class="far fa-comment"></i> Feedback <span>35</span>
         </a>

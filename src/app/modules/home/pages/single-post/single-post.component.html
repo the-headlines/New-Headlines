@@ -147,7 +147,8 @@
                     <p>{{singlePost.extractedDescription}}</p>
                 </div>
                 <div class="buttons_add">
-                    <app-status-bar [single]="singlePost"></app-status-bar>
+                    <app-status-bar [single]="singlePost"
+                                    *ngIf="singlePost && singlePost.hasOwnProperty('video')"></app-status-bar>
                     <!--                    <ul class="view-icons-block" *ngIf="auth.loggedIn()">-->
                     <!--                        <li>-->
                     <!--                            <a href="" class="score">Score <span>{{singlePost.score}}</span></a>-->
