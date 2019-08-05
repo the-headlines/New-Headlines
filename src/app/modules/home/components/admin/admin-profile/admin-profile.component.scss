@@ -9,14 +9,14 @@
 
   .profileForm {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
 
     .userInfo {
       width: 100%;
       max-width: 400px;
       p{
-        font-style: italic;
+        //font-style: italic;
       }
     }
 
@@ -36,7 +36,7 @@
 
 .profile_details{
   width:60%;
-  margin: 0 auto;
+  margin: 7% auto 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -73,4 +73,18 @@
     }
   }
 }
+
+
+
+.tabs_profile {
+  width: 100%;
+  justify-content: space-between;
+  flex-direction: row !important;
+}
+
+
+
+
+
+
 
