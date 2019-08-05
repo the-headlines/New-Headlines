@@ -150,12 +150,20 @@ export class StatusBarComponent implements OnInit {
     }
 
     hiddenQuestions() {
-        return /road|deals|travel/i.test(this.routerUrl);
+        return /road|deals|travel/i.test(this.routerUrl) || /StyleAndSweat|HumanStories|LoveDesigns/i.test(this.postCategory);
     }
 
 
     hiddenComments() {
-        return /commerce/i.test(this.routerUrl);
+        return /commerce/i.test(this.routerUrl) || /JumpStartups/i.test(this.postCategory);
+    }
+
+    hiddenCritics() {
+        return !(/road/i.test(this.routerUrl)) && !(/StyleAndSweat/i.test(this.postCategory));
+    }
+
+    hiddenFeedback() {
+        return !(/JumpStartups/i.test(this.postCategory));
     }
 
 }

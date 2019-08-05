@@ -135,6 +135,7 @@ export class HeaderComponent implements OnInit {
     }
 
     ngOnInit() {
+        console.log(this.router.url);
         if (this.checkUser()) {
             this.userLoggined = JSON.parse(localStorage.getItem('userInf'));
         }
