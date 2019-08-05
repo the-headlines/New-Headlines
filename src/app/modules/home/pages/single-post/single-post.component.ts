@@ -219,7 +219,7 @@ export class SinglePostComponent implements OnInit, OnDestroy {
         const data = this.postForm.value;
 
         if (data.type === 'Critics') {
-            data.type = 'Comment';
+            data.type = 'Question';
         }
 
         console.log(data);
