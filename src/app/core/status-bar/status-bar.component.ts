@@ -149,4 +149,13 @@ export class StatusBarComponent implements OnInit {
         return name === 'Love';
     }
 
+    hiddenQuestions() {
+        return /road|deals|travel/i.test(this.routerUrl);
+    }
+
+
+    hiddenComments() {
+        return /commerce/i.test(this.routerUrl);
+    }
+
 }
