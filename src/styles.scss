@@ -3444,7 +3444,9 @@ button[type=submit].inlineBlock {
   width: 100%;
   display: block !important;
 }
-
+.profileForm_content .mat-form-field-appearance-legacy .mat-form-field-infix{
+  padding:3px !important;
+}
 @media screen and (max-width: 1800px) {
 
 }
