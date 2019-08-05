@@ -192,7 +192,8 @@
                                 <i class="fas fa-bars"></i>
                             </div>
                             <ul class="toggle none-768">
-                                <li *ngFor="let section of sections" [class.active]="router.url===section.link"
+                                <li *ngFor="let section of sections"
+                                    [class.active]="router.url===section.link || this.postCategory === section.dbName"
                                     routerLinkActive="active" [matTooltip]="section.tooltip">
                                     <a (click)="goToLink(section.link)">{{section['name']}}</a>
                                 </li>

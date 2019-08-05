@@ -11,6 +11,7 @@ export class SubjectService {
     public userData = new Subject<any>();
     public searchData = new Subject<string>();
     public dialogState = new Subject<string>();
+    public postCategory = new Subject<string>();
 
     constructor() {
     }
@@ -48,5 +49,12 @@ export class SubjectService {
         return this.dialogState.asObservable();
     }
 
+    setPostCategory(value) {
+        this.postCategory.next(value);
+    }
+
+    getPostCategory(): Observable<any> {
+        return this.postCategory.asObservable();
+    }
 
 }

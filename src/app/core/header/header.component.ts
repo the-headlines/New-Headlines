@@ -29,6 +29,7 @@ export class HeaderComponent implements OnInit {
     sections = MAIN_SECTIONS;
     scrollPosition = 0;
     showScrollToTopBtn = false;
+    postCategory;
 
     @HostListener('window:scroll', ['$event'])
     private onScroll(e: Event): void {
@@ -61,6 +62,11 @@ export class HeaderComponent implements OnInit {
             if (dt.state === 'closed') {
                 ModalDialog.openDialog(dt.dialog === 'login' ? 2 : 1, this.dialog);
             }
+        });
+
+        this.subject.getPostCategory().subscribe(category => {
+            console.log(category);
+            this.postCategory = category;
         });
 
         this.route.data.subscribe(dt => {

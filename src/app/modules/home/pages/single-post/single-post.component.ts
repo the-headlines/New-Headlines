@@ -200,6 +200,8 @@ export class SinglePostComponent implements OnInit, OnDestroy {
             // this.commentCount = data['comment_count'];
             // this.start = data['result']['comment'].length;
             console.log(this.singlePost);
+
+            this.subject.setPostCategory(this.postCategory);
         });
     }
 
