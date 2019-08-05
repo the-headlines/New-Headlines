@@ -86,31 +86,31 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
-            <div class="top_news">
-                <div class="sidebar">
-                    <div class="top-news">
-                        <h4 class="title">Today’s top headlines</h4>
-                        <ul>
-                            <li class="item" *ngFor="let singleLastet of lastet">
-                                <div class="img-block">
-                                    <img *ngIf="singleLastet.img" src="../../../assets/images/{{singleLastet.img}}"
-                                         class="img-fluid" alt="">
-                                </div>
-                                <div class="text-block">
-                                    <h5 class="title" (click)="getSingle(singleLastet.id)">{{singleLastet.title}}</h5>
-                                    <p class="description">{{singleLastet.desc|stripTags}}</p>
-                                    <span class="date">{{singleLastet.creted_date}}</span>
-                                </div>
-                            </li>
-                            <div class="show-more">
-                                <span class=" active">Show more</span>
-                            </div>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+<!--            <div class="col-md-4">-->
+<!--                <div class="top_news">-->
+<!--                    <div class="sidebar">-->
+<!--                        <div class="top-news">-->
+<!--                            <h4 class="title">Today’s top headlines</h4>-->
+<!--                            <ul>-->
+<!--                                <li class="item" *ngFor="let singleLastet of lastet">-->
+<!--                                    <div class="img-block">-->
+<!--                                        <img *ngIf="singleLastet.img" src="../../../assets/images/{{singleLastet.img}}"-->
+<!--                                             class="img-fluid" alt="">-->
+<!--                                    </div>-->
+<!--                                    <div class="text-block">-->
+<!--                                        <h5 class="title" (click)="getSingle(singleLastet.id)">{{singleLastet.title}}</h5>-->
+<!--                                        <p class="description">{{singleLastet.desc|stripTags}}</p>-->
+<!--                                        <span class="date">{{singleLastet.creted_date}}</span>-->
+<!--                                    </div>-->
+<!--                                </li>-->
+<!--                                <div class="show-more">-->
+<!--                                    <span class=" active">Show more</span>-->
+<!--                                </div>-->
+<!--                            </ul>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
     </div>
 </div>
 <app-footer></app-footer>
