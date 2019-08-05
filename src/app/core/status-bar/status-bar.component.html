@@ -12,157 +12,6 @@
                           (mouseout)="openNum=false">{{single.totalVotes}}</span> <!-- (mouseover)="openNum=true"-->
                 </div>
                 <div class="Emojis">
-                    <!--                    <div class="Emoji Emoji&#45;&#45;like">-->
-                    <!--                        <div class="">-->
-                    <!--                            <button class="blue" (click)="vote('Like', single._id)" [class.gray]="!upwote"-->
-                    <!--                                    [hidden]="routerUrl !== '/road' && routerUrl !== '/travel' && routerUrl !== '/commerce' && routerUrl !== '/video'">-->
-                    <!--                                <i class="fas fa-check" *ngIf="isShown"></i> Like-->
-                    <!--                                <span class="num" *ngIf="openNum">20</span>-->
-                    <!--                            </button>-->
-                    <!--                        </div>-->
-                    <!--                    </div>-->
-                    <!--                    <div class="Emoji Emoji&#45;&#45;love" [hidden]="routerUrl !== '/pictures'">-->
-                    <!--                        <div class="">-->
-                    <!--                            <button class="gray" (click)="onClick($event)">-->
-                    <!--                                <i class="fas fa-check" *ngIf="isShown"></i>Awesome-->
-                    <!--                                <span class="num" *ngIf="openNum">30</span></button>-->
-                    <!--                        </div>-->
-                    <!--                    </div>-->
-                    <!--                    <div class="Emoji Emoji&#45;&#45;love" [hidden]="routerUrl !== '/road'">-->
-                    <!--                        <div class="">-->
-                    <!--                            <button class="gray" (click)="onClick($event)">-->
-                    <!--                                <i class="fas fa-check" *ngIf="isShown"></i>Good-->
-                    <!--                                <span class="num" *ngIf="openNum">30</span></button>-->
-                    <!--                        </div>-->
-                    <!--                    </div>-->
-                    <!--                    <div class="Emoji Emoji&#45;&#45;love" [hidden]="routerUrl !== '/road'">-->
-                    <!--                        <div class="">-->
-                    <!--                            <button class="blue" (click)="onClick($event)">-->
-                    <!--                                <i class="fas fa-check" *ngIf="isShown"></i>-->
-                    <!--                                Top Class-->
-                    <!--                                <span class="num" *ngIf="openNum">30</span></button>-->
-                    <!--                        </div>-->
-                    <!--                    </div>-->
-                    <!--                    <div class="Emoji Emoji&#45;&#45;love" [hidden]="routerUrl !== '/road'">-->
-                    <!--                        <div class="">-->
-                    <!--                            <button class="blue" (click)="onClick($event)">-->
-                    <!--                                <i class="fas fa-check" *ngIf="isShown"></i>-->
-                    <!--                                Magic-->
-                    <!--                                <span class="num" *ngIf="openNum">30</span></button>-->
-                    <!--                        </div>-->
-                    <!--                    </div>-->
-
-                    <!--                    <div class="Emoji Emoji&#45;&#45;love" [hidden]="routerUrl !== '/home' && routerUrl !== '/'">-->
-                    <!--                        <div class="">-->
-                    <!--                            <button class="gray" (click)="onClick($event)">-->
-                    <!--                                <i class=" fas fa-check" *ngIf="isShown"></i> Important-->
-                    <!--                                <span class="num" *ngIf="openNum">30</span></button>-->
-                    <!--                        </div>-->
-                    <!--                    </div>-->
-                    <!--                    <div class="Emoji Emoji&#45;&#45;love" [hidden]="routerUrl  !== '/home' && routerUrl !== '/'">-->
-                    <!--                        <div class="">-->
-                    <!--                            <button class="blue" (click)="onClick($event)">-->
-                    <!--                                <i class="fas fa-check" *ngIf="isShown"></i>-->
-                    <!--                                Interesting-->
-                    <!--                                <span class="num" *ngIf="openNum">30</span></button>-->
-                    <!--                        </div>-->
-                    <!--                    </div>-->
-                    <!--                    <div class="Emoji Emoji&#45;&#45;love" [hidden]="routerUrl  !== '/home' && routerUrl !== '/'">-->
-                    <!--                        <div class="">-->
-                    <!--                            <button class="blue" (click)="onClick($event)">-->
-                    <!--                                <i class="fas fa-check" *ngIf="isShown"></i>-->
-                    <!--                                Investigate-->
-                    <!--                                <span class="num" *ngIf="openNum">30</span></button>-->
-                    <!--                        </div>-->
-                    <!--                    </div>-->
-                    <!--                    <div class="Emoji Emoji&#45;&#45;love" [hidden]="routerUrl  !== '/home' && routerUrl !== '/'">-->
-                    <!--                        <div class="">-->
-                    <!--                            <button class="blue" (click)="onClick($event)">-->
-                    <!--                                <i class="fas fa-check" *ngIf="isShown"></i>Resign-->
-                    <!--                                <span class="num" *ngIf="openNum">30</span></button>-->
-                    <!--                        </div>-->
-                    <!--                    </div>-->
-                    <!--                    <div class="Emoji Emoji&#45;&#45;love" [hidden]="routerUrl !== '/pictures'">-->
-                    <!--                        <div class="">-->
-                    <!--                            <button class="gray" (click)="onClick($event)">-->
-                    <!--                                <i class=" fas fa-check" *ngIf="isShown"></i>hawt-->
-                    <!--                                <span class="num" *ngIf="openNum">30</span></button>-->
-                    <!--                        </div>-->
-                    <!--                    </div>-->
-
-                    <!--                    <div class="Emoji Emoji&#45;&#45;love" [hidden]="routerUrl !== '/pictures'">-->
-                    <!--                        <div class="">-->
-                    <!--                            <button class="blue" (click)="onClick($event)">-->
-                    <!--                                <i class="fas fa-check" *ngIf="isShown"></i>Kool-->
-                    <!--                                <span class="num" *ngIf="openNum">30</span></button>-->
-                    <!--                        </div>-->
-                    <!--                    </div>-->
-                    <!--                    <div class="Emoji Emoji&#45;&#45;love" [hidden]="routerUrl !== '/pictures'">-->
-                    <!--                        <div class="">-->
-                    <!--                            <button class="blue" (click)="onClick($event)">-->
-                    <!--                                <i class="fas fa-check" *ngIf="isShown"></i>Funny-->
-                    <!--                                <span class="num" *ngIf="openNum">30</span></button>-->
-                    <!--                        </div>-->
-                    <!--                    </div>-->
-                    <!--                    <div class="Emoji Emoji&#45;&#45;love" [hidden]="routerUrl !== '/commerce'">-->
-                    <!--                        <div class="">-->
-                    <!--                            <button class="gray" (click)="onClick($event)">-->
-                    <!--                                <i class=" fas fa-check" *ngIf="isShown"></i>Promising-->
-                    <!--                                <span class="num" *ngIf="openNum">30</span></button>-->
-                    <!--                        </div>-->
-                    <!--                    </div>-->
-                    <!--                    <div class="Emoji Emoji&#45;&#45;love" [hidden]="routerUrl !== '/travel'">-->
-                    <!--                        <div class="">-->
-                    <!--                            <button class="gray" (click)="onClick($event)">-->
-                    <!--                                <i class=" fas fa-check" *ngIf="isShown"></i>Inspring-->
-                    <!--                                <span class="num" *ngIf="openNum">30</span></button>-->
-                    <!--                        </div>-->
-                    <!--                    </div>-->
-                    <!--                    <div class="Emoji Emoji&#45;&#45;haha" [hidden]="routerUrl !== '/videos'">-->
-                    <!--                        <div class="">-->
-                    <!--                            <button class="blue" (click)="onClick($event)">-->
-                    <!--                                <i class="fas fa-check" *ngIf="isShown"></i>Useful-->
-                    <!--                                <span class="num" *ngIf="openNum">50</span></button>-->
-                    <!--                        </div>-->
-                    <!--                    </div>-->
-
-                    <!--                    <div class="Emoji Emoji&#45;&#45;love" [hidden]="routerUrl !== '/deals'">-->
-                    <!--                        <div class="">-->
-                    <!--                            <button class="gray" (click)="onClick($event)">-->
-                    <!--                                <i class=" fas fa-check" *ngIf="isShown"></i>-->
-                    <!--                                <i class="fas fa-heart heart"></i> the colour-->
-                    <!--                                <span class="num" *ngIf="openNum">30</span></button>-->
-                    <!--                        </div>-->
-                    <!--                    </div>-->
-                    <!--                    <div class="Emoji Emoji&#45;&#45;love" [hidden]="routerUrl !== '/deals'">-->
-                    <!--                        <div class="">-->
-                    <!--                            <button class="gray" (click)="onClick($event)">-->
-                    <!--                                <i class=" fas fa-check" *ngIf="isShown"></i>Grand-->
-                    <!--                                <span class="num" *ngIf="openNum">30</span></button>-->
-                    <!--                        </div>-->
-                    <!--                    </div>-->
-                    <!--                    <div class="Emoji Emoji&#45;&#45;love" [hidden]="routerUrl !== '/deals'">-->
-                    <!--                        <div class="">-->
-                    <!--                            <button class="gray" (click)="onClick($event)">-->
-                    <!--                                <i class=" fas fa-check" *ngIf="isShown"></i>Creative-->
-                    <!--                                <span class="num" *ngIf="openNum">30</span></button>-->
-                    <!--                        </div>-->
-                    <!--                    </div>-->
-                    <!--                    <div class="Emoji Emoji&#45;&#45;love" [hidden]="routerUrl !== '/video'">-->
-                    <!--                        <div class="">-->
-                    <!--                            <button class="gray" (click)="onClick($event)">-->
-                    <!--                                <i class=" fas fa-check" *ngIf="isShown"></i>Refreshing-->
-                    <!--                                <span class="num" *ngIf="openNum">30</span></button>-->
-                    <!--                        </div>-->
-                    <!--                    </div>-->
-                    <!--                    <div class="Emoji Emoji&#45;&#45;love" [hidden]="routerUrl !== '/video'">-->
-                    <!--                        <div class="">-->
-                    <!--                            <button class="gray" (click)="onClick($event)">-->
-                    <!--                                <i class=" fas fa-check" *ngIf="isShown"></i>Useful-->
-                    <!--                                <span class="num" *ngIf="openNum">30</span></button>-->
-                    <!--                        </div>-->
-                    <!--                    </div>-->
-
                     <ng-container *ngFor="let vType of voteTypes">
                         <div class="Emoji Emoji--love">
                             <div class="voteTick">
@@ -176,7 +25,7 @@
                                         [class.selected]="single && vType['name']=== single['votedCategory']"
                                         (click)="vote(vType['name'], single)">
 
-<!--   Love symbol -->
+                                    <!--   Love symbol -->
                                     <span *ngIf="loveCase(vType['name'])"> <i class="fas fa-heart"></i></span>
 
                                     <!-- Love symbol + text-->
@@ -203,14 +52,9 @@
             Views<span>{{single.views}}</span>
         </a>
     </li>
-    <li [hidden]="routerUrl !== '/home' && routerUrl !== '/' && routerUrl !== '/commerce' && routerUrl !== '/travel' &&  routerUrl !== '/deals' && routerUrl !== '/hobbyist' && routerUrl !== '/science' && routerUrl !== '/environment'
-&& routerUrl !== '/public'">
-        <a (click)="getSingle(single)" *ngIf="single">
-            Questions <span>{{single.questions}}</span>
-        </a>
-    </li>
-    <li [hidden]="routerUrl !== '/home' && routerUrl !== '/' && routerUrl !== '/road' && routerUrl !== '/hobbyist' && routerUrl !== '/science' && routerUrl !== '/deals' && routerUrl !== '/environment' && routerUrl !== '/public'"
-        hidden>
+
+    <li [hidden]="hiddenComments()"
+    >
         <a (click)="getSingle(single)" *ngIf="single">
             <i class="far fa-comment"></i>
             Comments<span>{{single.comments}}</span>
@@ -221,19 +65,24 @@
             Critics <span>35</span>
         </a>
     </li>
-    <li [hidden]="routerUrl !== '/pictures'">
-        <a (click)="getSingle(single)">
-            <i class="far fa-comment"></i> Fans <span>35</span>
-        </a>
-    </li>
-    <li [hidden]="routerUrl !== '/pictures' && routerUrl !== '/travel'">
-        <a (click)="getSingle(single)">
-            Suggestions <span>35</span>
-        </a>
-    </li>
+    <!--    <li [hidden]="routerUrl !== '/pictures'">-->
+    <!--        <a (click)="getSingle(single)">-->
+    <!--            <i class="far fa-comment"></i> Fans <span>35</span>-->
+    <!--        </a>-->
+    <!--    </li>-->
+    <!--    <li [hidden]="routerUrl !== '/pictures' && routerUrl !== '/travel'">-->
+    <!--        <a (click)="getSingle(single)">-->
+    <!--            Suggestions <span>35</span>-->
+    <!--        </a>-->
+    <!--    </li>-->
     <li [hidden]="routerUrl !== '/commerce'">
         <a (click)="getSingle(single)">
             <i class="far fa-comment"></i> Feedback <span>35</span>
+        </a>
+    </li>
+    <li [hidden]="hiddenQuestions()">
+        <a (click)="getSingle(single)" *ngIf="single">
+            Questions <span>{{single.questions}}</span>
         </a>
     </li>
 </ul>

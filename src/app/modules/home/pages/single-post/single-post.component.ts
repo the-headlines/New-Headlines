@@ -320,6 +320,7 @@ export class SinglePostComponent implements OnInit, OnDestroy {
         if (v === 'Feedback') {
             v = 'Comment';
         }
+
         this.questions = v;
         this.selectedCommentType = v;
         this.commentEditForm.patchValue({type: v});
