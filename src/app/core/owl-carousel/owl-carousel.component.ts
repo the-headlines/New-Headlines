@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {OwlOptions} from 'ngx-owl-carousel-o';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-owl-carousel',
@@ -10,6 +11,8 @@ import {OwlOptions} from 'ngx-owl-carousel-o';
 export class OwlCarouselComponent implements OnInit {
     @Input() posts;
 
+    routerUrl;
+    postCategory;
     customOptions: OwlOptions = {
         loop: true,
         mouseDrag: false,
@@ -35,10 +38,31 @@ export class OwlCarouselComponent implements OnInit {
         nav: true
     };
 
-    constructor() {
+    constructor(
+        public router: Router
+    ) {
     }
 
     ngOnInit() {
+        this.routerUrl = this.router.url;
+    }
+
+
+    hiddenQuestions() {
+        return /road|deals|travel/i.test(this.routerUrl) || /StyleAndSweat|HumanStories|LoveDesigns/i.test(this.postCategory);
+    }
+
+
+    hiddenComments() {
+        return /commerce/i.test(this.routerUrl) || /JumpStartups/i.test(this.postCategory);
+    }
+
+    hiddenCritics() {
+        return !(/road/i.test(this.routerUrl)) && !(/StyleAndSweat/i.test(this.postCategory));
+    }
+
+    hiddenFeedback() {
+        return !(/commerce/i.test(this.routerUrl));
     }
 
 }

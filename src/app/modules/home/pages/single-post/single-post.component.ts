@@ -199,7 +199,6 @@ export class SinglePostComponent implements OnInit, OnDestroy {
             // this.related = data['result']['related'];
             // this.commentCount = data['comment_count'];
             // this.start = data['result']['comment'].length;
-            console.log(this.singlePost);
 
             this.subject.setPostCategory(this.postCategory);
         });
@@ -224,7 +223,6 @@ export class SinglePostComponent implements OnInit, OnDestroy {
             data.type = 'Question';
         }
 
-        console.log(data);
         // this.selectedCommentType = 'Comment';
         // this.postForm.patchValue({type: 'Comment'});
         this.home.addComments(data).subscribe((d) => {

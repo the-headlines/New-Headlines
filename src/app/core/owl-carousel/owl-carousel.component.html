@@ -10,8 +10,10 @@
                     <p class="postLink">{{post.link|getUrlBase}}</p>
                 </div>
                 <div class="commentsContainer">
-                    <span>{{post.comments}} Comments</span>
-                    <span>{{post.questions}} Questions</span>
+                    <span [hidden]="hiddenComments()">{{post.comments}} Comments</span>
+                    <span [hidden]="hiddenQuestions()">{{post.questions}} Questions</span>
+                    <span [hidden]="hiddenCritics()">{{post.questions}} Critics</span>
+                    <span [hidden]="hiddenFeedback()">{{post.questions}} Feedback</span>
                 </div>
             </div>
             <div class="block_content">

@@ -60,9 +60,9 @@
             Comments<span>{{single.comments}}</span>
         </a>
     </li>
-    <li [hidden]="hiddenCritics()">
+    <li [hidden]="hiddenCritics()" *ngIf="single">
         <a (click)="getSingle(single)">
-            Critics <span>35</span>
+            Critics <span>{{single.questions}}</span>
         </a>
     </li>
     <!--    <li [hidden]="routerUrl !== '/pictures'">-->
@@ -75,9 +75,9 @@
     <!--            Suggestions <span>35</span>-->
     <!--        </a>-->
     <!--    </li>-->
-    <li [hidden]="hiddenFeedback()">
+    <li [hidden]="hiddenFeedback()" *ngIf="single">
         <a (click)="getSingle(single)">
-            <i class="far fa-comment"></i> Feedback <span>35</span>
+            <i class="far fa-comment"></i> Feedback <span>{{single.comments}}</span>
         </a>
     </li>
     <li [hidden]="hiddenQuestions()">
