@@ -43,6 +43,10 @@ export class AuthService {
         return localStorage.getItem('token');
     }
 
+    public updateProfile(data) {
+        return this.http.put(Base.url + '/api/user/details', data);
+    }
+
     /**
      * Checks to see if user logged in/ token expired
      */
