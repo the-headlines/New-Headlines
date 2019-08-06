@@ -4592,6 +4592,14 @@ button[type=submit].inlineBlock {
   .title.slider {
     font-size: 12px;
   }
+  .text_block_link .news_desc {
+    font-size: 15px;
+    line-height: 1.2;
+    height: 27px;
+    min-height: 27px;
+    max-height: 27px;
+  }
+
 }
 @media screen and (max-width:400px) {
   .commentsContainer[_ngcontent-lgq-c3] {
