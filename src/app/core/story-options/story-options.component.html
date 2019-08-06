@@ -4,10 +4,15 @@
         <ul>
             <li>
                 <div>
-                    <h3><i class="far fa-bookmark"></i> Share</h3>
+                    <h3>
+                        <i class="far fa-bookmark"></i>
+                        Share
+                    </h3>
+
+
                     <!--                    <p>-->
                     <!--                        <a href="">-->
-                    <app-fb-share [url]="single.link" ></app-fb-share>
+                    <app-fb-share [url]="single.link"></app-fb-share>
 
                     <!--                            <i class="fab fa-facebook-f"></i>-->
                     <!--                        </a>-->
@@ -19,7 +24,9 @@
                     <!--                            <i class="fab fa-twitter"></i>-->
                     <!--                        </a>-->
                     <!--                    </p>-->
+
                 </div>
+                <small class="shares">Shares: {{single.shares}}</small>
             </li>
             <li (click)="copyLink(single.link,copyInput)">
                 <input [value]="single.link" #copyInput class="copyInput">

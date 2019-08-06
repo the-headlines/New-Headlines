@@ -61,7 +61,7 @@ s
     toggleShow(single) {
         this.isShown = !this.isShown;
         this.currentPost = single;
-        console.log('button click')
+        // console.log('button click')
     }
 
     copyLink(link, input) {
