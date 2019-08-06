@@ -3,7 +3,7 @@ import {Component, ElementRef, AfterViewInit, Input} from '@angular/core';
 @Component({
     selector: 'app-fb-share',
     template: `
-        <div class="fb-share-button" [attr.data-href]="url" data-width="200" data-type="button"></div>`
+        <div class="fb-share-button" [attr.data-href]="url" data-width="200" data-type="button_count"></div>`
 })
 
 export class FbShareComponent implements AfterViewInit {
