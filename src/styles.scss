@@ -2527,7 +2527,7 @@ header[_ngcontent-pqf-c2] .navbar[_ngcontent-pqf-c2] .logo[_ngcontent-pqf-c2] ul
 }
 .feedback_btn{
   right: -73px;
-  top: 50%;
+  top: 60%;
   position: fixed;
   transform: rotate(-90deg);
   transform-origin: 0 0;
@@ -2955,6 +2955,9 @@ input.mat-input-element {
 }
 
 @media only screen and (max-width: 960px) {
+  .feedback_btn{
+    top: 48.5%;
+  }
 
   .get_in_touch {
     width: 100%;
@@ -3003,6 +3006,13 @@ input.mat-input-element {
 }
 
 @media only screen and (max-width: 768px) {
+  .feedback_btn {
+    top: 46.5%;
+  }
+  //.feedback_btn {
+  //  top: 51%;
+  //}
+
   .main {
     padding-top: 35%;
   }
@@ -3021,7 +3031,7 @@ input.mat-input-element {
     position: static;
   }
   .media_sidebar{
-    display: block !important;
+    display: none !important;
   }
   .policy{
     display: none;
@@ -3132,7 +3142,8 @@ input.mat-input-element {
   }
   .content_block {
     width: 95%;
-    margin: 20px auto 20% auto;
+    //margin: 20px auto 20% auto;
+    margin: 20px auto;
      }
 }
 
@@ -4559,7 +4570,7 @@ button[type=submit].inlineBlock {
     margin-right: 0;
   }
   .filter .menu li button {
-    font-size: 9px;
+    font-size: 8px;
   }
   .news-block .post_wrapper .text-block p {
     font-size: 11px;
@@ -4599,7 +4610,26 @@ button[type=submit].inlineBlock {
     min-height: 27px;
     max-height: 27px;
   }
-
+  .section_carousel,.section_right,.content_block {
+    width: 100% !important;
+  }
+  .blocks_filter{
+    width: 20% !important;
+  }
+  .content_block .all {
+    width: 80%;
+  }
+  //.filter .menu li {
+  //  width: 60%;
+  //}
+  .filter .menu li {
+    height: 27px;
+    margin-right: 0px;
+    border-radius: 14px;
+  }
+  .drop__down {
+    width: 94%;
+  }
 }
 @media screen and (max-width:400px) {
   .commentsContainer[_ngcontent-lgq-c3] {
@@ -4618,7 +4648,14 @@ button[type=submit].inlineBlock {
     font-size: 10px;
   }
 }
-
+@media screen and (max-width:360px){
+  .blocks_filter {
+    width: 23% !important;
+  }
+  .all{
+    width: 76%;
+  }
+}
 @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-device-pixel-ratio: 2) and (device-aspect-ratio: 40/71) {
   .modal-content {
     overflow: auto !important;
