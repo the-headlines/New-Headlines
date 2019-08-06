@@ -16,7 +16,7 @@ export class AsideComponent implements OnInit {
 
     posts: any = [];
     filteredPosts: any = [];
-    defaultRecords = 5;
+    defaultRecords = 3;
     @ViewChild(MatPaginator) paginator: MatPaginator;
 
     ngOnInit() {
