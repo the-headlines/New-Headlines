@@ -26,7 +26,7 @@ export class StoryOptionsComponent implements OnInit {
     openNum: boolean;
     animal: string;
     name: string;
-
+s
     constructor(
         private renderer: Renderer2,
         public dialog: MatDialog,
@@ -61,7 +61,7 @@ export class StoryOptionsComponent implements OnInit {
     toggleShow(single) {
         this.isShown = !this.isShown;
         this.currentPost = single;
-        // console.log('button click')
+        console.log('button click')
     }
 
     copyLink(link, input) {
