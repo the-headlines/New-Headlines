@@ -93,9 +93,8 @@ export class ScienceComponent implements OnInit {
     incrementViews(single) {
         this.home.updateViewCount(single).subscribe(dt => {
             this.home.getSinglePost(single._id).subscribe((d: any) => {
-                console.log(d.views);
                 single.views = d.views;
-                ++single.score;
+                this.subject.setPostScore(d.score);
             });
         });
     }

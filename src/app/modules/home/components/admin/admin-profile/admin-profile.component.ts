@@ -35,7 +35,10 @@ export class AdminProfileComponent implements OnInit {
             name: [],
             email: []
         });
-        this.passForm = this.fb.group({});
+        this.passForm = this.fb.group({
+            new_password: [],
+            current_password: []
+        });
 
         this.profileForm.patchValue(this.userData);
     }
@@ -45,5 +48,13 @@ export class AdminProfileComponent implements OnInit {
             this.toastr.success('Profile info has been updated successfully');
         });
     }
+
+    updatePass() {
+        console.log(this.passForm.value);
+        this.auth.updatePassword(this.passForm.value).subscribe(dt => {
+            this.toastr.success('The password has been updated successfully');
+        });
+    }
+
 
 }

@@ -228,10 +228,8 @@ export class CommerceComponent implements OnInit {
     incrementViews(single) {
         this.home.updateViewCount(single).subscribe(dt => {
             this.home.getSinglePost(single._id).subscribe((d: any) => {
-                console.log(d);
-                single.score = d.score;
                 single.views = d.views;
-                console.log(single);
+                this.subject.setPostScore(d.score);
             });
         });
     }

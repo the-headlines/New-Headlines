@@ -34,17 +34,17 @@
                                 <p>Change Password</p>
                                 <mat-form-field>
                                     <mat-placeholder class="placeholder">Old Password</mat-placeholder>
-                                    <input matInput type="password">
+                                    <input matInput type="password" formControlName="current_password">
                                 </mat-form-field>
                                 <mat-form-field>
                                     <mat-placeholder class="placeholder">New Password</mat-placeholder>
-                                    <input matInput type="password">
+                                    <input matInput type="password"  formControlName="new_password">
                                 </mat-form-field>
                                 <mat-form-field>
                                     <mat-placeholder class="placeholder">Confirm Password</mat-placeholder>
                                     <input matInput type="password">
                                 </mat-form-field>
-                                <button mat-raised-button>
+                                <button mat-raised-button (click)="updatePass()">
                                     Save
                                 </button>
                             </div>

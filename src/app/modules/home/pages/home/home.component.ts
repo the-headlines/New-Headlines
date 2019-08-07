@@ -263,9 +263,8 @@ export class HomeComponent implements OnInit {
     incrementViews(single) {
         this.home.updateViewCount(single).subscribe(dt => {
             this.home.getSinglePost(single._id).subscribe((d: any) => {
-                single.score = d.score;
+                this.subject.setPostScore(d.score);
                 single.views = d.views;
-                console.log(single);
             });
         });
     }

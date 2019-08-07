@@ -225,7 +225,7 @@ export class DealsComponent implements OnInit {
         this.home.updateViewCount(single).subscribe(dt => {
             this.home.getSinglePost(single._id).subscribe((d: any) => {
                 single.views = d.views;
-                single.score = d.score;
+                this.subject.setPostScore(d.score);
             });
         });
     }

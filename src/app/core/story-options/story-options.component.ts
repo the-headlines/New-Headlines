@@ -4,6 +4,7 @@ import {ReportComponentComponent} from '../../modules/home/components/report-com
 import {AuthService} from '../../services/auth.service';
 import {Router} from '@angular/router';
 import {PostsService} from '../../services/posts.service';
+import {SubjectService} from '../../services/subject.service';
 
 export interface DialogData {
     animal: string;
@@ -33,7 +34,8 @@ export class StoryOptionsComponent implements OnInit {
         public dialog: MatDialog,
         public auth: AuthService,
         public router: Router,
-        private post: PostsService
+        private post: PostsService,
+        private subject: SubjectService
     ) {
         this.renderer.listen('window', 'click', (e: Event) => {
             if (this.toggleButton && e.target !== this.toggleButton.nativeElement) {
@@ -87,6 +89,7 @@ export class StoryOptionsComponent implements OnInit {
 
     incrementShares(e) {
         ++this.single.shares;
+        this.subject.setPostScore(++this.single.score);
         this.post.updateSharesCount(this.single._id, e.charAt(0).toUpperCase() + e.substring(1)).subscribe(dt => {
 
         });

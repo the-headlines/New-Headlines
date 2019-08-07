@@ -4424,9 +4424,17 @@ button[type=submit].inlineBlock {
   }
 }
 
-//.filter_item{
-//  display:block;
-//}
+.filter_item {
+  display: block;
+}
+
+
+.userInfo {
+  .mat-form-field-label-wrapper {
+    top: -20px !important;
+  }
+}
+
 @media only screen and (max-width: 768px) {
   .content {
     width: 96%;
@@ -4464,7 +4472,7 @@ button[type=submit].inlineBlock {
     position: relative;
   }
   .filters {
-    top: 47%;
+    top: 58%;
   }
 
   .filter .menu li{
@@ -4526,7 +4534,7 @@ button[type=submit].inlineBlock {
   .section_carousel{
     order: 2;
   }
-  .section_right{
+  .section_right {
     order: 1;
     width: 95% !important;
     margin: 20px auto;
