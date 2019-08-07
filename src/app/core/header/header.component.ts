@@ -10,6 +10,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder} from '@angular/forms';
 import {hasOwnProperty} from 'tslint/lib/utils';
 import {MAIN_SECTIONS} from '../../shared/constants/main';
+import {EditInfoModalComponent} from "../../modules/home/components/libs/edit-info-modal/edit-info-modal.component";
+import {FeedbackComponent} from "../../modules/home/pages/feedback/feedback.component";
 
 
 @Component({
@@ -200,6 +202,18 @@ export class HeaderComponent implements OnInit {
         localStorage.setItem('token', '');
         localStorage.setItem('full_name', null);
         this.router.navigate(['/']);
+    }
+    openDialog(term): void {
+        const dialogRef = this.dialog.open(FeedbackComponent, {
+            width: '500px',
+            data: {
+                name: term
+            }
+        });
+
+        dialogRef.afterClosed().subscribe(result => {
+            console.log('The dialog was closed');
+        });
     }
 }
 

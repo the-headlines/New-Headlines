@@ -14,6 +14,7 @@ import {ToastrService} from 'ngx-toastr';
 import {AuthService} from '../../../../services/auth.service';
 import {GenerateSaveNonAuthUserIdPipe} from '../../../../shared/pipes/generate-save-non-auth-user-id.pipe';
 
+
 @Component({
     selector: 'app-home',
     templateUrl: './home.component.html',
@@ -38,6 +39,7 @@ export class HomeComponent implements OnInit {
     currentPost = {};
     defaultRecords = 5;
     page = 1;
+    isShown = true;
     selectedFilter = {vote: 'All', type: 'New'};
 
     @ViewChild('paginator') paginator;
@@ -296,4 +298,12 @@ export class HomeComponent implements OnInit {
             this.filteredPosts.news = dt.news;
         });
     }
+    toggleShow() {
+        this.isShown = !this.isShown;
+    }
+    hideDiv(trigger) {
+        trigger.closeMenu();
+        this.isShown = false;
+    }
+
 }

@@ -2,6 +2,9 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {AsideService} from '../../services/aside.service';
 import {Router} from '@angular/router';
 import {MatPaginator} from '@angular/material';
+// import {EditInfoModalComponent} from "./modules/home/components/libs/edit-info-modal/edit-info-modal.component";
+// import {FeedbackComponent} from "./modules/home/pages/feedback/feedback.component";
+
 
 @Component({
     selector: 'app-aside',
@@ -46,7 +49,6 @@ export class AsideComponent implements OnInit {
         return str ? str.replace(/<[^>]*>/g, '') : str;
     }
 
-
     handle(e) {
         this.filteredPosts.news = this.posts.news.slice(e.pageIndex * e.pageSize,
             e.pageIndex * e.pageSize + e.pageSize);
@@ -55,5 +57,17 @@ export class AsideComponent implements OnInit {
     getLength(d) {
         return d ? d.length : 0;
     }
-
+    //
+    // openDialog(term): void {
+    //     const dialogRef = this.dialog.open(FeedbackComponent, {
+    //         width: '500px',
+    //         data: {
+    //             name: term
+    //         }
+    //     });
+    //
+    //     dialogRef.afterClosed().subscribe(result => {
+    //         console.log('The dialog was closed');
+    //     });
+    // }
 }

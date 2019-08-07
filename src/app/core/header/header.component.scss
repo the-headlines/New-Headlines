@@ -1005,7 +1005,7 @@ li.margin_top {
         justify-content: flex-start;
 
         > div {
-          width: 66%;
+          width: 75%;
 
           a {
             img {
@@ -1114,7 +1114,9 @@ li.margin_top {
   }
 }
 
-
+.header_feedback{
+  display: none;
+}
 @media screen and (max-width: 1480px) {
   header .menu ul {
     padding: 0 17px;
@@ -1138,6 +1140,26 @@ li.margin_top {
   header .menu ul li a {
     font-size: 13px;
   }
+}
+
+
+@media screen and (max-width: 960px) {
+  header .navbar .logo p{
+    width: 100%;
+    margin: 10px 0;
+    font-size: 13px;
+  }
+
+
+}
+
+
+
+@media screen and (max-width:580px){
+  .mobile_user_info ul li a{
+    font-size: 13px;
+  }
+
 }
 
 @media screen and (max-width: 480px) {
