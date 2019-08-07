@@ -29,4 +29,8 @@ export class PostsService {
     public updateUserInfo(data) {
         return this.http.put(Base.url + '/api/news/5c5bf87d37803a331d79a6f5', data);
     }
+
+    updateSharesCount(id, sMedia) {
+        return this.http.post(Base.url + '/api/news/' + id + '/shares/' + sMedia, {});
+    }
 }

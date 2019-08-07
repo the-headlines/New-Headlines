@@ -3,6 +3,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 import {ReportComponentComponent} from '../../modules/home/components/report-component/report-component.component';
 import {AuthService} from '../../services/auth.service';
 import {Router} from '@angular/router';
+import {PostsService} from '../../services/posts.service';
 
 export interface DialogData {
     animal: string;
@@ -26,12 +27,13 @@ export class StoryOptionsComponent implements OnInit {
     openNum: boolean;
     animal: string;
     name: string;
-s
+
     constructor(
         private renderer: Renderer2,
         public dialog: MatDialog,
         public auth: AuthService,
-        public router: Router
+        public router: Router,
+        private post: PostsService
     ) {
         this.renderer.listen('window', 'click', (e: Event) => {
             if (this.toggleButton && e.target !== this.toggleButton.nativeElement) {
@@ -50,7 +52,6 @@ s
         });
 
         dialogRef.afterClosed().subscribe(result => {
-            console.log('The dialog was closed');
             this.animal = result;
         });
     }
@@ -82,6 +83,13 @@ s
 
     isOS() {
         return navigator.userAgent.match(/ipad|iphone/i);
+    }
+
+    incrementShares(e) {
+        ++this.single.shares;
+        this.post.updateSharesCount(this.single._id, e.charAt(0).toUpperCase() + e.substring(1)).subscribe(dt => {
+
+        });
     }
 
 }

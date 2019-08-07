@@ -1,9 +1,14 @@
 <div class="storyOptions">
+
     <button (click)="toggleShow(single)"><i class="fas fa-ellipsis-h" #toggleButton></i></button>
     <div *ngIf="isShown && single === currentPost" class="save_caret_menu_item" #share>
+
         <ul>
+            <share-buttons [url]="single.link" [include]="['facebook','twitter']"
+                           [theme]="'material-dark'" (opened)="incrementShares($event)" [showCount]="true"></share-buttons>
             <li>
                 <div>
+
                     <h3>
                         <i class="far fa-bookmark"></i>
                         Share
@@ -12,7 +17,7 @@
 
                     <!--                    <p>-->
                     <!--                        <a href="">-->
-                    <app-fb-share [url]="single.link"></app-fb-share>
+                    <!--                    <app-fb-share [url]="single.link"></app-fb-share>-->
 
                     <!--                            <i class="fab fa-facebook-f"></i>-->
                     <!--                        </a>-->
@@ -20,7 +25,7 @@
                     <!--                        <i class="fab fa-instagram"></i>-->
                     <!--                        </a>-->
                     <!--                        <a href="">-->
-                    <tweet [url]="single.link"></tweet>
+                    <!--                    <tweet [url]="single.link"></tweet>-->
                     <!--                            <i class="fab fa-twitter"></i>-->
                     <!--                        </a>-->
                     <!--                    </p>-->
