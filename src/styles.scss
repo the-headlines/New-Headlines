@@ -4424,9 +4424,9 @@ button[type=submit].inlineBlock {
   }
 }
 
-.filter_item{
-  display:block;
-}
+//.filter_item{
+//  display:block;
+//}
 @media only screen and (max-width: 768px) {
   .content {
     width: 96%;
@@ -4464,7 +4464,7 @@ button[type=submit].inlineBlock {
     position: relative;
   }
   .filters {
-    top: 58%;
+    top: 47%;
   }
 
   .filter .menu li{
