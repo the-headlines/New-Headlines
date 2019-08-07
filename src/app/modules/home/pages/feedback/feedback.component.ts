@@ -1,17 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../../../../services/auth.service';
-import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
-import {ErrorStateMatcher} from '@angular/material/core';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {MatDialog} from '@angular/material';
 import {AsideService} from '../../../../services/aside.service';
 
-export class MyErrorStateMatcher implements ErrorStateMatcher {
-    isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-        const isSubmitted = form && form.submitted;
-        return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-    }
-}
 
 @Component({
     selector: 'app-feedback',
@@ -23,12 +16,24 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 export class FeedbackComponent implements OnInit {
 
     lastet: any = [];
+    feedbackForm: FormGroup;
 
-    constructor(private auth: AuthService, private router: Router, private matDialog: MatDialog, private aside: AsideService) {
+    constructor(
+        private auth: AuthService,
+        private router: Router,
+        private matDialog: MatDialog,
+        private aside: AsideService,
+        private fb: FormBuilder
+    ) {
     }
 
     ngOnInit() {
         this.getLasted();
+        this.feedbackForm = this.fb.group({
+            name: [''],
+            feedback: [''],
+            email: ['']
+        });
         // console.log(this.lastet);
     }
 
@@ -60,36 +65,11 @@ export class FeedbackComponent implements OnInit {
         });
     }
 
-    emailFormControl = new FormControl('', [
-        Validators.required,
-        Validators.email,
-    ]);
 
-    nameFormControl = new FormControl('', [
-        Validators.required,
-    ]);
+    getContact() {
 
-    messFormControl = new FormControl('', [
-        Validators.required
-    ]);
+        this.auth.getContact(this.feedbackForm.value).subscribe((mess: any) => {
 
-    matcher = new MyErrorStateMatcher();
-
-    userContactInf = {name: '', email: '', mess: ''};
-
-    getContact(data) {
-        data.loginned = true;
-        this.auth.getContact(data).subscribe((mess: any) => {
-
-            console.log(mess);
-            if (mess['status'] == 0) {
-                console.log('aa');
-                alert('Email invalid');
-                return false;
-            }
-            if (mess['status'] == 1) {
-                alert('thank you your message has been sent');
-            }
         });
     }
 }

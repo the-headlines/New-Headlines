@@ -36,7 +36,7 @@ export class AuthService {
     }
 
     public getContact(data) {
-        return this.http.post(Base.url + '/', data);
+        return this.http.post(Base.url + '/api/general/feedback', data);
     }
 
     public getToken() {
