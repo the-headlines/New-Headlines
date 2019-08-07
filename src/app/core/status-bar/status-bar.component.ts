@@ -50,9 +50,13 @@ export class StatusBarComponent implements OnInit {
             this.userData = JwtDecode(token);
         }
 
+        this.subject.getPostScore().subscribe(score => {
+            this.postScore = score;
+        });
+
         if (this.single) {
             this.postCategory = this.single.category;
-            this.postScore = this.countScore.transform(this.single);
+            this.postScore = this.single.score;
             this.voteTypes = this.voteTypes.filter(t => t['pages'].includes(this.postCategory));
         }
     }

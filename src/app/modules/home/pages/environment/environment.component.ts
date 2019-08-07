@@ -95,6 +95,7 @@ export class EnvironmentComponent implements OnInit {
         this.home.updateViewCount(single).subscribe(dt => {
             this.home.getSinglePost(single._id).subscribe((d: any) => {
                 single.views = d.views;
+                this.subject.setPostScore(d.score);
             });
         });
     }
