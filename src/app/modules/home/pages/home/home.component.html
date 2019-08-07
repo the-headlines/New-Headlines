@@ -28,14 +28,15 @@
                             </div>
 
                             <div class="filters">
-                                <div class="filter" (click)="toggleShow()">
+                                <div class="filter">
                                     <div class="media_filter_btn">
-                                        <p >Filters:</p>
+                                        <p (click)="toggleShow()">Filters:</p>
 
                                     <span>Filters:</span>
 <!--                                    <div class="filter_item" *ngIf="isShown" #toggleButton-->
 <!--                                         (mouseleave)="hideDiv()">-->
-                                        <div class="filter_item">
+                                        <div class="filter_item" *ngIf="isShown" #toggleButton
+                                             (mouseleave)="hideDiv()">
                                      <ul class="menu">
                                             <!--<li class="blue_lg" (click)="filterByVotes('like')">-->
                                             <!--<button type="button">New</button>-->

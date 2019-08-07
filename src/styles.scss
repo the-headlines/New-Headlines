@@ -4424,14 +4424,14 @@ button[type=submit].inlineBlock {
   }
 }
 
-
-@media screen and (max-width: 992px) and (min-width: 768px) {
+.filter_item{
+  display:block;
+}
+@media only screen and (max-width: 768px) {
   .content {
-
     width: 96%;
     margin: 0 auto;
   }
-
   .news-block .posts_items {
     width: 100%;
     border: 1px solid #dddfe2;
@@ -4443,9 +4443,6 @@ button[type=submit].inlineBlock {
   .filter span {
     margin-right: 0;
   }
-}
-
-@media only screen and (max-width: 768px) {
   .filter_item{
     //display: none;
     background: #fff;

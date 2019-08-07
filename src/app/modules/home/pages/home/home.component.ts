@@ -39,6 +39,7 @@ export class HomeComponent implements OnInit {
     currentPost = {};
     defaultRecords = 5;
     page = 1;
+    isShown = true;
     selectedFilter = {vote: 'All', type: 'New'};
 
     @ViewChild('paginator') paginator;
@@ -305,4 +306,5 @@ export class HomeComponent implements OnInit {
         trigger.closeMenu();
         this.isShown = false;
     }
+
 }
