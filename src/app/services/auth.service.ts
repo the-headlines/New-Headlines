@@ -47,6 +47,10 @@ export class AuthService {
         return this.http.put(Base.url + '/api/user/details', data);
     }
 
+    updatePassword(data) {
+        return this.http.put(Base.url + '/api/user/pwd', data);
+    }
+
     /**
      * Checks to see if user logged in/ token expired
      */
