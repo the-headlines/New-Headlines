@@ -4,8 +4,7 @@
     <div *ngIf="isShown && single === currentPost" class="save_caret_menu_item" #share>
 
         <ul>
-            <share-buttons [url]="single.link" [include]="['facebook','twitter']"
-                           [theme]="'material-dark'" (opened)="incrementShares($event)" [showCount]="true"></share-buttons>
+
             <li>
                 <div>
 
@@ -31,8 +30,13 @@
                     <!--                    </p>-->
 
                 </div>
-                <small class="shares">Shares: {{single.shares}}</small>
             </li>
+
+            <!-- This is here because otherwise the style of the share buttons is breaking-->
+            <share-buttons [url]="single.link" [include]="['facebook','twitter']"
+                           [theme]="'material-light'" (opened)="incrementShares($event)"
+                           [showCount]="true"></share-buttons>
+            <small class="shares">{{single.shares}} shares</small>
             <li (click)="copyLink(single.link,copyInput)">
                 <input [value]="single.link" #copyInput class="copyInput">
                 <div class="copyLinkDiv">
