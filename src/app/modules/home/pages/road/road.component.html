@@ -28,8 +28,7 @@
                                         <p (click)="toggleShow()">Filters</p>
 
                                         <span>filters:</span>
-                                        <div class="filter_item" *ngIf="isShown" #toggleButton
-                                             (mouseleave)="hideDiv()">
+                                        <div class="filter_item" *ngIf="isShown" #toggleButton>
                                             <ul class="menu">
                                                 <li (click)="filterByVotes('All')"
                                                     [class.filterHighlight]="selectedFilter.vote === 'All'">
