@@ -304,7 +304,9 @@ export class HomeComponent implements OnInit {
     }
 
     hideDiv(trigger) {
-        trigger.closeMenu();
+        if (trigger) {
+            trigger.closeMenu();
+        }
         this.isShown = false;
     }
 

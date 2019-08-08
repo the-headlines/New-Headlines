@@ -49,6 +49,7 @@
                                            [formControl]="passFormControl"
                                            [errorStateMatcher]="matcher" name="pass"
                                            [(ngModel)]="userRegisInf.password">
+                                    <mat-hint class="passHint">At least one capital letter and number</mat-hint>
                                     <mat-error *ngIf="passFormControl.hasError('required')">
                                         Password is <strong>required</strong>
                                     </mat-error>
