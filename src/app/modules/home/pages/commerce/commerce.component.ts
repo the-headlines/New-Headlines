@@ -25,6 +25,7 @@ export class CommerceComponent implements OnInit {
     searchTerm = '';
     page = 1;
     filteredPosts: any = {news: []};
+    isShown = screen.width > 768;
     notAuthUserId = this.cookie.get('uniqueUserId');
     selectedFilter = {vote: 'All', type: 'New'};
 
@@ -248,6 +249,14 @@ export class CommerceComponent implements OnInit {
             this.posts = dt;
             this.filteredPosts.news = dt.news;
         });
+    }
+    toggleShow() {
+        this.isShown = !this.isShown;
+    }
+
+    hideDiv(trigger) {
+        trigger.closeMenu();
+        this.isShown = false;
     }
 
 }

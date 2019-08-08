@@ -21,33 +21,41 @@
                                     <p></p>
                                 </div>
                             </div>
+
                             <div class="filters">
                                 <div class="filter">
-                                    <span>filters:</span>
-                                    <ul class="menu">
-                                        <li [class.filterHighlight]="selectedFilter.vote === 'All'"
-                                            (click)="filterByVotes('All')">
-                                            <button>All</button>
-                                        </li>
-                                        <li [class.filterHighlight]="selectedFilter.vote === 'Grand'"
-                                            (click)="filterByVotes('Grand')">
-                                            <button>Grand</button>
-                                        </li>
-                                        <li [class.filterHighlight]="selectedFilter.vote === 'Creative'"
-                                            (click)="filterByVotes('Creative')">
-                                            <button>
-                                                Creative
-                                            </button>
-                                        </li>
-                                    </ul>
+                                    <div class="media_filter_btn">
+                                        <p (click)="toggleShow()">Filters</p>
+
+                                        <span>filters:</span>
+                                        <div class="filter_item" *ngIf="isShown" #toggleButton>
+                                            <ul class="menu">
+                                                <li [class.filterHighlight]="selectedFilter.vote === 'All'"
+                                                    (click)="filterByVotes('All')">
+                                                    <button>All</button>
+                                                </li>
+                                                <li [class.filterHighlight]="selectedFilter.vote === 'Grand'"
+                                                    (click)="filterByVotes('Grand')">
+                                                    <button>Grand</button>
+                                                </li>
+                                                <li [class.filterHighlight]="selectedFilter.vote === 'Creative'"
+                                                    (click)="filterByVotes('Creative')">
+                                                    <button>
+                                                        Creative
+                                                    </button>
+                                                </li>
+                                            </ul>
+                                            <div class="drop__down">
+                                                <select (change)="filterByType($event)">
+                                                    <option></option>
+                                                    <option [selected]="selectedFilter.type==='New'">New</option>
+                                                    <option [selected]="selectedFilter.type==='Score'">Score</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="drop__down">
-                                    <select (change)="filterByType($event)">
-                                        <option></option>
-                                        <option [selected]="selectedFilter.type==='New'">New</option>
-                                        <option [selected]="selectedFilter.type==='Score'">Score</option>
-                                    </select>
-                                </div>
+
                             </div>
                         </div>
                         <div class="all">

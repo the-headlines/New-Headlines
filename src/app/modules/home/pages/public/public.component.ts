@@ -19,6 +19,7 @@ export class PublicComponent implements OnInit {
     searchTerm = '';
     page = 1;
     filteredPosts: any = {news: []};
+    isShown = screen.width > 768;
     selectedFilter = {vote: 'All', type: 'New'};
 
     constructor(
@@ -115,4 +116,12 @@ export class PublicComponent implements OnInit {
         });
     }
 
+    toggleShow() {
+        this.isShown = !this.isShown;
+    }
+
+    hideDiv(trigger) {
+        trigger.closeMenu();
+        this.isShown = false;
+    }
 }
