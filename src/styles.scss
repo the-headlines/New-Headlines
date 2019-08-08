@@ -4673,6 +4673,11 @@ button[type=submit].inlineBlock {
   }
 }
 @media screen and (max-width:480px){
+  .profile_container .right_side{
+    padding: 5px;
+  }
+
+
   .filter_item {
     width: 160px;
     padding: 5px;
