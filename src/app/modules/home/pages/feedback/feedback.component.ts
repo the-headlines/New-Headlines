@@ -4,6 +4,7 @@ import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {MatDialog, MatDialogRef} from '@angular/material';
 import {AsideService} from '../../../../services/aside.service';
+import {ToastrService} from 'ngx-toastr';
 
 
 @Component({
@@ -24,7 +25,8 @@ export class FeedbackComponent implements OnInit {
         private matDialog: MatDialog,
         private aside: AsideService,
         private fb: FormBuilder,
-        private dialogRef: MatDialogRef<FeedbackComponent>
+        private dialogRef: MatDialogRef<FeedbackComponent>,
+        private toastr: ToastrService
     ) {
     }
 
@@ -69,8 +71,10 @@ export class FeedbackComponent implements OnInit {
 
     getContact() {
 
-        this.auth.getContact(this.feedbackForm.value).subscribe((mess: any) => {
+        this.auth.getContact(this.feedbackForm.value).subscribe((data: any) => {
             this.dialogRef.close();
+            this.toastr.success(data.message);
+
         });
     }
 }
