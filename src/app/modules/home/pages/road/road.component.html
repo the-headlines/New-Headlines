@@ -59,6 +59,11 @@
                             </div>
                         </div>
                         <div class="all">
+                            <!-- Selected vote category -->
+                            <div *ngIf="selectedFilter.vote!=='All'" class="selectedVoteCategory">
+                                <small>Voting category:</small>
+                                <span>{{selectedFilter.vote}}</span>
+                            </div>
                             <div class="loop_items item posts_items"
                                  infiniteScroll
                                  [infiniteScrollDistance]="2"

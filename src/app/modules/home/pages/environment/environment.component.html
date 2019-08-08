@@ -32,7 +32,7 @@
                                         <p (click)="toggleShow()">Filters</p>
                                         <span>filters:</span>
                                         <div class="filter_item" *ngIf="isShown" #toggleButton
-                                            >
+                                        >
                                             <ul class="menu">
                                                 <!--<li class="blue_lg" (click)="filterByVotes('like')">-->
                                                 <!--<button type="button">New</button>-->
@@ -74,6 +74,11 @@
                             </div>
                         </div>
                         <div class="all">
+                            <!-- Selected vote category -->
+                            <div *ngIf="selectedFilter.vote!=='All'" class="selectedVoteCategory">
+                                <small>Voting category:</small>
+                                <span>{{selectedFilter.vote}}</span>
+                            </div>
                             <div class="loop_items item posts_items"
                                  infiniteScroll
                                  [infiniteScrollDistance]="2"
