@@ -39,7 +39,7 @@ export class HomeComponent implements OnInit {
     currentPost = {};
     defaultRecords = 5;
     page = 1;
-    isShown = false;
+    isShown = screen.width > 768;
     selectedFilter = {vote: 'All', type: 'New'};
 
     @ViewChild('paginator') paginator;
@@ -298,9 +298,11 @@ export class HomeComponent implements OnInit {
             this.filteredPosts.news = dt.news;
         });
     }
+
     toggleShow() {
         this.isShown = !this.isShown;
     }
+
     hideDiv(trigger) {
         trigger.closeMenu();
         this.isShown = false;
