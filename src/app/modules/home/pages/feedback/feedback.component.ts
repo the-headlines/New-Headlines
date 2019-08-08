@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../../../../services/auth.service';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
-import {MatDialog} from '@angular/material';
+import {MatDialog, MatDialogRef} from '@angular/material';
 import {AsideService} from '../../../../services/aside.service';
 
 
@@ -23,7 +23,8 @@ export class FeedbackComponent implements OnInit {
         private router: Router,
         private matDialog: MatDialog,
         private aside: AsideService,
-        private fb: FormBuilder
+        private fb: FormBuilder,
+        private dialogRef: MatDialogRef<FeedbackComponent>
     ) {
     }
 
@@ -69,7 +70,7 @@ export class FeedbackComponent implements OnInit {
     getContact() {
 
         this.auth.getContact(this.feedbackForm.value).subscribe((mess: any) => {
-
+            this.dialogRef.close();
         });
     }
 }
