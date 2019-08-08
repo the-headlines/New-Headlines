@@ -51,6 +51,10 @@ export class AuthService {
         return this.http.put(Base.url + '/api/user/pwd', data);
     }
 
+    sendForgotPassRequest1(data) {
+        return this.http.post(Base.url + '/api/user/forgot-password', data);
+    }
+
     /**
      * Checks to see if user logged in/ token expired
      */

@@ -139,7 +139,9 @@
                     <h3>{{singlePost.extractedTitle}}</h3>
                     <small class="desc">{{singlePost.description|stripTags}}</small>
                     <div class="post_image">
-                        <img src="{{singlePost.extractedImage}}" alt="" class="postImage">
+                        <a [href]="singlePost.link">
+                            <img src="{{singlePost.extractedImage}}" alt="" class="postImage">
+                        </a>
                         <div class="play">
                             <i class="far fa-play-circle"></i>
                         </div>

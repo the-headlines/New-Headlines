@@ -21,7 +21,6 @@
                                    *ngIf="isShown && single && vType['name']=== single['votedCategory']"></i>
                             </div>
                             <div class="voteType">
-
                                 <button class="gray" (click)="vote(vType['name'], single)">
 
                                     <!--   Love symbol -->
@@ -43,7 +42,6 @@
                             </div>
                             <ng-container *ngIf="single">
                                 <ng-container *ngFor="let v of single.votes">
-<!--                                    <span *ngIf="single">{{vType['name'] + ' ' + v['_id']}}</span>-->
                                     <p class="num" *ngIf="v['_id']=== vType['name']">{{v['count']}}</p>
                                 </ng-container>
                             </ng-container>
