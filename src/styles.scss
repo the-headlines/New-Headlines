@@ -250,7 +250,7 @@ img {
     flex-direction: column;
     align-items: flex-start;
     flex-wrap: nowrap;
-    margin: 0 auto 0 0;
+    margin: 0 auto 20px 0;
     width: 90%;
 
     li {
@@ -3240,7 +3240,11 @@ input.mat-input-element {
   align-items: center;
   justify-content: center;
   width: 70%;
-  margin: 20px 0 0 0;
+  margin: 0;
+}
+
+.sortPostsBy {
+  letter-spacing: 0;
 }
 
 .drop__down select:focus {
@@ -3255,10 +3259,10 @@ input.mat-input-element {
   -moz-appearance: none;
   width: 100%;
   color: #495057;
-  background-image: linear-gradient(to bottom, #d7d7d7, #fafafa);
+  //background-image: linear-gradient(to bottom, #d7d7d7, #fafafa);
   background-clip: padding-box;
-  border: 2px solid #d7d7d7;
-  border-radius: 9px;
+  border: 1px solid;
+  border-radius: 29px;
   padding-left: 8px;
 }
 
