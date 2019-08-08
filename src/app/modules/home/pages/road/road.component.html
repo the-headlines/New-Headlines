@@ -24,31 +24,38 @@
                             </div>
                             <div class="filters">
                                 <div class="filter">
-                                    <span>filters:</span>
-                                    <ul class="menu">
-                                        <li (click)="filterByVotes('All')"
-                                            [class.filterHighlight]="selectedFilter.vote === 'All'">
-                                            <button>All</button>
-                                        </li>
-                                        <li (click)="filterByVotes('TopClass')"
-                                            [class.filterHighlight]="selectedFilter.vote === 'TopClass'">
-                                            <button>Top
-                                                Class
-                                            </button>
-                                        </li>
-                                        <li (click)="filterByVotes('Magic')"
-                                            [class.filterHighlight]="selectedFilter.vote === 'Magic'">
-                                            <button>Magic
-                                            </button>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="drop__down">
-                                    <select (change)="filterByType($event)">
-                                        <option></option>
-                                        <option [selected]="selectedFilter.type==='New'">New</option>
-                                        <option [selected]="selectedFilter.type==='Score'">Score</option>
-                                    </select>
+                                    <div class="media_filter_btn">
+                                        <p (click)="toggleShow()">Filters</p>
+
+                                        <span>filters:</span>
+                                        <div class="filter_item" *ngIf="isShown" #toggleButton
+                                             (mouseleave)="hideDiv()">
+                                            <ul class="menu">
+                                                <li (click)="filterByVotes('All')"
+                                                    [class.filterHighlight]="selectedFilter.vote === 'All'">
+                                                    <button>All</button>
+                                                </li>
+                                                <li (click)="filterByVotes('TopClass')"
+                                                    [class.filterHighlight]="selectedFilter.vote === 'TopClass'">
+                                                    <button>Top
+                                                        Class
+                                                    </button>
+                                                </li>
+                                                <li (click)="filterByVotes('Magic')"
+                                                    [class.filterHighlight]="selectedFilter.vote === 'Magic'">
+                                                    <button>Magic
+                                                    </button>
+                                                </li>
+                                            </ul>
+                                            <div class="drop__down">
+                                                <select (change)="filterByType($event)">
+                                                    <option></option>
+                                                    <option [selected]="selectedFilter.type==='New'">New</option>
+                                                    <option [selected]="selectedFilter.type==='Score'">Score</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

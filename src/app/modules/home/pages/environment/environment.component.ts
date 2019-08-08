@@ -20,6 +20,7 @@ export class EnvironmentComponent implements OnInit {
     searchTerm = '';
     page = 1;
     filteredPosts: any = {news: []};
+    isShown = screen.width > 768;
     selectedFilter = {vote: 'All', type: 'New'};
 
     constructor(
@@ -114,6 +115,14 @@ export class EnvironmentComponent implements OnInit {
             this.posts = dt;
             this.filteredPosts.news = dt.news;
         });
+    }
+    toggleShow() {
+        this.isShown = !this.isShown;
+    }
+
+    hideDiv(trigger) {
+        trigger.closeMenu();
+        this.isShown = false;
     }
 
 }

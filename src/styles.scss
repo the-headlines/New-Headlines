@@ -2379,8 +2379,12 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
 .mat-option-text {
   overflow: visible !important;
   font-size: 15px;
+  text-align: right;
 }
+.post_a_link .mat-option-text {
+  text-align: right;
 
+}
 .mat-select-value {
   overflow: visible !important;
 }

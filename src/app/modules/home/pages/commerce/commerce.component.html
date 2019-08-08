@@ -22,39 +22,46 @@
                                     <p></p>
                                 </div>
                             </div>
+
                             <div class="filters">
                                 <div class="filter">
-                                    <span>filters:</span>
-                                    <ul class="menu">
-                                        <li [class.filterHighlight]="selectedFilter.vote === 'All'">
-                                            <button (click)="filterByVotes('All')"
-                                            >All
-                                            </button>
-                                        </li>
-                                        <li [class.filterHighlight]="selectedFilter.vote === 'ProblemSolver'">
-                                            <button (click)="filterByVotes('ProblemSolver')"
-                                            >Problem
-                                                Solver
-                                            </button>
-                                        </li>
-                                        <li [class.filterHighlight]="selectedFilter.vote === 'Promising'">
-                                            <button (click)="filterByVotes('Promising')"  >Promising
-                                            </button>
-                                        </li>
-                                        <!--<li class="gray">-->
-                                        <!--<button>Useful</button>-->
-                                        <!--</li>-->
-                                        <!--<li class="op-blue">-->
-                                        <!--<button>Feedback</button>-->
-                                        <!--</li>-->
-                                    </ul>
-                                </div>
-                                <div class="drop__down">
-                                    <select (change)="filterByType($event)">
-                                        <option></option>
-                                        <option [selected]="selectedFilter.type==='New'">New</option>
-                                        <option [selected]="selectedFilter.type==='Score'">Score</option>
-                                    </select>
+                                    <div class="media_filter_btn">
+                                        <p (click)="toggleShow()">Filters</p>
+                                        <span>filters:</span>
+                                        <div class="filter_item" *ngIf="isShown" #toggleButton
+                                             (mouseleave)="hideDiv()">
+                                            <ul class="menu">
+                                                <li [class.filterHighlight]="selectedFilter.vote === 'All'">
+                                                    <button (click)="filterByVotes('All')"
+                                                    >All
+                                                    </button>
+                                                </li>
+                                                <li [class.filterHighlight]="selectedFilter.vote === 'ProblemSolver'">
+                                                    <button (click)="filterByVotes('ProblemSolver')"
+                                                    >Problem
+                                                        Solver
+                                                    </button>
+                                                </li>
+                                                <li [class.filterHighlight]="selectedFilter.vote === 'Promising'">
+                                                    <button (click)="filterByVotes('Promising')">Promising
+                                                    </button>
+                                                </li>
+                                                <!--<li class="gray">-->
+                                                <!--<button>Useful</button>-->
+                                                <!--</li>-->
+                                                <!--<li class="op-blue">-->
+                                                <!--<button>Feedback</button>-->
+                                                <!--</li>-->
+                                            </ul>
+                                            <div class="drop__down">
+                                                <select (change)="filterByType($event)">
+                                                    <option></option>
+                                                    <option [selected]="selectedFilter.type==='New'">New</option>
+                                                    <option [selected]="selectedFilter.type==='Score'">Score</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -102,31 +109,31 @@
                         </div>
                     </div>
 
-<!--                    <div class="policy_item media_sidebar">-->
-<!--                        <div class="s1m7ksmt-4 iQweaf s12j7ec3-0 dpUElj" data-redditstyle="false">-->
-<!--                            <div class="_3RPJ8hHnfFohktLZca18J6">-->
-<!--                                <div class="s1m7ksmt-0 drEVnI">-->
-<!--                                    <div class="s3m0u52-0 bdzHTz">-->
-<!--                                        <div>-->
-<!--                                            <a class="s1m7ksmt-1 ebuWXQ" (click)="router.navigate(['about'])">What is it all about?</a>-->
-<!--                                            <a class="s1m7ksmt-1 ebuWXQ" (click)="router.navigate(['policy'])">Content policy</a>-->
-<!--                                            <a class="s1m7ksmt-1 ebuWXQ" (click)="router.navigate(['policy'])">Privacy Policy</a>-->
-<!--                                            <a class="s1m7ksmt-1 ebuWXQ" routerLink="">Terms</a>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                    <div class="s3m0u52-0 bdzHTz">-->
-<!--                                        <div>-->
+                    <!--                    <div class="policy_item media_sidebar">-->
+                    <!--                        <div class="s1m7ksmt-4 iQweaf s12j7ec3-0 dpUElj" data-redditstyle="false">-->
+                    <!--                            <div class="_3RPJ8hHnfFohktLZca18J6">-->
+                    <!--                                <div class="s1m7ksmt-0 drEVnI">-->
+                    <!--                                    <div class="s3m0u52-0 bdzHTz">-->
+                    <!--                                        <div>-->
+                    <!--                                            <a class="s1m7ksmt-1 ebuWXQ" (click)="router.navigate(['about'])">What is it all about?</a>-->
+                    <!--                                            <a class="s1m7ksmt-1 ebuWXQ" (click)="router.navigate(['policy'])">Content policy</a>-->
+                    <!--                                            <a class="s1m7ksmt-1 ebuWXQ" (click)="router.navigate(['policy'])">Privacy Policy</a>-->
+                    <!--                                            <a class="s1m7ksmt-1 ebuWXQ" routerLink="">Terms</a>-->
+                    <!--                                        </div>-->
+                    <!--                                    </div>-->
+                    <!--                                    <div class="s3m0u52-0 bdzHTz">-->
+                    <!--                                        <div>-->
 
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                </div>-->
+                    <!--                                        </div>-->
+                    <!--                                    </div>-->
+                    <!--                                </div>-->
 
-<!--                                <div class="s1m7ksmt-2 jMwzIF">-->
-<!--                                    <div>© 2019 Not the Headlines Ltd, All rights reserved</div>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
+                    <!--                                <div class="s1m7ksmt-2 jMwzIF">-->
+                    <!--                                    <div>© 2019 Not the Headlines Ltd, All rights reserved</div>-->
+                    <!--                                </div>-->
+                    <!--                            </div>-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
                 </div>
             </div>
             <div class="pagination-block">
