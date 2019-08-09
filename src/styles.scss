@@ -8,7 +8,6 @@
 // ngx-share buttons styles
 @import '~@ngx-share/button/themes/material/material-light-theme';
 
-
 /* You can add global styles to this file, and also import other style files */
 /*Fonts Lato*/
 @font-face {
@@ -148,7 +147,6 @@ img {
   //overflow-x: hidden;
 }
 
-
 .main {
   justify-content: space-between;
   padding-bottom: 100px;
@@ -223,7 +221,6 @@ img {
   border: 1px solid lightgray;
   padding: 10px 25px;
 }
-
 
 //filter styles
 
@@ -342,11 +339,9 @@ img {
   }
 }
 
-
 .profile_container .mat-select-trigger {
   padding-top: 7px !important;
 }
-
 
 .carousel-caption {
   position: absolute;
@@ -385,7 +380,6 @@ img {
   height: 500px;
   margin-bottom: 45px;
   //border: solid 1px #959595;
-
 
   .text-block {
 
@@ -524,7 +518,6 @@ a {
     }
   }
 }
-
 
 .view-icons-block {
   display: flex;
@@ -1461,6 +1454,7 @@ a:hover {
 }
 
 .logo_and_close {
+  position: relative;
   h5 {
     font-family: 'Lato-Black';
     font-size: 29.5px;
@@ -1474,10 +1468,16 @@ a:hover {
     margin: 48px 0;
   }
 
-  button span {
-    font-family: 'Lato-Light';
-    font-size: 56px;
-    padding: 0 15px 0 0;
+  button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    span {
+      font-family: 'Lato-Light';
+      font-size: 56px;
+      padding: 0 15px 0 0;
+    }
+
   }
 }
 
@@ -1520,7 +1520,6 @@ a:hover {
     margin-bottom: 25px;
     border-radius: 0;
 
-
   }
 }
 
@@ -1557,7 +1556,6 @@ label#mat-form-field-label-11 {
   padding: 12px 0 0 20px;
   font-size: 14px;
 }
-
 
 .forgot_pass {
   font-family: 'Lato-Regular';
@@ -1765,7 +1763,6 @@ textarea {
   margin: 0 0 50px 0;
 }
 
-
 .cke_bottom {
   display: none !important;
 }
@@ -1860,7 +1857,6 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
   background-color: #ffffff;
 }
 
-
 .profile_links {
   //width: 10px !important;
 
@@ -1884,7 +1880,6 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
 .mat-menu-content {
   width: 183px !important;
 }
-
 
 //owl carousel
 .owl-prev, .owl-next {
@@ -2259,7 +2254,6 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
   font-family: 'Lato-Black';
 }
 
-
 .user_posts .userName {
   display: flex;
   justify-content: space-between;
@@ -2368,7 +2362,6 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
   border: unset;
 }
 
-
 .cdk-overlay-container {
   left: 0;
   //top: 100px;
@@ -2405,7 +2398,6 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
   overflow: visible !important;
 }
 
-
 .paginatorContainer {
   display: flex;
   justify-content: center;
@@ -2426,7 +2418,6 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
   width: 100%;
 }
 
-
 //login reg
 
 .mat-form-field-appearance-legacy .mat-form-field-label {
@@ -2439,7 +2430,6 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
   max-width: 596px !important;
   //width:36% !important;
 }
-
 
 .mat-form-field-appearance-legacy.mat-form-field-can-float .mat-input-server:focus + .mat-form-field-label-wrapper .mat-form-field-label, .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
   color: #727377;
@@ -2593,13 +2583,15 @@ header[_ngcontent-pqf-c2] .navbar[_ngcontent-pqf-c2] .logo[_ngcontent-pqf-c2] ul
   justify-content: center;
 
 }
-.feedback_btn_mobile button{
+
+.feedback_btn_mobile button {
   background: none;
   border: none;
   font-size: 15px;
   padding: 0;
-  color:inherit;
+  color: inherit;
 }
+
 .get_form {
   padding: 30px 30px 80px 30px !important;
   height: auto !important;
@@ -2781,7 +2773,6 @@ input.mat-input-element {
   }
 }
 
-
 @media screen and (max-width: 992px) {
   .post_title_and_desc .blog_post_text img {
     width: 100%;
@@ -2855,7 +2846,6 @@ input.mat-input-element {
   .carousel-caption {
     padding: 10px;
   }
-
 
   //.news-block .text-block p {
   //  font-size: 1.2em;
@@ -3011,7 +3001,6 @@ input.mat-input-element {
     }
   }
 
-
   .Emojis {
     left: 0;
     padding: 0;
@@ -3020,7 +3009,6 @@ input.mat-input-element {
     border-radius: 5px;
     padding: 8px;
   }
-
 
   .posts_table table tbody th, td {
     padding: 0 20px !important;
@@ -3034,7 +3022,6 @@ input.mat-input-element {
     margin-bottom: 20px;
   }
 }
-
 
 //@media only screen and (max-width: 767px) {
 //  .feedback_btn {
@@ -3082,7 +3069,6 @@ input.mat-input-element {
     }
   }
 
-
   .dz-wrapper.dropzone {
     height: 100% !important;
     overflow: hidden !important;
@@ -3111,7 +3097,6 @@ input.mat-input-element {
 .choose_pic_or_link .mat-tab-labels {
   display: none !important;;
 }
-
 
 .cke_reset {
   border-radius: 4px;
@@ -3305,7 +3290,6 @@ input.mat-input-element {
 
 }
 
-
 .about__text .about_info {
   //max-width: 550px;
 }
@@ -3396,7 +3380,6 @@ input.mat-input-element {
   //color: #727377;
   color: #000;
 }
-
 
 .filterHighlight {
   background-color: #e14040 !important;
@@ -3814,7 +3797,6 @@ button[type=submit].inlineBlock {
     }
   }
 
-
   .newsletters-block {
     text-align: center;
     padding-bottom: 50px;
@@ -3891,7 +3873,6 @@ button[type=submit].inlineBlock {
   }
 
   .social_network_sidebar {
-
 
     li {
       display: flex;
@@ -4068,13 +4049,11 @@ button[type=submit].inlineBlock {
     padding-left: 0 !important;
   }
 
-
   .mat-toolbar {
     margin: 8px 0;
   }
 
 }
-
 
 //@media screen and (min-width: 769px) and (max-width: 1024px) {
 //  .menu ul li {
@@ -4292,7 +4271,6 @@ button[type=submit].inlineBlock {
     width: 23%;
   }
 
-
   //.header_feedback{
   //  position: absolute;
   //  transform: rotate(-90deg);
@@ -4327,7 +4305,6 @@ button[type=submit].inlineBlock {
   .contact_form > img {
     height: 300px !important;
   }
-
 
   .contact_form .contact_info h3 {
     margin-bottom: 50px;
@@ -4525,7 +4502,6 @@ button[type=submit].inlineBlock {
 //.filter_item {
 //  display: block;
 //}
-
 
 .userInfo {
   .mat-form-field-label-wrapper {
@@ -4744,7 +4720,6 @@ button[type=submit].inlineBlock {
   }
 }
 
-
 @media screen and (max-width: 640px) {
   //.header_feedback{
   //  font-size: 18px;
@@ -4781,7 +4756,6 @@ button[type=submit].inlineBlock {
     padding: 5px;
   }
 
-
   .filter_item {
     width: 160px;
     padding: 5px;
@@ -4816,7 +4790,7 @@ button[type=submit].inlineBlock {
     margin: 0;
     padding: 5px;
   }
-  .view-icons-block li a, .Like__link,.view-icons-block li span {
+  .view-icons-block li a, .Like__link, .view-icons-block li span {
     font-size: 11px;
   }
   .media_sidebar.policy_item .dpUElj .drEVnI .bdzHTz .ebuWXQ {
@@ -4929,7 +4903,6 @@ button[type=submit].inlineBlock {
 
   }
 
-
   .modal-body form button.login {
     width: 100%;
     margin-bottom: 6px;
@@ -4952,7 +4925,6 @@ button[type=submit].inlineBlock {
     padding: 0;
     overflow: auto !important;
 
-
     .logo_and_close {
       button {
         span {
@@ -4970,4 +4942,6 @@ button[type=submit].inlineBlock {
 @media (device-height: 568px) and (device-width: 320px) and (-webkit-min-device-pixel-ratio: 2) {
 
 }
+
+
 
