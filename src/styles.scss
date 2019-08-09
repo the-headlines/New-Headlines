@@ -577,8 +577,8 @@ a {
 
     span {
       margin-left: 5px;
-      font-size: 11px;
-      //font-size: 12.5px;
+      //font-size: 11px;
+      font-size: 12.5px;
       font-family: 'Lato-Black';
       color: #807f81;
     }
@@ -2593,7 +2593,13 @@ header[_ngcontent-pqf-c2] .navbar[_ngcontent-pqf-c2] .logo[_ngcontent-pqf-c2] ul
   justify-content: center;
 
 }
-
+.feedback_btn_mobile button{
+  background: none;
+  border: none;
+  font-size: 15px;
+  padding: 0;
+  color:inherit;
+}
 .get_form {
   padding: 30px 30px 80px 30px !important;
   height: auto !important;
@@ -4810,8 +4816,8 @@ button[type=submit].inlineBlock {
     margin: 0;
     padding: 5px;
   }
-  .view-icons-block li a, .Like__link {
-    font-size: 9.5px;
+  .view-icons-block li a, .Like__link,.view-icons-block li span {
+    font-size: 11px;
   }
   .media_sidebar.policy_item .dpUElj .drEVnI .bdzHTz .ebuWXQ {
     font-size: 11px;
