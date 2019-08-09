@@ -45,6 +45,7 @@ export class StoryOptionsComponent implements OnInit {
         });
 
         this.openNum = false;
+
     }
 
     openDialog(): void {
@@ -69,12 +70,25 @@ export class StoryOptionsComponent implements OnInit {
 
     copyLink(link, input) {
         if (this.isOS()) {
-            const range = document.createRange();
+            let oldContentEditable = input.contentEditable,
+                oldReadOnly = input.readOnly,
+                range = document.createRange();
+
+            input.contentEditable = true;
+            input.readOnly = false;
             range.selectNodeContents(input);
-            const selection = window.getSelection();
-            selection.removeAllRanges();
-            selection.addRange(range);
-            input.setSelectionRange(0, 999999);
+
+            let s = window.getSelection();
+            s.removeAllRanges();
+            s.addRange(range);
+
+            input.setSelectionRange(0, 999999); // A big number, to cover anything that could be inside the element.
+
+            input.contentEditable = oldContentEditable;
+            input.readOnly = oldReadOnly;
+
+            document.execCommand('copy');
+
 
         } else {
 
