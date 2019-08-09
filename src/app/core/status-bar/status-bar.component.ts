@@ -132,10 +132,10 @@ export class StatusBarComponent implements OnInit {
         }
     }
 
-    getSingle(single) {
+    getSingle(single, commentsType) {
         this.home.updateViewCount(single).subscribe((dt: any) => {
             this.postScore = dt.score;
-            this.router.navigate(['/post', single._id]);
+            this.router.navigate(['/post', single._id], {queryParams: {type: commentsType}});
         });
     }
 

@@ -94,10 +94,10 @@ import {PolicyComponent} from './modules/home/pages/policy/policy.component';
 import {EmailTokenConfirmationComponent} from './modules/home/components/email-token-confirmation/email-token-confirmation.component';
 import {JwSocialButtonsModule} from 'jw-angular-social-buttons';
 import {FbShareComponent} from './modules/home/components/fb-share/fb-share.component';
-import { CountPostScorePipe } from './shared/pipes/count-post-score.pipe';
-import { AccountActivationComponent } from './modules/home/components/account-activation/account-activation.component';
-import { ForgotPasswordComponent } from './modules/home/components/forgot-password/forgot-password.component';
-
+import {CountPostScorePipe} from './shared/pipes/count-post-score.pipe';
+import {AccountActivationComponent} from './modules/home/components/account-activation/account-activation.component';
+import {ForgotPasswordComponent} from './modules/home/components/forgot-password/forgot-password.component';
+import {CapitalizePipe} from './shared/pipes/capitalize.pipe';
 
 
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
@@ -171,7 +171,8 @@ export function tokenGetter() {
         FbShareComponent,
         CountPostScorePipe,
         AccountActivationComponent,
-        ForgotPasswordComponent
+        ForgotPasswordComponent,
+        CapitalizePipe
     ],
     imports: [
         BrowserModule,
@@ -241,7 +242,8 @@ export function tokenGetter() {
         SearchNewsPipe,
         StripHtmlTagsPipe,
         GenerateSaveNonAuthUserIdPipe,
-        CountPostScorePipe
+        CountPostScorePipe,
+        CapitalizePipe
     ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
     bootstrap: [AppComponent],

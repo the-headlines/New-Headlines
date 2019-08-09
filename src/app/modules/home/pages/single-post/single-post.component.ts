@@ -11,6 +11,8 @@ import {filter} from 'rxjs/operators';
 import * as moment from 'moment';
 import {Category} from '../posts/add-post/add-post.component';
 import {VOTE_TYPES} from '../../../../shared/constants/main';
+import {CapitalizePipe} from '../../../../shared/pipes/capitalize.pipe';
+import * as JwtDecode from 'jwt-decode';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
     isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -51,7 +53,7 @@ export class SinglePostComponent implements OnInit, OnDestroy {
     postOnEnter = true;
     commentEditing = false;
     selectedComment = null;
-    selectedCommentType = 'Comment';
+    selectedCommentType;
     filteredComments;
     showReplyInput = false;
     postCategory: string;
@@ -67,15 +69,12 @@ export class SinglePostComponent implements OnInit, OnDestroy {
         private home: HomeService,
         private fb: FormBuilder,
         private subject: SubjectService,
-        private renderer: Renderer2
+        private renderer: Renderer2,
+        private capitalize: CapitalizePipe
     ) {
         this.id = this.route.snapshot.paramMap.get('id');
 
-        this.postForm = this.fb.group({
-            text: ['', Validators.required],
-            newsId: '',
-            type: 'Comment'
-        });
+
         // this.postForm.controls.comment.disable();
         //
         this.renderer.listen('window', 'click', (e: Event) => {
@@ -119,6 +118,19 @@ export class SinglePostComponent implements OnInit, OnDestroy {
         //     this.userData = JWT(token);
         // }
 
+        this.postForm = this.fb.group({
+            text: ['', Validators.required],
+            newsId: '',
+            type: 'Comment'
+        });
+
+        this.commentEditForm = this.fb.group({
+            id: [''],
+            text: [''],
+            type: ['Comment']
+        });
+
+
         this.subscriptions.push(
             this.route.params.subscribe(dt => {
                 this.postId = dt.id;
@@ -134,20 +146,17 @@ export class SinglePostComponent implements OnInit, OnDestroy {
         );
         this.subscriptions.push(this.subject.getUserData().subscribe((dt: any) => {
             this.userData = dt;
-            // console.log(dt);
         }));
 
+        // Getting user data from local storage
+        this.userData = JwtDecode(localStorage.getItem('token'));
         this.userData.fullName = localStorage.getItem('full_name');
         // this.postForm.patchValue({user: this.userData.fullName});
 
-        this.commentEditForm = this.fb.group({
-            id: [''],
-            text: [''],
-            type: ['Comment']
-        });
+        // Getting selected comment type passed from previous page
+        this.selectedCommentType = this.capitalize.transform(this.route.snapshot.queryParams.type) || 'Comment';
+        this.changeCommentType(this.selectedCommentType);
 
-
-        // console.log(this.userData);
     }
 
     getLikesCount() {
@@ -315,8 +324,11 @@ export class SinglePostComponent implements OnInit, OnDestroy {
 
         this.questions = v;
         this.selectedCommentType = v;
-        this.commentEditForm.patchValue({type: v});
-        this.postForm.patchValue({type: v});
+
+        if (this.postForm && this.commentEditForm) {
+            this.commentEditForm.patchValue({type: v});
+            this.postForm.patchValue({type: v});
+        }
         this.filteredComments = this.comments.filter(c => c.type === v);
     }
 

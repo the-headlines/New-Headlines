@@ -59,13 +59,13 @@
 
     <li [hidden]="hiddenComments()"
     >
-        <a (click)="getSingle(single)" *ngIf="single">
+        <a (click)="getSingle(single,'comment')" *ngIf="single">
             <i class="far fa-comment"></i>
             Comments<span>{{single.comments}}</span>
         </a>
     </li>
     <li [hidden]="hiddenCritics()" *ngIf="single">
-        <a (click)="getSingle(single)">
+        <a (click)="getSingle(single,'question')">
             Critics <span>{{single.questions}}</span>
         </a>
     </li>
@@ -80,12 +80,12 @@
     <!--        </a>-->
     <!--    </li>-->
     <li [hidden]="hiddenFeedback()" *ngIf="single">
-        <a (click)="getSingle(single)">
+        <a (click)="getSingle(single,'comment')">
             <i class="far fa-comment"></i> Feedback <span>{{single.comments}}</span>
         </a>
     </li>
     <li [hidden]="hiddenQuestions()">
-        <a (click)="getSingle(single)" *ngIf="single">
+        <a (click)="getSingle(single,'question')" *ngIf="single">
             Questions <span>{{single.questions}}</span>
         </a>
     </li>
