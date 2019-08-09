@@ -164,6 +164,12 @@
                                             <ul *ngIf="!checkUser()">
                                                 <li><a routerLink="/about">About</a></li>
                                                 <li><a>Privacy Policy</a></li>
+                                                <li><a>
+                                                    <div class="feedback_btn_mobile">
+                                                        <button (click)="openDialog('ok')">Feedback</button>
+                                                    </div>
+                                                </a>
+                                                </li>
                                             </ul>
                                             <ul *ngIf="checkUser()">
                                                 <li>
@@ -178,6 +184,14 @@
                                                 <li>
                                                     <a>Privacy Policy</a>
                                                 </li>
+                                                <li>
+                                                  <a>
+                                                    <div class="feedback_btn_mobile">
+                                                        <button (click)="openDialog('ok')">Feedback</button>
+                                                    </div>
+                                                   </a>
+                                                </li>
+
                                                 <li>
                                                     <a (click)="logOut()">Logout</a>
                                                 </li>
