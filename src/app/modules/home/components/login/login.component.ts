@@ -30,6 +30,7 @@ export class LoginComponent implements OnInit {
     @Output() openRegister = new EventEmitter();
     options: FormGroup;
     loginForm: FormGroup;
+    submitted = false;
 
     emailFormControl = new FormControl('', [
         // Validators.required,
@@ -85,6 +86,7 @@ export class LoginComponent implements OnInit {
 
 
     checkLogin(data) {
+        this.submitted = true;
         this.auth.checkLogin(this.loginForm.value).subscribe((r: any) => {
 
             this.cookie.delete('uniqueUserId', '/');

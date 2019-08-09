@@ -111,7 +111,9 @@ export class SinglePostComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-
+        console.log('OK');
+        window.scrollTo(50, 500);
+        document.body.scrollTop = 200;
         // const token = localStorage.getItem('userInf');
         // if (token) {
         //     console.log(token);
