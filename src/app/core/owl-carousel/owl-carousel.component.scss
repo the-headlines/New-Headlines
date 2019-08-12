@@ -48,7 +48,6 @@
 }
 
 .titleContainer > h5 {
-  height: 50px;
   overflow: hidden;
 }
 
@@ -79,7 +78,7 @@
 @media screen and (max-width: 1100px) {
   .titleContainer h5{
     font-size: 18px;
-    height: 44px;
+
   }
 
 }
@@ -91,7 +90,7 @@
     font-size: 12px;
   }
   .titleContainer h5 {
-    height: 42px;
+
   }
 }
 

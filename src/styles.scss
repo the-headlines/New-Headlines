@@ -3153,7 +3153,7 @@ input.mat-input-element {
 }
 
 .carousel_top_text {
-  height: 100px;
+  height: 115px;
   background: #ffffff;
   border: none !important;
 }
@@ -4517,7 +4517,7 @@ button[type=submit].inlineBlock {
 
 @media only screen and (max-width: 768px) {
   .content {
-    width: 96%;
+    width: 100%;
     margin: 0 auto;
   }
   .news-block .posts_items {
@@ -4943,5 +4943,7 @@ button[type=submit].inlineBlock {
 
 }
 
-
+.header .ng-star-inserted .input-group {
+  margin-top: 18px;
+}
 
