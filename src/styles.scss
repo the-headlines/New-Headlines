@@ -2587,9 +2587,10 @@ header[_ngcontent-pqf-c2] .navbar[_ngcontent-pqf-c2] .logo[_ngcontent-pqf-c2] ul
 .feedback_btn_mobile button {
   background: none;
   border: none;
-  font-size: 15px;
+  font-size: 13px;
   padding: 0;
   color: inherit;
+  letter-spacing: 1px;
 }
 
 .get_form {
@@ -4945,5 +4946,12 @@ button[type=submit].inlineBlock {
 
 .header .ng-star-inserted .input-group {
   margin-top: 18px;
+}
+
+@media(max-width: 767px){
+  .mat-icon-button {
+      height: 20px !important;
+      line-height: 20px !important;
+  }
 }
 
