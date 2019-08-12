@@ -70,22 +70,24 @@ export class StoryOptionsComponent implements OnInit {
 
     copyLink(link, input) {
         if (this.isOS()) {
-            let oldContentEditable = input.contentEditable,
-                oldReadOnly = input.readOnly,
-                range = document.createRange();
+            // let oldContentEditable = input.contentEditable,
+            //     oldReadOnly = input.readOnly,
+            //     range = document.createRange();
+            //
+            // input.contentEditable = true;
+            // input.readOnly = false;
+            // range.selectNodeContents(input);
+            //
+            // let s = window.getSelection();
+            // s.removeAllRanges();
+            // s.addRange(range);
+            //
+            // input.setSelectionRange(0, 999999); // A big number, to cover anything that could be inside the element.
+            //
+            // input.contentEditable = oldContentEditable;
+            // input.readOnly = oldReadOnly;
 
-            input.contentEditable = true;
-            input.readOnly = false;
-            range.selectNodeContents(input);
-
-            let s = window.getSelection();
-            s.removeAllRanges();
-            s.addRange(range);
-
-            input.setSelectionRange(0, 999999); // A big number, to cover anything that could be inside the element.
-
-            input.contentEditable = oldContentEditable;
-            input.readOnly = oldReadOnly;
+            input.setSelectionRange(0, input.value.length);
 
             document.execCommand('copy');
 
