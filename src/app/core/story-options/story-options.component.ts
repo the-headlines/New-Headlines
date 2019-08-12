@@ -69,6 +69,7 @@ export class StoryOptionsComponent implements OnInit {
     }
 
     copyLink(link, input) {
+        console.log(navigator.userAgent);
         if (this.isOS()) {
             // let oldContentEditable = input.contentEditable,
             //     oldReadOnly = input.readOnly,
@@ -86,7 +87,6 @@ export class StoryOptionsComponent implements OnInit {
             //
             // input.contentEditable = oldContentEditable;
             // input.readOnly = oldReadOnly;
-
             input.setSelectionRange(0, input.value.length);
             console.log('ios');
 
