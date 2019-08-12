@@ -31,7 +31,7 @@ export class FeedbackComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.getLasted();
+        // this.getLasted();
         this.feedbackForm = this.fb.group({
             name: [''],
             feedback: [''],
@@ -53,19 +53,19 @@ export class FeedbackComponent implements OnInit {
     }
 
     getLasted() {
-        this.aside.getLasted().subscribe((data) => {
-            // console.log(data);
-            if (!data) {
-                return false;
-            }
-
-            if (!data['status'] && data['status'] == 0) {
-                alert('No data');
-                return false;
-            }
-
-            this.lastet = data['result'];
-        });
+        // this.aside.getTopNews().subscribe((data) => {
+        //     // console.log(data);
+        //     if (!data) {
+        //         return false;
+        //     }
+        //
+        //     if (!data['status'] && data['status'] == 0) {
+        //         alert('No data');
+        //         return false;
+        //     }
+        //
+        //     this.lastet = data['result'];
+        // });
     }
 
 
