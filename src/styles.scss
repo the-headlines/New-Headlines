@@ -1455,7 +1455,6 @@ a:hover {
 
 .logo_and_close {
   position: relative;
-
   h5 {
     font-family: 'Lato-Black';
     font-size: 29.5px;
@@ -1473,7 +1472,6 @@ a:hover {
     position: absolute;
     top: 0;
     right: 0;
-
     span {
       font-family: 'Lato-Light';
       font-size: 56px;
@@ -2486,7 +2484,7 @@ header[_ngcontent-pqf-c2] .navbar[_ngcontent-pqf-c2] .logo[_ngcontent-pqf-c2] ul
 .carousel_top_text {
   display: flex;
   align-items: flex-end;
-  //padding-top: 5px !important;
+  padding-top: 5px !important;
 }
 
 .blocks_filter {
@@ -2589,9 +2587,10 @@ header[_ngcontent-pqf-c2] .navbar[_ngcontent-pqf-c2] .logo[_ngcontent-pqf-c2] ul
 .feedback_btn_mobile button {
   background: none;
   border: none;
-  font-size: 15px;
+  font-size: 13px;
   padding: 0;
   color: inherit;
+  letter-spacing: 1px;
 }
 
 .get_form {
@@ -4947,6 +4946,13 @@ button[type=submit].inlineBlock {
 
 .header .ng-star-inserted .input-group {
   margin-top: 18px;
+}
+
+@media(max-width: 767px){
+  .mat-icon-button {
+      height: 20px !important;
+      line-height: 20px !important;
+  }
 }
 
 
