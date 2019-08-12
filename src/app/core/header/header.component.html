@@ -37,32 +37,32 @@
                     <li class="logout">
                         <ul *ngIf="checkUser()" [fxHide.sm]="true" fxHide.xs="true">
                             <li class="header-notification">
-<!--                                <button mat-button class="not_btn" *ngIf="auth.loggedIn()" (click)="openNot()">-->
-<!--                                    <span class="bell">-->
-<!--                                        <i class="fas fa-bell"></i>-->
-<!--                                        <span class="badge bg-c-red">5</span>-->
-<!--                                    </span>-->
-<!--                                </button>-->
-<!--                                <div class="not_wrapper" *ngIf="show">-->
-<!--                                    <h6>Notifications:</h6>-->
-<!--                                    <div class="margin_top">-->
-<!--                                        <div class="media">-->
-<!--                                            <div class="media-body">-->
-<!--                                                <a class="notification-user" routerLink="/notifications">Prince John-->
-<!--                                                    voted-->
-<!--                                                    <span>Important May 28</span>-->
-<!--                                                </a>-->
-<!--                                                <div class="notification-msg">-->
-<!--                                                    <p>Lorem ipsum dolor sit amet, consectetuer elit.</p>-->
-<!--                                                </div>-->
-<!--                                                <div class="notification-quality">-->
-<!--                                                    <p><span>Score</span>400</p>-->
-<!--                                                    <p><span>Total votes </span> 300</p>-->
-<!--                                                </div>-->
-<!--                                            </div>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                </div>-->
+                                <!--                                <button mat-button class="not_btn" *ngIf="auth.loggedIn()" (click)="openNot()">-->
+                                <!--                                    <span class="bell">-->
+                                <!--                                        <i class="fas fa-bell"></i>-->
+                                <!--                                        <span class="badge bg-c-red">5</span>-->
+                                <!--                                    </span>-->
+                                <!--                                </button>-->
+                                <!--                                <div class="not_wrapper" *ngIf="show">-->
+                                <!--                                    <h6>Notifications:</h6>-->
+                                <!--                                    <div class="margin_top">-->
+                                <!--                                        <div class="media">-->
+                                <!--                                            <div class="media-body">-->
+                                <!--                                                <a class="notification-user" routerLink="/notifications">Prince John-->
+                                <!--                                                    voted-->
+                                <!--                                                    <span>Important May 28</span>-->
+                                <!--                                                </a>-->
+                                <!--                                                <div class="notification-msg">-->
+                                <!--                                                    <p>Lorem ipsum dolor sit amet, consectetuer elit.</p>-->
+                                <!--                                                </div>-->
+                                <!--                                                <div class="notification-quality">-->
+                                <!--                                                    <p><span>Score</span>400</p>-->
+                                <!--                                                    <p><span>Total votes </span> 300</p>-->
+                                <!--                                                </div>-->
+                                <!--                                            </div>-->
+                                <!--                                        </div>-->
+                                <!--                                    </div>-->
+                                <!--                                </div>-->
                             </li>
                             <li class="user-profile header-notification" *ngIf="auth.loggedIn()">
                                 <button mat-button [matMenuTriggerFor]="beforeMenu" #trigger="matMenuTrigger"
@@ -110,36 +110,36 @@
                                                             class="fas fa-link"></i></a>
                                                 </li>
                                                 <li class="header-notification" *ngIf="checkUser()">
-<!--                                                    <button mat-button class="not_btn" *ngIf="auth.loggedIn()"-->
-<!--                                                            (click)="openNot()">-->
-<!--                                                        <span class="bell">-->
-<!--                                                            <i class="fas fa-bell"></i>-->
-<!--                                                            <span class="badge bg-c-red">5</span>-->
-<!--                                                        </span>-->
-<!--                                                    </button>-->
+                                                    <!--                                                    <button mat-button class="not_btn" *ngIf="auth.loggedIn()"-->
+                                                    <!--                                                            (click)="openNot()">-->
+                                                    <!--                                                        <span class="bell">-->
+                                                    <!--                                                            <i class="fas fa-bell"></i>-->
+                                                    <!--                                                            <span class="badge bg-c-red">5</span>-->
+                                                    <!--                                                        </span>-->
+                                                    <!--                                                    </button>-->
 
-<!--                                                    <div class="not_wrapper" *ngIf="show">-->
-<!--                                                        <h6>Notifications:</h6>-->
-<!--                                                        <div class="margin_top">-->
-<!--                                                            <div class="media">-->
-<!--                                                                <div class="media-body">-->
-<!--                                                                    <a class="notification-user"-->
-<!--                                                                       routerLink="/notifications">Prince John-->
-<!--                                                                        voted-->
-<!--                                                                        <span>Important May 28</span>-->
-<!--                                                                    </a>-->
-<!--                                                                    <div class="notification-msg">-->
-<!--                                                                        <p>Lorem ipsum dolor sit amet, consectetuer-->
-<!--                                                                            elit.</p>-->
-<!--                                                                    </div>-->
-<!--                                                                    <div class="notification-quality">-->
-<!--                                                                        <p><span>Score</span>400</p>-->
-<!--                                                                        <p><span>Total votes </span> 300</p>-->
-<!--                                                                    </div>-->
-<!--                                                                </div>-->
-<!--                                                            </div>-->
-<!--                                                        </div>-->
-<!--                                                    </div>-->
+                                                    <!--                                                    <div class="not_wrapper" *ngIf="show">-->
+                                                    <!--                                                        <h6>Notifications:</h6>-->
+                                                    <!--                                                        <div class="margin_top">-->
+                                                    <!--                                                            <div class="media">-->
+                                                    <!--                                                                <div class="media-body">-->
+                                                    <!--                                                                    <a class="notification-user"-->
+                                                    <!--                                                                       routerLink="/notifications">Prince John-->
+                                                    <!--                                                                        voted-->
+                                                    <!--                                                                        <span>Important May 28</span>-->
+                                                    <!--                                                                    </a>-->
+                                                    <!--                                                                    <div class="notification-msg">-->
+                                                    <!--                                                                        <p>Lorem ipsum dolor sit amet, consectetuer-->
+                                                    <!--                                                                            elit.</p>-->
+                                                    <!--                                                                    </div>-->
+                                                    <!--                                                                    <div class="notification-quality">-->
+                                                    <!--                                                                        <p><span>Score</span>400</p>-->
+                                                    <!--                                                                        <p><span>Total votes </span> 300</p>-->
+                                                    <!--                                                                    </div>-->
+                                                    <!--                                                                </div>-->
+                                                    <!--                                                            </div>-->
+                                                    <!--                                                        </div>-->
+                                                    <!--                                                    </div>-->
 
                                                 </li>
                                             </ul>
@@ -185,11 +185,11 @@
                                                     <a>Privacy Policy</a>
                                                 </li>
                                                 <li>
-                                                  <a>
-                                                    <div class="feedback_btn_mobile">
-                                                        <button (click)="openDialog('ok')">Feedback</button>
-                                                    </div>
-                                                   </a>
+                                                    <a>
+                                                        <div class="feedback_btn_mobile">
+                                                            <button (click)="openDialog('ok')">Feedback</button>
+                                                        </div>
+                                                    </a>
                                                 </li>
 
                                                 <li>
@@ -211,8 +211,9 @@
                             <ul class="toggle none-768">
                                 <li *ngFor="let section of sections"
                                     [class.active]="router.url===section.link || this.postCategory === section.dbName"
-                                    routerLinkActive="active" [matTooltip]="section.tooltip">
-                                    <a (click)="goToLink(section.link)">{{section['name']}}</a>
+                                    routerLinkActive="active">
+                                    <a (click)="goToLink(section.link)"
+                                       [matTooltip]="section.tooltip">{{section['name']}}</a>
                                 </li>
                             </ul>
                         </div>
