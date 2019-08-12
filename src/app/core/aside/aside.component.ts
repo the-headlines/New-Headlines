@@ -2,6 +2,8 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {AsideService} from '../../services/aside.service';
 import {Router} from '@angular/router';
 import {MatPaginator} from '@angular/material';
+import {SubjectService} from '../../services/subject.service';
+import {MAIN_SECTIONS} from '../../shared/constants/main';
 // import {EditInfoModalComponent} from "./modules/home/components/libs/edit-info-modal/edit-info-modal.component";
 // import {FeedbackComponent} from "./modules/home/pages/feedback/feedback.component";
 
@@ -12,9 +14,15 @@ import {MatPaginator} from '@angular/material';
     styleUrls: ['./aside.component.scss']
 })
 export class AsideComponent implements OnInit {
+    selectedSection;
+    sections = MAIN_SECTIONS;
+    postCategory;
 
-
-    constructor(private  aside: AsideService, private router: Router) {
+    constructor(
+        private  aside: AsideService,
+        private router: Router,
+        private subject: SubjectService
+    ) {
     }
 
     posts: any = [];
@@ -23,25 +31,21 @@ export class AsideComponent implements OnInit {
     @ViewChild(MatPaginator) paginator: MatPaginator;
 
     ngOnInit() {
-        this.getLasted();
+        this.selectedSection = this.sections.filter(s => s.link === this.router.url);
+        if (this.selectedSection && this.selectedSection.length > 0) {
+            this.postCategory = this.selectedSection[0].dbName;
+            this.getTopNews();
+        }
     }
 
     getSingle(id) {
         this.router.navigate(['/posts', id]);
     }
 
-    getLasted() {
-        this.aside.getLasted().subscribe((data: any) => {
-            if (!data) {
-                return false;
-            } else if (!data['status'] && data['status'] == 0) {
-                alert('No data');
-                return false;
-            } else {
-                this.posts = data;
-                this.filteredPosts.news = data.news.slice(0, this.defaultRecords);
-                // return console.log('sss', this.lastet);
-            }
+    getTopNews() {
+        this.aside.getTopNews(this.postCategory).subscribe((data: any) => {
+            this.posts = data;
+            this.filteredPosts.news = data.news.slice(0, this.defaultRecords);
         });
     }
 
@@ -57,6 +61,7 @@ export class AsideComponent implements OnInit {
     getLength(d) {
         return d ? d.length : 0;
     }
+
     //
     // openDialog(term): void {
     //     const dialogRef = this.dialog.open(FeedbackComponent, {

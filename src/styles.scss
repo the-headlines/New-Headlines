@@ -571,7 +571,7 @@ a {
     span {
       margin-left: 5px;
       //font-size: 11px;
-      font-size: 12.5px;
+      font-size: 10px;
       font-family: 'Lato-Black';
       color: #807f81;
     }
@@ -3154,7 +3154,7 @@ input.mat-input-element {
 }
 
 .carousel_top_text {
-  height: 115px;
+  height: auto;
   background: #ffffff;
   border: none !important;
 }
@@ -3178,7 +3178,7 @@ input.mat-input-element {
 //  height: 100px;
 //}
 .owl-item .block_content {
-  height: 400px;
+  height: 443px;
 }
 
 .sidebar_links li, .sidebar_links li p {
@@ -4953,5 +4953,11 @@ button[type=submit].inlineBlock {
       height: 20px !important;
       line-height: 20px !important;
   }
+}
+
+
+.mat-tooltip {
+  position: absolute;
+  left: 225px !important;
 }
 
