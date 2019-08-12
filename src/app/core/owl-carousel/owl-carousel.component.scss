@@ -105,13 +105,18 @@
     padding-top: 5px;
   }
   .commentsContainer span{
-    margin-left: 0;
+    margin-left: 15px;
+
+  }
+  .commentsContainer span:nth-child(1),.commentsContainer span:nth-child(2) {
+    margin-left: 0 !important;
   }
   .titleContainer{
     width: 100%;
 
     h5 {
       width: 97%;
+
     }
   }
 }
