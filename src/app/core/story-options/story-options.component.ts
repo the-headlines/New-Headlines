@@ -88,6 +88,7 @@ export class StoryOptionsComponent implements OnInit {
             // input.readOnly = oldReadOnly;
 
             input.setSelectionRange(0, input.value.length);
+            console.log('ios');
 
             document.execCommand('copy');
 
