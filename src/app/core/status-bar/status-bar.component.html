@@ -58,7 +58,7 @@
     </li>
     <li [hidden]="hiddenQuestions()">
         <a (click)="getSingle(single,'question')" *ngIf="single">
-            Questions <span>1&nbsp;{{single.questions}}</span>
+            Questions <span>{{single.questions}}</span>
         </a>
     </li>
     <li [hidden]="hiddenCritics()" *ngIf="single">

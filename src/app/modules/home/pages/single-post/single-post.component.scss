@@ -567,3 +567,10 @@
 #dropdownMenuButton {
   font-size: 12px;
 }
+
+
+@media(max-width: 767px){
+  .single_blog_post .post_title_and_desc h3 {
+    font-size: 20px;
+  }
+}
