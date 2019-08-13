@@ -90,7 +90,6 @@ export class StoryOptionsComponent implements OnInit {
             input.readOnly = readOnly;
             console.log(selection, range);
 
-            document.body.removeChild(input);
             document.execCommand('copy');
         } else {
 
