@@ -69,25 +69,29 @@ export class StoryOptionsComponent implements OnInit {
     }
 
     copyLink(link, input) {
+        console.log(link);
+        console.log('inside');
         if (navigator.userAgent.match(/ipad|ipod|iphone/i) || navigator.platform === 'MacIntel') {
-            console.log('inside');
             var editable = input.contentEditable;
             var readOnly = input.readOnly;
+
             input.contentEditable = true;
             input.readOnly = false;
+
             var range = document.createRange();
             range.selectNodeContents(input);
-            var sel = window.getSelection();
-            sel.removeAllRanges();
-            sel.addRange(range);
+
+            var selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+
             input.setSelectionRange(0, 999999);
             input.contentEditable = editable;
             input.readOnly = readOnly;
+            console.log(selection, range);
 
+            document.body.removeChild(input);
             document.execCommand('copy');
-            input.remove();
-            alert('Link copied successfully!');
-
         } else {
 
             input.select();
