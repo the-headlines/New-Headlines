@@ -69,7 +69,7 @@ export class StoryOptionsComponent implements OnInit {
     }
 
     copyLink(link, input) {
-        if (navigator.userAgent.match(/ipad|ipod|iphone/i)) {
+        if (navigator.userAgent.match(/ipad|ipod|iphone/i) || navigator.platform === 'MacIntel') {
             console.log('inside');
             var editable = input.contentEditable;
             var readOnly = input.readOnly;
