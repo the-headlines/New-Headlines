@@ -43,7 +43,7 @@
   }
 
   &.policy {
-    padding: 20px 20px;
+    padding: 20px 20px 5px 20px;
 
     .dpUElj {
       overflow-wrap: break-word;
@@ -84,7 +84,7 @@
   }
 
   .top-news {
-    padding-bottom: 50px;
+    padding-bottom: 2px;
 
     h4.title {
       font-family: 'Lato-Regular';
@@ -493,7 +493,7 @@
   font-family: 'Lato-Regular';
 }
 
-@media screen and (min-width: 320px) and (max-width: 768px) {
+@media screen and (min-width: 320px) and (max-width: 767px) {
 
   .sidebar {
     width: 100%;
@@ -519,7 +519,7 @@
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .sidebar {
     background-color: #fff;
     //border: solid 1px #959595;
@@ -586,7 +586,7 @@
     padding: 19px 5px 6px;
   }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
 
   .todaysTopList{
     display: flex;

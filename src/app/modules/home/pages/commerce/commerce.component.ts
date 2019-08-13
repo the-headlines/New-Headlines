@@ -25,7 +25,7 @@ export class CommerceComponent implements OnInit {
     searchTerm = '';
     page = 1;
     filteredPosts: any = {news: []};
-    isShown = screen.width > 768;
+    isShown = screen.width > 767;
     notAuthUserId = this.cookie.get('uniqueUserId');
     selectedFilter = {vote: 'All', type: 'New'};
 

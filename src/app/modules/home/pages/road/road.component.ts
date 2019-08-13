@@ -28,7 +28,7 @@ export class RoadComponent implements OnInit {
     searchTerm = '';
     filteredPosts: any = {news: []};
     page = 1;
-    isShown = screen.width > 768;
+    isShown = screen.width > 767;
     selectedFilter = {vote: 'All', type: 'New'};
 
     constructor(

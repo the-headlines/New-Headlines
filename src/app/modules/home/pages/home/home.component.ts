@@ -39,7 +39,7 @@ export class HomeComponent implements OnInit {
     currentPost = {};
     defaultRecords = 5;
     page = 1;
-    isShown = screen.width > 768;
+    isShown = screen.width > 767;
     selectedFilter = {vote: 'All', type: 'New'};
 
     @ViewChild('paginator') paginator;

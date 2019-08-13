@@ -19,7 +19,7 @@ export class PublicComponent implements OnInit {
     searchTerm = '';
     page = 1;
     filteredPosts: any = {news: []};
-    isShown = screen.width > 768;
+    isShown = screen.width > 767;
     selectedFilter = {vote: 'All', type: 'New'};
 
     constructor(
