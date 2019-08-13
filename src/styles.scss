@@ -4947,11 +4947,16 @@ button[type=submit].inlineBlock {
 .header .ng-star-inserted .input-group {
   margin-top: 18px;
 }
-
+.news-block .item:last-child {
+  margin-bottom: 132px;
+}
 @media(max-width: 767px){
   .mat-icon-button {
       height: 20px !important;
       line-height: 20px !important;
+  }
+  .news-block .item:last-child {
+    margin-bottom: 80px;
   }
 }
 
@@ -4961,6 +4966,3 @@ button[type=submit].inlineBlock {
   left: 225px !important;
 }
 
-.news-block .item {
-  margin-bottom: 132px;
-}
