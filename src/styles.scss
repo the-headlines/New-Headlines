@@ -2594,7 +2594,7 @@ header[_ngcontent-pqf-c2] .navbar[_ngcontent-pqf-c2] .logo[_ngcontent-pqf-c2] ul
 }
 
 .get_form {
-  padding: 30px 30px 80px 30px !important;
+  padding: 30px 30px 25px 30px !important;
   height: auto !important;
 }
 
@@ -4368,7 +4368,7 @@ button[type=submit].inlineBlock {
   }
 
   .Like__link:hover ~ .Emojis {
-    left: -81px;
+    left: -60px;
   }
 
   .modal-body {
@@ -4961,3 +4961,6 @@ button[type=submit].inlineBlock {
   left: 225px !important;
 }
 
+.news-block .item {
+  margin-bottom: 132px;
+}
