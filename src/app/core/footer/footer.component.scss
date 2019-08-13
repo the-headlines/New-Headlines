@@ -1,9 +1,14 @@
 .footer {
-  padding: 50px 0 25px;
-  background-color: black;
+  z-index: 2;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  margin-top: 150px;
+  display: block;
+  padding:20px 0 25px;
+  background-color: rgb(22, 18, 15);
   color: white;
   text-align: center;
-  margin: auto;
 
   ul {
     list-style-type: none;
@@ -31,13 +36,14 @@
   }
 
   .copyright-block {
-    border-top: 1px solid #e1e1e1;
-    margin-top: 17px;
+    border:none;
+    //border-top: 1px solid #e1e1e1;
+    margin-top: 0px;
 
     span {
       margin-top: 17px;
       display: block;
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 300;
       font-style: normal;
       font-stretch: normal;
@@ -45,6 +51,9 @@
       letter-spacing: 0.3px;
       text-align: center;
       color: #fefefe;
+       a{
+         color: white;
+       }
     }
   }
 }
