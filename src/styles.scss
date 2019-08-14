@@ -4657,7 +4657,7 @@ button[type=submit].inlineBlock {
   }
   .profileForm_content .mat-tab-label-content, .profileForm_content .profileForm p {
     font-size: 14px;
-
+    line-height: 1.5;
   }
   .navbar .content .logo > div {
     width: 100%;
@@ -4756,7 +4756,11 @@ button[type=submit].inlineBlock {
   }
 }
 
+
 @media screen and (max-width: 480px) {
+  .profileForm_content .mat-tab-body-wrapper {
+    width: 90% !important;
+  }
   .profile_container .right_side {
     padding: 5px;
   }
