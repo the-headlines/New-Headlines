@@ -120,3 +120,18 @@
     }
   }
 }
+
+@media(max-width: 1024px){
+  .carousel_top_text {
+    display: block !important;
+  }
+
+  .commentsContainer {
+    width: 100% !important;
+    text-align: right;
+    margin-top: -18px;
+  }
+  .titleContainer {
+    width: 100% !important;
+  }
+}
