@@ -4982,14 +4982,10 @@ button[type=submit].inlineBlock {
     text-transform: uppercase;
   }
   .sidebar .top-news .item {
-    height: 144px !important;
+    height: 144px;
   }
 }
-@media(max-width: 1024px){
-  .main {
-    padding-right: 16px !important;
-  }
-}
+
 
 .mat-tooltip {
   position: absolute;
