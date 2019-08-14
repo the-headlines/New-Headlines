@@ -4967,8 +4967,12 @@ button[type=submit].inlineBlock {
     color: #1e2128;
     font-family: 'Lato-Black';
     margin-bottom: 37px;
-    text-align: center;
+    padding-left: 8px;
+    border-left: 4px solid red;
     text-transform: uppercase;
+  }
+  .sidebar .top-news .item {
+    height: 144px;
   }
 }
 
