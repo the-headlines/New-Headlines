@@ -69,34 +69,33 @@ export class StoryOptionsComponent implements OnInit {
     }
 
     copyLink(link, input) {
-        console.log(link);
-        console.log('inside');
-        // if (navigator.userAgent.match(/ipad|ipod|iphone/i) || navigator.platform.includes('Mac')) {
-        //         var editable = input.contentEditable;
-        //         var readOnly = input.readOnly;
-        //
-        //         input.contentEditable = true;
-        //         input.readOnly = false;
-        //
-        //         var range = document.createRange();
-        //         range.selectNodeContents(input);
-        //
-        //         var selection = window.getSelection();
-        //         selection.removeAllRanges();
-        //         selection.addRange(range);
-        //
-        //         input.setSelectionRange(0, 999999);
-        //         input.contentEditable = editable;
-        //         input.readOnly = readOnly;
-        //         console.log(selection, range);
-        //
-        //         document.execCommand('copy');
-        //     } else {
 
-        input.select();
-        console.log(input.value);
-        document.execCommand('copy');
-        // }
+        if (navigator.userAgent.match(/ipad|ipod|iphone/i) || navigator.platform.includes('Mac')) {
+            var editable = input.contentEditable;
+            var readOnly = input.readOnly;
+
+            input.contentEditable = true;
+            input.readOnly = false;
+
+            var range = document.createRange();
+            range.selectNodeContents(input);
+
+            var selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+
+            input.setSelectionRange(0, 999999);
+            input.contentEditable = editable;
+            input.readOnly = readOnly;
+            console.log(selection, range);
+
+            document.execCommand('copy');
+        } else {
+
+            input.select();
+            console.log(input.value);
+            document.execCommand('copy');
+        }
     }
 
     isOS() {
