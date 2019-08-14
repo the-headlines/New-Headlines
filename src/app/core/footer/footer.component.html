@@ -1,42 +1,44 @@
 <footer class="footer">
-  <!--<h4 class="logo">logo name</h4>-->
-  <!--<ul class="social-block">-->
+    <!--<h4 class="logo">logo name</h4>-->
+    <!--<ul class="social-block">-->
     <!--<li><a href=""><i class="fab fa-facebook-f"></i></a></li>-->
     <!--<li><a href=""><i class="fab fa-twitter"></i></a></li>-->
     <!--<li><a href=""><i class="fab fa-google-plus-g"></i></a></li>-->
-  <!--</ul>-->
-  <div class="copyright-block">
-    <!--<span>© copyright 2019. All rights reserved</span>-->
-      <span>By using our site, you acknowledge that you have read and understand our <a href="">Cookie Policy</a>, <a href=""> I do not Accept</a>,<a href=""> ACCEPT</a></span>
-  </div>
+    <!--</ul>-->
+    <div class="copyright-block">
+        <!--<span>© copyright 2019. All rights reserved</span>-->
+        <span *ngIf="showCookieMsg()">We use cookies to collect website performance, usage data for analytics and ad customization
+            <a class="learn_more">Learn more</a>   <button (click)="accept()"> <i
+                    class="fa fa-check"></i><strong>Accept Cookies</strong></button></span>
+    </div>
 </footer>
 
 
 <!--<div class="footer_body">-->
-  <!--<div class="content">-->
-    <!--<ul>-->
-      <!--<li>-->
-        <!--<a href="">About</a>-->
-      <!--</li>-->
-      <!--<li>-->
-        <!--<a href="">Terms</a>-->
-      <!--</li>-->
-      <!--<li>-->
-        <!--<a href="">Privacy Policy</a>-->
-      <!--</li>-->
-      <!--<li>-->
-        <!--<a href="">Content policy</a>-->
-      <!--</li>-->
-      <!--<li>-->
-        <!--<a href="">Score</a>-->
-      <!--</li>-->
-      <!--<li>-->
-        <!--<a href="">Voting</a>-->
-      <!--</li>-->
-      <!--<li>-->
-        <!--<a href="">Advertise</a>-->
-      <!--</li>-->
-    <!--</ul>-->
-  <!--</div>-->
+<!--<div class="content">-->
+<!--<ul>-->
+<!--<li>-->
+<!--<a href="">About</a>-->
+<!--</li>-->
+<!--<li>-->
+<!--<a href="">Terms</a>-->
+<!--</li>-->
+<!--<li>-->
+<!--<a href="">Privacy Policy</a>-->
+<!--</li>-->
+<!--<li>-->
+<!--<a href="">Content policy</a>-->
+<!--</li>-->
+<!--<li>-->
+<!--<a href="">Score</a>-->
+<!--</li>-->
+<!--<li>-->
+<!--<a href="">Voting</a>-->
+<!--</li>-->
+<!--<li>-->
+<!--<a href="">Advertise</a>-->
+<!--</li>-->
+<!--</ul>-->
+<!--</div>-->
 
 <!--</div>-->

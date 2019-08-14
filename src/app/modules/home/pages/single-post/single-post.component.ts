@@ -200,18 +200,21 @@ export class SinglePostComponent implements OnInit, OnDestroy {
 
     getSinglePost(id) {
         this.home.getSinglePost(id).subscribe((data: any) => {
+            if (data.news && data.news.length > 0) {
 
-            this.singlePost = data;
-            this.postCategory = data.category;
-            this.voteTypes = this.voteTypes.filter(t => t['pages'].includes(this.postCategory));
-            this.singlePost.score = data.score;
+                data = data.news[0];
+                this.singlePost = data;
+                this.postCategory = data.category;
+                this.voteTypes = this.voteTypes.filter(t => t['pages'].includes(this.postCategory));
+                this.singlePost.score = data.score;
 
-            // this.comments = data['result']['comment'];
-            // this.related = data['result']['related'];
-            // this.commentCount = data['comment_count'];
-            // this.start = data['result']['comment'].length;
+                // this.comments = data['result']['comment'];
+                // this.related = data['result']['related'];
+                // this.commentCount = data['comment_count'];
+                // this.start = data['result']['comment'].length;
 
-            this.subject.setPostCategory(this.postCategory);
+                this.subject.setPostCategory(this.postCategory);
+            }
         });
     }
 
