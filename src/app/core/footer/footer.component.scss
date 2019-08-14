@@ -5,14 +5,15 @@
   width: 100%;
   margin-top: 150px;
   display: block;
-  padding:20px 0 25px;
-  background-color: rgb(22, 18, 15);
+  //padding: 20px 0 25px;
+  //background-color: rgb(22, 18, 15);
   color: white;
   text-align: center;
 
   ul {
     list-style-type: none;
   }
+
   .logo {
     font-family: 'Lato-Bold';
     font-size: 1.8em;
@@ -36,13 +37,15 @@
   }
 
   .copyright-block {
-    border:none;
+    border: none;
+    background-color: rgb(22, 18, 15);
     //border-top: 1px solid #e1e1e1;
-    margin-top: 0px;
+    margin-top: 0;
 
     span {
-      margin-top: 17px;
-      display: block;
+      padding: 8px 0;
+      //margin-top: 17px;
+      //display: block;
       font-size: 13px;
       font-weight: 300;
       font-style: normal;
@@ -51,9 +54,25 @@
       letter-spacing: 0.3px;
       text-align: center;
       color: #fefefe;
-       a{
-         color: white;
-       }
+
+      a {
+        color: white;
+      }
+    }
+
+    button {
+      background: #3788c6;
+      border: none;
+      color: #fff;
+      margin-left: 10px;
+
+      strong {
+        margin-left: 3px;
+      }
+    }
+
+    .learn_more {
+      text-decoration: underline !important;
     }
   }
 }
@@ -61,20 +80,21 @@
 
 .footer_body {
   padding-top: 450px;
-  .content{
-    ul{
+
+  .content {
+    ul {
       display: flex;
       justify-content: space-between;
       align-items: center;
 
-      li{
+      li {
         font-family: 'BrandonText-Regular', sans-serif;
         min-height: 30px;
         font-size: 14px;
         font-weight: 600;
         letter-spacing: 0.3px;
 
-        a{
+        a {
           color: #727377;
         }
       }

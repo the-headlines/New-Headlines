@@ -79,7 +79,7 @@ export class HomeService {
     }
 
     public getSinglePost(id) {
-        return this.http.get(Base.url + '/api/news/' + id + '');
+        return this.http.get(Base.url + '/api/news/' + id + '/votedetails');
     }
 
     public getPostVotes(id) {

@@ -17,7 +17,7 @@ export const VOTE_TYPES = [
     {name: 'Investigate', displayName: 'Investigate', pages: ['Influence']},
     {name: 'Protest', displayName: 'Protest', pages: ['Influence']},
     {name: 'Like', displayName: 'Like', pages: ['Videos']},
-    {name: 'Good', displayName: 'Good', pages: ['StyleAndSweat']},
+    // {name: 'Good', displayName: 'Good', pages: ['StyleAndSweat']},
     {name: 'Love', displayName: 'Love', pages: ['StyleAndSweat'], love: true},
     {name: 'TopClass', displayName: 'TopClass', pages: ['StyleAndSweat']},
     {name: 'Magic', displayName: 'Magic', pages: ['StyleAndSweat']},
