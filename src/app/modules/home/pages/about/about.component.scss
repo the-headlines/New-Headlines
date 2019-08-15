@@ -5,3 +5,32 @@
         }
     }
 }
+
+@media(max-width: 767px){
+  .about___body {
+    display: block;
+  }
+  .sidebar_links {
+    display: flex;
+    margin: 200px auto 0px auto;
+    text-align: center;
+    width: 100%;
+    justify-content: space-around;
+  }
+  .sidebar_links li {
+    padding-bottom: 9px;
+  }
+  .about__text {
+    width: auto;
+  }
+  .about__content {
+     width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+     margin-top: 50px;
+   }
+  .images_content {
+    width: auto;
+    margin-top: 50px;
+  }
+}
