@@ -197,7 +197,7 @@ export class CommerceComponent implements OnInit {
     onIntersection(e, index) {
         if (index === this.filteredPosts.news.length - 1) {
             ++this.page;
-            this.home.getData(this.page).subscribe((data: any) => {
+            this.home.getCommerce(this.page).subscribe((data: any) => {
 
                 if (data.news.length !== 0) {
 
