@@ -4354,7 +4354,7 @@ button[type=submit].inlineBlock {
   }
   .profileForm_content .mat-tab-labels {
     flex-direction: column;
-    width: 67%;
+    width: auto;
     padding-bottom: 50px;
   }
   .profileForm_content .mat-tab-header {
@@ -4975,6 +4975,16 @@ button[type=submit].inlineBlock {
   }
 }
 @media(max-width: 767px) {
+  .voteType button span {
+    font-size: 8px;
+  }
+  .Emojis {
+    border-radius: 20px;
+    transform: translate3d(-6%, 0, 0);
+  }
+  .main {
+    padding-right: 0px;
+  }
   .mat-icon-button {
     height: 20px !important;
     line-height: 20px !important;
@@ -4998,6 +5008,9 @@ button[type=submit].inlineBlock {
   }
 }
 
+@media(max-width: 480px){
+
+}
 
 .mat-tooltip {
   position: absolute;
