@@ -1146,7 +1146,7 @@ li.margin_top {
 }
 
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 960px) and (min-width: 768px){
   header .navbar .logo p{
     width: 100%;
     margin: 10px 0;
@@ -1155,7 +1155,9 @@ li.margin_top {
   header .navbar .logo {
     display: block;
   }
-
+  header .navbar .logo ul {
+    margin-top: 2px;
+  }
 }
 
 
