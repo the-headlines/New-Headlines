@@ -62,7 +62,7 @@ export class HobbyistComponent implements OnInit {
     onIntersection(e, index) {
         if (index === this.filteredPosts.news.length - 1) {
             ++this.page;
-            this.home.getData(this.page).subscribe((data: any) => {
+            this.home.getHobbyist(this.page).subscribe((data: any) => {
 
                 if (data.news.length !== 0) {
 
@@ -115,6 +115,7 @@ export class HobbyistComponent implements OnInit {
             this.filteredPosts.news = dt.news;
         });
     }
+
     toggleShow() {
         this.isShown = !this.isShown;
     }
