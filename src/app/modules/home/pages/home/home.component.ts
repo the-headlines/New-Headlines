@@ -289,7 +289,13 @@ export class HomeComponent implements OnInit {
             this.posts = dt;
             this.filteredPosts.news = dt.news; // .slice(0, this.defaultRecords)
             // window.scroll(0, 600);
-            window.scrollTo({top: 550, behavior: 'smooth'});
+
+
+            if (this.responsiveMode) {
+                setTimeout(() => window.scrollTo(550, 0), 100);
+            } else {
+                window.scrollTo({top: 550, behavior: 'smooth'});
+            }
         });
     }
 
@@ -310,6 +316,11 @@ export class HomeComponent implements OnInit {
             trigger.closeMenu();
         }
         this.isShown = false;
+    }
+
+    get responsiveMode() {
+
+        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     }
 
 }
