@@ -158,6 +158,7 @@ export class TravelComponent implements OnInit {
         this.home.getPostsByVoteType('HumanStories', vote, this.selectedFilter.type).subscribe((dt: any) => {
             this.posts = dt;
             this.filteredPosts.news = dt.news;
+            window.scrollTo({top: 550, behavior: 'smooth'});
         });
     }
 

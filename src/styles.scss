@@ -4970,7 +4970,7 @@ button[type=submit].inlineBlock {
 }
 
 
-.Tools_headline,.Tools_headline2 {
+.Tools_headline, .Tools_headline2 {
   display: none;
 }
 
@@ -5025,8 +5025,8 @@ button[type=submit].inlineBlock {
   }
 }
 
-@media(max-width: 480px){
-  .mat-tooltip{
+@media(max-width: 480px) {
+  .mat-tooltip {
     display: none;
   }
 
@@ -5037,3 +5037,8 @@ button[type=submit].inlineBlock {
   left: 225px !important;
 }
 
+.selectedVoteCategory {
+  small {
+    color: #727377;
+  }
+}
