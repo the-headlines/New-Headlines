@@ -93,7 +93,7 @@ const routes: Routes = [
     {path: 'policy', component: PolicyComponent},
     {path: 'profile', component: AdminProfileComponent},
     {path: 'add-post', component: AddPostComponent, canActivate: [AuthGuard]},
-    {path: 'post/:id', component: SinglePostComponent},
+    {path: 'post/:id', component: SinglePostComponent, canActivate: [AuthGuard]},
     {path: 'subscribe', component: SubscribeComponent},
     {path: 'managePost', component: PostsHomeComponent, canActivate: [AuthGuard]},
     {path: 'editPost/:id', component: AddPostComponent, canActivate: [AuthGuard]},
