@@ -4612,6 +4612,7 @@ button[type=submit].inlineBlock {
   }
   .news-block, .news-block .item {
     position: static;
+
   }
   .media_sidebar {
     display: none !important;
@@ -4635,6 +4636,7 @@ button[type=submit].inlineBlock {
     width: 95%;
     margin: 0 auto;
     padding-right: 0 !important;
+    overflow-x: hidden;
   }
   body {
     font-size: 10px;
@@ -4804,6 +4806,7 @@ button[type=submit].inlineBlock {
   .view-icons-block {
     margin: 0;
     padding: 5px;
+    //overflow-x: hidden;
   }
   .view-icons-block li a, .Like__link, .view-icons-block li span {
     font-size: 11px;
@@ -5011,6 +5014,9 @@ button[type=submit].inlineBlock {
 }
 
 @media(max-width: 480px){
+  .mat-tooltip{
+    display: none;
+  }
 
 }
 
