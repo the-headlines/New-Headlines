@@ -4547,12 +4547,14 @@ button[type=submit].inlineBlock {
     background: #fff;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
     border-radius: 5px;
-    right: 0;
-    top: 80px;
-    position: absolute;
+    //top: 80px;
     width: 200px;
     z-index: 11111;
     padding: 15px;
+    right: 24px;
+    bottom: 58px;
+    position: fixed;
+
   }
   .blocks_filter {
     width: 0 !important;
