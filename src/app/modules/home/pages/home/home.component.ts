@@ -289,7 +289,7 @@ export class HomeComponent implements OnInit {
             this.posts = dt;
             this.filteredPosts.news = dt.news; // .slice(0, this.defaultRecords)
             // window.scroll(0, 600);
-            window.scrollTo({top: 600, behavior: 'smooth'});
+            window.scrollTo({top: 650, behavior: 'smooth'});
         });
     }
 
