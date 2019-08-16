@@ -4969,7 +4969,7 @@ button[type=submit].inlineBlock {
   margin-bottom: 132px;
 }
 
-.Tools_headline {
+.Tools_headline,.Tools_headline2 {
   display: none;
 }
 
@@ -5002,11 +5002,21 @@ button[type=submit].inlineBlock {
     font-size: 18px;
     color: #1e2128;
     font-family: 'Lato-Black';
-    margin-bottom: 37px;
+    margin-bottom: 0px;
     padding-left: 8px;
     margin-left: 15px;
     border-left: 1.7px solid #e14040;
     text-transform: uppercase;
+  }
+  .Tools_headline2 {
+    display: block;
+    font-size: 18px;
+    color: #1e2128;
+    font-family: 'Lato-Black';
+    margin-bottom: 37px;
+    padding-left: 8px;
+    margin-left: 15px;
+    border-left: 1.7px solid #e14040;
   }
   .sidebar .top-news .item {
     height: 144px !important;
