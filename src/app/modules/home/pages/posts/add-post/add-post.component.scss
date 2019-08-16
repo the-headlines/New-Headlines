@@ -616,3 +616,26 @@
     font-size: 11px;
   }
 }
+
+
+.post_suggestions p.sugg_bold {
+  font-weight: bold;
+  font-style: italic;
+}
+.post_suggestions .sugg_blue span {
+  color:#3788c6;
+}
+.post_suggestions h3 {
+  padding-bottom: 5px;
+  width:195px;
+  margin-bottom: 40px;
+  font-weight: bold;
+  border-bottom: 1px solid #e14040;
+}
+.post_suggestions ul li {
+  color:#3788c6;
+  padding-bottom: 20px;
+}
+.post_suggestions ul li span {
+  color:#000000;
+}
