@@ -105,7 +105,15 @@ export class PublicComponent implements OnInit {
         this.home.getPostsByVoteType('Public', vote, this.selectedFilter.type).subscribe((dt: any) => {
             this.posts = dt;
             this.filteredPosts.news = dt.news;
-            window.scrollTo({top: 550, behavior: 'smooth'});
+
+            if (this.responsiveMode) {
+                const container = document.querySelector('#home_carousel');
+                setTimeout(() => {
+                    container.scrollIntoView({block: 'start', behavior: 'smooth'});
+                });
+            } else {
+                window.scrollTo({top: 550, behavior: 'smooth'});
+            }
         });
     }
 
@@ -115,6 +123,11 @@ export class PublicComponent implements OnInit {
             this.posts = dt;
             this.filteredPosts.news = dt.news;
         });
+    }
+
+    get responsiveMode() {
+
+        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     }
 
     toggleShow() {
