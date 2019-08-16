@@ -7,6 +7,7 @@ import {SubjectService} from '../../services/subject.service';
 import * as JwtDecode from 'jwt-decode';
 import {VOTE_TYPES} from '../../shared/constants/main';
 import {CountPostScorePipe} from '../../shared/pipes/count-post-score.pipe';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
     selector: 'app-status-bar',
@@ -37,7 +38,8 @@ export class StatusBarComponent implements OnInit {
         private home: HomeService,
         public auth: AuthService,
         private subject: SubjectService,
-        private countScore: CountPostScorePipe
+        private countScore: CountPostScorePipe,
+        private toastr: ToastrService
     ) {
         this.openNum = false;
     }
@@ -99,37 +101,45 @@ export class StatusBarComponent implements OnInit {
             type = 'LoveTheHuman';
         }
 
-        if (!single.userVoted) {
-            ++single.totalVotes;
-        }
+
+        if (this.auth.loggedIn()) {
 
 
-        if (type !== single['votedCategory']) {
+            if (type !== single['votedCategory']) {
 
-            this.isShown = true;
-            this.home.doVoting(single._id, type).subscribe(dt => {
-                // this.voted.emit();
-                this.home.getVoteDetails(single._id).subscribe((d: any) => {
-                    if (d.news && d.news.length > 0) {
-                        this.single = d.news[0];
-                        this.postScore = this.single.score;
-                    }
+                this.isShown = true;
+                this.home.doVoting(single._id, type).subscribe(dt => {
+                    // this.voted.emit();
+                    this.home.getVoteDetails(single._id).subscribe((d: any) => {
+                        if (!single.userVoted) {
+                            ++single.totalVotes;
+                        }
+
+                        if (d.news && d.news.length > 0) {
+                            this.single = d.news[0];
+                            this.postScore = this.single.score;
+                        }
+                    });
+
+                    // this.home.getPostVotes(single._id).subscribe((d: any) => {
+                    //     console.log(this.userData);
+                    //     console.log(d.votes);
+                    //     const data = d.votes.filter(v => v.creator && v.creator._id === this.userData.userId);
+                    //     console.log(data);
+                    //     this.votes = data;
+                    // });
+
+                    // this.home.getVotesData(this.postCategory).subscribe((data: any) => {
+                    //     this.isShown = !this.isShown;
+                    //     this.votes = data;
+                    // });
                 });
-
-                // this.home.getPostVotes(single._id).subscribe((d: any) => {
-                //     console.log(this.userData);
-                //     console.log(d.votes);
-                //     const data = d.votes.filter(v => v.creator && v.creator._id === this.userData.userId);
-                //     console.log(data);
-                //     this.votes = data;
-                // });
-
-                // this.home.getVotesData(this.postCategory).subscribe((data: any) => {
-                //     this.isShown = !this.isShown;
-                //     this.votes = data;
-                // });
-            });
+            }
+        } else {
+            this.toastr.error('', 'Please log in first!');
         }
+
+
     }
 
     getSingle(single, commentsType) {

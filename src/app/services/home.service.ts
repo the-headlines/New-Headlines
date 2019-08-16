@@ -92,7 +92,6 @@ export class HomeService {
         } else {
             return this.http.post(Base.url + '/api/news/' + id + '/vote', {voteCategory: voteType});
         }
-
     }
 
     /*Add comment*/
