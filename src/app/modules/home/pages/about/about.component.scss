@@ -17,6 +17,7 @@
   width: 100%;
   display: block;
   line-height: 1;
+  font-size: 14px;
 }
 @media(max-width: 767px){
   .about___body {
@@ -82,3 +83,8 @@
     margin: auto;
   }
   }
+@media(max-width: 450px) {
+  .images_content p {
+    min-height: 20px;
+  }
+}
