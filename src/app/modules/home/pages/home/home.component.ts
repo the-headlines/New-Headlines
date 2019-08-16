@@ -289,7 +289,7 @@ export class HomeComponent implements OnInit {
             this.posts = dt;
             this.filteredPosts.news = dt.news; // .slice(0, this.defaultRecords)
             // window.scroll(0, 600);
-
+            this.isShown = false;
 
             if (this.responsiveMode) {
                 const container = document.querySelector('#home_carousel');
