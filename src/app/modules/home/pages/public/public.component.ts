@@ -105,6 +105,7 @@ export class PublicComponent implements OnInit {
         this.home.getPostsByVoteType('Public', vote, this.selectedFilter.type).subscribe((dt: any) => {
             this.posts = dt;
             this.filteredPosts.news = dt.news;
+            window.scrollTo({top: 550, behavior: 'smooth'});
         });
     }
 
