@@ -292,7 +292,12 @@ export class HomeComponent implements OnInit {
 
 
             if (this.responsiveMode) {
-                setTimeout(() => window.scrollTo(550, 0), 100);
+                const container = document.querySelector('#home_carousel');
+                setTimeout(() => {
+                    // container.scrollTop = 100;
+                    container.scrollIntoView({block: 'start', behavior: 'smooth'});
+                    // container.scrollTo({top: 50, behavior: 'smooth'})
+                });
             } else {
                 window.scrollTo({top: 550, behavior: 'smooth'});
             }
