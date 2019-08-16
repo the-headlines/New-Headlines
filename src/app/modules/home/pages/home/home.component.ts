@@ -288,6 +288,8 @@ export class HomeComponent implements OnInit {
         this.home.getPostsByVoteType('Influence', vote, this.selectedFilter.type).subscribe((dt: any) => {
             this.posts = dt;
             this.filteredPosts.news = dt.news; // .slice(0, this.defaultRecords)
+            // window.scroll(0, 600);
+            window.scrollTo({top: 600, behavior: 'smooth'});
         });
     }
 
