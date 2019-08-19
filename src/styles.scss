@@ -4584,7 +4584,7 @@ button[type=submit].inlineBlock {
     align-items: center;
     justify-content: center;
     right: -75px;
-    top: 85%;
+    top: 90%;
     position: fixed;
     transform: rotate(-90deg);
     transform-origin: 0 0;
@@ -5070,6 +5070,10 @@ button[type=submit].inlineBlock {
     line-height: 19.2px;
     margin-bottom: 28px;
     font-size: 15px;
+
+    &:last-child {
+      margin-bottom: 0px;
+    }
   }
 }
 
