@@ -233,18 +233,18 @@
                         <!--                        </p>-->
                     </div>
                     <!--<div class="sort">-->
-                        <!--<small>Sort by</small>-->
-                        <!--<div class="dropdown">-->
-                            <!--<p class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown"-->
-                               <!--aria-haspopup="true" aria-expanded="false">-->
-                                <!--Best-->
-                            <!--</p>-->
-                            <!--<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">-->
-                                <!--<a class="dropdown-item" href="#">Best 1</a>-->
-                                <!--<a class="dropdown-item" href="#">Best 1</a>-->
-                                <!--<a class="dropdown-item" href="#">Best 1</a>-->
-                            <!--</div>-->
-                        <!--</div>-->
+                    <!--<small>Sort by</small>-->
+                    <!--<div class="dropdown">-->
+                    <!--<p class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown"-->
+                    <!--aria-haspopup="true" aria-expanded="false">-->
+                    <!--Best-->
+                    <!--</p>-->
+                    <!--<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">-->
+                    <!--<a class="dropdown-item" href="#">Best 1</a>-->
+                    <!--<a class="dropdown-item" href="#">Best 1</a>-->
+                    <!--<a class="dropdown-item" href="#">Best 1</a>-->
+                    <!--</div>-->
+                    <!--</div>-->
                     <!--</div>-->
                     <!--</form>-->
                 </div>
@@ -347,7 +347,48 @@
                 </div>
             </div>
         </section>
+        <div class="col-md-4 rules">
+
+            <ng-container *ngIf="postCategory!=='StyleAndSweat'">
+
+                <h3>Comments and Questions</h3>
+
+                <p>Readers are encouraged to post comments and questions in response to other users’ posts. Please make
+                    your
+                    questions and comments relevant to the post and ones which don’t contravene the spirit of the site.
+
+                </p>
+                <p>
+                    Users should not use the Questions and Comments section as a forum for arguments, personal comments
+                    or
+                    inappropriate language of any kind.
+                </p>
+                <p>
+                    Comments and questions should be short, simple, straightforward and related to the original post.
+                    Any
+                    reported comments or questions will be monitored and deleted if necessary.
+                </p>
+            </ng-container>
+
+            <ng-container *ngIf="postCategory==='StyleAndSweat'">
+
+                <h3>Criticism</h3>
+
+                <p>Any criticism posted should be logical, factual, positive and constructive.</p>
+
+                <p>Negative criticism will be acceptable if it is voicing a genuine objection to a post, with the sole
+                    purpose of showing that it is wrong, false, mistaken, nonsensical, objectionable or
+                    disreputable.</p>
+
+                <p>Users should not use the Criticism section as a forum for arguments, personal comments or
+                    inappropriate language of any kind. Any criticism should be brief, constructive and related to the
+                    original post. Any reported comments or criticism will be monitored and deleted if necessary.</p>
+
+            </ng-container>
+        </div>
     </div>
+
+
 </div>
 
 <app-footer></app-footer>

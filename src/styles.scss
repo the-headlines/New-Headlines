@@ -5044,3 +5044,18 @@ button[type=submit].inlineBlock {
     color: #727377;
   }
 }
+
+.rules {
+  padding: 10px;
+  border: 1px solid silver;
+  height: 100%;
+
+  h3{
+    text-decoration: underline;
+    margin-bottom: 25px;
+  }
+  p{
+    line-height: 25.2px;
+    margin-bottom: 28px;
+  }
+}

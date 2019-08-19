@@ -55,7 +55,7 @@ export class PostsHomeComponent implements OnInit {
     }
 
     selectCategory(c) {
-        this.home.getPostsByCategory(c.source.value).subscribe((dt: any) => {
+        this.home.getPostsByCategory(c).subscribe((dt: any) => {
             dt['news'].sort((a, b) => {
                 return moment(b['createdAt']).unix() - moment(a['createdAt']).unix();
             });
@@ -85,8 +85,10 @@ export class PostsHomeComponent implements OnInit {
         this.dialogRef.afterClosed().subscribe(c => {
             if (c) {
                 this.postsService.remove(id).subscribe((dt: any) => {
-                    this.posts = dt;
-                    this.filteredPosts = new MatTableDataSource(dt.news);
+                    // this.posts = dt;
+                    // this.filteredPosts = new MatTableDataSource(dt.news);
+
+                    this.selectCategory(this.postForm.value.category);
                     this.toastr.success('The post has been removed successfully');
                 });
             }

@@ -13,7 +13,7 @@
                                 <form [formGroup]="postForm">
                                     <mat-form-field>
                                         <mat-select name="food" formControlName="category"
-                                                    (selectionChange)="selectCategory($event)">
+                                                    (selectionChange)="selectCategory($event.source.value)">
                                             <mat-option disabled [value]="0">Choose a Section</mat-option>
                                             <mat-option *ngFor="let food of categories" [value]="food.dbName">
                                                 {{food.name}}
