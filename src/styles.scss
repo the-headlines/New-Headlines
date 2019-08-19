@@ -5027,6 +5027,15 @@ button[type=submit].inlineBlock {
   }
 }
 
+@media(max-width: 600px) {
+ .posts_table table tbody th,.posts_table td {
+    padding: 0 5px !important;
+  }
+  .posts_table .mat-cell, .posts_table .mat-footer-cell {
+    font-size: 12px !important;
+  }
+}
+
 @media(max-width: 480px) {
   .mat-tooltip {
     display: none;

@@ -220,3 +220,28 @@ p-dataTable {
 .table_container {
   overflow: auto;
 }
+
+@media(max-width: 767px){
+  .posts_box {
+    padding: 60px 0 !important;
+  }
+  .postImage {
+    width: 130px;
+    height: 130px;
+  }
+  .posts_table table tbody th, .posts_table td {
+    padding: 0 7px !important;
+  }
+  .postsTable .mat-icon {
+    height: 20px;
+    width: 20px;
+    line-height: 4px;
+  }
+}
+@media(max-width: 600px) {
+  .postImage {
+    width: 100px;
+    height: 100px;
+    margin: 6px;
+  }
+}
