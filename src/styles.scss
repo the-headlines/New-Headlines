@@ -4584,7 +4584,7 @@ button[type=submit].inlineBlock {
     align-items: center;
     justify-content: center;
     right: -75px;
-    top: 75%;
+    top: 85%;
     position: fixed;
     transform: rotate(-90deg);
     transform-origin: 0 0;
@@ -5055,16 +5055,26 @@ button[type=submit].inlineBlock {
 }
 
 .rules {
-  padding: 10px;
+  padding: 30px !important;
   border: 1px solid silver;
   height: 100%;
+  max-width: 30% !important;
 
   h3{
     text-decoration: underline;
     margin-bottom: 25px;
+    font-size: 22px;
   }
   p{
-    line-height: 25.2px;
+    line-height: 22.2px;
     margin-bottom: 28px;
+    font-size: 17px;
   }
+}
+
+@media(max-width: 767px){
+  .rules {
+    max-width: 89% !important;
+    margin: 20px auto;
+ }
 }
