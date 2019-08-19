@@ -1,10 +1,10 @@
 export const MAIN_SECTIONS = [
     {name: 'Influence', link: '/home', tooltip: 'POLITICS,BUSINESS & OTHER INFLUENTIAL NEWS', dbName: 'Influence'},
     {name: 'Style And Sweat', link: '/road', tooltip: 'CINEMA,MUSIC,ARTS & SPORTS', dbName: 'StyleAndSweat'},
-    {name: 'Human Stories', link: '/travel', tooltip: 'Human Stories', dbName: 'HumanStories'},
-    {name: 'Jump Startups', link: '/commerce', tooltip: 'Startup News', dbName: 'JumpStartups'},
     {name: 'Hobbyist', link: '/hobbyist', tooltip: 'Bloggers', dbName: 'Hobbyist'},
     {name: 'Love Designs', link: '/deals', tooltip: 'Designs', dbName: 'LoveDesigns'},
+    {name: 'Jump Startups', link: '/commerce', tooltip: 'Startup News', dbName: 'JumpStartups'},
+    {name: 'Human Stories', link: '/travel', tooltip: 'Human Stories', dbName: 'HumanStories'},
     {name: 'Science', link: '/science', tooltip: 'Science & Tech', dbName: 'Science'},
     {name: 'Environment', link: '/environment', tooltip: 'Environment & Health', dbName: 'Environment'},
     {name: 'Public', link: '/public', tooltip: 'General News', dbName: 'Public'}
