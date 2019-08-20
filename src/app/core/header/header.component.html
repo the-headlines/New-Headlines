@@ -3,7 +3,7 @@
         <div class="content">
             <div class="logo">
                 <div>
-                    <a (click)="goToLink('/home')">
+                    <a (click)="goToLink('/')">
                         <img src="../../../assets/images/logo_white_background.jpg" alt="">
                     </a>
 
@@ -232,7 +232,7 @@
                             </div>
                             <ul class="toggle none-768">
                                 <li *ngFor="let section of sections"
-                                    [class.active]="router.url===section.link || this.postCategory === section.dbName"
+                                    [class.active]="router.url===section.link || postCategory === section.dbName"
                                     routerLinkActive="active">
                                     <a (click)="goToLink(section.link)"
                                        [matTooltip]="section.tooltip">{{section['name']}}</a>

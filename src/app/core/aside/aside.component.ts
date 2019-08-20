@@ -14,9 +14,9 @@ import {MAIN_SECTIONS} from '../../shared/constants/main';
     styleUrls: ['./aside.component.scss']
 })
 export class AsideComponent implements OnInit {
-    selectedSection;
+    selectedSection = MAIN_SECTIONS.filter(s => s.name === 'Influence');
     sections = MAIN_SECTIONS;
-    postCategory;
+    postCategory = 'Influence';
 
     constructor(
         private  aside: AsideService,
@@ -31,7 +31,13 @@ export class AsideComponent implements OnInit {
     @ViewChild(MatPaginator) paginator: MatPaginator;
 
     ngOnInit() {
-        this.selectedSection = this.sections.filter(s => s.link === this.router.url);
+
+        if (this.router.url !== '/') {
+
+            this.selectedSection = this.sections.filter(s => s.link === this.router.url);
+        }
+
+
         if (this.selectedSection && this.selectedSection.length > 0) {
             this.postCategory = this.selectedSection[0].dbName;
             this.getTopNews();

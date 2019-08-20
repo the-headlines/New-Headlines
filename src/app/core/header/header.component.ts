@@ -32,7 +32,7 @@ export class HeaderComponent implements OnInit {
     sections = MAIN_SECTIONS;
     scrollPosition = 0;
     showScrollToTopBtn = false;
-    postCategory;
+    postCategory = this.router.url === '/' ? 'Influence' : '';
 
     @HostListener('window:scroll', ['$event'])
     private onScroll(e: Event): void {
