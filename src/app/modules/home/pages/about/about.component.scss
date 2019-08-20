@@ -52,8 +52,8 @@
   }
   .sidebar_links li {
     padding-bottom: 9px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
   }
   .about__text {
     width: auto;
@@ -70,7 +70,7 @@
   }
   .about__text .images_content {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
   }
   .images_content {
     display:none;

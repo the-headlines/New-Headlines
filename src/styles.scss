@@ -54,6 +54,18 @@
   font-family: 'BrandonText-Bold';
   src: url("/assets/fonts/HVD Fonts - BrandonText-Bold.otf");
 }
+@font-face {
+  font-family: 'CalibriLight';
+  src: url("/assets/fonts/CalibriLight.ttf");
+}
+@font-face {
+  font-family: 'CalibriRegular';
+  src: url("/assets/fonts/CalibriRegular.ttf");
+}
+@font-face {
+  font-family: 'CalibriBold';
+  src: url("/assets/fonts/CalibriBold.TTF");
+}
 
 //html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
 //  margin: 0;
@@ -3303,7 +3315,7 @@ input.mat-input-element {
 }
 
 .about_info p {
-  font-family: 'Lato-Regular', sans-serif;
+  font-family: 'CalibriRegular';
   font-size: 15px;
   font-weight: 300;
   line-height: 20px;
@@ -3317,7 +3329,7 @@ input.mat-input-element {
   padding-top: 0;
 }
 
-.about__text > p {
+.sidebar_links .about__text > p {
   border-bottom: 1px solid red;
 }
 
@@ -3379,7 +3391,7 @@ input.mat-input-element {
 }
 
 .about__content .about__text > p {
-  font-family: 'Lato-Black';
+  font-family: 'CalibriBold';
   display: inline-block;
   //color: #727377;
   color: #000;
