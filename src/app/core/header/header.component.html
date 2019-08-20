@@ -6,6 +6,15 @@
                     <a (click)="goToLink('/home')">
                         <img src="../../../assets/images/logo_white_background.jpg" alt="">
                     </a>
+
+                    <!--                    <fb-save uri="http://nottheheadlines.com/"></fb-save>-->
+                    <!--                    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw"-->
+                    <!--                       class="twitter-share-button" data-show-count="false">Tweet</a>-->
+                    <!--                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8">-->
+                    <!--                        -->
+                    <!--                    </script>-->
+
+
                     <div class="search_box">
                         <form [formGroup]="searchForm" *ngIf="searchAllowed">
                             <p>Readers decide "The Headlines" <a routerLink="/about">more... </a></p>
@@ -20,7 +29,17 @@
                                     </span>
                                 </div>
                             </div>
+
                         </form>
+
+                        <div class="shareBtns">
+
+
+                            <!-- This is here because otherwise the style of the share buttons is breaking-->
+                            <share-buttons [url]="'http://nottheheadlines.com'" [include]="['facebook','twitter']"
+                                           [theme]="'material-light'"
+                                           [showCount]="true"></share-buttons>
+                        </div>
                     </div>
                 </div>
                 <ul>
@@ -79,7 +98,7 @@
                                             <a (click)="goToLink('/managePost')">Manage Posts</a>
                                         </li>
                                         <!--<li>-->
-                                            <!--<a (click)="goToLink('/subscribe')">Subscribe</a>-->
+                                        <!--<a (click)="goToLink('/subscribe')">Subscribe</a>-->
                                         <!--</li>-->
                                         <li>
                                             <a (click)="logOut()">LogOut</a>

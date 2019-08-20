@@ -51,6 +51,7 @@
     "ng2-scroll-to": "1.0.7",
     "ngx-cookie-service": "^2.2.0",
     "ngx-dropzone-wrapper": "^7.2.1",
+    "ngx-facebook": "^2.4.0",
     "ngx-filter-pipe": "^2.1.2",
     "ngx-infinite-scroll": "^7.2.0",
     "ngx-owl-carousel-o": "^1.1.2",

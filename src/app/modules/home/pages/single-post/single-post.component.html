@@ -135,7 +135,7 @@
     <div class="main row">
         <section class="col-md-8" style="padding-right: 37px">
             <div class="single_blog_post">
-                <div class="post_title_and_desc">
+                <div class="post_title_and_desc" *ngIf="singlePost">
                     <h3>{{singlePost.extractedTitle}}</h3>
                     <span class="source"> {{singlePost.link|getUrlBase}}</span>
                     <small class="desc">{{singlePost.description|stripTags}}</small>

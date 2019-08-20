@@ -98,7 +98,7 @@ import {CountPostScorePipe} from './shared/pipes/count-post-score.pipe';
 import {AccountActivationComponent} from './modules/home/components/account-activation/account-activation.component';
 import {ForgotPasswordComponent} from './modules/home/components/forgot-password/forgot-password.component';
 import {CapitalizePipe} from './shared/pipes/capitalize.pipe';
-
+import {FacebookModule} from 'ngx-facebook';
 
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     // Change this to your upload POST address:
@@ -222,7 +222,8 @@ export function tokenGetter() {
             }
         }),
         FilterPipeModule,
-        JwSocialButtonsModule
+        JwSocialButtonsModule,
+        FacebookModule.forRoot()
     ],
     providers: [{
         provide: AuthServiceConfig,

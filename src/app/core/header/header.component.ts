@@ -10,8 +10,9 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder} from '@angular/forms';
 import {hasOwnProperty} from 'tslint/lib/utils';
 import {MAIN_SECTIONS} from '../../shared/constants/main';
-import {EditInfoModalComponent} from "../../modules/home/components/libs/edit-info-modal/edit-info-modal.component";
-import {FeedbackComponent} from "../../modules/home/pages/feedback/feedback.component";
+import {EditInfoModalComponent} from '../../modules/home/components/libs/edit-info-modal/edit-info-modal.component';
+import {FeedbackComponent} from '../../modules/home/pages/feedback/feedback.component';
+import {FacebookService, InitParams} from 'ngx-facebook';
 
 
 @Component({
@@ -49,7 +50,8 @@ export class HeaderComponent implements OnInit {
         public router: Router,
         private route: ActivatedRoute,
         private _fb: FormBuilder,
-        private renderer: Renderer2
+        private renderer: Renderer2,
+        private fb: FacebookService
     ) {
 
         this.searchForm = this._fb.group({
@@ -145,6 +147,12 @@ export class HeaderComponent implements OnInit {
         if (this.checkUser()) {
             this.userLoggined = JSON.parse(localStorage.getItem('userInf'));
         }
+
+        const params: InitParams = {
+            version: 'v2.8'
+        };
+
+        this.fb.init(params);
     }
 
     goToLink(link) {
@@ -203,6 +211,7 @@ export class HeaderComponent implements OnInit {
         localStorage.setItem('full_name', null);
         this.router.navigate(['/']);
     }
+
     openDialog(term): void {
         const dialogRef = this.dialog.open(FeedbackComponent, {
             width: '500px',

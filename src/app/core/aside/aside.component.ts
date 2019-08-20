@@ -20,7 +20,7 @@ export class AsideComponent implements OnInit {
 
     constructor(
         private  aside: AsideService,
-        private router: Router,
+        public router: Router,
         private subject: SubjectService
     ) {
     }
