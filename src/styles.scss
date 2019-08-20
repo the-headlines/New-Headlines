@@ -4635,11 +4635,12 @@ button[type=submit].inlineBlock {
   }
 
   .section_carousel {
+    overflow-x: hidden;
     width: 95%;
     margin: 0 auto;
     padding-right: 0 !important;
-    overflow-x: hidden;
   }
+
   body {
     font-size: 10px;
     letter-spacing: 1px;
