@@ -32,14 +32,7 @@
 
                         </form>
 
-                        <div class="shareBtns">
 
-
-                            <!-- This is here because otherwise the style of the share buttons is breaking-->
-                            <share-buttons [url]="'http://nottheheadlines.com'" [include]="['facebook','twitter']"
-                                           [theme]="'material-light'"
-                                           [showCount]="true"></share-buttons>
-                        </div>
                     </div>
                 </div>
                 <ul>
@@ -116,6 +109,15 @@
                         <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
                             <i class="fas fa-bars"></i>
                         </button>
+
+                        <div class="shareBtns">
+
+
+                            <!-- This is here because otherwise the style of the share buttons is breaking-->
+                            <share-buttons [url]="'http://nottheheadlines.com'" [include]="['facebook','twitter']"
+                                           [theme]="'material-light'"
+                                           [showCount]="true"></share-buttons>
+                        </div>
                         <div fxShow="true" fxHide.gt-sm>
                             <div class="user">
                                 <div>
