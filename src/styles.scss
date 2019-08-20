@@ -4584,7 +4584,7 @@ button[type=submit].inlineBlock {
     align-items: center;
     justify-content: center;
     right: -75px;
-    top: 90%;
+    top: 95%;
     position: fixed;
     transform: rotate(-90deg);
     transform-origin: 0 0;
@@ -5078,9 +5078,23 @@ button[type=submit].inlineBlock {
   }
 }
 
+.shareBtns{
+  display: none;
+}
+
 @media(max-width: 767px){
   .rules {
     max-width: 89% !important;
     margin: 20px auto;
  }
+  .shareBtns{
+    display: block;
+  }
+  .shareBtns .sb-button{
+    margin-top: 0 !important;
+  }
+  .shareBtns .sb-button button{
+    font-size: 12px !important;
+  }
 }
+
