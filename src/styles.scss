@@ -4539,6 +4539,9 @@ button[type=submit].inlineBlock {
 }
 
 @media only screen and (max-width: 767px) {
+  .main {
+    padding-top: 26% !important;
+  }
   .content {
     width: 100%;
     margin: 0 auto;
@@ -4877,7 +4880,7 @@ button[type=submit].inlineBlock {
     justify-content: flex-start;
   }
   .main {
-    padding-top: 50% !important;
+    padding-top: 40% !important;
   }
   .news-block .post_wrapper .text-block p {
     font-size: 10px;
@@ -5015,13 +5018,16 @@ button[type=submit].inlineBlock {
     margin-bottom: 80px;
   }
   .Tools_headline {
+    position: absolute;
+    top: 180px;
+    z-index: 9999;
     display: block;
-    font-size: 18px;
+    font-size: 9px;
     color: #1e2128;
     font-family: 'Lato-Black';
     margin-bottom: 0px;
-    padding-left: 8px;
-    margin-left: 15px;
+    padding-left: 5px;
+    margin-left: 30px;
     border-left: 1.7px solid #e14040;
     text-transform: uppercase;
   }
@@ -5039,7 +5045,11 @@ button[type=submit].inlineBlock {
     height: 144px !important;
   }
 }
-
+@media (max-width: 715px){
+.Tools_headline {
+  top: 160px;
+}
+}
 @media(max-width: 600px) {
  .posts_table table tbody th,.posts_table td {
     padding: 0 5px !important;
@@ -5048,12 +5058,20 @@ button[type=submit].inlineBlock {
     font-size: 12px !important;
   }
 }
+@media (max-width: 520px) {
+  .Tools_headline {
+    top: 140px;
+  }
 
+}
 @media(max-width: 480px) {
   .mat-tooltip {
     display: none;
   }
-
+  .Tools_headline {
+    position: absolute;
+    top: 125px;
+  }
 }
 
 .mat-tooltip {
