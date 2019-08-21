@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import * as Base from '../../../../configs/config';
 import {HomeService} from '../../../../services/home.service';
 import {Router} from '@angular/router';
 import * as moment from 'moment';
@@ -22,7 +21,6 @@ export class VideoComponent implements OnInit {
     }
 
     posts: any = [];
-    base = Base.imgPath;
     userLoggined: any = [];
     pageCount = 3;
     start = 0;

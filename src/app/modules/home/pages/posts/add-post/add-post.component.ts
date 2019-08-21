@@ -9,7 +9,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {PostsService} from '../../../../../services/posts.service';
 import {ToastrService} from 'ngx-toastr';
 import {StripHtmlTagsPipe} from '../../../../../shared/pipes/strip-html-tags.pipe';
-import {MAIN_SECTIONS} from '../../../../../shared/constants/main';
+import {API_URL, MAIN_SECTIONS} from '../../../../../shared/constants/main';
 
 export interface Category {
     value: string;
@@ -38,7 +38,7 @@ export class AddPostComponent implements OnInit, OnDestroy {
 
     newPost: Observable<any>;
 
-    readonly POST_URL = 'http://3.8.219.107:3000';
+    readonly POST_URL = API_URL;
 
     public type: string = 'component';
 

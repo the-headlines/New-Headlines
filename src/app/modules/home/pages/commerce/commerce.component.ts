@@ -1,12 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {HomeService} from '../../../../services/home.service';
-import * as Base from '../../../../configs/config.js';
 import {Router} from '@angular/router';
 import * as moment from 'moment';
 import {SubjectService} from '../../../../services/subject.service';
 import {CookieService} from 'ngx-cookie-service';
 import {AuthService} from '../../../../services/auth.service';
 import {GenerateSaveNonAuthUserIdPipe} from '../../../../shared/pipes/generate-save-non-auth-user-id.pipe';
+import ScrollUp from '../../../../shared/helpers/scroll-up';
 
 @Component({
     selector: 'app-commerce',
@@ -15,7 +15,6 @@ import {GenerateSaveNonAuthUserIdPipe} from '../../../../shared/pipes/generate-s
 })
 export class CommerceComponent implements OnInit {
     posts: any = [];
-    base = Base.imgPath;
     userLoggined: any = [];
     pageCount = 3;
     start = 0;
@@ -241,14 +240,7 @@ export class CommerceComponent implements OnInit {
             this.posts = dt;
             this.filteredPosts.news = dt.news;
 
-            if (this.responsiveMode) {
-                const container = document.querySelector('#home_carousel');
-                setTimeout(() => {
-                    container.scrollIntoView({block: 'start', behavior: 'smooth'});
-                });
-            } else {
-                window.scrollTo({top: 550, behavior: 'smooth'});
-            }
+            ScrollUp.do();
         });
     }
 
@@ -257,6 +249,7 @@ export class CommerceComponent implements OnInit {
         this.home.getPostsByVoteType('JumpStartups', this.selectedFilter.vote, this.selectedFilter.type).subscribe((dt: any) => {
             this.posts = dt;
             this.filteredPosts.news = dt.news;
+            ScrollUp.do();
         });
     }
     toggleShow() {

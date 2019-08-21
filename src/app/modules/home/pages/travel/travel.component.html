@@ -3,7 +3,7 @@
     <div class="main row no-gutters">
         <div class="Tools_headline">Human stories</div>
         <section class="section_carousel" style="padding-right: 37px">
-            <div class="Tools_headline2">Headlines chosen  by readers</div>
+            <div class="Tools_headline2">Headlines chosen by readers</div>
             <div class="carusel-block" id="home_carousel">
                 <app-owl-carousel [posts]="posts"></app-owl-carousel>
                 <div class="img-block">
@@ -41,9 +41,9 @@
                                                             (click)="filterByVotes('Inspiring')">Inspiring
                                                     </button>
                                                 </li>
-                                                <li [class.filterHighlight]="selectedFilter.vote === 'Lovethehuman'">
+                                                <li [class.filterHighlight]="selectedFilter.vote === 'LoveTheHuman'">
                                                     <button
-                                                            (click)="filterByVotes('Lovethehuman')">Lovethehuman
+                                                            (click)="filterByVotes('LoveTheHuman')">Lovethehuman
                                                     </button>
                                                 </li>
                                             </ul>

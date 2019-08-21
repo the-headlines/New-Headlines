@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import * as Base from '../configs/config';
 import {AuthService} from './auth.service';
+import {API_URL} from '../shared/constants/main';
 
 @Injectable({
     providedIn: 'root'
@@ -13,7 +13,7 @@ export class AsideService {
     }
 
     public getTopNews(category) {
-        return this.http.get(Base.url + '/api/news/' + this.checkAuth() + 'category/' + category + '?pagesize=10&page=1&filter=Score');
+        return this.http.get(API_URL + '/api/news/' + this.checkAuth() + 'category/' + category + '?pagesize=10&page=1&filter=Score');
     }
 
     checkAuth() {

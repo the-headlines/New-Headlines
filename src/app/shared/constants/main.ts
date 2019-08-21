@@ -1,3 +1,5 @@
+import {environment} from '../../../environments/environment';
+
 export const MAIN_SECTIONS = [
     {name: 'Influence', link: '/home', tooltip: 'POLITICS,BUSINESS & OTHER INFLUENTIAL NEWS', dbName: 'Influence'},
     {name: 'Style And Sweat', link: '/road', tooltip: 'CINEMA,MUSIC,ARTS & SPORTS', dbName: 'StyleAndSweat'},
@@ -32,3 +34,6 @@ export const VOTE_TYPES = [
     {name: 'Grand', displayName: 'Grand', pages: ['LoveDesigns']},
     {name: 'Creative', displayName: 'Creative', pages: ['LoveDesigns']}
 ];
+
+
+export const API_URL = 'http://3.8.219.107:3000';

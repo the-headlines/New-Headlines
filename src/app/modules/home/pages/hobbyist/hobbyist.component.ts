@@ -8,6 +8,7 @@ import {SubjectService} from '../../../../services/subject.service';
 import {ToastrService} from 'ngx-toastr';
 import {GenerateSaveNonAuthUserIdPipe} from '../../../../shared/pipes/generate-save-non-auth-user-id.pipe';
 import {AuthService} from '../../../../services/auth.service';
+import ScrollUp from '../../../../shared/helpers/scroll-up';
 
 @Component({
     selector: 'app-hobbyist',
@@ -105,15 +106,7 @@ export class HobbyistComponent implements OnInit {
         this.home.getPostsByVoteType('Hobbyist', vote, this.selectedFilter.type).subscribe((dt: any) => {
             this.posts = dt;
             this.filteredPosts.news = dt.news;
-
-            if (this.responsiveMode) {
-                const container = document.querySelector('#home_carousel');
-                setTimeout(() => {
-                    container.scrollIntoView({block: 'start', behavior: 'smooth'});
-                });
-            } else {
-                window.scrollTo({top: 550, behavior: 'smooth'});
-            }
+            ScrollUp.do();
         });
     }
 
@@ -122,6 +115,7 @@ export class HobbyistComponent implements OnInit {
         this.home.getPostsByVoteType('Hobbyist', this.selectedFilter.vote, this.selectedFilter.type).subscribe((dt: any) => {
             this.posts = dt;
             this.filteredPosts.news = dt.news;
+            ScrollUp.do();
         });
     }
 
@@ -138,4 +132,5 @@ export class HobbyistComponent implements OnInit {
 
         return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     }
+
 }

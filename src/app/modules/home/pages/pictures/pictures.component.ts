@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HomeService} from '../../../../services/home.service';
 import {Router} from '@angular/router';
-import * as Base from '../../../../configs/config';
 import * as moment from 'moment';
 import {SubjectService} from '../../../../services/subject.service';
 import {GenerateSaveNonAuthUserIdPipe} from '../../../../shared/pipes/generate-save-non-auth-user-id.pipe';
@@ -23,7 +22,6 @@ export class PicturesComponent implements OnInit {
     }
 
     posts: any = [];
-    base = Base.imgPath;
     userLoggined: any = [];
     pageCount = 3;
     start = 0;

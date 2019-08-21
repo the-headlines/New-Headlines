@@ -2,8 +2,12 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+import {API_URL} from '../app/shared/constants/main';
+
+// Since both development and production environments use same api, using constant here
 export const environment = {
-  production: false
+    apiUrl: API_URL,
+    production: false,
 };
 
 /*
