@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {HomeService} from '../../../../services/home.service';
-import * as Base from '../../../../configs/config.js';
 import {Router} from '@angular/router';
 import * as moment from 'moment';
 import {SubjectService} from '../../../../services/subject.service';
@@ -15,7 +14,6 @@ import {GenerateSaveNonAuthUserIdPipe} from '../../../../shared/pipes/generate-s
 })
 export class CommerceComponent implements OnInit {
     posts: any = [];
-    base = Base.imgPath;
     userLoggined: any = [];
     pageCount = 3;
     start = 0;

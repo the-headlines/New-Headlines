@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {HomeService} from '../../../../services/home.service';
-import * as Base from '../../../../configs/config.js';
 import {Router} from '@angular/router';
 import {CookieService} from 'ngx-cookie-service';
 import {HttpClient} from '@angular/common/http';
@@ -17,7 +16,6 @@ export class RoadComponent implements OnInit {
 
     private _sessionId: string;
     posts: any = [];
-    base = Base.imgPath;
     userLoggedIn: any = [];
     pageCount = 3;
     start = 0;

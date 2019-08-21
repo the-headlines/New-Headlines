@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {HttpHeaders} from '@angular/common/http';
 
-import * as Base from '../configs/config';
+import {API_URL} from '../shared/constants/main';
 
 // JWT helper
 import {JwtHelperService} from '@auth0/angular-jwt';
@@ -18,25 +18,25 @@ export class AuthService {
     }
 
     public uploadPost(data) {
-        return this.http.post(Base.url + '/api/news', data);
+        return this.http.post(API_URL + '/api/news', data);
     }
 
     public getPosts() {
-        return this.http.get(Base.url + '/');
+        return this.http.get(API_URL + '/');
     }
 
     public checkLogin(data) {
         let headers = new HttpHeaders().set('Authorization', 'token');
-        return this.http.post(Base.url + '/api/user/login', data, {headers});
+        return this.http.post(API_URL + '/api/user/login', data, {headers});
     }
 
     public register(data) {
         let headers = new HttpHeaders().set('Authorization', 'token');
-        return this.http.post(Base.url + '/api/user/signup', data, {headers});
+        return this.http.post(API_URL + '/api/user/signup', data, {headers});
     }
 
     public getContact(data) {
-        return this.http.post(Base.url + '/api/general/feedback', data);
+        return this.http.post(API_URL + '/api/general/feedback', data);
     }
 
     public getToken() {
@@ -44,15 +44,15 @@ export class AuthService {
     }
 
     public updateProfile(data) {
-        return this.http.put(Base.url + '/api/user/details', data);
+        return this.http.put(API_URL + '/api/user/details', data);
     }
 
     updatePassword(data) {
-        return this.http.put(Base.url + '/api/user/pwd', data);
+        return this.http.put(API_URL + '/api/user/pwd', data);
     }
 
     sendForgotPassRequest1(data) {
-        return this.http.post(Base.url + '/api/user/forgot-password', data);
+        return this.http.post(API_URL + '/api/user/forgot-password', data);
     }
 
     /**

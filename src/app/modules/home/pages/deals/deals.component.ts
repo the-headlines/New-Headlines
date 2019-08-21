@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HomeService} from '../../../../services/home.service';
 import {Router} from '@angular/router';
-import * as Base from '../../../../configs/config';
 import * as moment from 'moment';
 import {SubjectService} from '../../../../services/subject.service';
 import {CookieService} from 'ngx-cookie-service';
@@ -26,7 +25,6 @@ export class DealsComponent implements OnInit {
     }
 
     posts: any = [];
-    base = Base.imgPath;
     userLoggined: any = [];
     pageCount = 3;
     start = 0;
