@@ -6,6 +6,7 @@ import {HttpClient} from '@angular/common/http';
 import * as moment from 'moment';
 import {SubjectService} from '../../../../services/subject.service';
 import {GenerateSaveNonAuthUserIdPipe} from '../../../../shared/pipes/generate-save-non-auth-user-id.pipe';
+import ScrollUp from '../../../../shared/helpers/scroll-up';
 
 @Component({
     selector: 'app-road',
@@ -305,14 +306,7 @@ export class RoadComponent implements OnInit {
             this.posts = dt;
             this.filteredPosts.news = dt.news;
 
-            if (this.responsiveMode) {
-                const container = document.querySelector('#home_carousel');
-                setTimeout(() => {
-                    container.scrollIntoView({block: 'start', behavior: 'smooth'});
-                });
-            } else {
-                window.scrollTo({top: 550, behavior: 'smooth'});
-            }
+            ScrollUp.do();
         });
     }
 
@@ -321,6 +315,7 @@ export class RoadComponent implements OnInit {
         this.home.getPostsByVoteType('StyleAndSweat', this.selectedFilter.vote, this.selectedFilter.type).subscribe((dt: any) => {
             this.posts = dt;
             this.filteredPosts.news = dt.news;
+            ScrollUp.do();
         });
     }
 

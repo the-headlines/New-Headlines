@@ -12,6 +12,7 @@ import * as psl from 'psl';
 import {ToastrService} from 'ngx-toastr';
 import {AuthService} from '../../../../services/auth.service';
 import {GenerateSaveNonAuthUserIdPipe} from '../../../../shared/pipes/generate-save-non-auth-user-id.pipe';
+import ScrollUp from '../../../../shared/helpers/scroll-up';
 
 
 @Component({
@@ -292,14 +293,7 @@ export class HomeComponent implements OnInit {
                 this.isShown = false;
             }
 
-            if (this.responsiveMode) {
-                const container = document.querySelector('#home_carousel');
-                setTimeout(() => {
-                    container.scrollIntoView({block: 'start', behavior: 'smooth'});
-                });
-            } else {
-                window.scrollTo({top: 550, behavior: 'smooth'});
-            }
+            ScrollUp.do();
         });
     }
 
@@ -308,6 +302,7 @@ export class HomeComponent implements OnInit {
         this.home.getPostsByVoteType('Influence', this.selectedFilter.vote, this.selectedFilter.type).subscribe((dt: any) => {
             this.posts = dt;
             this.filteredPosts.news = dt.news;
+            ScrollUp.do();
         });
     }
 
