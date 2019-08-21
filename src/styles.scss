@@ -3313,9 +3313,14 @@ input.mat-input-element {
 .about__text {
   width: 90%;
 }
-
+.about___body .sidebar_links li:first-child {
+  padding-bottom: 34px;
+  }
+.about___body .sidebar_links a,.about___body .sidebar_links p{
+  font-family: "Arial",  sans-serif;
+}
 .about_info p {
-  font-family: 'CalibriRegular';
+  font-family: "Arial",  sans-serif;
   font-size: 15px;
   font-weight: 300;
   line-height: 20px;
@@ -3337,16 +3342,40 @@ input.mat-input-element {
   display: flex;
   justify-content: space-between;
 }
-
+.content_about_us .about___body{
+  width:60%;
+}
 .about__content {
   width: 55%;
   margin-top: 200px;
 }
-
+.content_about_us .mat-tab-header{
+  width: 20%;
+}
+.content_about_us .mat-tab-body-wrapper{
+  width: 80%;
+}
+.content_about_us .mat-tab-label.mat-tab-label-active{
+  color:#3788c6;
+  border-bottom: 1.3px solid #e14040 !important;
+}
+.content_about_us .mat-tab-label{
+  display: flex;
+  justify-content: flex-start;
+  padding: 0;
+  text-transform: capitalize !important;
+  font-family: "Arial", sans-serif!important;
+  color: #727377;
+  font-size: 16px!important;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  opacity: unset;
+}
 .images_content {
   display: flex;
   width: 28%;
-  margin-top: 247px;
+  //margin-top: 247px;
+  margin-top: 0;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
@@ -3390,8 +3419,9 @@ input.mat-input-element {
   align-items: center;
 }
 
-.about__content .about__text > p {
-  font-family: 'CalibriBold';
+.content_about_us .about__text > p {
+  font-family: "Arial",  sans-serif;
+  font-weight: bold;
   display: inline-block;
   //color: #727377;
   color: #000;
@@ -3954,7 +3984,12 @@ button[type=submit].inlineBlock {
 }
 
 //
-
+//about_tabs
+.content_about_us .mat-tab-labels{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
 @media screen and (max-width: 1680px) {
 
   .about__text {
@@ -4026,7 +4061,10 @@ button[type=submit].inlineBlock {
 }
 
 @media screen and (max-width: 1280px) {
-  //.menu ul li a {
+  .filter .menu li {
+    padding: 0 5px;
+  }
+    //.menu ul li a {
   //  font-size: 12px;
   //}
   .main {
@@ -5019,16 +5057,14 @@ button[type=submit].inlineBlock {
     margin-bottom: 80px;
   }
   .Tools_headline {
-    position: absolute;
-    top: 180px;
-    z-index: 9999;
+    top: 125px;
     display: block;
-    font-size: 9px;
+    font-size: 18px;
     color: #1e2128;
     font-family: 'Lato-Black';
     margin-bottom: 0px;
-    padding-left: 5px;
-    margin-left: 30px;
+    padding-left: 8px;
+    margin-left: 20px;
     border-left: 1.7px solid #e14040;
     text-transform: uppercase;
   }
@@ -5046,11 +5082,7 @@ button[type=submit].inlineBlock {
     height: 144px !important;
   }
 }
-@media (max-width: 715px){
-.Tools_headline {
-  top: 160px;
-}
-}
+
 @media(max-width: 600px) {
  .posts_table table tbody th,.posts_table td {
     padding: 0 5px !important;
@@ -5059,17 +5091,12 @@ button[type=submit].inlineBlock {
     font-size: 12px !important;
   }
 }
-@media (max-width: 520px) {
-  .Tools_headline {
-    top: 140px;
-  }
-}
+
 @media(max-width: 480px) {
   .mat-tooltip {
     display: none;
   }
   .Tools_headline {
-    position: absolute;
     top: 125px;
   }
 }
@@ -5111,20 +5138,60 @@ button[type=submit].inlineBlock {
 .shareBtns{
   display: none;
 }
-
-@media(max-width: 767px){
+.content_about_us {
+  margin-top: 220px;
+}
+@media(max-width: 767px) {
   .rules {
     max-width: 89% !important;
     margin: 20px auto;
- }
-  .shareBtns{
+  }
+  .shareBtns {
     display: block;
   }
-  .shareBtns .sb-button{
+  .shareBtns .sb-button {
     margin-top: 0 !important;
   }
-  .shareBtns .sb-button button{
+  .shareBtns .sb-button button {
     font-size: 12px !important;
   }
+  .content_about_us .mat-tab-header {
+    width: 100%;
+  }
+  .content_about_us .mat-tab-labels {
+    flex-direction: row;
+  }
+
+  .content_about_us .mat-tab-labels {
+    display: flex;
+    margin: 150px auto 0px auto;
+    text-align: center;
+    width: 90%;
+    justify-content: inherit;
+    overflow-x: scroll;
+    white-space: nowrap;
+  }
+
+  .content_about_us ::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #F5F5F5;
+  }
+
+  .content_about_us ::-webkit-scrollbar {
+    height: 4px;
+    background-color: #F5F5F5;
+  }
+
+  .content_about_us ::-webkit-scrollbar-thumb {
+    background-color: #000000;
+    border: 2px solid rgba(85, 85, 85, 0.56);
+  }
+  .content_about_us .mat-tab-body-wrapper {
+    width: 100%;
+  }
+  .about_info {
+    width: 100% !important;
+  }
 }
+
 

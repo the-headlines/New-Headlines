@@ -1120,7 +1120,9 @@ li.margin_top {
 .header_feedback {
   display: none;
 }
-
+.categories_text {
+  display: none;
+}
 @media screen and (max-width: 1480px) {
   header .menu ul {
     padding: 0 17px;
@@ -1161,9 +1163,22 @@ li.margin_top {
   header .navbar .logo ul {
     margin-top: 2px;
   }
+
 }
 
 
+@media screen and (max-width: 767px) {
+  .mat-toolbar {
+    position: relative;
+  }
+  .categories_text {
+    position: absolute;
+    display: block;
+    top: 24px;
+    font-size: 8px;
+    padding-left: 10px;
+  }
+}
 @media screen and (max-width: 580px) {
   .mobile_user_info ul li a {
     font-size: 13px;

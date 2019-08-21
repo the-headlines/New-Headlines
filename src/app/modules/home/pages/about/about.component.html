@@ -1,104 +1,269 @@
 <app-header></app-header>
 
 
-<div class="content">
+<div class="content_about_us">
     <div class="about___body">
-    <ul class="sidebar_links">
-        <li class="about__text">
-            <p (click)="toggleInfo()">About</p>
-        </li>
-        <li>
-            <a href="">Terms</a>
-        </li>
-        <li>
-            <a href="">Privacy Policy</a>
-        </li>
-        <li>
-            <a href="">Content policy</a>
-        </li>
-        <li>
-            <a href="">Score</a>
-        </li>
-        <!--<li>-->
-            <!--<a href="">Voting</a>-->
-        <!--</li>-->
-        <li>
-            <a href="">Advertise</a>
-        </li>
-    </ul>
+        <mat-tab-group class="tabs_profile">
+            <mat-tab label="About">
+                <div class="about__text" [hidden]="!showInfo">
+                    <p>About</p>
+                    <div class="images_content">
 
-    <div class="about__content">
-        <div class="about__text" [hidden]="!showInfo">
-            <p>About</p>
-            <div class="images_content">
+                        <div class="image_title">
+                            <div class="item1">
+                                <p>Use common sense</p>
+                                <div class="about_image">
+                                    <img src="../../../../../assets/images/imgpsh_fullsize_anim2.jpg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="image_title">
+                            <div class="item1">
+                                <p>Apply filtering</p>
+                                <div class="about_image">
+                                    <img src="../../../../../assets/images/imgpsh_fullsize_anim.png" alt="">
+                                </div>
+                            </div>
+                        </div>
 
-            <div class="image_title">
-                <div class="item1">
-                    <p>Use common sense</p>
-                    <div class="about_image">
-                        <img src="../../../../../assets/images/imgpsh_fullsize_anim2.jpg" alt="">
+                        <div class="image_title">
+                            <div class="item1">
+                                <p>Get to know the...</p>
+                                <div class="about_image">
+                                    <img src="../../../../../assets/images/imgpsh_fullsize_anim3.jpg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about_info_bg">
+                        <div class="about_info">
+                            <p>Every day we consume a great deal of news, much of which may not be
+                                particularly relevant or important to us.</p>
+                            <p>We have developed a platform which creates awareness and can have a positive impact on our way of thinking. After all the betterment of human life is the sole purpose of any idea.</p>
+                            <p><span>NOT THE HEADLINES </span>is an social news website where users post news links
+                                and readers decide upon the headlines by voting for their favourites.</p>
+                            <p> A score, based on votes, views, questions and comments, is given  to each post. The post with highest score will make it into website's headline</p>
+                            <p>News which has not featured prominently in the mainstream media can
+                                become the headline on the <span>NOT THE HEADLINES </span> website.</p>
+                        </div>
+                        <div class="images_content1">
+
+                            <div class="image_title">
+                                <div class="item1">
+                                    <p>Use common sense</p>
+                                    <div class="about_image">
+                                        <img src="../../../../../assets/images/imgpsh_fullsize_anim2.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="image_title">
+                                <div class="item1">
+                                    <p>Apply filtering</p>
+                                    <div class="about_image">
+                                        <img src="../../../../../assets/images/imgpsh_fullsize_anim.png" alt="">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="image_title">
+                                <div class="item1">
+                                    <p>Get to know the...</p>
+                                    <div class="about_image">
+                                        <img src="../../../../../assets/images/imgpsh_fullsize_anim3.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="image_title">
-                <div class="item1">
-                    <p>Apply filtering</p>
-                    <div class="about_image">
-                        <img src="../../../../../assets/images/imgpsh_fullsize_anim.png" alt="">
-                    </div>
-                </div>
-            </div>
 
-            <div class="image_title">
-                <div class="item1">
-                    <p>Get to know the...</p>
-                    <div class="about_image">
-                        <img src="../../../../../assets/images/imgpsh_fullsize_anim3.jpg" alt="">
+            </mat-tab>
+            <mat-tab label="Terms">
+                <div class="about__text">
+                    <p>Not The Headlines Terms of Service</p>
+                    <div class="about_info">
+                        <p>Hi and welcome to the Not The Headlines Terms of Service. (Please have a sit!)</p>
+                        <p style="text-transform: uppercase;">PLEASE READ THESE TERMS AND CONDITIONS CAREFULLY BEFORE USING THIS SITE  </p>
+                        <p>This is terms and conditions are the legal contract between you and Not The Headlines (aka “NTH”, “we”, “us”) they provide the rules relating to the use of our website and services.</p>
+                        <p>It is very important that you do take your time to read our terms because it is very important if you are NTH user. By using our ser-vices you agree to be bound by all the provisions set out in NTH’s Terms of Service. Also, the law requires you are informed of your rights and obligations as set out in this rules document. </p>
+                        <p>As a user if this site you are granted a nonexclusive, non transfer-able, revocable, limited license to access and use the site and its contents in accordance with this terms. We may terminate this li-cense at any time for any reason.</p>
                     </div>
-                </div>
-            </div>
-        </div>
+                    <p>WHO WE ARE AND HOW TO CONTACT US</p>
+                    <div class="about_info">
+                        <p>www.nottheheadlines.com is a site operated by Not The Headlines Ltd (”We”). We are registered in England and Wales under compa-ny number 12029169 and have our registered office at Kemp House,160 City Road, London, United Kingdom,EC1V 2NX. Our main trading address is Kemp House,160 City Road, London, Unit-ed Kingdom,EC1V 2NX.</p>
+                        <p>We are a vibrant social news website where users post news links and readers decide the headlines by voting. Based on voting and views a score is given to each post and the post with highest score will make it to the headlines.</p>
+                        <p>To contact us, please email contact@nottheheadlines.com</p>
+                    </div>
 
-            <div class="about_info">
-                <p>Every day we consume a great deal of news, much of which may not be
-                    particularly relevant or important to us.</p>
-                <p>We have developed a platform which creates awareness and can have a positive impact on our way of thinking. After all the betterment of human life is the sole purpose of any idea.</p>
-                <p><span>NOT THE HEADLINES </span>is an social news website where users post news links
-                    and readers decide upon the headlines by voting for their favourites.</p>
-                <p> A score, based on votes, views, questions and comments, is given  to each post. The post with highest score will make it into website's headline</p>
-                <p>News which has not featured prominently in the mainstream media can
-                    become the headline on the <span>NOT THE HEADLINES </span> website.</p>
-            </div>
-        </div>
+                    <p>CAN NTH CHANGE THESE TERMS OF SERVICE</p>
+                    <div class="about_info">
+                        <p>Yes. We can change our Terms of Service at any time. If we make material changes, we will inform you by email or by way of a notice on the site before the changes go into effect. The notice will pro-vide you a reasonable amount of time after which the new Terms of Service will become effective. If you are unhappy with the  new Terms of Service, we ask that you delete your account before the end of the notice duration. If you do not delete your account before the end of the period of notice, content you have uploaded and use of the site will be subject to the new Terms of Service from that time forward.</p>
+                    </div>
+
+
+                    <p>CAN NTH BLOCK OR DELETE MY CONTENT FROM NTH?</p>
+                    <div class="about_info">
+                        <p>Yes, we reserve the right to  remove any content you post, upload or transfer to our site and may refuse to permit the post, upload or transfer. , We may, in our sole discretion, delete or remove your post, upload or transfer at any time and for any reason, including for a violation of these Terms, or if you otherwise create liability for us. In light of this, we will work hard not to abuse this right.</p>
+                    </div>
+
+
+
+                    <p>CAN I DELETE MY OWN CONTENT FROM NTH?</p>
+                    <div class="about_info">
+                        <p>Yes. However, where you have created post or responded to a post that other users have in turn responded to, complete deletion may not be fair to other users. In this circumstance, you would be enabled to delete your username, name and any other identifiable information from the post. So your content will remain but it being attributable to you will not.</p>
+                        <p>When you delete your account or some of your content from our site, it may take some time for our systems to remove it from public view, but worry not it will be deleted. When you hit delete, please note you would be unable to recover your content from our backup systems.</p>
+                    </div>
+
+
+
+                    <p>BY USING OUR SITE YOU ACCEPT THESE TERMS  </p>
+                    <div class="about_info">
+                        <p>By using our site, you confirm that you accept these terms of use and that you agree to comply with them. Please note that If you do not agree to these terms, you must not use our site. We recom-mend that you print a copy of these terms for future reference.</p>
+                    </div>
+
+
+
+                    <p>THERE ARE OTHER TERMS THAT MAY APPLY TO YOU</p>
+                    <div class="about_info">
+                        <p>These terms of use refer to the following additional terms, which also apply to your use of our site:
+
+                            Our Privacy Policy which sets out information about the cookies on our site.
+                            Our Cookie Policy which sets out information about the cookies on our site.
+                        </p>
+                    </div>
+
+                    <p>WE MAY MAKE CHANGES TO THESE TERMS  </p>
+
+                    <div class="about_info">
+                        <p>We amend these terms from time to time. Every time you wish to use our site, please check these terms to ensure you understand the terms that apply at that time. These terms were most recently updated on 21st Aug 2019.
+
+                            We do not guarantee that our site, or any content on it, will always be available or be uninterrupted. We may suspend or withdraw or restrict the availability of all or any part of our site for business and operational reasons. We will try to give you reasonable notice of any suspension or withdrawal.
+
+                            You are also responsible for ensuring that all persons who access our site through your internet connection are aware of these terms of use and other applicable terms and conditions, and that they comply with them.
+                        </p>
+                    </div>
+                     <div class="about_info">
+                         <p>YOU MUST KEEP YOUR ACCOUNT DETAILS SAFE
+
+                             If you choose, or you are provided with a password or any other piece of information as part of our security procedures, you must treat such information as confidential. You must not disclose it to any third party.
+
+                             We have the right to disable any user password, whether chosen by you or allocated by us, at any time, if in our reasonable opinion you have failed to comply with any of the provisions of these terms of use.
+
+                             If you know or suspect that anyone other than you knows your user password, you must promptly notify us at con-tact@nottheheadlines.com
+
+                             CAN CHILDREN USE OUR SITE?
+
+                             Sadly, only users 13 years and upwards may use our site. If we learn that you are under 13 years of age, we will terminate your account. Users who can not form a binding contract or who are prohibited from using our services are not permitted to use Not The Headlines services.
+
+                             RELIANCE ON INFORMATION ON NTH SITE
+
+                             The content you will find on our site is provided for general infor-mation only. It is not intended to amount to advice on which you should rely. You must obtain professional or specialist advice be-fore taking, or refraining from, any action on the basis of the con-tent on our site.
+
+                             Although we make reasonable efforts to update the information on our site, we make no representations, warranties or guarantees, whether express or implied, that the content on our site is accu-rate, complete or up to date.
+
+                             WE ARE NOT RESPONSIBLE FOR WEBSITES WE LINK TO
+
+                             Where our site contains links to other sites and resources provided by third parties, these links are provided for your information only. Such links should not be interpreted as approval by us of those linked websites or information you may obtain from them.
+
+                             We have no control over the contents of those sites or resources.
+
+                             USER-GENERATED CONTENT IS NOT APPROVED BY US
+
+                             This website may include information and materials uploaded by other users of the site, including to bulletin boards and chat rooms. This information and these materials have not been verified or ap-proved by us. The views expressed by other users on our site do not represent our views or values.
+
+                             WHAT TO DO IF YOU ARE UNHAPPY ABOUT CONTENT ANOTHER USER HAS POSTED?
+
+                             We know you might not always like other users content or might find certain content offensive. If you wish to complain about con-tent uploaded by other users please contact us on con-tact@nottheheadlines.com
+
+
+                             WHAT IS OUR RESPONSIBILITY FOR LOSS OR DAMAGE SUFFERED BY YOU?
+
+                             The material displayed on our site is provided without any guaran-tees, conditions or warranties as to its accuracy.
+                             We do not warrant that the site, its content or the server that makes it available are error or virus free or free of other harmful components or that your use of this website will be uninterrupted.
+                             To the extent permitted by law, we, other members of our group companies and any third parties connected to us, hereby expressly exclude:
+                             •	All conditions, warranties and other terms which might other-wise be implied by statute, common law or the law of equity.
+                             •	Any liability for any direct, indirect or consequential loss or damage incurred by any user in connection with our site or in connection with the use, inability to use, or results of the use of our site, any websites linked to it and any materials posted on it, including, without limitation any liability for loss of in-come or revenue, loss of business, loss of profits or contracts, loss of anticipated savings, loss of data, loss of goodwill, wasted management or office time and for any other loss or damage of any kind, however arising and whether caused by tort (including negligence), breach of contract or otherwise, even if foreseeable.
+
+                             This does not affect our liability for death or personal injury arising from our negligence, nor our liability for fraudulent misrepresenta-tion, nor any other liability which cannot be excluded or limited un-der applicable law. In such cases, our liability will be limited to the fullest extent permitted by applicable law.
+                             You agree to defend and indemnify and hold NTH , its affiliates, and sublicensees, harmless from and against all third party claims and all liabilities, losses, costs, or damages resulting from or aris-ing out of (a) your breach of this Agreement; (b) your infringement of the rights of a third party, or (c) the content you post on NTH.
+
+
+                             WHAT HAPPENS TO YOUR PERSONAL INFORMATION?
+
+                             We will only use your personal information as set out in our LINK TO PRIVACY POLICY.
+
+
+                             UPLOADING YOUR CONTENT TO OUR SITE
+
+                             As part of your usage of our site you will post content from time to time, whenever you make use of a feature that allows you to up-load content to our site, or to make contact with other users of our site, you must comply with the content standards set out in our Content Policy.
+
+                             You agree that any such contribution does comply with those standards, and you will be liable to us and indemnify us for any breach of that warranty. This means you will be responsible for any loss or damage we suffer because of something you have upload-ed.
+
+
+                             We also have the right to disclose your identity to any third party who is claiming that any content posted or uploaded by you to our site constitutes a violation of their intellectual property rights, or of their right to privacy.
+
+                             We have the right to remove any posting you make on our site if, in our opinion, your post does not comply with the content standards set out in our Content Policy. We do not store or permit content that is offensive to other users or the general public.
+
+                             WHO OWNS THE CONTENT I POST AND UPLOAD TO NTH?
+
+                             You own contents you post! When you post a comment or image or write or submit something on NTH, you own that content, as far as we’re concerned. NTH doesn’t claim any ownership of your con-tent.
+                             Since it’s yours, we need your permission to use your content. When you upload or post content to our site, you grant us the rights to use that content as needed to provide NTH services. In-cluding, without limitations, actions like storing, displaying, repro-ducing, and distributing your content. Since NTH Services are pub-lic, you are also agreeing that other NTH users will be able to see, use and/or repost it. Your agreement to the use your content con-tinues even when you stop using NTH or We terminate your ac-count. Also, we can use your content on others sites and services to promote NTH Services or to boost awareness of your content it-self.
+
+                             Only upload, post or transfer things that you have the right to up-load, post or transfer e.g a piece of your own writing, link to a web article or news story or video. NTH respects the intellectual proper-ty of other parties and requires that users of the NTH site do so as well. By uploading, posting and transferring content to NTH you represent and warrant that you have the right to do so and permit us to use the content uploaded, posted and/or transferred.
+
+                             NTH will not sell your content or data to anyone without your ex-plicit permission. Also, NTH retains its intellectual property includ-ing copyright, designs and know how and all other applicable rights in the content that we post on NTH including NTH’s design and logo and all use of the NTH logo and all goodwill arising out of such use, will inure to our benefit.
+
+
+                             WE ARE NOT RESPONSIBLE FOR VIRUSES AND YOU MUST NOT INTRODUCE THEM
+
+                             We do not guarantee that our site will be secure or free from bugs or viruses.
+
+                             You are responsible for configuring your information technology, computer programmes and platform to access our site. You should use your own virus protection software.
+
+                             You must not misuse our site by knowingly introducing viruses, tro-jans, worms, logic bombs or other material that is malicious or technologically harmful. You must not attempt to gain unauthorised access to our site, the server on which our site is stored or any server, computer or database connected to our site. You must not attack our site via a denial-of-service attack or a distributed denial-of service attack. By breaching this provision, you would commit a criminal offence under the Computer Misuse Act 1990. We will re-port any such breach to the relevant law enforcement authorities and we will co-operate with those authorities by disclosing your identity to them. In the event of such a breach, your right to use our site will cease immediately.
+
+
+                             RULES ABOUT LINKING TO OUR SITE
+
+                             You may link to our home page, provided you do so in a way that is fair and legal and does not damage our reputation or take ad-vantage of it.
+
+                             You must not establish a link in such a way as to suggest any form of association, approval or endorsement on our part where none exists.
+
+                             You must not establish a link to our site in any website that is not owned by you.
+
+                             Our site must not be framed on any other site, nor may you create a link to any part of our site other than the home page.
+
+                             We reserve the right to withdraw linking permission without notice.
+
+                             The website in which you are linking must comply in all respects with the content standards set out in our Content Policy.
+
+                             If you wish to link to or make any use of content on our site other than that set out above, please contact con-tact@nottheheadlines.com
+
+
+                             WHICH COUNTRY’S LAWS APPLY TO ANY DISPUTES?
+
+                             Please note that these terms of use, their subject matter and their formation, are governed by English law. You and we both agree that the courts of England will have exclusive jurisdic-tion.
+                         </p>
+                     </div>
+                </div>
+            </mat-tab>
+            <mat-tab label="Privacy Policy">
+
+            </mat-tab>
+            <mat-tab label="Content policy">
+
+            </mat-tab>
+            <mat-tab label="Score">
+
+            </mat-tab>
+            <mat-tab label="Advertise">
+
+            </mat-tab>
+        </mat-tab-group>
     </div>
-        <div class="images_content">
 
-            <div class="image_title">
-                <div class="item1">
-                    <p>Avoid too much consumption</p>
-                    <div class="about_image">
-                        <img src="../../../../../assets/images/imgpsh_fullsize_anim.png" alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="image_title">
-                <div class="item1">
-                    <p>Use common sense</p>
-                    <div class="about_image">
-                        <img src="../../../../../assets/images/imgpsh_fullsize_anim2.jpg" alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="image_title">
-                <div class="item1">
-                    <p>Get to know the...</p>
-                    <div class="about_image">
-                        <img src="../../../../../assets/images/imgpsh_fullsize_anim3.jpg" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
 </div>
 
 <span class="about_ft">© 2019 Not the Headlines Ltd, All rights reserved</span>
@@ -107,3 +272,14 @@
 
 
 
+<!--<mat-tab-group class="tabs_profile">-->
+    <!--<mat-tab label="Change Name and Email">-->
+
+
+    <!--</mat-tab>-->
+    <!--<mat-tab label=Terms">-->
+
+
+    <!--</mat-tab>-->
+
+<!--</mat-tab-group>-->
