@@ -37,7 +37,7 @@ import {
     MatPaginatorModule,
     MatSelectModule,
     MatDialogModule,
-    MatSlideToggleModule, MatDialogRef, MatCheckboxModule
+    MatSlideToggleModule, MatDialogRef, MatCheckboxModule, MatProgressSpinnerModule
 } from '@angular/material';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {SinglePostComponent} from './modules/home/pages/single-post/single-post.component';
@@ -91,7 +91,6 @@ import {ScienceComponent} from './modules/home/pages/science/science.component';
 import {PublicComponent} from './modules/home/pages/public/public.component';
 import {EnvironmentComponent} from './modules/home/pages/environment/environment.component';
 import {PolicyComponent} from './modules/home/pages/policy/policy.component';
-import {EmailTokenConfirmationComponent} from './modules/home/components/email-token-confirmation/email-token-confirmation.component';
 import {JwSocialButtonsModule} from 'jw-angular-social-buttons';
 import {FbShareComponent} from './modules/home/components/fb-share/fb-share.component';
 import {CountPostScorePipe} from './shared/pipes/count-post-score.pipe';
@@ -167,7 +166,6 @@ export function tokenGetter() {
         PublicComponent,
         EnvironmentComponent,
         PolicyComponent,
-        EmailTokenConfirmationComponent,
         FbShareComponent,
         CountPostScorePipe,
         AccountActivationComponent,
@@ -194,6 +192,7 @@ export function tokenGetter() {
         MatCheckboxModule,
         MatPaginatorModule,
         MatSelectModule,
+        MatProgressSpinnerModule,
         ScrollToModule.forRoot(),
         PostsModule,
         SocialLoginModule,

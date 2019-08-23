@@ -37,3 +37,4 @@ export const VOTE_TYPES = [
 
 
 export const API_URL = 'http://3.8.219.107:3000';
+export const SPINNER_DIAMETER = 40;

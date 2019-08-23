@@ -13,12 +13,14 @@ import {
 import {Observable} from 'rxjs';
 
 import {ToastrService} from 'ngx-toastr';
+import {CommonService} from '../../services/common.service';
 
 @Injectable()
 export class RequestInterceptor implements HttpInterceptor {
 
-    constructor(public router: Router,
-                public toastr: ToastrService,
+    constructor(private router: Router,
+                private toastr: ToastrService,
+                private common: CommonService
     ) {
     }
 
@@ -28,6 +30,7 @@ export class RequestInterceptor implements HttpInterceptor {
         }, (err: any) => {
             if (err instanceof HttpErrorResponse) {
                 const message = err.error.message;
+                this.common.tokenSend = true;
                 if (message) {
                     this.toastr.error('', message.replace(/<(.|\n)*?>/g, ''));
                 }

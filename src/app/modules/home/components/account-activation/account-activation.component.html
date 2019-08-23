@@ -1,1 +1,7 @@
-<h1>Please wait while we're activating your account</h1>
+<div class="emailTokenMsgs">
+    <small *ngIf="tokenExpired">The registration session has been expired</small>
+    <small [hidden]="common.tokenSend">Please wait while we're activating your account</small>
+    <div class="spinnerContainer">
+        <mat-spinner [diameter]="spinnerDiameter" color="accent" [hidden]="common.tokenSend"></mat-spinner>
+    </div>
+</div>

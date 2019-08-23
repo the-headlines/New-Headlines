@@ -55,6 +55,10 @@ export class AuthService {
         return this.http.post(API_URL + '/api/user/forgot-password', data);
     }
 
+    activateAccount(token) {
+        return this.http.get(API_URL + '/api/user/' + token + '/confirmation');
+    }
+
     /**
      * Checks to see if user logged in/ token expired
      */
