@@ -36,7 +36,7 @@ const routes: Routes = [
         }
     },
     {
-        path: 'road', component: RoadComponent,
+        path: 'style-and-sweat', component: RoadComponent,
         data: {
             search: true
         }
@@ -48,7 +48,7 @@ const routes: Routes = [
         }
     },
     {
-        path: 'deals', component: DealsComponent, data: {
+        path: 'love-designs', component: DealsComponent, data: {
             search: true
         }
     },
@@ -64,7 +64,7 @@ const routes: Routes = [
         }
     },
     {
-        path: 'travel', component: TravelComponent, data: {
+        path: 'human-stories', component: TravelComponent, data: {
             search: true
         }
     },
