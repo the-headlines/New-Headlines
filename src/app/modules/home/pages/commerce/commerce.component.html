@@ -57,7 +57,6 @@
                                             <span class="sortPostsBy">Sort by:</span>
                                             <div class="drop__down">
                                                 <select (change)="filterByType($event)">
-                                                    <option></option>
                                                     <option [selected]="selectedFilter.type==='New'">New</option>
                                                     <option [selected]="selectedFilter.type==='Score'">Score</option>
                                                 </select>

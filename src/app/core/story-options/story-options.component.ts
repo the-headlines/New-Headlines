@@ -48,10 +48,10 @@ export class StoryOptionsComponent implements OnInit {
 
     }
 
-    openDialog(): void {
+    openDialog(id): void {
         const dialogRef = this.dialog.open(ReportComponentComponent, {
             width: '250px',
-            data: {name: this.name, animal: this.animal}
+            data: {id: id}
         });
 
         dialogRef.afterClosed().subscribe(result => {

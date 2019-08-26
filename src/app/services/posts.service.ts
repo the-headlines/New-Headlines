@@ -33,4 +33,8 @@ export class PostsService {
     updateSharesCount(id, sMedia) {
         return this.http.post(API_URL + '/api/news/' + id + '/shares/' + sMedia, {});
     }
+
+    report(data) {
+        return this.http.post(API_URL + '/api/general/reports', data);
+    }
 }

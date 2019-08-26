@@ -5,7 +5,7 @@
         <div class="Tools_headline">Politics & Business</div>
         <section class="section_carousel"
                  style="padding-right: 37px">
-            <div class="Tools_headline2">Headlines chosen  by readers</div>
+            <div class="Tools_headline2">Headlines chosen by readers</div>
             <div class="carusel-block" id="home_carousel">
 
                 <app-owl-carousel [posts]="posts"></app-owl-carousel>
@@ -79,7 +79,6 @@
                                             <div class="drop__down">
 
                                                 <select (change)="filterByType($event)">
-                                                    <option></option>
                                                     <option [selected]="selectedFilter.type==='New'">New
                                                     </option>
                                                     <option [selected]="selectedFilter.type==='Score'">
@@ -96,7 +95,7 @@
 
                             <!-- Selected vote category -->
                             <div *ngIf="selectedFilter.vote!=='All'" class="selectedVoteCategory">
-                                <small class>Voting category: </small>
+                                <small class>Voting category:</small>
                                 <span>{{selectedFilter.vote}}</span>
                             </div>
                             <div class="loop_items item posts_items"
