@@ -5049,9 +5049,16 @@ button[type=submit].inlineBlock {
   .main {
     padding-right: 0px;
   }
-  .mat-icon-button {
-    height: 20px !important;
-    line-height: 20px !important;
+  .mat-drawer-container {
+    z-index: 3 !important;
+  }
+    .mat-icon-button {
+    height: 37px !important;
+    line-height: 22px !important;
+    width: 72px !important;
+    text-align: left !important;
+    padding-left: 10px !important;
+    z-index: 2;
   }
   .news-block .item:last-child {
     margin-bottom: 80px;
