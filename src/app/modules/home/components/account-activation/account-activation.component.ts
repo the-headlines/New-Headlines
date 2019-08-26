@@ -45,7 +45,6 @@ export class AccountActivationComponent implements OnInit {
             const self = this;
 
             setTimeout(() => {
-                console.log(self);
                 self.auth.activateAccount(token).subscribe(async (d) => {
                     self.common.tokenSend = true;
                     await this.router.navigate(['/']);
