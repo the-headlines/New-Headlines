@@ -5156,7 +5156,9 @@ button[type=submit].inlineBlock {
 .content_about_us {
   margin-top: 220px;
 }
-
+.post_content .col-md-12 .profile_container {
+  display: flex;
+}
 @media(max-width: 767px) {
   .rules {
     max-width: 89% !important;
