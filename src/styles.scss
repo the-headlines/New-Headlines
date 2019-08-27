@@ -4412,7 +4412,7 @@ button[type=submit].inlineBlock {
   }
   .mat-tab-label .mat-tab-label-content {
     font-weight: bold;
-    font-size: 16px !important;
+    font-size: 14px !important;
   }
 }
 
@@ -4919,7 +4919,7 @@ button[type=submit].inlineBlock {
     justify-content: flex-start;
   }
   .main {
-    padding-top: 40% !important;
+    padding-top: 42% !important;
   }
   .news-block .post_wrapper .text-block p {
     font-size: 10px;
@@ -5169,10 +5169,21 @@ button[type=submit].inlineBlock {
   .content_about_us .mat-tab-labels {
     flex-direction: row;
   }
-
+  .content_about_us {
+    margin-top: 140px;
+  }
+  .about__text {
+    padding-top: 20px;
+  }
+  div#mat-tab-label-0-0, div#mat-tab-label-0-1 {
+    height: 50px !important;
+  }
+  .mat-tab-label .mat-tab-label-content {
+    font-size: 14.5px !important;
+  }
   .content_about_us .mat-tab-labels {
     display: flex;
-    margin: 150px auto 0px auto;
+    margin: 0px;
     text-align: center;
     width: 90%;
     justify-content: inherit;
