@@ -54,14 +54,17 @@
   font-family: 'BrandonText-Bold';
   src: url("/assets/fonts/HVD Fonts - BrandonText-Bold.otf");
 }
+
 @font-face {
   font-family: 'CalibriLight';
   src: url("/assets/fonts/CalibriLight.ttf");
 }
+
 @font-face {
   font-family: 'CalibriRegular';
   src: url("/assets/fonts/CalibriRegular.ttf");
 }
+
 @font-face {
   font-family: 'CalibriBold';
   src: url("/assets/fonts/CalibriBold.TTF");
@@ -1839,8 +1842,7 @@ div#mat-tab-label-0-0, div#mat-tab-label-0-1 {
   font-size: 14px;
   text-transform: uppercase;
   word-break: break-all;
-  padding: 10px 0px 1px 0px;
-
+  padding: 10px 0;
   margin: 0;
   opacity: 1;
   height: 37px;
@@ -5150,9 +5152,11 @@ button[type=submit].inlineBlock {
 .shareBtns{
   display: none;
 }
+
 .content_about_us {
   margin-top: 220px;
 }
+
 @media(max-width: 767px) {
   .rules {
     max-width: 89% !important;
@@ -5179,15 +5183,11 @@ button[type=submit].inlineBlock {
   .about__text {
     padding-top: 20px;
   }
- .mat-tab-label{
-     padding-top: 10px !important;
-  }
-  div#mat-tab-label-0-0, div#mat-tab-label-0-1,.mat-tab-label{
-    height: 30px !important;
+  div#mat-tab-label-0-0, div#mat-tab-label-0-1 {
+    height: 50px !important;
   }
   .mat-tab-label .mat-tab-label-content {
-    font-size: 12px !important;
-    text-transform: uppercase;
+    font-size: 12.5px !important;
   }
   .content_about_us .mat-tab-labels {
     display: flex;
@@ -5227,6 +5227,13 @@ button[type=submit].inlineBlock {
     }
  .mat-tab-labels>div:nth-child(6) {
     min-width: 130px !important;
+  }
+}
+
+.forgot_pass {
+  span {
+    font-family: 'BrandonText-Regular', sans-serif !important;
+    font-size: 14.5px !important;
   }
 }
 

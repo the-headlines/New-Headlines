@@ -5,7 +5,7 @@ export const MAIN_SECTIONS = [
     {name: 'Style And Sweat', link: '/style-and-sweat', tooltip: 'CINEMA,MUSIC,ARTS & SPORTS', dbName: 'StyleAndSweat'},
     {name: 'Hobbyist', link: '/hobbyist', tooltip: 'Bloggers', dbName: 'Hobbyist'},
     {name: 'Love Designs', link: '/love-designs', tooltip: 'Designs', dbName: 'LoveDesigns'},
-    {name: 'Jump Startups', link: '/commerce', tooltip: 'Startup News', dbName: 'JumpStartups'},
+    {name: 'Jump Startups', link: '/jump-startups', tooltip: 'Startup News', dbName: 'JumpStartups'},
     {name: 'Human Stories', link: '/human-stories', tooltip: 'Human Stories', dbName: 'HumanStories'},
     {name: 'Science', link: '/science', tooltip: 'Science & Tech', dbName: 'Science'},
     {name: 'Environment', link: '/environment', tooltip: 'Environment & Health', dbName: 'Environment'},
