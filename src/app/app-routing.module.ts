@@ -42,7 +42,7 @@ const routes: Routes = [
         }
     },
     {
-        path: 'commerce', component: CommerceComponent,
+        path: 'jump-startups', component: CommerceComponent,
         data: {
             search: true
         }

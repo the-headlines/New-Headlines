@@ -54,14 +54,17 @@
   font-family: 'BrandonText-Bold';
   src: url("/assets/fonts/HVD Fonts - BrandonText-Bold.otf");
 }
+
 @font-face {
   font-family: 'CalibriLight';
   src: url("/assets/fonts/CalibriLight.ttf");
 }
+
 @font-face {
   font-family: 'CalibriRegular';
   src: url("/assets/fonts/CalibriRegular.ttf");
 }
+
 @font-face {
   font-family: 'CalibriBold';
   src: url("/assets/fonts/CalibriBold.TTF");
@@ -3313,14 +3316,17 @@ input.mat-input-element {
 .about__text {
   width: 90%;
 }
+
 .about___body .sidebar_links li:first-child {
   padding-bottom: 34px;
-  }
-.about___body .sidebar_links a,.about___body .sidebar_links p{
-  font-family: "Arial",  sans-serif;
 }
+
+.about___body .sidebar_links a, .about___body .sidebar_links p {
+  font-family: "Arial", sans-serif;
+}
+
 .about_info p {
-  font-family: "Arial",  sans-serif;
+  font-family: "Arial", sans-serif;
   font-size: 15px;
   font-weight: 300;
   line-height: 20px;
@@ -3342,35 +3348,42 @@ input.mat-input-element {
   display: flex;
   justify-content: space-between;
 }
-.content_about_us .about___body{
-  width:60%;
+
+.content_about_us .about___body {
+  width: 60%;
 }
+
 .about__content {
   width: 55%;
   margin-top: 200px;
 }
-.content_about_us .mat-tab-header{
+
+.content_about_us .mat-tab-header {
   width: 20%;
 }
-.content_about_us .mat-tab-body-wrapper{
+
+.content_about_us .mat-tab-body-wrapper {
   width: 80%;
 }
-.content_about_us .mat-tab-label.mat-tab-label-active{
-  color:#3788c6;
+
+.content_about_us .mat-tab-label.mat-tab-label-active {
+  color: #3788c6;
   border-bottom: 1.3px solid #e14040 !important;
 }
-.content_about_us .mat-tab-label{
+
+.content_about_us .mat-tab-label {
   display: flex;
   justify-content: flex-start;
   padding: 0;
   text-transform: capitalize !important;
-  font-family: "Arial", sans-serif!important;
+  font-family: "Arial", sans-serif !important;
   color: #727377;
-  font-size: 16px!important;
+  font-size: 16px !important;
   font-weight: 600;
   letter-spacing: 0.3px;
   opacity: unset;
 }
+
 .images_content {
   display: flex;
   width: 28%;
@@ -3420,7 +3433,7 @@ input.mat-input-element {
 }
 
 .content_about_us .about__text > p {
-  font-family: "Arial",  sans-serif;
+  font-family: "Arial", sans-serif;
   font-weight: bold;
   display: inline-block;
   //color: #727377;
@@ -3985,11 +3998,12 @@ button[type=submit].inlineBlock {
 
 //
 //about_tabs
-.content_about_us .mat-tab-labels{
+.content_about_us .mat-tab-labels {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
+
 @media screen and (max-width: 1680px) {
 
   .about__text {
@@ -4064,7 +4078,7 @@ button[type=submit].inlineBlock {
   .filter .menu li {
     padding: 0 5px;
   }
-    //.menu ul li a {
+  //.menu ul li a {
   //  font-size: 12px;
   //}
   .main {
@@ -5053,7 +5067,7 @@ button[type=submit].inlineBlock {
   .mat-drawer-container {
     z-index: 3 !important;
   }
-    .mat-icon-button {
+  .mat-icon-button {
     height: 37px !important;
     line-height: 22px !important;
     width: 72px !important;
@@ -5092,7 +5106,7 @@ button[type=submit].inlineBlock {
 }
 
 @media(max-width: 600px) {
- .posts_table table tbody th,.posts_table td {
+  .posts_table table tbody th, .posts_table td {
     padding: 0 5px !important;
   }
   .posts_table .mat-cell, .posts_table .mat-footer-cell {
@@ -5127,12 +5141,13 @@ button[type=submit].inlineBlock {
   height: 100%;
   max-width: 30% !important;
 
-  h3{
+  h3 {
     text-decoration: underline;
     margin-bottom: 25px;
     font-size: 19px;
   }
-  p{
+
+  p {
     line-height: 19.2px;
     margin-bottom: 28px;
     font-size: 15px;
@@ -5143,12 +5158,14 @@ button[type=submit].inlineBlock {
   }
 }
 
-.shareBtns{
+.shareBtns {
   display: none;
 }
+
 .content_about_us {
   margin-top: 220px;
 }
+
 @media(max-width: 767px) {
   .rules {
     max-width: 89% !important;
@@ -5210,6 +5227,12 @@ button[type=submit].inlineBlock {
   }
   .about_info {
     width: 100% !important;
+  }
+}
+
+.forgot_pass {
+  span {
+    font-size: 14.5px !important;
   }
 }
 
