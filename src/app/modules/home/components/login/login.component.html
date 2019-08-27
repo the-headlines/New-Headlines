@@ -45,7 +45,9 @@
                                 [disabled]="passFormControl.hasError('required') || (emailFormControl.hasError('name') || emailFormControl.hasError('required'))"
                                 mat-raised-button (click)="checkLogin(userLoginInf)" color="primary">Login
                         </button>
-                        <a (click)="router.navigate(['forgot-password'])" class="forgot_pass">Forgot Password?</a>
+                        <button (click)="openForgotPass()" class="forgot_pass" mat-icon-button mat-dialog-close>Forgot
+                            Password?
+                        </button>
                     </form>
                     <div class="have_account">
                         <button class="dont_have_account" mat-dialog-close (click)="showLogin()">Don’t have an

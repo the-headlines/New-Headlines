@@ -160,18 +160,23 @@
 }
 
 .forgot_pass {
-  font-family: 'BrandonText-Regular', sans-serif;
-  font-size: 14.5px;
-  font-weight: normal;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.93;
-  letter-spacing: normal;
+
   color: #7d7c7c;
   display: block;
-  text-align: right;
+  float: right;
   margin-bottom: 10px;
   text-decoration: none;
+  width: 162px;
+
+  span {
+    font-family: 'BrandonText-Regular', sans-serif;
+    font-size: 14.5px !important;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.93;
+    letter-spacing: normal;
+  }
 }
 
 .have_account {
@@ -317,7 +322,6 @@
 //    }
 //  }
 //}
-
 
 
 //
