@@ -412,7 +412,7 @@
 }
 
 .posts_box {
-  width: 81.6%;
+  width: 100%;
 }
 
 .upload_or_drag_image {
@@ -624,6 +624,7 @@
   border: 1px solid silver;
   float: right;
   margin-right: 80px;
+  max-width: 32%;
 }
 .post_suggestions p.sugg_bold {
   font-weight: bold;
@@ -670,4 +671,13 @@
   letter-spacing: 0.5px;
   font-weight: normal;
 
+}
+
+
+@media(max-width: 1060px){
+  .post_suggestions {
+    float: none;
+    margin-right: 0;
+    max-width: 100%;
+  }
 }
