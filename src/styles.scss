@@ -1872,6 +1872,7 @@ mat-icon.mat-icon.notranslate.material-icons.mat-icon-no-color.ng-star-inserted 
   padding: 26px 62px 72px 63px;
   width: 1090px;
   background-color: #ffffff;
+  position: fixed;
 }
 
 .profile_links {
@@ -5157,7 +5158,7 @@ button[type=submit].inlineBlock {
   margin-top: 220px;
 }
 .post_content .col-md-12 .profile_container {
-  display: flex;
+  //display: flex;
 }
 @media(max-width: 767px) {
   .rules {

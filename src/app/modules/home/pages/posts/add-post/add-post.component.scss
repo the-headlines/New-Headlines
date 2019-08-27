@@ -619,7 +619,11 @@
 
 
 .post_suggestions {
-  margin-top: 70px;
+  margin-top: 30px;
+  padding: 30px !important;
+  border: 1px solid silver;
+  float: right;
+  margin-right: 80px;
 }
 .post_suggestions p.sugg_bold {
   font-weight: bold;
