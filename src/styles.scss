@@ -5179,7 +5179,7 @@ button[type=submit].inlineBlock {
     height: 50px !important;
   }
   .mat-tab-label .mat-tab-label-content {
-    font-size: 14.5px !important;
+    font-size: 12.5px !important;
   }
   .content_about_us .mat-tab-labels {
     display: flex;
@@ -5211,6 +5211,13 @@ button[type=submit].inlineBlock {
   .about_info {
     width: 100% !important;
   }
+  .mat-tab-label {
+    min-width: 100px !important;
+  }
+  .mat-tab-labels>div:nth-child(1),.mat-tab-labels>div:nth-child(2){
+      min-width: 46px !important;
+    }
+
 }
 
 
