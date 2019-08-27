@@ -867,6 +867,7 @@ li.margin_top {
 
 .user_name {
   position: relative;
+  z-index: 9999999999;
 
   &:after {
     position: absolute;
