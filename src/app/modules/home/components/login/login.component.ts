@@ -100,6 +100,10 @@ export class LoginComponent implements OnInit {
         });
     }
 
+    openForgotPass() {
+        this.router.navigate(['forgot-password']);
+    }
+
     logOut() {
         // remove user from local storage to log user out
         localStorage.removeItem('userInf');
