@@ -3,7 +3,7 @@
     <div class="main row no-gutters">
         <div class="Tools_headline">Science & tech</div>
         <section class="section_carousel" style="padding-right: 37px">
-            <div class="Tools_headline2">Headlines chosen  by readers</div>
+            <div class="Tools_headline2">Headlines chosen by readers</div>
             <div class="carusel-block" id="home_carousel">
 
                 <app-owl-carousel [posts]="posts"></app-owl-carousel>
@@ -52,6 +52,10 @@
                                                     <button type="button"
                                                     >Informative
                                                     </button>
+                                                </li>
+                                                <li [class.filterHighlight]="selectedFilter.vote === 'Interesting'"
+                                                    (click)="filterByVotes('Interesting')">
+                                                    <button type="button">Interesting</button>
                                                 </li>
                                             </ul>
                                             <span class="sortPostsBy">Sort by</span>
@@ -118,11 +122,11 @@
                 </div>
             </div>
             <div class="pagination-block">
-<!--                <ul>-->
-<!--                    <li *ngFor="let paginateSingle of pages">-->
-<!--                        <a data-id="{{paginateSingle}}" (click)="nextPage($event)">{{ paginateSingle }}</a>-->
-<!--                    </li>-->
-<!--                </ul>-->
+                <!--                <ul>-->
+                <!--                    <li *ngFor="let paginateSingle of pages">-->
+                <!--                        <a data-id="{{paginateSingle}}" (click)="nextPage($event)">{{ paginateSingle }}</a>-->
+                <!--                    </li>-->
+                <!--                </ul>-->
             </div>
         </section>
         <app-aside class="section_right" style="padding-left: 37px"></app-aside>

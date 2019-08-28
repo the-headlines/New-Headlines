@@ -16,8 +16,8 @@ export const MAIN_SECTIONS = [
 export const VOTE_TYPES = [
     {name: 'Important', displayName: 'Important', pages: ['Influence', 'Public']},
     {name: 'Interesting', displayName: 'Interesting', pages: ['Hobbyist', 'Science', 'Environment']},
-    {name: 'Investigate', displayName: 'Investigate', pages: ['Influence', 'Protest']},
-    {name: 'Protest', displayName: 'Protest', pages: ['Influence', 'Environment']},
+    {name: 'Investigate', displayName: 'Investigate', pages: ['Influence', 'Protest', 'Public']},
+    {name: 'Protest', displayName: 'Protest', pages: ['Influence', 'Environment', 'Public']},
     {name: 'Like', displayName: 'Like', pages: ['Videos']},
     // {name: 'Good', displayName: 'Good', pages: ['StyleAndSweat']},
     {name: 'Love', displayName: 'Love', pages: ['StyleAndSweat'], love: true},
@@ -26,7 +26,6 @@ export const VOTE_TYPES = [
     {name: 'LoveTheHuman', displayName: 'TheHuman', pages: ['HumanStories'], love: true},
     {name: 'Informative', displayName: 'Informative', pages: ['Hobbyist', 'Science']},
     {name: 'Protect', displayName: 'Protect', pages: ['Environment']},
-    {name: 'Protest', displayName: 'Protest', pages: ['Environment']},
     {name: 'Inspiring', displayName: 'Inspiring', pages: ['HumanStories']},
     {name: 'Promising', displayName: 'Promising', pages: ['JumpStartups']},
     {name: 'ProblemSolver', displayName: 'ProblemSolver', pages: ['JumpStartups']},

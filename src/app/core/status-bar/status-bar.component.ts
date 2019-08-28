@@ -59,7 +59,9 @@ export class StatusBarComponent implements OnInit {
         if (this.single) {
             this.postCategory = this.single.category;
             this.postScore = this.single.score;
-            this.voteTypes = this.voteTypes.filter(t => t['pages'].includes(this.postCategory));
+            this.voteTypes = this.voteTypes.filter(t => {
+                return t['pages'].includes(this.postCategory);
+            });
         }
     }
 
