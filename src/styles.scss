@@ -2863,14 +2863,20 @@ input.mat-input-element {
   .title.slider {
     line-height: normal;
     letter-spacing: normal;
-    padding-left: 6px;
+    padding-left: 0px;
     padding-right: 0;
     font-size: 14px;
+    height: 16px;
   }
 
   .text.slider {
     font-size: 0.8em;
     line-height: normal;
+    height: 33px;
+    margin-bottom: 5px;
+  }
+  .block_content .opacity-dark {
+    height: 105px;
   }
 }
 
@@ -2928,6 +2934,12 @@ input.mat-input-element {
 
 }
 
+@media screen and (max-width: 1024px) {
+  .block_content .opacity-dark {
+    height: 75px;
+    padding: 0 50px 5px;
+  }
+}
 @media screen and (max-width: 992px) {
 
   .mat-dialog-container {
