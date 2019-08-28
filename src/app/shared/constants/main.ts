@@ -15,7 +15,7 @@ export const MAIN_SECTIONS = [
 
 export const VOTE_TYPES = [
     {name: 'Important', displayName: 'Important', pages: ['Influence', 'Public']},
-    {name: 'Interesting', displayName: 'Interesting', pages: ['Hobbyist', 'Science', 'Environment']},
+    {name: 'Interesting', displayName: 'Interesting', pages: ['Hobbyist', 'Science', 'Environment', 'Public']},
     {name: 'Investigate', displayName: 'Investigate', pages: ['Influence', 'Protest', 'Public']},
     {name: 'Protest', displayName: 'Protest', pages: ['Influence', 'Environment', 'Public']},
     {name: 'Like', displayName: 'Like', pages: ['Videos']},
