@@ -76,7 +76,7 @@
                                 <!--                                    </div>-->
                                 <!--                                </div>-->
                             </li>
-                            <li class="user-profile header-notification" *ngIf="auth.loggedIn()">
+                            <li class="user-profile header-notification" [hidden]="!auth.loggedIn()">
                                 <button mat-button [matMenuTriggerFor]="beforeMenu" #trigger="matMenuTrigger"
                                         class="user_name">
                                     <span class="userFullName">{{userData ? userData.fullName : '/n/a'}}</span>
@@ -114,10 +114,10 @@
                         <!--<div class="shareBtns">-->
 
 
-                            <!--&lt;!&ndash; This is here because otherwise the style of the share buttons is breaking&ndash;&gt;-->
-                            <!--<share-buttons [url]="'http://nottheheadlines.com'" [include]="['facebook','twitter']"-->
-                                           <!--[theme]="'material-light'"-->
-                                           <!--[showCount]="true"></share-buttons>-->
+                        <!--&lt;!&ndash; This is here because otherwise the style of the share buttons is breaking&ndash;&gt;-->
+                        <!--<share-buttons [url]="'http://nottheheadlines.com'" [include]="['facebook','twitter']"-->
+                        <!--[theme]="'material-light'"-->
+                        <!--[showCount]="true"></share-buttons>-->
                         <!--</div>-->
                         <div fxShow="true" fxHide.gt-sm>
                             <div class="user">
@@ -166,11 +166,11 @@
                                                 </li>
                                             </ul>
                                         </div>
-                                        <div (click)="toggleShow()">
-                                            <img src="../../../assets/avatar/user%20(2).png" alt="">
+                                        <div>
+                                            <img src="../../../assets/avatar/user%20(2).png" alt="" #toggler>
                                         </div>
-                                        <div class="mobile_user_info" *ngIf="isShown" #toggleButton
-                                             (mouseleave)="hideDiv()">
+                                        <div class="mobile_user_info" *ngIf="isShown" #authMenu
+                                        >
                                             <ul class="">
                                                 <li class="login" *ngIf="!checkUser()">
                                                     <a *ngIf="!auth.loggedIn()" (click)="showLogin()">Login / Sign

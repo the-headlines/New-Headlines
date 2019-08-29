@@ -13,6 +13,7 @@ import {MAIN_SECTIONS} from '../../shared/constants/main';
 import {EditInfoModalComponent} from '../../modules/home/components/libs/edit-info-modal/edit-info-modal.component';
 import {FeedbackComponent} from '../../modules/home/pages/feedback/feedback.component';
 import {FacebookService, InitParams} from 'ngx-facebook';
+import {MatMenuTrigger} from '@angular/material';
 
 
 @Component({
@@ -24,6 +25,9 @@ import {FacebookService, InitParams} from 'ngx-facebook';
 export class HeaderComponent implements OnInit {
     private user: SocialUser;
     @ViewChild('closest') closest: ElementRef;
+    @ViewChild('authMenu') menu: ElementRef;
+    @ViewChild('toggler') menuToggler: ElementRef;
+    @ViewChild(MatMenuTrigger) trigger: MatMenuTrigger;
     userData: any = {};
     searchForm;
     searchAllowed = false;
@@ -33,6 +37,44 @@ export class HeaderComponent implements OnInit {
     scrollPosition = 0;
     showScrollToTopBtn = false;
     postCategory = this.router.url === '/' ? 'Influence' : '';
+
+
+    baseArr = [
+        {
+            title: 'Title1',
+            extractedDescription: 'Desc1',
+            extractedImage: 'https://vignette.wikia.nocookie.net/lovecraft/images/c/cf/Screenshot_20171018-093500.jpg/revision/latest' +
+                '?cb=20171020174137',
+            views: '0',
+            like: '1',
+            important: '2',
+            interesting: '3'
+        },
+        {
+            title: 'Title2',
+            extractedDescription: 'Desc2',
+            extractedImage: 'https://vignette.wikia.nocookie.net/lovecraft/images/c/cf/Screenshot_20171018-093500.jpg/revision/latest' +
+                '?cb=20171020174137',
+            views: '0',
+            like: '2',
+            important: '3',
+            interesting: '1'
+        },
+        {
+            title: 'Title3',
+            extractedDescription: 'Desc3',
+            extractedImage: 'https://vignette.wikia.nocookie.net/lovecraft/images/c/cf/Screenshot_20171018-093500.jpg/revision/latest' +
+                '?cb=20171020174137',
+            views: '0',
+            like: '3',
+            important: '1',
+            interesting: '2'
+        }
+    ];
+    fakeArr = [];
+    userLoggined: any = [];
+
+    search_input = {value: ''};
 
     @HostListener('window:scroll', ['$event'])
     private onScroll(e: Event): void {
@@ -81,42 +123,33 @@ export class HeaderComponent implements OnInit {
         this.userData.fullName = localStorage.getItem('full_name');
     }
 
-    baseArr = [
-        {
-            title: 'Title1',
-            extractedDescription: 'Desc1',
-            extractedImage: 'https://vignette.wikia.nocookie.net/lovecraft/images/c/cf/Screenshot_20171018-093500.jpg/revision/latest' +
-                '?cb=20171020174137',
-            views: '0',
-            like: '1',
-            important: '2',
-            interesting: '3'
-        },
-        {
-            title: 'Title2',
-            extractedDescription: 'Desc2',
-            extractedImage: 'https://vignette.wikia.nocookie.net/lovecraft/images/c/cf/Screenshot_20171018-093500.jpg/revision/latest' +
-                '?cb=20171020174137',
-            views: '0',
-            like: '2',
-            important: '3',
-            interesting: '1'
-        },
-        {
-            title: 'Title3',
-            extractedDescription: 'Desc3',
-            extractedImage: 'https://vignette.wikia.nocookie.net/lovecraft/images/c/cf/Screenshot_20171018-093500.jpg/revision/latest' +
-                '?cb=20171020174137',
-            views: '0',
-            like: '3',
-            important: '1',
-            interesting: '2'
-        }
-    ];
-    fakeArr = [];
-    userLoggined: any = [];
 
-    search_input = {value: ''};
+    ngOnInit() {
+
+
+        this.renderer.listen('window', 'click', (e: Event) => {
+            if (e.target === this.menuToggler.nativeElement) {
+                this.isShown = !this.isShown;
+            } else {
+                this.isShown = false;
+            }
+        });
+
+
+        if (this.checkUser()) {
+            this.userLoggined = JSON.parse(localStorage.getItem('userInf'));
+        }
+
+        const params: InitParams = {
+            version: 'v2.8'
+        };
+
+        this.fb.init(params);
+    }
+
+    openMyMenu() {
+        this.trigger.openMenu();
+    }
 
     search(keyword) {
         var searchArr = JSON.parse(JSON.stringify(this.baseArr));
@@ -126,11 +159,6 @@ export class HeaderComponent implements OnInit {
         });
 
         this.fakeArr = searchArr;
-    }
-
-
-    toggleShow() {
-        this.isShown = !this.isShown;
     }
 
     hideDiv(trigger) {
@@ -145,17 +173,6 @@ export class HeaderComponent implements OnInit {
         // console.log('button click');
     }
 
-    ngOnInit() {
-        if (this.checkUser()) {
-            this.userLoggined = JSON.parse(localStorage.getItem('userInf'));
-        }
-
-        const params: InitParams = {
-            version: 'v2.8'
-        };
-
-        this.fb.init(params);
-    }
 
     goToLink(link) {
         this.checkConfirmation(link);
