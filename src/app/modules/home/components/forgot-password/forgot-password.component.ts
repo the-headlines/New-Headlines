@@ -30,7 +30,7 @@ export class ForgotPasswordComponent implements OnInit {
     }
 
     ngOnInit() {
-        const params = this.route.snapshot.paramMap.params;
+        const params = this.route.snapshot.paramMap['params'];
 
         if (params.hasOwnProperty('token')) {
 
