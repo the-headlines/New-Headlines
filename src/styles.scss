@@ -5281,3 +5281,36 @@ button[type=submit].inlineBlock {
   }
 
 }
+
+.pr_pol_info strong{
+  padding-left: 50px;
+  font-family: "Arial", sans-serif;
+  font-size: 15px;
+  letter-spacing: 0.3px;
+  padding-bottom: 0;
+  padding-top: 21px;
+  text-align: justify;
+}
+.pr_pol_info p{
+  font-family: "Arial", sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 20px;
+  letter-spacing: 0.3px;
+  padding-bottom: 0;
+  padding-top: 21px;
+  text-align: justify;
+}
+.pr_pol_info ul {
+  padding-left: 50px;
+}
+.pr_pol_info h5 {
+  font-family: "Arial", sans-serif;
+  font-weight: bold;
+  display: inline-block;
+  color: #000;
+}
+.pr_pol_table table tr td {
+  padding: 5px;
+  border:1px solid silver;
+}
