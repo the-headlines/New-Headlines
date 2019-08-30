@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {AuthService} from '../../../../services/auth.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
     selector: 'app-forgot-password',
@@ -9,17 +10,33 @@ import {AuthService} from '../../../../services/auth.service';
 })
 export class ForgotPasswordComponent implements OnInit {
     forgotPassForm: FormGroup;
+    confirmNewPassForm: FormGroup;
+    emailToken;
 
     constructor(
         private fb: FormBuilder,
-        public auth: AuthService
+        public auth: AuthService,
+        private route: ActivatedRoute
     ) {
         this.forgotPassForm = this.fb.group({
             email: ['']
         });
+
+        this.confirmNewPassForm = this.fb.group({
+            email: [''],
+            newPass: [''],
+            newPassConfirm: ['']
+        });
     }
 
     ngOnInit() {
+        const params = this.route.snapshot.paramMap['params'];
+
+        if (params.hasOwnProperty('token')) {
+
+            this.emailToken = params.token;
+        }
+        console.log(this.emailToken);
     }
 
     sendEmail() {
@@ -29,6 +46,12 @@ export class ForgotPasswordComponent implements OnInit {
                 this.forgotPassForm.reset();
             });
         }
+    }
+
+    sendNewPass() {
+        this.auth.sendNewPass(this.confirmNewPassForm.value).subscribe(dt => {
+            this.confirmNewPassForm.reset();
+        });
     }
 
 }

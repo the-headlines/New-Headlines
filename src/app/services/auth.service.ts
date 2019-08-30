@@ -52,7 +52,11 @@ export class AuthService {
     }
 
     sendForgotPassRequest1(data) {
-        return this.http.post(API_URL + '/api/user/forgot-password', data);
+        return this.http.post(API_URL + '/api/user/forgot_password', data);
+    }
+
+    sendNewPass(data) {
+        return this.http.post(API_URL + '/api/user/new_password', data);
     }
 
     activateAccount(token) {
