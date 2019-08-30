@@ -175,11 +175,11 @@ img {
   //margin: 40px 5px 0 5px !important;
 }
 .owl-theme .owl-nav .owl-prev {
-  margin: 40px 5px 0 -60px !important;
+  margin: 40px 5px 0 -55px !important;
 }
 
 .owl-theme .owl-nav .owl-next {
-  margin: 40px -60px 0 5px !important;
+  margin: 40px -55px 0 5px !important;
 }
 //@media screen and (max-width: 1600px) {
 //  padding-left: 12px;
@@ -4031,7 +4031,13 @@ button[type=submit].inlineBlock {
   align-items: flex-start;
 }
 @media screen and (max-width: 1680px) {
+  .owl-theme .owl-nav .owl-prev {
+    margin: 40px 5px 0 -40px !important;
+  }
 
+  .owl-theme .owl-nav .owl-next {
+    margin: 40px -40px 0 5px !important;
+  }
   .about__text {
     width: 100%;
   }
