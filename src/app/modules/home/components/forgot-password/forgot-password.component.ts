@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../../../../services/auth.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {ToastrService} from 'ngx-toastr';
 
 @Component({
@@ -19,7 +19,8 @@ export class ForgotPasswordComponent implements OnInit {
         private fb: FormBuilder,
         public auth: AuthService,
         private route: ActivatedRoute,
-        private toastr: ToastrService
+        private toastr: ToastrService,
+        public router: Router
     ) {
         this.forgotPassForm = this.fb.group({
             email: ['', Validators.required]
@@ -73,9 +74,11 @@ export class ForgotPasswordComponent implements OnInit {
     sendNewPass() {
         console.log(this.confirmNewPassForm.value);
         // if (this.confirmNewPassForm.valid) {
-            this.auth.sendNewPass(this.confirmNewPassForm.value).subscribe(dt => {
-                this.confirmNewPassForm.reset();
-            });
+        this.auth.sendNewPass(this.confirmNewPassForm.value).subscribe(dt => {
+            this.confirmNewPassForm.reset();
+            this.toastr.success('The password has been changed successfully');
+            this.router.navigate(['/']);
+        });
         // }
 
     }
