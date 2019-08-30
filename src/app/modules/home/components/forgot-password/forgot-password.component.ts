@@ -71,12 +71,12 @@ export class ForgotPasswordComponent implements OnInit {
     }
 
     sendNewPass() {
-        if (this.confirmNewPassForm.valid) {
-
+        console.log(this.confirmNewPassForm.value);
+        // if (this.confirmNewPassForm.valid) {
             this.auth.sendNewPass(this.confirmNewPassForm.value).subscribe(dt => {
                 this.confirmNewPassForm.reset();
             });
-        }
+        // }
 
     }
 
