@@ -56,7 +56,7 @@ export class AuthService {
     }
 
     sendNewPass(data) {
-        return this.http.post(API_URL + '/api/user/new_password', data);
+        return this.http.post(API_URL + '/api/user/reset_password', data);
     }
 
     activateAccount(token) {
