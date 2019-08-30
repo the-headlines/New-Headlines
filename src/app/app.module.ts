@@ -98,6 +98,7 @@ import {AccountActivationComponent} from './modules/home/components/account-acti
 import {ForgotPasswordComponent} from './modules/home/components/forgot-password/forgot-password.component';
 import {CapitalizePipe} from './shared/pipes/capitalize.pipe';
 import {FacebookModule} from 'ngx-facebook';
+import { TermsComponent } from './modules/home/pages/terms/terms.component';
 
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     // Change this to your upload POST address:
@@ -170,7 +171,8 @@ export function tokenGetter() {
         CountPostScorePipe,
         AccountActivationComponent,
         ForgotPasswordComponent,
-        CapitalizePipe
+        CapitalizePipe,
+        TermsComponent
     ],
     imports: [
         BrowserModule,

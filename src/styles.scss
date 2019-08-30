@@ -5282,7 +5282,7 @@ button[type=submit].inlineBlock {
 
 }
 
-.pr_pol_info strong{
+.pr_pol_info strong,.terms_info strong{
   padding-left: 50px;
   font-family: "Arial", sans-serif;
   font-size: 15px;
@@ -5291,7 +5291,7 @@ button[type=submit].inlineBlock {
   padding-top: 21px;
   text-align: justify;
 }
-.pr_pol_info p{
+.pr_pol_info p,.terms_info p{
   font-family: "Arial", sans-serif;
   font-size: 15px;
   font-weight: 300;
@@ -5301,16 +5301,46 @@ button[type=submit].inlineBlock {
   padding-top: 21px;
   text-align: justify;
 }
-.pr_pol_info ul {
+
+.pr_pol_info ul,.terms_info ul {
   padding-left: 50px;
 }
-.pr_pol_info h5 {
+.pr_pol_info ul li,.terms_info ul li{
+  font-family: "Arial", sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 20px;
+  letter-spacing: 0.3px;
+}
+.pr_pol_info h5,.terms_info h5 {
   font-family: "Arial", sans-serif;
   font-weight: bold;
   display: inline-block;
   color: #000;
 }
-.pr_pol_table table tr td {
+.terms_info h4 {
+  font-family: "Arial", sans-serif;
+  font-weight: 300;
+  display: inline-block;
+  color: #000;
+}
+.pr_pol_info h6,.terms_info h6 {
+  font-family: "Arial", sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+  color: #000;
+}
+.pr_pol_table table,.terms_info table {
+    font-family: "Arial", sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    letter-spacing: 0.3px;
+}
+.pr_pol_table table tr td,.terms_info table tr td {
   padding: 5px;
   border:1px solid silver;
+}
+.pr_pol_info a,.terms_info a {
+  text-decoration: underline !important;
+  cursor: pointer;
 }
