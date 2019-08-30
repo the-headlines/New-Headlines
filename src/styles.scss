@@ -175,10 +175,10 @@ img {
   //margin: 40px 5px 0 5px !important;
 }
 .owl-theme .owl-nav .owl-prev {
-  margin: 40px 5px 0 -27px !important;
+  margin: 40px 5px 0 -60px !important;
 }
 .owl-theme .owl-nav .owl-next {
-  margin: 40px -27px 0 5px !important;
+  margin: 40px -60px 0 5px !important;
 }
 //@media screen and (max-width: 1600px) {
 //  padding-left: 12px;
@@ -5343,4 +5343,130 @@ button[type=submit].inlineBlock {
 .pr_pol_info a,.terms_info a {
   text-decoration: underline !important;
   cursor: pointer;
+}
+.about_info {
+  p{
+    span{
+      font-weight: bold;
+    }
+  }
+}
+
+.about__text .images_content {
+  display: none;
+}
+.about_ft{
+  border-top: 1.3px solid #e14040;
+  padding: 20px;
+  text-align: center !important;
+  margin: auto;
+  width: 100%;
+  display: block;
+  line-height: 1;
+  font-size: 14px;
+}
+.content_about_us .about___body{
+  display: flex;
+  justify-content: space-between;
+  width: 95%;
+  margin:auto;
+}
+.content_about_us .mat-tab-group{
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.about_info_bg {
+  display: flex;
+  justify-content: space-between;
+}
+.about_info {
+  width:75%;
+}
+.images_content1 .image_title .item1 {
+  width: 91%;
+  padding-left: 40px;
+}
+.images_content1 {
+  width:24%;
+}
+@media(max-width: 767px){
+  .images_content1 {
+    display: none;
+  }
+  .content_about_us .mat-tab-group {
+    flex-direction: column;
+  }
+  .content_about_us .mat-tab-labels {
+    flex-direction: row;
+  }
+  .about___body {
+    display: block;
+  }
+  .sidebar_links {
+    display: flex;
+    margin: 150px auto 0px auto;
+    text-align: center;
+    width: 90%;
+    justify-content: inherit;
+    overflow-x: scroll;
+    white-space: nowrap;
+  }
+
+  .mat-tab-list ::-webkit-scrollbar-track
+  {
+    -webkit-box-shadow: inset 0 0 0px rgba(245, 245, 245, 0.9);
+    background-color: #F5F5F5;
+  }
+
+  .mat-tab-list ::-webkit-scrollbar
+  {
+    height: 4px;
+    background-color: #F5F5F5;
+  }
+
+  .mat-tab-list ::-webkit-scrollbar-thumb
+  {
+    background-color: #f5f5f5;
+    border: 2px solid #f5f5f5;
+  }
+  .sidebar_links li {
+    padding-bottom: 9px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .about__text {
+    width: auto;
+  }
+  .about__content {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-top: 50px;
+  }
+  .images_content {
+    width: auto;
+    margin-top: 10px;
+  }
+  .about__text .images_content {
+    display: flex;
+    flex-direction: row;
+  }
+  .images_content {
+    display:none;
+  }
+  .image_title .item1 {
+    width: 100%;
+  }
+  .image_title {
+    width: 33%;
+    margin: auto;
+  }
+}
+
+@media(max-width: 450px) {
+  .images_content p {
+    min-height: 20px;
+  }
 }
