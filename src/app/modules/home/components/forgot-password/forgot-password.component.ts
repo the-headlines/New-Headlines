@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {AuthService} from '../../../../services/auth.service';
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
     selector: 'app-forgot-password',
@@ -42,7 +42,7 @@ export class ForgotPasswordComponent implements OnInit {
     sendEmail() {
         if (this.forgotPassForm.valid) {
 
-            this.auth.sendForgotPassRequest1(this.forgotPassForm.value).subscribe(dt => {
+            this.auth.sendForgotPassRequest(this.forgotPassForm.value).subscribe(dt => {
                 this.forgotPassForm.reset();
             });
         }

@@ -2863,14 +2863,20 @@ input.mat-input-element {
   .title.slider {
     line-height: normal;
     letter-spacing: normal;
-    padding-left: 6px;
+    padding-left: 0px;
     padding-right: 0;
     font-size: 14px;
+    height: 16px;
   }
 
   .text.slider {
     font-size: 0.8em;
     line-height: normal;
+    height: 33px;
+    margin-bottom: 5px;
+  }
+  .block_content .opacity-dark {
+    height: 105px;
   }
 }
 
@@ -2928,6 +2934,12 @@ input.mat-input-element {
 
 }
 
+@media screen and (max-width: 1024px) {
+  .block_content .opacity-dark {
+    height: 75px;
+    padding: 0 50px 5px;
+  }
+}
 @media screen and (max-width: 992px) {
 
   .mat-dialog-container {
@@ -3383,6 +3395,9 @@ input.mat-input-element {
 .content_about_us .mat-tab-label{
   border-bottom: 3.3px solid transparent !important;
 }
+.content_about_us .mat-tab-label {
+    min-width: auto;
+}
 .content_about_us .mat-tab-label{
   display: flex;
   justify-content: flex-start;
@@ -3390,7 +3405,7 @@ input.mat-input-element {
   text-transform: capitalize !important;
   font-family: "Arial", sans-serif!important;
   color: #727377;
-  font-size: 16px!important;
+  font-size: 14.5px!important;
   font-weight: 600;
   letter-spacing: 0.3px;
   opacity: unset;
@@ -5241,10 +5256,10 @@ button[type=submit].inlineBlock {
     width: 100% !important;
   }
   .mat-tab-label {
-    min-width: 116px !important;
+    min-width: 127px !important;
   }
   .mat-tab-labels>div:nth-child(1),.mat-tab-labels>div:nth-child(2),.mat-tab-labels>div:nth-child(5) {
-      min-width: 54px !important;
+      min-width: 65px !important;
     }
  .mat-tab-labels>div:nth-child(6) {
     min-width: 130px !important;
@@ -5265,4 +5280,37 @@ button[type=submit].inlineBlock {
     position: inherit;
   }
 
+}
+
+.pr_pol_info strong{
+  padding-left: 50px;
+  font-family: "Arial", sans-serif;
+  font-size: 15px;
+  letter-spacing: 0.3px;
+  padding-bottom: 0;
+  padding-top: 21px;
+  text-align: justify;
+}
+.pr_pol_info p{
+  font-family: "Arial", sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 20px;
+  letter-spacing: 0.3px;
+  padding-bottom: 0;
+  padding-top: 21px;
+  text-align: justify;
+}
+.pr_pol_info ul {
+  padding-left: 50px;
+}
+.pr_pol_info h5 {
+  font-family: "Arial", sans-serif;
+  font-weight: bold;
+  display: inline-block;
+  color: #000;
+}
+.pr_pol_table table tr td {
+  padding: 5px;
+  border:1px solid silver;
 }
