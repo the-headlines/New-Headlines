@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../../services/auth.service';
+import {Router} from "@angular/router";
 
 @Component({
     selector: 'app-footer',
@@ -11,7 +12,8 @@ export class FooterComponent implements OnInit {
     acceptedCookies = !!localStorage.getItem('acceptedCookie');
 
     constructor(
-        public auth: AuthService
+        public auth: AuthService,
+        public router: Router
     ) {
     }
 
@@ -27,5 +29,8 @@ export class FooterComponent implements OnInit {
         localStorage.setItem('acceptedCookie', this.acceptedCookies.toString());
     }
 
+    learnMore() {
+        this.router.navigate(['policy']);
+    }
 
 }
