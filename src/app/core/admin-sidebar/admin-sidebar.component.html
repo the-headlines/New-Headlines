@@ -1,0 +1,8 @@
+<div class="sidebarContainer">
+    <ul>
+        <li *ngFor="let link of sidebarLinks">
+
+            <a routerLink="admin/{{link.name}}" [class.active]="router.url.includes(link.name)">{{link.name}}</a>
+        </li>
+    </ul>
+</div>

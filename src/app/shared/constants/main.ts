@@ -37,3 +37,10 @@ export const VOTE_TYPES = [
 
 export const API_URL = 'http://3.8.219.107:3000';
 export const SPINNER_DIAMETER = 40;
+export const ADMIN_SIDEBAR_LINKS = [
+    {name: 'Dashoboard'},
+    {name: 'Complaints'}
+];
+
+export const MAT_TABLE_PAGINATION_VALUES = [5, 10, 25, 100];
+export const CONFIRM_DIALOG_SETTINGS = {autoFocus: true, width: '300px'};

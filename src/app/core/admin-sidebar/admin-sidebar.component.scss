@@ -1,0 +1,25 @@
+.sidebarContainer {
+  padding-top: 100px;
+  height: 100vh;
+
+  li {
+    margin-top: 20px;
+    padding: 10px 20px;
+
+    a {
+      color: #727377;
+      font-family: 'BrandonText-Regular', sans-serif;
+      font-size: 15px;
+      text-transform: uppercase;
+      letter-spacing: normal;
+      line-height: 1.5;
+      cursor: pointer;
+    }
+  }
+
+  background-color: #f0f0f0;
+}
+
+.active {
+  color: #e14040 !important;
+}

@@ -1,0 +1,52 @@
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.mat-table {
+
+}
+
+.mainContent {
+  max-width: 100%;
+  width: 60%;
+  margin: auto;
+}
+
+.flex_container {
+  display: flex;
+}
+
+.tableContainer {
+  .mat-cell {
+    span {
+      font-size: 14px;
+    }
+  }
+}
+
+.table_responsive {
+  overflow-x: auto;
+
+  table {
+    td {
+      padding: 0 24px;
+    }
+  }
+}
+
+@media screen and (max-width: 880px) {
+
+}
+
+@media(max-width: 767px) {
+
+}
+
+.approveBtn {
+  color: #51a351;
+}
+
+.rejectBtn {
+  color: #e14040;
+}
