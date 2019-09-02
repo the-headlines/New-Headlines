@@ -4053,7 +4053,7 @@ button[type=submit].inlineBlock {
 
 @media screen and (max-width: 1550px) {
   .posts_table {
-    overflow-y: touch;
+    overflow-y: auto;
   }
   //.carusel-block {
   //  width: 700px;
