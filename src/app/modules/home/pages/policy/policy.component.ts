@@ -1,11 +1,11 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 
 @Component({
     selector: 'app-policy',
     templateUrl: './policy.component.html',
     styleUrls: ['./policy.component.sass']
 })
-export class PolicyComponent implements OnInit {
+export class PolicyComponent implements OnInit, AfterViewInit {
 
     @ViewChild('cookie_policy') cookiePolicy;
 

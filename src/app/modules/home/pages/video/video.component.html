@@ -45,7 +45,7 @@
                      *ngFor="let post of filteredPosts.news| searchNews: searchTerm;let ind = index">
                     <div class="post_wrapper">
                         <div class="user_posts">
-                            <div class="userName">
+                            <div class="userName" *ngIf="post && post.creator">
                                 <div>
                                     <h3>
                                         <span>Posted by</span>

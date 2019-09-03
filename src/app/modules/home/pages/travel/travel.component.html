@@ -75,7 +75,7 @@
                                     <div class="user_posts">
                                         <div class="userName">
                                             <div>
-                                                <h3 *ngIf="post.creator">
+                                                <h3 *ngIf="post && post.creator">
                                                     <span>Posted by</span>
                                                     {{post.creator.name}}</h3>
                                                 <p class="updateDate"
