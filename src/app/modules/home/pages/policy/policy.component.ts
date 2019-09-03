@@ -13,15 +13,12 @@ export class PolicyComponent implements OnInit {
     }
 
     ngOnInit() {
-        if (this.cookiePolicy) {
+    }
 
-            this.scroll(this.cookiePolicy);
+
+    ngAfterViewInit(): void {
+        if (this.cookiePolicy) {
+            this.cookiePolicy.nativeElement.scrollIntoView();
         }
     }
-
-    scroll(el: HTMLElement) {
-        // let el = document.getElementById('cookie-policy');
-        el.scrollIntoView();
-    }
-
 }
