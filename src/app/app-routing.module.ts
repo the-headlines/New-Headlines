@@ -99,7 +99,8 @@ const routes: Routes = [
     {path: 'notifications', component: NotificationsBoxComponent},
     {path: 'account-activation/:token', component: AccountActivationComponent},
     {path: 'forgot-password', component: ForgotPasswordComponent},
-    {path: 'forgot-password/:token', component: ForgotPasswordComponent}
+    {path: 'forgot-password/:token', component: ForgotPasswordComponent},
+    {path: 'admin', loadChildren: './modules/admin/admin.module#AdminModule'}
 
 ];
 

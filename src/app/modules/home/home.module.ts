@@ -74,7 +74,7 @@ import {DropzoneModule} from 'ngx-dropzone-wrapper';
         HomeRoutingModule,
         SharedModule,
         CoreModule,
-        DropzoneModule
+        DropzoneModule,
     ]
 })
 export class HomeModule {

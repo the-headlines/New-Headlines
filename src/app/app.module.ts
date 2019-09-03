@@ -5,7 +5,6 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {AsideComponent} from './core/aside/aside.component';
 import {HeaderComponent} from './core/header/header.component';
-import {HomeComponent} from './modules/home/pages/home/home.component';
 import {FooterComponent} from './core/footer/footer.component';
 import {CommerceComponent} from './modules/home/pages/commerce/commerce.component';
 import {DealsComponent} from './modules/home/pages/deals/deals.component';
@@ -80,7 +79,6 @@ import {FilterPipeModule} from 'ngx-filter-pipe';
 import {DataTableModule} from 'primeng/primeng';
 import {StoryOptionsComponent} from './core/story-options/story-options.component';
 import {GetPostDateFormattedPipe} from './shared/pipes/get-post-date-formatted.pipe';
-import {GetUrlBasePipe} from './shared/pipes/get-url-base.pipe';
 import {ConfirmationDialogComponent} from './shared/components/confirmation-dialog/confirmation-dialog.component';
 import {ReportComponentComponent} from './modules/home/components/report-component/report-component.component';
 import {MatRadioModule} from '@angular/material/radio';
@@ -98,7 +96,8 @@ import {AccountActivationComponent} from './modules/home/components/account-acti
 import {ForgotPasswordComponent} from './modules/home/components/forgot-password/forgot-password.component';
 import {CapitalizePipe} from './shared/pipes/capitalize.pipe';
 import {FacebookModule} from 'ngx-facebook';
-import { TermsComponent } from './modules/home/pages/terms/terms.component';
+import {TermsComponent} from './modules/home/pages/terms/terms.component';
+import {HomeModule} from './modules/home/home.module';
 
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     // Change this to your upload POST address:
@@ -128,51 +127,46 @@ export function tokenGetter() {
 @NgModule({
     declarations: [
         AppComponent,
-        AsideComponent,
-        HeaderComponent,
-        HomeComponent,
-        FooterComponent,
-        CommerceComponent,
-        DealsComponent,
-        FeedbackComponent,
-        PicturesComponent,
-        VideoComponent,
-        LoginComponent,
-        DirectivesComponent,
-        RegisterComponent,
-        SinglePostComponent,
-        SidebarComponent,
-        SubscribeComponent,
-        AddPostComponent,
-        PostsHomeComponent,
-        FaceLoginComponent,
-        OwlCarouselComponent,
-        RoadComponent,
-        TravelComponent,
-        AboutComponent,
-        AdminProfileComponent,
-        EditInfoModalComponent,
-        StatusBarComponent,
-        NotificationsBoxComponent,
-        StripHtmlTagsPipe,
-        SearchNewsPipe,
-        StoryOptionsComponent,
-        GetPostDateFormattedPipe,
-        GetUrlBasePipe,
-        ConfirmationDialogComponent,
-        ReportComponentComponent,
-        GenerateSaveNonAuthUserIdPipe,
-        HobbyistComponent,
-        ScienceComponent,
-        PublicComponent,
-        EnvironmentComponent,
-        PolicyComponent,
-        FbShareComponent,
-        CountPostScorePipe,
-        AccountActivationComponent,
-        ForgotPasswordComponent,
-        CapitalizePipe,
-        TermsComponent
+
+        // DealsComponent,
+        // FeedbackComponent,
+        // PicturesComponent,
+        // VideoComponent,
+        // LoginComponent,
+        // DirectivesComponent,
+        // RegisterComponent,
+        // SinglePostComponent,
+        // SidebarComponent,
+        // SubscribeComponent,
+        // AddPostComponent,
+        // PostsHomeComponent,
+        // FaceLoginComponent,
+        // OwlCarouselComponent,
+        // RoadComponent,
+        // TravelComponent,
+        // AboutComponent,
+        // AdminProfileComponent,
+        // EditInfoModalComponent,
+        // StatusBarComponent,
+        // NotificationsBoxComponent,
+        // StripHtmlTagsPipe,
+        // SearchNewsPipe,
+        // StoryOptionsComponent,
+        // GetPostDateFormattedPipe,
+        // ConfirmationDialogComponent,
+        // ReportComponentComponent,
+        // GenerateSaveNonAuthUserIdPipe,
+        // HobbyistComponent,
+        // ScienceComponent,
+        // PublicComponent,
+        // EnvironmentComponent,
+        // PolicyComponent,
+        // FbShareComponent,
+        // CountPostScorePipe,
+        // AccountActivationComponent,
+        // ForgotPasswordComponent,
+        // CapitalizePipe,
+        // TermsComponent
     ],
     imports: [
         BrowserModule,
@@ -224,7 +218,8 @@ export function tokenGetter() {
         }),
         FilterPipeModule,
         JwSocialButtonsModule,
-        FacebookModule.forRoot()
+        FacebookModule.forRoot(),
+        HomeModule
     ],
     providers: [{
         provide: AuthServiceConfig,
