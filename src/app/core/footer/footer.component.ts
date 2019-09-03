@@ -30,7 +30,7 @@ export class FooterComponent implements OnInit {
     }
 
     learnMore() {
-        this.router.navigate(['policy']);
+        this.router.navigate(['policy', {name: 'cookie-policy'}]);
     }
 
 }

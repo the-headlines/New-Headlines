@@ -193,6 +193,8 @@
                                                 </a>
                                                 </li>
                                             </ul>
+
+
                                             <ul *ngIf="checkUser()">
                                                 <li>
                                                     <a (click)="goToLink('/profile')">My Profile</a>
@@ -204,7 +206,7 @@
                                                     <a (click)="goToLink('/about')">About</a>
                                                 </li>
                                                 <li>
-                                                    <a>Privacy Policy</a>
+                                                    <a (click)="goToLink('/policy')">Privacy Policy</a>
                                                 </li>
                                                 <li>
                                                     <a>
@@ -248,7 +250,7 @@
             <mat-sidenav-container fxFlexFill>
                 <mat-sidenav #sidenav>
                     <mat-nav-list>
-                        <a (click)="sidenav.toggle()" href="" mat-list-item><i class="fas fa-times"></i></a>
+                        <a (click)="sidenav.toggle()" mat-list-item><i class="fas fa-times"></i></a>
                         <div class="menu">
                             <div class="burger">
                                 <i class="fas fa-bars"></i>

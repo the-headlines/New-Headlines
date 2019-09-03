@@ -43,7 +43,7 @@
                         </div>
                         <button class="login"
                                 [disabled]="passFormControl.hasError('required') || (emailFormControl.hasError('name') || emailFormControl.hasError('required'))"
-                                mat-raised-button (click)="checkLogin(userLoginInf)" color="primary">Login
+                                mat-raised-button (click)="checkLogin(userLoginInf)" color="primary">LOGIN
                         </button>
                         <button (click)="openForgotPass()" class="forgot_pass" mat-icon-button mat-dialog-close>Forgot
                             Password?
@@ -53,7 +53,7 @@
                         <button class="dont_have_account" mat-dialog-close (click)="showLogin()">Don’t have an
                             account yet?
                         </button>
-                        <button class="yourButton" mat-dialog-close (click)="showLogin()">Sign Up</button>
+                        <button class="yourButton" mat-dialog-close (click)="showLogin()">SIGNUP</button>
                     </div>
                 </div>
             </div>

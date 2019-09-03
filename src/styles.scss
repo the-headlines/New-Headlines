@@ -1550,7 +1550,7 @@ a:hover {
     font-stretch: normal;
     letter-spacing: normal;
     text-align: center;
-    margin-top: 47px;
+    margin-top: 25px;
     margin-bottom: 25px;
     border-radius: 0;
 
@@ -5483,4 +5483,12 @@ button[type=submit].inlineBlock {
   .images_content p {
     min-height: 20px;
   }
+  .owl-item .block_content {
+    height: 320px;
+  }
+  .block_content .opacity-dark {
+    padding: 9px 50px 18px;
+    height:auto;
+  }
 }
+
