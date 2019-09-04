@@ -1606,8 +1606,9 @@ label#mat-form-field-label-11 {
 
 .modal-body form button.login .mat-button-wrapper {
   font-family: 'BrandonText-Regular', sans-serif;
-  font-size: 17px;
+  font-size: 15px;
   font-weight: normal;
+  text-transform: uppercase;
 }
 
 .modal-body {
@@ -5109,7 +5110,7 @@ button[type=submit].inlineBlock {
     .mat-icon-button {
     height: 37px !important;
     line-height: 22px !important;
-    width: 72px !important;
+    width: auto !important;
     text-align: left !important;
     padding-left: 10px !important;
     z-index: 2;
@@ -5492,3 +5493,17 @@ button[type=submit].inlineBlock {
   }
 }
 
+.login_btn.mat-button span {
+  font-size: 15px !important;
+  text-transform: uppercase;
+}
+.login__terms p {
+  margin-bottom: 25px;
+  font-size: 15px;
+  color: #727377;
+  font-family: 'BrandonText-Regular', sans-serif;
+  text-align: center;
+}
+.login__terms p a {
+  cursor: pointer;
+}

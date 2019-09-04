@@ -59,6 +59,10 @@
                         <!--[disabled]="passFormControl.hasError('required') || (emailFormControl.hasError('email') || emailFormControl.hasError('required'))"-->
                         <button mat-raised-button (click)="checkRegister(userRegisInf)" class="login">Sign up</button>
                     </form>
+
+                    <div class="login__terms">
+                        <p>By signing up, you agree to our <a class="s1m7ksmt-1 ebuWXQ" (click)="router.navigate(['terms'])">Terms</a></p>
+                    </div>
                     <div class="have_account">
                         <button class="dont_have_account" mat-dialog-close #loginButt (click)="showLogin()">
                             Already have an account?

@@ -21,6 +21,7 @@ import {ScienceComponent} from './modules/home/pages/science/science.component';
 import {PublicComponent} from './modules/home/pages/public/public.component';
 import {EnvironmentComponent} from './modules/home/pages/environment/environment.component';
 import {PolicyComponent} from './modules/home/pages/policy/policy.component';
+import {TermsComponent} from './modules/home/pages/terms/terms.component';
 import {AccountActivationComponent} from './modules/home/components/account-activation/account-activation.component';
 import {ForgotPasswordComponent} from './modules/home/components/forgot-password/forgot-password.component';
 
@@ -90,6 +91,7 @@ const routes: Routes = [
     },
     {path: 'about', component: AboutComponent},
     {path: 'policy', component: PolicyComponent},
+    {path: 'terms', component: TermsComponent},
     {path: 'profile', component: AdminProfileComponent},
     {path: 'add-post', component: AddPostComponent, canActivate: [AuthGuard]},
     {path: 'post/:id', component: SinglePostComponent, canActivate: [AuthGuard]},
