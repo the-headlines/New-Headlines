@@ -7,13 +7,14 @@ import {ActivatedRoute} from "@angular/router";
   styleUrls: ['./terms.component.sass']
 })
 export class TermsComponent implements OnInit {
+    showInfo = true;
 
-    constructor(
-        public route: ActivatedRoute
-    ) {
+    constructor() {
     }
 
   ngOnInit() {
   }
-
+    toggleInfo() {
+        this.showInfo = !this.showInfo;
+    }
 }

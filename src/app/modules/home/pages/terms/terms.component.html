@@ -2,9 +2,9 @@
 
 <div class="content_about_us">
   <div class="about___body">
-    <mat-tab-group class="tabs_profile" [selectedIndex]="2">
+    <mat-tab-group class="tabs_profile" [selectedIndex]="1">
       <mat-tab label="About">
-        <div class="about__text" [hidden]="!showInfo">
+        <div class="about__text">
           <p>About</p>
           <div class="images_content">
 
@@ -82,7 +82,7 @@
 
       </mat-tab>
       <mat-tab label="Terms">
-        <div class="about__text">
+        <div class="about__text" [hidden]="!showInfo">
           <p>Not The Headlines Terms of Service</p>
           <div class="about_info">
             <p>Hi and welcome to the Not The Headlines Terms of Service. (Please have a sit!)</p>
