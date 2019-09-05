@@ -5507,3 +5507,10 @@ button[type=submit].inlineBlock {
 .login__terms p a {
   cursor: pointer;
 }
+
+
+@media(max-width: 767px){
+  .modal-content {
+    margin: 4px auto auto auto !important;
+  }
+}

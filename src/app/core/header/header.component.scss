@@ -72,7 +72,7 @@ img {
 }
 
 .search_box {
-  width: 60%;
+  width: 67%;
 
   .input-group {
 
@@ -1206,7 +1206,13 @@ li.margin_top {
   }
 
   form {
-    width:80%;
+    width: 78%;
+  }
+}
+
+@media(max-width: 1700px){
+  .search_box form {
+    width: 98%;
   }
 }
 
