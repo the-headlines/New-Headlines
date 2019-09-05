@@ -5100,20 +5100,19 @@ button[type=submit].inlineBlock {
     border-radius: 20px;
     transform: translate3d(-6%, 0, 0);
   }
-
   .main {
     padding-right: 0px;
   }
   .mat-drawer-container {
     z-index: 3 !important;
   }
-    .mat-icon-button {
+  .mat-icon-button {
     height: 37px !important;
     line-height: 22px !important;
     width: auto !important;
     text-align: left !important;
     padding-left: 10px !important;
-    z-index: 2;
+    z-index: 1;
   }
   .news-block .item:last-child {
     margin-bottom: 80px;
@@ -5332,6 +5331,7 @@ button[type=submit].inlineBlock {
   font-weight: bold;
   display: inline-block;
   color: #000;
+  margin-top: 15px;
 }
 .terms_info h4 {
   font-family: "Arial", sans-serif;
