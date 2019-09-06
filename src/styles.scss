@@ -2625,7 +2625,7 @@ header[_ngcontent-pqf-c2] .navbar[_ngcontent-pqf-c2] .logo[_ngcontent-pqf-c2] ul
 .feedback_btn_mobile button {
   background: none;
   border: none;
-  font-size: 13px;
+  font-size: 15px;
   padding: 0;
   color: inherit;
   letter-spacing: 1px;
@@ -4847,12 +4847,13 @@ button[type=submit].inlineBlock {
   .get_form {
     padding: 10px 30px 25px 30px !important;
   }
-  .get_form .mat-form-field-appearance-legacy .mat-form-field-wrapper {
-    padding-bottom: 0.75rem;
-  }
-  .get_form .form-group {
-    margin-bottom: 0px;
-  }
+}
+
+.get_form .mat-form-field-appearance-legacy .mat-form-field-wrapper {
+  padding-bottom: 0.75rem;
+}
+.get_form .form-group {
+  margin-bottom: 0px;
 }
 
 @media screen and (max-width: 640px) {
