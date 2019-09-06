@@ -4664,8 +4664,8 @@ button[type=submit].inlineBlock {
 
   }
   .blocks_filter {
-    //width: 0 !important;
-    width: auto !important;
+    width: 0 !important;
+    //width: auto !important;
     z-index: 2;
   }
   .content_block .all {
@@ -4837,10 +4837,21 @@ button[type=submit].inlineBlock {
     font-size: 24px;
   }
   .content_block {
-    flex-direction: row-reverse;
+    //flex-direction: row-reverse;
+    flex-direction: unset;
     width: 95%;
     //margin: 20px auto 20% auto;
     margin: 20px auto;
+  }
+
+  .get_form {
+    padding: 10px 30px 25px 30px !important;
+  }
+  .get_form .mat-form-field-appearance-legacy .mat-form-field-wrapper {
+    padding-bottom: 0.75rem;
+  }
+  .get_form .form-group {
+    margin-bottom: 0px;
   }
 }
 

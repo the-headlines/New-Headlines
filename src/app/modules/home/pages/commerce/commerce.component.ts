@@ -249,6 +249,10 @@ export class CommerceComponent implements OnInit {
         this.home.getPostsByVoteType('JumpStartups', this.selectedFilter.vote, this.selectedFilter.type).subscribe((dt: any) => {
             this.posts = dt;
             this.filteredPosts.news = dt.news;
+
+            if (this.responsiveMode) {
+                this.isShown = false;
+            }
             ScrollUp.do();
         });
     }

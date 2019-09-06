@@ -116,6 +116,9 @@ export class PublicComponent implements OnInit {
         this.home.getPostsByVoteType('Public', this.selectedFilter.vote, this.selectedFilter.type).subscribe((dt: any) => {
             this.posts = dt;
             this.filteredPosts.news = dt.news;
+            if (this.responsiveMode) {
+                this.isShown = false;
+            }
             ScrollUp.do();
         });
     }
