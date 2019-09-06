@@ -4889,7 +4889,11 @@ button[type=submit].inlineBlock {
 
 
 @media screen and (max-width: 480px) {
-  .profileForm_content .mat-tab-body-wrapper {
+  .news-block .posts_items {
+    border-right: unset !important;
+    border-left: unset !important;
+  }
+    .profileForm_content .mat-tab-body-wrapper {
     width: 90% !important;
   }
   .profile_container .right_side {
